@@ -1,210 +1,244 @@
----
-import astroLogo from '../assets/astro.svg';
-import background from '../assets/background.svg';
----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nadya Jerochim - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Basic reset for padding and margin */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif; /* Use the minimalist font */
+            background-color: #000; /* Black background */
+            color: #eee; /* Light grey text for readability on black */
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px; /* Add some padding around the content */
+            box-sizing: border-box; /* Include padding in element's total width and height */
+        }
 
-<div id="container">
-	<img id="background" src={background.src} alt="" fetchpriority="high" />
-	<main>
-		<section id="hero">
-			<a href="https://astro.build"
-				><img src={astroLogo.src} width="115" height="48" alt="Astro Homepage" /></a
-			>
-			<h1>
-				To get started, open the <code><pre>src/pages</pre></code> directory in your project.
-			</h1>
-			<section id="links">
-				<a class="button" href="https://docs.astro.build">Read our docs</a>
-				<a href="https://astro.build/chat"
-					>Join our Discord <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 127.14 96.36"
-						><path
-							fill="currentColor"
-							d="M107.7 8.07A105.15 105.15 0 0 0 81.47 0a72.06 72.06 0 0 0-3.36 6.83 97.68 97.68 0 0 0-29.11 0A72.37 72.37 0 0 0 45.64 0a105.89 105.89 0 0 0-26.25 8.09C2.79 32.65-1.71 56.6.54 80.21a105.73 105.73 0 0 0 32.17 16.15 77.7 77.7 0 0 0 6.89-11.11 68.42 68.42 0 0 1-10.85-5.18c.91-.66 1.8-1.34 2.66-2a75.57 75.57 0 0 0 64.32 0c.87.71 1.76 1.39 2.66 2a68.68 68.68 0 0 1-10.87 5.19 77 77 0 0 0 6.89 11.1 105.25 105.25 0 0 0 32.19-16.14c2.64-27.38-4.51-51.11-18.9-72.15ZM42.45 65.69C36.18 65.69 31 60 31 53s5-12.74 11.43-12.74S54 46 53.89 53s-5.05 12.69-11.44 12.69Zm42.24 0C78.41 65.69 73.25 60 73.25 53s5-12.74 11.44-12.74S96.23 46 96.12 53s-5.04 12.69-11.43 12.69Z"
-						></path></svg
-					>
-				</a>
-			</section>
-		</section>
-	</main>
+        .welcome {
+            background: #1a1a1a; /* Dark grey background for the section */
+            padding: 40px; /* Ample padding */
+            max-width: 850px;
+            width: 100%; /* Ensure it takes full width up to max-width */
+            margin: auto; /* Center the block */
+            border-radius: 8px; /* Subtle rounded corners */
+            box-shadow: 0 2px 15px rgba(255, 105, 180, 0.2); /* Soft pink shadow */
+            text-align: left; /* Align text to the left */
+            color: #eee; /* Ensure text inside is light */
+            box-sizing: border-box; /* Include padding in element's total width and height */
+        }
 
-	<a href="https://astro.build/blog/astro-5/" id="news" class="box">
-		<svg width="32" height="32" fill="none" xmlns="http://www.w3.org/2000/svg"
-			><path
-				d="M24.667 12c1.333 1.414 2 3.192 2 5.334 0 4.62-4.934 5.7-7.334 12C18.444 28.567 18 27.456 18 26c0-4.642 6.667-7.053 6.667-14Zm-5.334-5.333c1.6 1.65 2.4 3.43 2.4 5.333 0 6.602-8.06 7.59-6.4 17.334C13.111 27.787 12 25.564 12 22.666c0-4.434 7.333-8 7.333-16Zm-6-5.333C15.111 3.555 16 5.556 16 7.333c0 8.333-11.333 10.962-5.333 22-3.488-.774-6-4-6-8 0-8.667 8.666-10 8.666-20Z"
-				fill="#111827"></path></svg
-		>
-		<h2>What's New in Astro 5.0?</h2>
-		<p>
-			From content layers to server islands, click to learn more about the new features and
-			improvements in Astro 5.0
-		</p>
-	</a>
-</div>
+        .title {
+            font-size: 2.5rem; /* Slightly smaller title */
+            margin-bottom: 10px; /* Reduced margin */
+            font-weight: 600; /* Semi-bold */
+        }
 
-<style>
-	#background {
-		position: fixed;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		z-index: -1;
-		filter: blur(100px);
-	}
+        .subtitle {
+            font-size: 1.1rem; /* Slightly smaller subtitle */
+            color: #c0c0c0; /* Light grey color */
+            margin-top: 20px;
+            margin-bottom: 30px; /* More space after subtitle */
+            font-weight: 400; /* Regular weight */
+            border-bottom: 2px solid #ff69b4; /* Underline */
+            display: inline-block; /* Make border only go around text */
+            padding-bottom: 5px;
+        }
 
-	#container {
-		font-family: Inter, Roboto, 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial, sans-serif;
-		height: 100%;
-	}
+        h2 {
+            font-size: 1.8rem;
+            margin-top: 60px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #ff69b4; /* Underline */
+            padding-bottom: 5px;
+        }
 
-	main {
-		height: 100%;
-		display: flex;
-		justify-content: center;
-	}
+        h3 {
+            font-size: 1.3rem;
+            margin-top: 25px;
+            margin-bottom: 5px;
+            color: #eee; /* Light grey for project titles */
+        }
 
-	#hero {
-		display: flex;
-		align-items: start;
-		flex-direction: column;
-		justify-content: center;
-		padding: 16px;
-	}
+        p {
+            font-size: 1rem; /* Standard paragraph font size */
+            margin-bottom: 20px; /* Space after paragraph */
+            color: #ccc; /* Lighter grey for paragraph */
+        }
 
-	h1 {
-		font-size: 22px;
-		margin-top: 0.25em;
-	}
+        ul {
+            list-style: none; /* Remove default list bullets */
+            padding-left: 0;
+            margin-bottom: 60px; /* Space after list */
+        }
 
-	#links {
-		display: flex;
-		gap: 16px;
-	}
+        li {
+            font-size: 1rem;
+            margin-bottom: 15px; /* Space between list items */
+            color: #ccc; /* Lighter grey for list items */
+        }
 
-	#links a {
-		display: flex;
-		align-items: center;
-		padding: 10px 12px;
-		color: #111827;
-		text-decoration: none;
-		transition: color 0.2s;
-	}
+        li::before {
+            content: '• '; /* Add a simple bullet point */
+            color: #ffffff; /* Hot pink accent color for bullets */
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+            margin-right: 5px; /* Space between bullet and text */
+        }
 
-	#links a:hover {
-		color: rgb(78, 80, 86);
-	}
+        code {
+            background: #333; /* Darker background for code */
+            color: #ff85c1; /* Lighter pinkish color for code text */
+            padding: 3px 6px; /* Smaller padding */
+            border-radius: 4px; /* Subtle rounded corners */
+            font-family: 'Fira Code', monospace; /* Keep Fira Code for code */
+            font-size: 0.9rem; /* Slightly smaller code font */
+        }
 
-	#links a svg {
-		height: 1em;
-		margin-left: 8px;
-	}
+        .experience-item, .project-item {
+             margin-bottom: 30px;
+             padding-bottom: 20px;
+             border-bottom: 1px dashed #333; /* Separator */
+        }
 
-	#links a.button {
-		color: white;
-		background: linear-gradient(83.21deg, #3245ff 0%, #bc52ee 100%);
-		box-shadow:
-			inset 0 0 0 1px rgba(255, 255, 255, 0.12),
-			inset 0 -2px 0 rgba(0, 0, 0, 0.24);
-		border-radius: 10px;
-	}
+         .project-item:last-child, .experience-item:last-child {
+             border-bottom: none; /* No border after the last item in their sections */
+             margin-bottom: 0;
+             padding-bottom: 0;
+        }
 
-	#links a.button:hover {
-		color: rgb(230, 230, 230);
-		box-shadow: none;
-	}
 
-	pre {
-		font-family:
-			ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono',
-			monospace;
-		font-weight: normal;
-		background: linear-gradient(14deg, #d83333 0%, #f041ff 100%);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-clip: text;
-		margin: 0;
-	}
+        .project-item p {
+            margin-bottom: 10px;
+        }
 
-	h2 {
-		margin: 0 0 1em;
-		font-weight: normal;
-		color: #111827;
-		font-size: 20px;
-	}
+        .project-item p:last-child {
+             margin-bottom: 0; /* No bottom margin on the last paragraph (skills) */
+        }
 
-	p {
-		color: #4b5563;
-		font-size: 16px;
-		line-height: 24px;
-		letter-spacing: -0.006em;
-		margin: 0;
-	}
+        .contact-link-item {
+            text-align: center; /* Center the text within these H3s */
+            margin-top: 30px; /* Space above contact links */
+            margin-bottom: 15px; /* Space between contact links */
+        }
 
-	code {
-		display: inline-block;
-		background:
-			linear-gradient(66.77deg, #f3cddd 0%, #f5cee7 100%) padding-box,
-			linear-gradient(155deg, #d83333 0%, #f041ff 18%, #f5cee7 45%) border-box;
-		border-radius: 8px;
-		border: 1px solid transparent;
-		padding: 6px 8px;
-	}
+        .contact-link-item:last-child {
+            margin-bottom: 0; /* No margin below the last contact link */
+        }
 
-	.box {
-		padding: 16px;
-		background: rgba(255, 255, 255, 1);
-		border-radius: 16px;
-		border: 1px solid white;
-	}
 
-	#news {
-		position: absolute;
-		bottom: 16px;
-		right: 16px;
-		max-width: 300px;
-		text-decoration: none;
-		transition: background 0.2s;
-		backdrop-filter: blur(50px);
-	}
+        .contact-link-item a {
+            color: #ff69b4; /* Hot pink accent color for link */
+            text-decoration: none; /* Remove underline */
+            border-bottom: 1px solid transparent; /* Add a subtle bottom border for hover effect */
+            transition: border-bottom 0.3s ease-in-out; /* Smooth transition */
+        }
 
-	#news:hover {
-		background: rgba(255, 255, 255, 0.55);
-	}
+        .contact-link-item a:hover {
+            color: #ff85c1; /* Lighter pink on hover */
+            border-bottom-color: #ff85c1; /* Show border on hover with lighter pink */
+        }
 
-	@media screen and (max-height: 368px) {
-		#news {
-			display: none;
+
+        /* Remove the animation */
+        @keyframes flicker {
+            0% { opacity: 1; }
+            100% { opacity: 1; }
+        }
+        .welcome {
+             animation: none; /* Disable animation */
+        }
+
+		.contact-link-item  {
+			font-size: 1.2rem; /* Increase font size */
+			margin-top: 40px; /* Space above contact links */
+			margin-bottom: 0; /* No margin below the last contact link */
+			text-align: center; /* Center the text */
+			text-decoration: none; /* Remove underline */
+			border-bottom: 1px solid transparent; /* Add a subtle bottom border for hover effect */
+			transition: border-bottom 0.3s ease-in-out; /* Smooth transition */
 		}
-	}
-
-	@media screen and (max-width: 768px) {
-		#container {
-			display: flex;
-			flex-direction: column;
+		.contact-link-item a {
+			color: #ff69b4; /* Hot pink accent color for link */
+			text-decoration: none; /* Remove underline */
+			border-bottom: 1px solid transparent; /* Add a subtle bottom border for hover effect */
+			transition: border-bottom 0.3s ease-in-out; /* Smooth transition */
 		}
-
-		#hero {
-			display: block;
-			padding-top: 10%;
+		.contact-link-item a:hover {
+			color: #ff85c1; /* Lighter pink on hover */
+			border-bottom-color: #ff85c1; /* Show border on hover with lighter pink */
 		}
+    </style>
+</head>
+<body>
 
-		#links {
-			flex-wrap: wrap;
-		}
+    <section class="welcome">
+        <h1 class="title">Nadya Jerochim</h1>
+        <h2 class="subtitle">Fullstack Web Developer</h2>
 
-		#links a.button {
-			padding: 14px 18px;
-		}
+        <ul>
+            <li>🛠️ Building frontend applications using <code>TypeScript</code>, <code>TailwindCSS</code>, <code>React</code>, <code>Redux</code>, <code>React Query</code>, <code>GraphQL</code>, <code>Next.js</code> and <code>Astro</code>.</li>
+            <li>⚙️ Developing and maintaining backend services with <code>Node.js</code> and <code>Next.js</code>.</li>
+            <li>🗃️ Managing SQL and NoSQL databases: <code>PostgreSQL</code>, <code>MySQL</code>, <code>SQLite</code>, <code>Redis</code> and <code>MongoDB</code>.</li>
+            <li>🧪 Applying test-driven development using <code>Vitest</code>, <code>Jest</code>, <code>Testing Library</code>, <code>Cypress</code> and <code>Playwright</code>.</li>
+            <li>🐳 Using <code>Docker</code> to ensure consistent deployments across environments.</li>
+            <li>🎨 Experience in UI/UX, responsive design and web accessibility.</li>
+            <li>🗣️ Fluent in English and proactive in team communication.</li>
+        </ul>
 
-		#news {
-			right: 16px;
-			left: 16px;
-			bottom: 2.5rem;
-			max-width: 100%;
-		}
+        <h2>Experience</h2>
+        <div class="experience-item">
+            <h3>🏳️‍⚧️ Transistemas</h3>
+            <p>Enero 2025 - Presente</p>
+            <p>
+                Voluntaria como FullStack Web Developer en 🏳️‍⚧️ <strong>TranSistemas</strong> (una asociación civil abocada a la inserción laboral IT de la comunidad LGBT+ con cursos gratuitos).
+            </p>
+        </div>
+		
+        <h2>Projects</h2>
+        <div class="projects-list">
+            <div class="project-item">
+                <h3>🐱 nya-store</h3>
+                <p>Jan 2025 - Present</p>
+                <p>E-commerce built with Next.js, Redux Toolkit, Prisma and PostgreSQL.</p>
+                <p>Skills: Next.js · Redux.js · PostgreSQL</p>
+            </div>
 
-		h1 {
-			line-height: 1.5;
-		}
-	}
-</style>
+            <div class="project-item">
+                <h3>🔒 password-first</h3>
+                <p>May 2024 - Present</p>
+                <p>Web app to generate and store encrypted passwords. Built with Next.js, Redux Toolkit, Redis, GraphQL and TailwindCSS.</p>
+                <p>Skills: TypeScript · GraphQL · Next.js · Redis · Tailwind CSS</p>
+            </div>
+
+            <div class="project-item">
+                <h3>💸 calendar-money</h3>
+                <p>Jan 2024 - Present</p>
+                <p>Cash-flow management web app built with TypeScript, React, Node.js, Express, and MongoDB.</p>
+                <p>Skills: JavaScript · React.js · MongoDB · Node.js · JSON Web Token (JWT)</p>
+            </div>
+
+            <div class="project-item">
+                <h3>🧠 ai-face-detect</h3>
+                <p>Dec 2023 - Present</p>
+                <p>Web app built using React in which a user can upload a image and the app will detect the faces on it.</p>
+                <p>Skills: JavaScript · React.js · Node.js · PostgreSQL</p>
+            </div>
+        </div>
+
+        <h3 class="contact-link-item"><img src="https://user-images.githubusercontent.com/5679180/79618120-0daffb80-80be-11ea-819e-d2b0fa904d07.gif" width="27px" alt="Sparkles GIF"> You can see my projects at <a href="https://nady4.com/">nady4.com</a></h3>
+        <h3 class="contact-link-item">📩 Mail me at <a href="mailto:nadyajerochim@gmail.com">nadyajerochim@gmail.com</a></h3>
+
+    </section>
+
+</body>
+</html>
