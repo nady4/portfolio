@@ -1,21 +1,14 @@
 {
   "name": "portfolio",
-  "version": "1.0.0",
-  "description": "👩🏻‍💻 Find out what I have done",
-  "main": "index.js",
+  "type": "module",
+  "version": "0.0.1",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/nady4/portfolio.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
-  "bugs": {
-    "url": "https://github.com/nady4/portfolio/issues"
-  },
-  "homepage": "https://github.com/nady4/portfolio#readme"
+  "dependencies": {
+    "astro": "^5.7.4"
+  }
 }
