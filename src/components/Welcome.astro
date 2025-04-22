@@ -3,180 +3,159 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nadya Jerochim - Portfolio</title>
+    <title>Nadya Jerochim</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        /* Basic reset for padding and margin */
         body {
             margin: 0;
             padding: 0;
-            font-family: 'Inter', sans-serif; /* Use the minimalist font */
-            background-color: #000; /* Black background */
-            color: #eee; /* Light grey text for readability on black */
+            font-family: 'Inter', sans-serif;
+            background-color: #000;
+            color: #eee;
             line-height: 1.6;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            padding: 20px; /* Add some padding around the content */
-            box-sizing: border-box; /* Include padding in element's total width and height */
+            padding: 20px;
+            box-sizing: border-box;
         }
 
         .welcome {
-            background: #1a1a1a; /* Dark grey background for the section */
-            padding: 40px; /* Ample padding */
+            background: #1a1a1a;
+            padding: 40px;
             max-width: 850px;
-            width: 100%; /* Ensure it takes full width up to max-width */
-            margin: auto; /* Center the block */
-            border-radius: 8px; /* Subtle rounded corners */
-            box-shadow: 0 2px 15px rgba(255, 105, 180, 0.2); /* Soft pink shadow */
-            text-align: left; /* Align text to the left */
-            color: #eee; /* Ensure text inside is light */
-            box-sizing: border-box; /* Include padding in element's total width and height */
+            width: 100%;
+            margin: auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 15px rgba(255, 105, 180, 0.2);
+            text-align: center;
+            color: #eee;
+            box-sizing: border-box;
+            animation: none;
         }
 
         .title {
-            font-size: 2.5rem; /* Slightly smaller title */
-            margin-bottom: 10px; /* Reduced margin */
-            font-weight: 600; /* Semi-bold */
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+            text-align: center;
         }
 
         .subtitle {
-            font-size: 1.1rem; /* Slightly smaller subtitle */
-            color: #c0c0c0; /* Light grey color */
+            font-size: 1.1rem;
+            color: #c0c0c0;
             margin-top: 20px;
-            margin-bottom: 30px; /* More space after subtitle */
-            font-weight: 400; /* Regular weight */
-            border-bottom: 2px solid #ff69b4; /* Underline */
-            display: inline-block; /* Make border only go around text */
+            margin-bottom: 30px;
+            font-weight: 400;
+            border-bottom: 2px solid #ff69b4;
+            display: inline-block;
             padding-bottom: 5px;
+            text-align: center;
         }
 
         h2 {
             font-size: 1.8rem;
             margin-top: 60px;
             margin-bottom: 15px;
-            border-bottom: 2px solid #ff69b4; /* Underline */
+            border-bottom: 2px solid #ff69b4;
             padding-bottom: 5px;
+            text-align: center;
         }
 
         h3 {
             font-size: 1.3rem;
             margin-top: 25px;
             margin-bottom: 5px;
-            color: #eee; /* Light grey for project titles */
+            color: #eee;
         }
 
         p {
-            font-size: 1rem; /* Standard paragraph font size */
-            margin-bottom: 20px; /* Space after paragraph */
-            color: #ccc; /* Lighter grey for paragraph */
+            font-size: 1rem;
+            margin-bottom: 20px;
+            color: #ccc;
         }
 
         ul {
-            list-style: none; /* Remove default list bullets */
+            list-style: none;
             padding-left: 0;
-            margin-bottom: 60px; /* Space after list */
+            margin-bottom: 60px;
         }
 
         li {
             font-size: 1rem;
-            margin-bottom: 15px; /* Space between list items */
-            color: #ccc; /* Lighter grey for list items */
+            margin-bottom: 15px;
+            color: #ccc;
+            text-align: left;
         }
 
         li::before {
-            content: '• '; /* Add a simple bullet point */
-            color: #ffffff; /* Hot pink accent color for bullets */
+            content: '• ';
+            color: #ffffff;
             font-weight: bold;
             display: inline-block;
             width: 1em;
             margin-left: -1em;
-            margin-right: 5px; /* Space between bullet and text */
+            margin-right: 5px;
         }
 
         code {
-            background: #333; /* Darker background for code */
-            color: #ff85c1; /* Lighter pinkish color for code text */
-            padding: 3px 6px; /* Smaller padding */
-            border-radius: 4px; /* Subtle rounded corners */
-            font-family: 'Fira Code', monospace; /* Keep Fira Code for code */
-            font-size: 0.9rem; /* Slightly smaller code font */
+            background: #333;
+            color: #ff85c1;
+            padding: 3px 6px;
+            border-radius: 4px;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.9rem;
         }
 
         .experience-item, .project-item {
-             margin-bottom: 30px;
-             padding-bottom: 20px;
-             border-bottom: 1px dashed #333; /* Separator */
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px dashed #333;
+            text-align: left;
         }
 
-         .project-item:last-child, .experience-item:last-child {
-             border-bottom: none; /* No border after the last item in their sections */
-             margin-bottom: 0;
-             padding-bottom: 0;
+        .project-item:last-child, .experience-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
         }
-
 
         .project-item p {
             margin-bottom: 10px;
+            text-align: left;
         }
 
         .project-item p:last-child {
-             margin-bottom: 0; /* No bottom margin on the last paragraph (skills) */
+            margin-bottom: 0;
         }
 
         .contact-link-item {
-            text-align: center; /* Center the text within these H3s */
-            margin-top: 30px; /* Space above contact links */
-            margin-bottom: 15px; /* Space between contact links */
+            font-size: 1.2rem;
+            margin-top: 40px;
+            margin-bottom: 0;
+            text-align: center;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-bottom 0.3s ease-in-out;
         }
-
-        .contact-link-item:last-child {
-            margin-bottom: 0; /* No margin below the last contact link */
-        }
-
 
         .contact-link-item a {
-            color: #ff69b4; /* Hot pink accent color for link */
-            text-decoration: none; /* Remove underline */
-            border-bottom: 1px solid transparent; /* Add a subtle bottom border for hover effect */
-            transition: border-bottom 0.3s ease-in-out; /* Smooth transition */
+            color: #ff69b4;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-bottom 0.3s ease-in-out;
         }
 
         .contact-link-item a:hover {
-            color: #ff85c1; /* Lighter pink on hover */
-            border-bottom-color: #ff85c1; /* Show border on hover with lighter pink */
+            color: #ff85c1;
+            border-bottom-color: #ff85c1;
         }
 
-
-        /* Remove the animation */
         @keyframes flicker {
             0% { opacity: 1; }
             100% { opacity: 1; }
         }
-        .welcome {
-             animation: none; /* Disable animation */
-        }
-
-		.contact-link-item  {
-			font-size: 1.2rem; /* Increase font size */
-			margin-top: 40px; /* Space above contact links */
-			margin-bottom: 0; /* No margin below the last contact link */
-			text-align: center; /* Center the text */
-			text-decoration: none; /* Remove underline */
-			border-bottom: 1px solid transparent; /* Add a subtle bottom border for hover effect */
-			transition: border-bottom 0.3s ease-in-out; /* Smooth transition */
-		}
-		.contact-link-item a {
-			color: #ff69b4; /* Hot pink accent color for link */
-			text-decoration: none; /* Remove underline */
-			border-bottom: 1px solid transparent; /* Add a subtle bottom border for hover effect */
-			transition: border-bottom 0.3s ease-in-out; /* Smooth transition */
-		}
-		.contact-link-item a:hover {
-			color: #ff85c1; /* Lighter pink on hover */
-			border-bottom-color: #ff85c1; /* Show border on hover with lighter pink */
-		}
     </style>
 </head>
 <body>
@@ -200,31 +179,24 @@
             <h3>🏳️‍⚧️ Transistemas</h3>
             <p>Enero 2025 - Presente</p>
             <p>
-                Voluntaria como FullStack Web Developer en 🏳️‍⚧️ <strong>TranSistemas</strong> (una asociación civil abocada a la inserción laboral IT de la comunidad LGBT+ con cursos gratuitos).
+                Voluntaria como FullStack Web Developer en <strong>Transistemas</strong> (una asociación civil abocada a la inserción laboral IT de la comunidad LGBT+ a través de cursos gratuitos).
             </p>
         </div>
-		
+
         <h2>Projects</h2>
         <div class="projects-list">
             <div class="project-item">
                 <h3>🐱 nya-store</h3>
                 <p>Jan 2025 - Present</p>
                 <p>E-commerce built with Next.js, Redux Toolkit, Prisma and PostgreSQL.</p>
-                <p>Skills: Next.js · Redux.js · PostgreSQL</p>
-            </div>
-
-            <div class="project-item">
-                <h3>🔒 password-first</h3>
-                <p>May 2024 - Present</p>
-                <p>Web app to generate and store encrypted passwords. Built with Next.js, Redux Toolkit, Redis, GraphQL and TailwindCSS.</p>
-                <p>Skills: TypeScript · GraphQL · Next.js · Redis · Tailwind CSS</p>
+                <p>Skills: TypeScript · Next.js · Redux.js · PostgreSQL</p>
             </div>
 
             <div class="project-item">
                 <h3>💸 calendar-money</h3>
                 <p>Jan 2024 - Present</p>
                 <p>Cash-flow management web app built with TypeScript, React, Node.js, Express, and MongoDB.</p>
-                <p>Skills: JavaScript · React.js · MongoDB · Node.js · JSON Web Token (JWT)</p>
+                <p>Skills: JavaScript · React.js · Node.js · MongoDB </p>
             </div>
 
             <div class="project-item">
@@ -235,9 +207,9 @@
             </div>
         </div>
 
+        <h2>Contact</h2>
         <h3 class="contact-link-item"><img src="https://user-images.githubusercontent.com/5679180/79618120-0daffb80-80be-11ea-819e-d2b0fa904d07.gif" width="27px" alt="Sparkles GIF"> You can see my projects at <a href="https://nady4.com/">nady4.com</a></h3>
         <h3 class="contact-link-item">📩 Mail me at <a href="mailto:nadyajerochim@gmail.com">nadyajerochim@gmail.com</a></h3>
-
     </section>
 
 </body>
