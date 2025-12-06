@@ -1,0 +1,52 @@
+@use "./vars" as *;
+
+.footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 80px;
+  background-color: $bg-surface;
+
+  p {
+    color: $text-primary;
+    transition:
+      text-shadow 0.25s ease,
+      filter 0.25s ease;
+
+    text-shadow:
+      0 0 4px rgba($primary, 0.2),
+      0 0 8px rgba($primary-dark, 0.15);
+
+    &:hover {
+      text-shadow:
+        0 0 6px rgba($primary, 0.75),
+        0 0 14px rgba($primary-dark, 0.4),
+        0 0 22px rgba($primary-hover, 0.25);
+      filter: brightness(1.2);
+    }
+  }
+
+  a {
+    img {
+      border-radius: 12px;
+      transition:
+        transform 0.25s ease,
+        filter 0.25s ease,
+        box-shadow 0.35s ease;
+
+      box-shadow:
+        0 0 12px rgba($primary, 0.15),
+        0 0 30px rgba($primary-dark, 0.1);
+
+      &:hover {
+        transform: scale(1.08);
+
+        box-shadow:
+          0 0 20px rgba($primary, 0.25),
+          0 0 45px rgba($primary-dark, 0.35),
+          0 0 70px rgba($primary-hover, 0.2);
+        filter: brightness(1.1);
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+@use "./vars" as *;
+
+.navbar {
+  background-color: $bg-surface;
+  color: white;
+  padding: 15px;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  a {
+    color: $text-primary;
+    margin: 0 10px;
+    text-decoration: none;
+    font-weight: bold;
+
+    &:hover {
+      color: $primary-hover;
+      text-decoration: underline;
+    }
+  }
+}
