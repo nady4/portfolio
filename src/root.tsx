@@ -10,7 +10,8 @@ export default component$(() => {
     <QwikCityProvider>
       <head>
         <meta charSet="utf-8" />
-        <title>Portfolio</title>
+        <title>Nadya Jerochim</title>
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
       </head>
       <body lang="en">
         <RouterOutlet />
