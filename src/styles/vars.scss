@@ -1,32 +1,86 @@
-// 🎨 Backgrounds
-$bg-primary: #161320;
-$bg-surface: #1e1a2e;
+:root {
+  // 🎨 Backgrounds
+  --bg-primary: #161320;
+  --bg-surface: #1e1a2e;
 
-// ✍️ Text
-$text-primary: #ede9ff;
-$text-secondary: #c9c3e6;
-$text-muted: #8e89a7;
+  // ✍️ Text
+  --text-primary: #ede9ff;
+  --text-secondary: #c9c3e6;
+  --text-muted: #8e89a7;
 
-// 💜 Purple Accent
-$primary: #a277ff;
-$primary-hover: #c7a3ff;
-$primary-dark: #5f3fa5;
+  // 💜 Purple Accent
+  --primary: #a277ff;
+  --primary-hover: #c7a3ff;
+  --primary-dark: #5f3fa5;
 
-// 🌈 States
-$success: #4ade80;
-$warning: #fbbf24;
-$error: #f87171;
-$info: #60a5fa;
+  // 🌈 States
+  --success: #4ade80;
+  --warning: #fbbf24;
+  --error: #f87171;
+  --info: #60a5fa;
 
-// ░░ Borders
-$border-soft: #2a243a;
-$border-strong: #3a324e;
+  // ░░ Borders
+  --border-soft: #2a243a;
+  --border-strong: #3a324e;
 
-// ✨ Gradients
-$gradient-hero: linear-gradient(90deg, #a277ff, #c7a3ff, #8b5cf6);
-$gradient-card: linear-gradient(
-  180deg,
-  transparent,
-  #a277ff20 40%,
-  transparent
-);
+  // ✨ Gradients
+  --gradient-hero: linear-gradient(90deg, #a277ff, #c7a3ff, #8b5cf6);
+  --gradient-card: linear-gradient(
+    180deg,
+    transparent,
+    #a277ff20 40%,
+    transparent
+  );
+}
+
+[data-theme="light"] {
+  --bg-primary: #f7f7fb;
+  --bg-surface: #ffffff;
+
+  --text-primary: #0f172a;
+  --text-secondary: #1f2937;
+  --text-muted: #4b5563;
+
+  --primary: #7c3aed;
+  --primary-hover: #6d28d9;
+  --primary-dark: #4c1d95;
+
+  --success: #22c55e;
+  --warning: #f59e0b;
+  --error: #ef4444;
+  --info: #3b82f6;
+
+  --border-soft: #e5e7eb;
+  --border-strong: #d1d5db;
+
+  --gradient-hero: linear-gradient(90deg, #7c3aed, #6d28d9, #8b5cf6);
+  --gradient-card: linear-gradient(
+    180deg,
+    transparent,
+    #7c3aed1a 40%,
+    transparent
+  );
+}
+
+// SCSS aliases for ergonomics
+$bg-primary: var(--bg-primary);
+$bg-surface: var(--bg-surface);
+
+$text-primary: var(--text-primary);
+$text-secondary: var(--text-secondary);
+$text-muted: var(--text-muted);
+
+$primary: var(--primary);
+$primary-hover: var(--primary-hover);
+$primary-dark: var(--primary-dark);
+
+$success: var(--success);
+$warning: var(--warning);
+$error: var(--error);
+$info: var(--info);
+
+$border-soft: var(--border-soft);
+$border-strong: var(--border-strong);
+
+$gradient-hero: var(--gradient-hero);
+$gradient-card: var(--gradient-card);

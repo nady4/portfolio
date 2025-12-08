@@ -2,22 +2,126 @@
 
 .navbar {
   background-color: $bg-surface;
-  color: white;
+  color: $text-primary;
   padding: 15px;
-  text-align: center;
   position: sticky;
   top: 0;
   z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  .dark-mode-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+
+    img {
+      width: 24px;
+      height: 24px;
+      display: block;
+    }
+  }
+
+  .options {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .lang-switch {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    a {
+      font-weight: bold;
+      opacity: 0.7;
+
+      &.lang-active {
+        color: $primary;
+        opacity: 1;
+      }
+    }
+  }
 
   a {
     color: $text-primary;
     margin: 0 10px;
     text-decoration: none;
     font-weight: bold;
+    font-size: 0.95rem;
 
     &:hover {
       color: $primary-hover;
       text-decoration: underline;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 12px;
+
+    .options {
+      gap: 8px;
+
+      a {
+        margin: 0 6px;
+        font-size: 0.85rem;
+      }
+    }
+
+    .lang-switch {
+      gap: 6px;
+
+      a {
+        font-size: 0.85rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .navbar {
+    padding: 10px;
+    flex-wrap: wrap;
+    gap: 8px;
+
+    .dark-mode-toggle {
+      img {
+        width: 20px;
+        height: 20px;
+      }
+    }
+
+    .options {
+      gap: 6px;
+      flex-wrap: wrap;
+      justify-content: center;
+      order: 3;
+      width: 100%;
+      margin-top: 8px;
+      padding-top: 8px;
+      border-top: 1px solid $border-soft;
+
+      a {
+        margin: 0 4px;
+        font-size: 0.8rem;
+      }
+    }
+
+    .lang-switch {
+      gap: 4px;
+
+      a {
+        font-size: 0.8rem;
+      }
     }
   }
 }

@@ -12,8 +12,8 @@ body {
   padding: 0;
   margin: 0;
   line-height: inherit;
-  color: #ede9ff;
-  background-color: #161320;
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
   font-family:
     Space Grotesk,
     ui-sans-serif,
