@@ -73,22 +73,22 @@
 
 @media screen and (max-width: 600px) {
   .footer {
-    height: auto !important;
-    min-height: 140px !important;
-    padding: 40px 32px !important;
-    flex-direction: column !important;
-    gap: 24px !important;
+    height: auto;
+    min-height: 140px;
+    padding: 40px 32px;
+    flex-direction: column;
+    gap: 24px;
 
     p {
-      font-size: 18px !important;
-      text-align: center !important;
-      line-height: 1.6 !important;
+      font-size: 18px;
+      text-align: center;
+      line-height: 1.6;
     }
 
     a {
       img {
-        width: 36px !important;
-        height: 36px !important;
+        width: 36px;
+        height: 36px;
       }
     }
   }

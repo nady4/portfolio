@@ -66,22 +66,22 @@
 
 @media screen and (max-width: 768px) {
   .navbar {
-    padding: 15px !important;
+    padding: 12px;
 
     .options {
-      gap: 12px !important;
+      gap: 12px;
 
       a {
-        margin: 0 8px !important;
-        font-size: 16px !important;
+        margin: 0 8px;
+        font-size: 16px;
       }
     }
 
     .lang-switch {
-      gap: 10px !important;
+      gap: 10px;
 
       a {
-        font-size: 16px !important;
+        font-size: 16px;
       }
     }
   }
@@ -89,39 +89,37 @@
 
 @media screen and (max-width: 600px) {
   .navbar {
-    padding: 15px !important;
-    flex-wrap: wrap !important;
-    gap: 12px !important;
+    padding: 8px 12px;
+    flex-wrap: wrap;
+    gap: 8px;
 
     .dark-mode-toggle {
-      img {
-        width: 28px !important;
-        height: 28px !important;
+      padding: 2px;
+    }
+
+    .lang-switch {
+      gap: 6px;
+
+      a {
+        font-size: 16px;
+        padding: 2px 4px;
       }
     }
 
     .options {
-      gap: 12px !important;
-      flex-wrap: wrap !important;
-      justify-content: center !important;
-      order: 3 !important;
-      width: 100% !important;
-      margin-top: 15px !important;
-      padding-top: 15px !important;
-      border-top: 1px solid $border-soft !important;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+      order: 3;
+      width: 100%;
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px solid $border-soft;
 
       a {
-        margin: 0 8px !important;
-        font-size: 18px !important;
-        padding: 4px 0 !important;
-      }
-    }
-
-    .lang-switch {
-      gap: 10px !important;
-
-      a {
-        font-size: 18px !important;
+        margin: 0 6px;
+        font-size: 18px;
+        padding: 4px 0;
       }
     }
   }

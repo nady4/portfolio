@@ -34,19 +34,19 @@
 
 @media screen and (max-width: 600px) {
   .contact-container {
-    height: auto !important;
-    min-height: 200px !important;
-    padding: 64px 32px !important;
+    height: auto;
+    min-height: 200px;
+    padding: 64px 32px;
 
     h3 {
-      font-size: 38px !important;
-      margin-bottom: 32px !important;
-      line-height: 1.3 !important;
+      font-size: 38px;
+      margin-bottom: 32px;
+      line-height: 1.3;
     }
 
     p {
-      font-size: 20px !important;
-      line-height: 1.8 !important;
+      font-size: 20px;
+      line-height: 1.8;
     }
   }
 }
