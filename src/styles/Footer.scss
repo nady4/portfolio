@@ -4,7 +4,7 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  height: 80px;
+  height: 50px;
   background-color: $bg-surface;
   padding: 1rem;
   flex-wrap: wrap;
@@ -14,8 +14,11 @@
     color: $text-primary;
     transition:
       text-shadow 0.25s ease,
-      filter 0.25s ease;
+      filter 0.25s ease,
+      transform 0.25s ease;
     font-size: 0.95rem;
+    padding: 4px 8px;
+    border-radius: 6px;
 
     text-shadow:
       0 0 4px rgba($primary, 0.2),
@@ -27,6 +30,8 @@
         0 0 14px rgba($primary-dark, 0.4),
         0 0 22px rgba($primary-hover, 0.25);
       filter: brightness(1.2);
+      transform: scale(1.02);
+      background-color: $hover-bg;
     }
   }
 
@@ -42,9 +47,6 @@
         0 0 12px rgba($primary, 0.15),
         0 0 30px rgba($primary-dark, 0.1);
 
-      // Default: white SVGs stay white (for dark mode)
-      // No filter needed as SVGs are already white
-
       &:hover {
         transform: scale(1.08);
 
@@ -57,14 +59,12 @@
     }
   }
 
-  // In light mode, make white SVGs dark
   [data-theme="light"] & {
     a {
       img {
         filter: brightness(0);
-
         &:hover {
-          filter: brightness(0) brightness(1.2);
+          filter: brightness(0) brightness(1.1);
         }
       }
     }

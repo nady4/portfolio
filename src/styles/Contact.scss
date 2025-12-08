@@ -21,12 +21,17 @@
     text-align: center;
 
     a {
-      color: #a277ff;
+      color: $primary;
       text-decoration: none;
       font-weight: bold;
+      padding: 2px 4px;
+      border-radius: 4px;
+      transition: all 0.2s ease;
 
       &:hover {
-        text-decoration: underline;
+        color: $primary-hover;
+        background-color: $hover-bg;
+        text-decoration: none;
       }
     }
   }

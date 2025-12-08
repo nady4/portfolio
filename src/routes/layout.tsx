@@ -44,7 +44,7 @@ export const useTranslations = routeLoader$(({ request, url }) => {
       hero_title: "Nadya Jerochim",
       hero_subtitle: "Full Stack Developer",
       hero_desc:
-        "Developer passionate about building efficient and scalable web solutions.",
+        "Experienced in building web apps and serverless services with React, Node.js, TypeScript and Next.js, working across SQL/NoSQL databases, clean architecture, documentation and agile collaboration.",
 
       experience_title: "Experience",
       experience_1_title: "Full Stack Developer",
@@ -94,7 +94,7 @@ export const useTranslations = routeLoader$(({ request, url }) => {
       hero_title: "Nadya Jerochim",
       hero_subtitle: "Full Stack Developer",
       hero_desc:
-        "Desarrolladora apasionada por crear soluciones web eficientes y escalables.",
+        "Experiencia construyendo aplicaciones web y servicios serverless con React, Node.js, TypeScript y Next.js, trabajando con bases de datos SQL/NoSQL, arquitectura limpia, documentación clara y colaboración en equipos ágiles.",
 
       experience_title: "Experiencia",
       experience_1_title: "Full Stack Developer",
