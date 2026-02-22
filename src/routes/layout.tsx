@@ -127,10 +127,10 @@ export default component$(() => {
 export const head: DocumentHead = {
   meta: [
     { name: "viewport", content: "width=device-width, initial-scale=1" },
-    { name: "theme-color", content: "#0f172a" },
+    { name: "theme-color", content: "#161320" },
   ],
   links: [
-    { rel: "icon", href: "/favicon.png" },
+    { rel: "icon", href: "/favicon.svg" },
     { rel: "canonical", href: "https://nady4.com/" },
   ],
   scripts: [
@@ -143,10 +143,7 @@ export const head: DocumentHead = {
           name: "Nadya Jerochim",
           url: "https://nady4.com/",
           jobTitle: "Full Stack Developer",
-          sameAs: [
-            "https://github.com/yourgithub",
-            "https://linkedin.com/in/yourlinkedin",
-          ],
+          sameAs: ["https://github.com/nady4", "https://linkedin.com/in/nady4"],
         }),
       },
     },
