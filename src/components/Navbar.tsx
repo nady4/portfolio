@@ -81,7 +81,6 @@ export default component$(() => {
         <a href={resumeFile} download>
           {t.nav_resume}
         </a>
-        <a href="/blog/">Blog</a>
       </div>
       <div class="lang-switch">
         <a
