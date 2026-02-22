@@ -44,7 +44,7 @@ export const useTranslations = routeLoader$(({ request, url }) => {
       hero_title: "Nadya Jerochim",
       hero_subtitle: "Full Stack Developer",
       hero_desc:
-        "Experienced in building web apps and serverless services with React, Node.js, TypeScript and Next.js, working across SQL/NoSQL databases, clean architecture, documentation and agile collaboration.",
+        "Experienced in building web apps and serverless services with React, Node.js, TypeScript and Next.js, working across SQL and NoSQL databases, clean architecture, documentation and agile collaboration.",
       experience_title: "Experience",
       experience_1_title: "Full Stack Developer",
       experience_1_company: "Transistemas",
@@ -89,7 +89,7 @@ export const useTranslations = routeLoader$(({ request, url }) => {
       hero_title: "Nadya Jerochim",
       hero_subtitle: "Full Stack Developer",
       hero_desc:
-        "Experiencia construyendo aplicaciones web y servicios serverless con React, Node.js, TypeScript y Next.js, trabajando con bases de datos SQL/NoSQL, arquitectura limpia, documentación clara y colaboración en equipos ágiles.",
+        "Experiencia construyendo aplicaciones web y servicios serverless con React, Node.js, TypeScript y Next.js, trabajando con bases de datos SQL y NoSQL, arquitectura limpia, documentación clara y colaboración en equipos ágiles.",
       experience_title: "Experiencia",
       experience_1_title: "Full Stack Developer",
       experience_1_company: "Transistemas",

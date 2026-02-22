@@ -12,9 +12,9 @@ export default component$(() => {
       items: [
         "TypeScript",
         "JavaScript",
-        "SQL",
-        "Java",
         "Python",
+        "Java",
+        "SQL",
         "HTML5",
         "CSS3",
         "SASS/SCSS",
@@ -28,6 +28,8 @@ export default component$(() => {
         "Next.js",
         "Redux Toolkit",
         "React Query",
+        "Zustand",
+        "Tanstack",
         "Tailwind CSS",
         "Vite",
       ],
@@ -56,7 +58,8 @@ export default component$(() => {
       items: [
         "Docker",
         "GitHub Actions",
-        "Cloudflare (DNS, Workers, Firewall, Email Routing)",
+        "CI/CD",
+        "Cloudflare (Firewall, DNS, Email Routing)",
       ],
     },
     {
@@ -72,7 +75,7 @@ export default component$(() => {
     {
       key: "ai",
       title: t.skill_category_ai,
-      items: ["n8n", "MCP Servers", "AI Agents", "LLM API Integration", "RAG"],
+      items: ["LLM API Integration", "AI Agents", "MCP Servers", "RAG", "n8n"],
     },
     {
       key: "spoken_languages",

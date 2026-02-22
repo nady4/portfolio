@@ -14,8 +14,8 @@ export default component$(() => {
       <Navbar />
       <Hero />
       <Experience />
-      <Skills />
       <Projects />
+      <Skills />
       <Contact />
       <Footer />
     </main>
