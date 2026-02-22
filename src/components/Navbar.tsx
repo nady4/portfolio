@@ -74,13 +74,14 @@ export default component$(() => {
         />
       </button>
       <div class="options">
-        <a href="#home">{t.nav_home}</a>
-        <a href="#experience">{t.nav_experience}</a>
-        <a href="#projects">{t.nav_projects}</a>
-        <a href="#contact">{t.nav_contact}</a>
+        <a href="/#home">{t.nav_home}</a>
+        <a href="/#experience">{t.nav_experience}</a>
+        <a href="/#projects">{t.nav_projects}</a>
+        <a href="/#contact">{t.nav_contact}</a>
         <a href={resumeFile} download>
           {t.nav_resume}
         </a>
+        <a href="/blog/">Blog</a>
       </div>
       <div class="lang-switch">
         <a

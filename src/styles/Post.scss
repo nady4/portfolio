@@ -1,0 +1,48 @@
+@use "./vars" as *;
+
+.post-page {
+  padding: 20px;
+
+  article {
+    pre {
+      overflow-x: auto;
+      padding: 1rem;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.04);
+      margin: 1rem 0;
+    }
+
+    code {
+      font-family:
+        ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+        "Liberation Mono", "Courier New", monospace;
+      font-size: 0.95em;
+    }
+
+    pre code {
+      display: block;
+      white-space: pre;
+      tab-size: 2;
+    }
+
+    :not(pre) > code {
+      padding: 0.15rem 0.35rem;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.06);
+    }
+  }
+
+  .back-link {
+    text-decoration: none;
+    color: var(--text-primary);
+    font-size: 18px;
+    margin-bottom: 20px;
+    display: inline-block;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
