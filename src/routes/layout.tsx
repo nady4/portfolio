@@ -40,6 +40,7 @@ export const useTranslations = routeLoader$(({ request, url }) => {
       skill_category_databases: "Databases",
       skill_category_tools: "Tools",
       skill_category_spoken_languages: "Spoken Languages",
+      skill_category_ai: "AI",
 
       hero_title: "Nadya Jerochim",
       hero_subtitle: "Full Stack Developer",
@@ -90,6 +91,7 @@ export const useTranslations = routeLoader$(({ request, url }) => {
       skill_category_databases: "Bases de Datos",
       skill_category_tools: "Herramientas",
       skill_category_spoken_languages: "Idiomas",
+      skill_category_ai: "IA",
 
       hero_title: "Nadya Jerochim",
       hero_subtitle: "Full Stack Developer",

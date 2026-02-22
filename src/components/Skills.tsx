@@ -74,6 +74,11 @@ export default component$(() => {
       title: t.skill_category_spoken_languages,
       items: ["English (C2)", "Spanish (Native)"],
     },
+    {
+      key: "ai",
+      title: t.skill_category_ai,
+      items: ["n8n", "MCP Servers", "AI Agents", "LLM API Integration", "RAG"],
+    },
   ];
 
   return (
