@@ -63,3 +63,12 @@
     }
   }
 }
+
+@media screen and (max-width: 768px) {
+  .education-container {
+    .education-list {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+}
