@@ -28,7 +28,9 @@ export const useTranslations = routeLoader$(({ request, url }) => {
     en: {
       nav_home: "Home",
       nav_experience: "Experience",
+      nav_education: "Education",
       nav_projects: "Projects",
+      nav_certifications: "Certifications",
       nav_contact: "Contact",
       nav_resume: "Resume",
 
@@ -82,7 +84,9 @@ export const useTranslations = routeLoader$(({ request, url }) => {
     es: {
       nav_home: "Inicio",
       nav_experience: "Experiencia",
+      nav_education: "Educación",
       nav_projects: "Proyectos",
+      nav_certifications: "Certificaciones",
       nav_contact: "Contacto",
       nav_resume: "Currículum",
 

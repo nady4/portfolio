@@ -76,7 +76,9 @@ export default component$(() => {
       <div class="options">
         <a href="/#home">{t.nav_home}</a>
         <a href="/#experience">{t.nav_experience}</a>
+        <a href="/#education">{t.nav_education}</a>
         <a href="/#projects">{t.nav_projects}</a>
+        <a href="/#certifications">{t.nav_certifications}</a>
         <a href="/#contact">{t.nav_contact}</a>
         <a href={resumeFile} download>
           {t.nav_resume}
