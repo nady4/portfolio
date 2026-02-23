@@ -69,6 +69,11 @@
     .education-list {
       flex-direction: column;
       align-items: center;
+
+      .education-item {
+        width: 100%;
+        max-width: 400px;
+      }
     }
   }
 }
