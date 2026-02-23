@@ -45,6 +45,7 @@ export const head: DocumentHead = {
     { property: "og:type", content: "website" },
     { name: "twitter:card", content: "summary_large_image" },
     { name: "twitter:site", content: "@_nady4" },
+    { name: "twitter:creator", content: "@_nady4" },
     { name: "twitter:title", content: "Nadya Jerochim - Full Stack Developer" },
     {
       name: "twitter:description",
