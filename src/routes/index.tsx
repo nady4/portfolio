@@ -34,7 +34,6 @@ export const head: DocumentHead = {
       content:
         "Full Stack Developer experienced in building web apps and serverless services with React, Node.js, TypeScript and Next.js.",
     },
-
     { property: "og:title", content: "Nadya Jerochim - Full Stack Developer" },
     {
       property: "og:description",
@@ -44,8 +43,14 @@ export const head: DocumentHead = {
     { property: "og:image", content: "https://nady4.com/dev.png" },
     { property: "og:url", content: "https://nady4.com/" },
     { property: "og:type", content: "website" },
-
     { name: "twitter:card", content: "summary_large_image" },
+    { name: "twitter:site", content: "@_nady4" },
+    { name: "twitter:title", content: "Nadya Jerochim - Full Stack Developer" },
+    {
+      name: "twitter:description",
+      content:
+        "Full Stack Developer experienced in building web apps and serverless services with React, Node.js, TypeScript and Next.js.",
+    },
     { name: "twitter:image", content: "https://nady4.com/dev.png" },
   ],
 };
