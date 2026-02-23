@@ -64,15 +64,14 @@
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 600px) {
   .education-container {
     .education-list {
       flex-direction: column;
       align-items: center;
 
       .education-item {
-        width: 100%;
-        max-width: 400px;
+        width: 80%;
       }
     }
   }
