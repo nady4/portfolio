@@ -13,16 +13,16 @@ export default component$(() => {
       institution: "ZTM Academy",
     },
     {
-      title: "Scrum Foundation Professional Certificate",
-      institution: "Certiprof",
-    },
-    {
       title: "Testing QA",
       institution: "Instituto Web",
     },
     {
       title: "UX Design",
       institution: "Platzi",
+    },
+    {
+      title: "Scrum Foundation Professional",
+      institution: "Certiprof",
     },
     {
       title: "English C2 Proficiency",

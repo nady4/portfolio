@@ -14,7 +14,7 @@ export default component$(() => {
         <p>{t.hero_desc}</p>
       </div>
       <div class="hero-right">
-        <img src={devImage} width={400} height={400} alt="Developer" />
+        <img src={devImage} width={450} height={450} alt="Developer" />
       </div>
     </div>
   );

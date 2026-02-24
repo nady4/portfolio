@@ -54,7 +54,8 @@
       background: $hover-bg;
       border: 1px solid $hover-shadow;
       border-radius: 0.5rem;
-      font-size: 0.9rem;
+      font-size: 1rem;
+      font-weight: 500;
       color: $text-secondary;
       transition:
         background 0.2s ease,
