@@ -41,7 +41,7 @@
 
       h3 {
         color: $text-primary;
-        font-size: 1.3rem;
+        font-size: 1.5rem;
         text-align: center;
         margin: 0;
       }
@@ -51,7 +51,7 @@
         line-height: 1.4;
 
         p {
-          font-size: 1.1rem;
+          font-size: 1.3rem;
           margin-bottom: 0.5rem;
         }
 
@@ -72,6 +72,16 @@
 
       .education-item {
         width: 80%;
+
+        h3 {
+          font-size: 1.3rem;
+        }
+
+        .education-detail {
+          p {
+            font-size: 1.1rem;
+          }
+        }
       }
     }
   }
