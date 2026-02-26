@@ -1,10 +1,4 @@
-import {
-  component$,
-  useSignal,
-  useVisibleTask$,
-  useStore,
-  $,
-} from "@builder.io/qwik";
+import { component$, useSignal, useOnWindow, $ } from "@builder.io/qwik";
 import { useLocation } from "@builder.io/qwik-city";
 import { useTranslations, useLocale } from "~/routes/layout";
 import Moon from "../assets/moon.svg";
@@ -21,36 +15,32 @@ export default component$(() => {
 
   const resumeFile = lang === "es" ? "/cv-es.pdf" : "/cv-en.pdf";
 
-  const theme = useSignal<"dark" | "light">("dark");
-  const initialized = useStore({ done: false });
+  const theme = useSignal<"dark" | "light">(
+    typeof document !== "undefined" &&
+      document.documentElement.dataset.theme === "light"
+      ? "light"
+      : "dark",
+  );
 
-  // eslint-disable-next-line qwik/no-use-visible-task
-  useVisibleTask$(({ track }) => {
-    // Track lang to re-sync theme when component re-renders due to language change
-    track(() => lang);
+  const hideOptions = useSignal(false);
+  const lastScrollY = useSignal(0);
 
-    // Always sync theme from document element (source of truth)
-    const docTheme = document.documentElement.dataset.theme;
-    if (docTheme === "light" || docTheme === "dark") {
-      theme.value = docTheme;
-      if (!initialized.done) {
-        initialized.done = true;
-      }
-      return;
-    }
+  useOnWindow(
+    "scroll",
+    $(() => {
+      if (window.innerWidth > 768) return;
 
-    // Only initialize from localStorage on first run
-    if (!initialized.done) {
-      initialized.done = true;
-      const stored = localStorage.getItem("theme");
-      if (stored === "light" || stored === "dark") {
-        theme.value = stored;
-        document.documentElement.dataset.theme = stored;
+      const currentY = window.scrollY;
+
+      if (currentY > lastScrollY.value && currentY > 50) {
+        hideOptions.value = true;
       } else {
-        document.documentElement.dataset.theme = theme.value;
+        hideOptions.value = false;
       }
-    }
-  });
+
+      lastScrollY.value = currentY;
+    }),
+  );
 
   const toggleTheme = $(() => {
     theme.value = theme.value === "dark" ? "light" : "dark";
@@ -73,7 +63,8 @@ export default component$(() => {
           height={24}
         />
       </button>
-      <div class="options">
+
+      <div class={`options ${hideOptions.value ? "hidden" : ""}`}>
         <a href="/#home">{t.nav_home}</a>
         <a href="/#experience">{t.nav_experience}</a>
         <a href="/#education">{t.nav_education}</a>
@@ -84,6 +75,7 @@ export default component$(() => {
           {t.nav_resume}
         </a>
       </div>
+
       <div class="lang-switch">
         <a
           href={`${basePath}?lang=es${hash}`}

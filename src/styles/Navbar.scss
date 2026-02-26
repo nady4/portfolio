@@ -107,6 +107,10 @@
         font-size: 16px;
       }
     }
+
+    .options.hidden {
+      display: none;
+    }
   }
 }
 
@@ -144,6 +148,10 @@
         font-size: 18px;
         padding: 4px 0;
       }
+    }
+
+    .options.hidden {
+      display: none;
     }
   }
 }
