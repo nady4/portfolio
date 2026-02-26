@@ -50,45 +50,49 @@ export default component$(() => {
 
   return (
     <nav class="navbar">
-      <button
-        type="button"
-        class="dark-mode-toggle"
-        onClick$={toggleTheme}
-        aria-label="Toggle theme"
-      >
-        <img
-          src={theme.value === "dark" ? Sun : Moon}
-          alt={theme.value === "dark" ? "Light mode" : "Dark mode"}
-          width={24}
-          height={24}
-        />
-      </button>
+      <div class="navbar-top">
+        <button
+          type="button"
+          class="dark-mode-toggle"
+          onClick$={toggleTheme}
+          aria-label="Toggle theme"
+        >
+          <img
+            src={theme.value === "dark" ? Sun : Moon}
+            alt={theme.value === "dark" ? "Light mode" : "Dark mode"}
+            width={24}
+            height={24}
+          />
+        </button>
 
-      <div class={`options ${hideOptions.value ? "hidden" : ""}`}>
-        <a href="/#home">{t.nav_home}</a>
-        <a href="/#experience">{t.nav_experience}</a>
-        <a href="/#education">{t.nav_education}</a>
-        <a href="/#projects">{t.nav_projects}</a>
-        <a href="/#certifications">{t.nav_certifications}</a>
-        <a href="/#contact">{t.nav_contact}</a>
-        <a href={resumeFile} download>
-          {t.nav_resume}
-        </a>
+        <div class="lang-switch">
+          <a
+            href={`${basePath}?lang=es${hash}`}
+            class={lang === "es" ? "lang-active" : ""}
+          >
+            ES
+          </a>
+          <a
+            href={`${basePath}?lang=en${hash}`}
+            class={lang === "en" ? "lang-active" : ""}
+          >
+            EN
+          </a>
+        </div>
       </div>
 
-      <div class="lang-switch">
-        <a
-          href={`${basePath}?lang=es${hash}`}
-          class={lang === "es" ? "lang-active" : ""}
-        >
-          ES
-        </a>
-        <a
-          href={`${basePath}?lang=en${hash}`}
-          class={lang === "en" ? "lang-active" : ""}
-        >
-          EN
-        </a>
+      <div class={`navbar-bottom ${hideOptions.value ? "collapsed" : ""}`}>
+        <div class="options">
+          <a href="/#home">{t.nav_home}</a>
+          <a href="/#experience">{t.nav_experience}</a>
+          <a href="/#education">{t.nav_education}</a>
+          <a href="/#projects">{t.nav_projects}</a>
+          <a href="/#certifications">{t.nav_certifications}</a>
+          <a href="/#contact">{t.nav_contact}</a>
+          <a href={resumeFile} download>
+            {t.nav_resume}
+          </a>
+        </div>
       </div>
     </nav>
   );
