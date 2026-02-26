@@ -22,7 +22,7 @@ export default component$(() => {
       : "dark",
   );
 
-  const hideOptions = useSignal(false);
+  const scrollOffset = useSignal(0);
   const lastScrollY = useSignal(0);
 
   useOnWindow(
@@ -30,15 +30,16 @@ export default component$(() => {
     $(() => {
       if (window.innerWidth > 768) return;
 
-      const currentY = window.scrollY;
+      const currY = window.scrollY;
+      const isScrollingDown = currY > lastScrollY.value;
+      lastScrollY.value = currY;
 
-      if (currentY > lastScrollY.value && currentY > 50) {
-        hideOptions.value = true;
+      // Show navbar when scrolling up or at top, hide when scrolling down
+      if (isScrollingDown && currY > 50) {
+        scrollOffset.value = 140;
       } else {
-        hideOptions.value = false;
+        scrollOffset.value = 0;
       }
-
-      lastScrollY.value = currentY;
     }),
   );
 
@@ -81,7 +82,12 @@ export default component$(() => {
         </div>
       </div>
 
-      <div class={`navbar-bottom ${hideOptions.value ? "collapsed" : ""}`}>
+      <div
+        class="navbar-bottom"
+        style={{
+          transform: `translateY(-${scrollOffset.value}px)`,
+        }}
+      >
         <div class="options">
           <a href="/#home">{t.nav_home}</a>
           <a href="/#experience">{t.nav_experience}</a>
