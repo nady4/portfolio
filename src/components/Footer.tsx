@@ -12,7 +12,7 @@ export default component$(() => {
   return (
     <footer class="footer">
       <p class="footer-text">{t.footer_name}</p>
-      <p class="footer-text">{t.footer_mail}</p>
+      <p class="footer-text">Buenos Aires, Argentina</p>
       <div class="footer-socials">
         <a href="https://github.com/nady4" target="_blank">
           <img src={GithubLogo} alt="Github" width="32" height="32" />
