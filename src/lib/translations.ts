@@ -22,7 +22,7 @@ export const translations = {
       experience_2_company: "Transistemas",
       experience_2_period: "July 2025 - Present",
       experience_2_desc:
-        "Project management and team coordination, implementing Agile frameworks and task tracking through GitHub and Notion.\nClient Acquisition and NGO Partnerships for development projects involving lead generation, deal negotiation, technical requirements gathering, stakeholders training and long-term support.\nTalent Acquisition for the Development Team, including technical interviewing, candidate selection, and structured onboarding.\nCross-team coordination between Development, Design, Education, and Communications to assess organizational needs and propose potential software solutions.\nLeadership of cybersecurity initiatives and modernization of the organization’s digital infrastructure.",
+        "Project management and team coordination, implementing Agile frameworks and task tracking through GitHub and Notion.\nClient Acquisition and NGO Partnerships for development projects involving lead generation, deal negotiation, functional analysis, stakeholders training and long-term support.\nTalent Acquisition for the Development Team, including technical interviewing, candidate selection, and structured onboarding.\nCross-team coordination between Development, Design, Education, and Communications to assess organizational needs and propose potential software solutions.\nLeadership of cybersecurity initiatives and modernization of the organization’s digital infrastructure.",
 
       education_title: "Education",
       education_university: "Software Engineering",
@@ -79,7 +79,7 @@ export const translations = {
       experience_2_company: "Transistemas",
       experience_2_period: "Julio 2025 - Presente",
       experience_2_desc:
-        "Gestión de proyectos y coordinación de equipos, implementando marcos de trabajo Agile y seguimiento de tareas mediante GitHub y Notion.\nAdquisición de clientes y alianzas con ONGs para proyectos de desarrollo, abarcando generación de leads, negociación de acuerdos, análisis de requerimientos técnicos, capacitación de stakeholders y soporte a largo plazo.\nAdquisición de talento para el equipo de desarrollo, incluyendo entrevistas técnicas, selección de candidatos y procesos de onboarding.\nCoordinación entre equipos de Desarrollo, Diseño, Educación y Comunicación para evaluar necesidades de la organización y proponer posibles soluciones de software.\nLiderazgo de iniciativas de ciberseguridad y modernización de la infraestructura digital de la organización.",
+        "Gestión de proyectos y coordinación de equipos, implementando marcos de trabajo Agile y seguimiento de tareas mediante GitHub y Notion.\nAdquisición de clientes y alianzas con ONGs para proyectos de desarrollo, abarcando análisis funcional, negociación de acuerdos, análisis de requerimientos técnicos, capacitación de stakeholders y soporte a largo plazo.\nAdquisición de talento para el equipo de desarrollo, incluyendo entrevistas técnicas, selección de candidatos y procesos de onboarding.\nCoordinación entre equipos de Desarrollo, Diseño, Educación y Comunicación para evaluar necesidades de la organización y proponer posibles soluciones de software.\nLiderazgo de iniciativas de ciberseguridad y modernización de la infraestructura digital de la organización.",
 
       education_title: "Educación",
       education_university: "Licenciatura en Sistemas",
