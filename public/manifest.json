@@ -4,6 +4,15 @@
   "short_name": "Nadya Jerochim",
   "start_url": ".",
   "display": "standalone",
-  "background_color": "#fff",
-  "description": "Portfolio website of Nadya Jerochim, showcasing projects and skills in web development."
+  "background_color": "#1a1a2e",
+  "theme_color": "#1a1a2e",
+  "description": "Portfolio website of Nadya Jerochim, showcasing projects and skills in web development.",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
 }
