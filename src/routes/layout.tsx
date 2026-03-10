@@ -38,7 +38,7 @@ export const head: DocumentHead = {
     { name: "theme-color", content: "#161320" },
   ],
   links: [
-    { rel: "icon", href: "/favicon.svg" },
+    { rel: "icon", href: "/favicon.svg?v=3" },
     { rel: "canonical", href: "https://nady4.com/" },
   ],
   scripts: [
