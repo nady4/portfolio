@@ -40,10 +40,10 @@ export const head: DocumentHead = {
       content:
         "Full Stack Developer experienced in building web apps and serverless services with React, Node.js, TypeScript and Next.js.",
     },
-    { property: "og:image", content: "https://www.nady4.com/dev.jpeg?v=3" },
+    { property: "og:image", content: "https://www.nady4.com/dev.png" },
     { property: "og:url", content: "https://www.nady4.com/" },
     { property: "og:type", content: "website" },
-    { property: "og:image:type", content: "image/jpeg" },
+    { property: "og:image:type", content: "image/png" },
     { property: "og:image:width", content: "1024" },
     { property: "og:image:height", content: "1024" },
     { name: "twitter:card", content: "summary" },
@@ -54,6 +54,9 @@ export const head: DocumentHead = {
       content:
         "Full Stack Developer experienced in building web apps and serverless services with React, Node.js, TypeScript and Next.js.",
     },
-    { name: "twitter:image", content: "https://www.nady4.com/dev.jpeg?v=3" },
+    { name: "twitter:image", content: "https://www.nady4.com/dev.png" },
+    { name: "author", content: "Nadya Jerochim" },
+    { name: "robots", content: "index, follow" },
+    { name: "theme-color", content: "#1a1a2e" },
   ],
 };
