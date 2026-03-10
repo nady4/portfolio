@@ -1,6 +1,6 @@
 import { component$ } from "@builder.io/qwik";
 import { useTranslations } from "~/routes/layout";
-import devImage from "/dev.png";
+import devImage from "~/assets/dev.png?url";
 import "../styles/Hero.scss";
 
 export default component$(() => {

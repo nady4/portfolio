@@ -19,7 +19,8 @@ const md = new MarkdownIt({
 
 const modules = import.meta.glob("/src/content/blog/*.md", {
   eager: true,
-  as: "raw",
+  query: "?raw",
+  import: "default",
 }) as Record<string, string>;
 
 function filenameToSlug(path: string) {
