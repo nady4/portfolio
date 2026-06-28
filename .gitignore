@@ -37,9 +37,5 @@ lerna-debug.log*
 *.sln
 *.sw?
 
-# Yarn
-.yarn/*
-!.yarn/releases
-
 # Vercel
 .vercel
