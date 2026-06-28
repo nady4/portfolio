@@ -71,12 +71,18 @@ export default component$(() => {
     {
       key: "tools",
       title: t.skill_category_tools,
-      items: ["Git", "Figma", "Notion", "Scrum", "Agile"],
+      items: ["Git", "Figma", "n8n", "Notion", "Scrum", "Agile"],
     },
     {
       key: "ai",
       title: t.skill_category_ai,
-      items: ["LLM API Integration", "AI Agents", "MCP Servers", "RAG", "n8n"],
+      items: [
+        "Agentic AI Systems",
+        "Tool Calling",
+        "LLM Integration and Orchestration",
+        "MCP",
+        "RAG",
+      ],
     },
     {
       key: "spoken_languages",

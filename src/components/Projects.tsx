@@ -10,18 +10,6 @@ export default component$(() => {
       <h1>{t.projects_title}</h1>
       <div class="projects-list">
         <div class="project">
-          <h2>🐱 Nya Store</h2>
-          <p>{t.project_nya_desc}</p>
-          <div class="links-container">
-            <a href="https://nya.nady4.com" target="_blank">
-              Demo
-            </a>
-            <a href="https://github.com/nady4/nya-store" target="_blank">
-              Repo
-            </a>
-          </div>
-        </div>
-        <div class="project">
           <h2>💸 Calendar Money</h2>
           <p>{t.project_calendar_desc}</p>
           <div class="links-container">
@@ -40,13 +28,25 @@ export default component$(() => {
           </div>
         </div>
         <div class="project">
-          <h2>👁️ DNS Monitor</h2>
-          <p>{t.project_dns_desc}</p>
+          <h2>🛒 Nyady</h2>
+          <p>{t.project_nyady_desc}</p>
           <div class="links-container">
-            <a
-              href="https://github.com/Transistemas-ac/dns-monitor"
-              target="_blank"
-            >
+            <a href="https://nyady.nady4.com" target="_blank">
+              Demo
+            </a>
+            <a href="https://github.com/nady4/nyady" target="_blank">
+              Repo
+            </a>
+          </div>
+        </div>
+        <div class="project">
+          <h2>🐱 Nya Store</h2>
+          <p>{t.project_nya_desc}</p>
+          <div class="links-container">
+            <a href="https://nya.nady4.com" target="_blank">
+              Demo
+            </a>
+            <a href="https://github.com/nady4/nya-store" target="_blank">
               Repo
             </a>
           </div>

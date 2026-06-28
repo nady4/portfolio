@@ -17,7 +17,7 @@ export const translations = {
       experience_1_company: "Transistemas",
       experience_1_period: "Dec 2024 - Present",
       experience_1_desc:
-        "Design and development of scalable projects for clients and NGO partners, implementing REST APIs, database schemas, and responsive frontend interfaces.\nDesign and implementation of the organization's full-stack course and student management app.\nMaintenance and implementation of new requirements for the institutional website.\nMigration from bundler to Vite, hosting to Vercel, and DNS provider to Cloudflare.\nDevelopment of Cloudflare Workers for monitoring DNS and nameserver configurations.\nImplementation of custom email routing using SMTP and POP3.\nDeployment automation, firewall configuration, and observability.\nProject documentation covering internal architecture, DNS configurations, deployments, and security policies.",
+        "Design and implementation of the organization's full-stack course and student management app.\nMaintenance and implementation of new requirements for the institutional website.\nMigration from bundler to Vite, hosting to Vercel, and DNS provider to Cloudflare.\nDevelopment of Cloudflare Workers for monitoring DNS and nameserver configurations.\nImplementation of custom email routing using SMTP and POP3.\nDeployment automation, firewall configuration, and observability.\nProject documentation covering internal architecture, DNS configurations, deployments, and security policies.",
       experience_2_title: "Development Team Coordinator",
       experience_2_company: "Transistemas",
       experience_2_period: "July 2025 - Present",
@@ -32,9 +32,9 @@ export const translations = {
       project_nya_desc:
         "Full Stack e-commerce platform using Next.js 15 (App Router), TypeScript, Prisma ORM, PostgreSQL, Redux Toolkit, and a complete Mercado Pago payment integration (checkout + redirect flows + webhooks). It handles authentication with NextAuth.js + JWT sessions.",
       project_calendar_desc:
-        "Full-stack cash-flow management web application built using TypeScript, Vite, Node.js, Express and MongoDB. Handles authorization and authentication via JWT and provides detailed financial analytics with charts.",
-      project_dns_desc:
-        "Serverless DNS-monitoring system using Cloudflare Workers that checks internal DNS records and nameserver status every 10 minutes, sending email alerts when changes occur. It also uses KV Storage to keep historical snapshots for accurate diff tracking.",
+        "Full-stack cash flow management web application built with React, Vite, TypeScript, Nodejs, Express, and MongoDB. Features include a landing page, calendar, drag-and-drop transaction management, advanced analytics with Chartjs, category-based budgeting, CSV backup and restore, and a customizable user interface.",
+      project_nyady_desc:
+        "Full-stack e-commerce platform built with Next.js (App Router), React, Prisma, PostgreSQL, NextAuth.js, and Redux Toolkit. Integrated with Mercado Pago for payment processing and Zipnova for shipping quotes and order fulfillment. Features include a landing page, product catalog, persistent shopping cart, coupons, volume-based discounts, shipping quotations, payment management, and order tracking.",
       project_ds_desc:
         "Cloudflare Workers project handling Discord OAuth login, session cookie creation/validation, and role/invite request flows. Serves a lightweight frontend and provides protected API endpoints with modular controllers and utilities for encryption and cookie handling.",
 
@@ -90,8 +90,8 @@ export const translations = {
         "Plataforma e-commerce Full Stack construida con Next.js 15 (App Router), TypeScript, Prisma ORM, PostgreSQL, Redux Toolkit e integración completa con Mercado Pago (checkout + redirect + webhooks). Maneja autenticación con NextAuth.js y sesiones JWT.",
       project_calendar_desc:
         "Aplicación web full-stack para gestión de flujo de caja creada con TypeScript, Vite, Node.js, Express y MongoDB. Maneja autenticación y autorización con JWT y provee analíticas financieras detalladas con gráficos.",
-      project_dns_desc:
-        "Sistema serverless de monitoreo DNS usando Cloudflare Workers que verifica los registros DNS internos y el estado de los nameservers cada 10 minutos, enviando alertas por correo cuando se detectan cambios. También utiliza KV Storage para mantener snapshots históricos y realizar comparaciones precisas.",
+      project_nyady_desc:
+        "Full-stack e-commerce hecho con Next,js 16 (App Router), React 19, Prisma, PostgreSQL, Nextauth,js y Redux Toolkit. Integrado con MercadoPago para pagos y Zipnova para catizacién y gestion de envios. Incluye landing page, catalogo de productos, carrito persistente, cupones, descuentos por volumen, cotizaciones de envios, gestion de pagos y seguimiento de pedidos.",
       project_ds_desc:
         "Proyecto en Cloudflare Workers que maneja inicio de sesión vía OAuth de Discord, creación/validación de cookies de sesión y flujos de solicitud de roles/invitaciones. La app sirve un pequeño frontend y expone endpoints protegidos con controladores modulares y utilidades auxiliares de encriptación y manejo de cookies.",
 
