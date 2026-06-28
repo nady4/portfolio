@@ -1,5 +1,6 @@
 import { useDocumentHead, useLocation } from "@builder.io/qwik-city";
 import { component$ } from "@builder.io/qwik";
+import { faviconHref } from "virtual:favicon-href";
 
 export const RouterHead = component$(() => {
   const head = useDocumentHead();
@@ -11,7 +12,7 @@ export const RouterHead = component$(() => {
 
       <link rel="canonical" href={loc.url.href} />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+      <link rel="icon" type="image/svg+xml" href={faviconHref} />
       <link rel="manifest" href="/manifest.json" />
       <meta name="theme-color" content="#1a1a2e" />
 
