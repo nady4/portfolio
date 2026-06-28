@@ -33,7 +33,7 @@
     "prettier": "3.6.2",
     "typescript": "5.4.5",
     "typescript-eslint": "8.38.0",
-    "typescript-plugin-css-modules": "latest",
+    "typescript-plugin-css-modules": "5.2.0",
     "undici": "^7.28.0",
     "vercel": "^52.0.1",
     "vite": "^7.3.6",
