@@ -72,7 +72,7 @@ const projects: Project[] = [
   },
   {
     favicon: "/projects/nyady.png",
-    name: "Nyady",
+    name: "NYADY",
     descKey: "project_nyady_desc",
     demo: "https://nyady.nady4.com",
     repos: [{ label: "Repo", href: "https://github.com/nady4/nyady" }],
