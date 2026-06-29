@@ -14,7 +14,7 @@ type DescKey =
   | "project_ds_desc";
 
 interface Project {
-  emoji: string;
+  favicon: string;
   name: string;
   descKey: DescKey;
   demo?: string;
@@ -24,7 +24,7 @@ interface Project {
 
 const projects: Project[] = [
   {
-    emoji: "💸",
+    favicon: "/projects/calendar-money.svg",
     name: "Calendar Money",
     descKey: "project_calendar_desc",
     demo: "https://money.nady4.com",
@@ -71,7 +71,7 @@ const projects: Project[] = [
     ]
   },
   {
-    emoji: "🛒",
+    favicon: "/projects/nyady.png",
     name: "Nyady",
     descKey: "project_nyady_desc",
     demo: "https://nyady.nady4.com",
@@ -104,7 +104,7 @@ const projects: Project[] = [
     ]
   },
   {
-    emoji: "🐱",
+    favicon: "/projects/nya-store.ico",
     name: "Nya Store",
     descKey: "project_nya_desc",
     demo: "https://nya.nady4.com",
@@ -137,10 +137,10 @@ const projects: Project[] = [
     ]
   },
   {
-    emoji: "🔗",
+    favicon: "/projects/ds-invite.png",
     name: "DS Invite",
     descKey: "project_ds_desc",
-    demo: "https://ds.transistemas.com",
+    demo: "https://ds.transistemas.org",
     repos: [
       { label: "Repo", href: "https://github.com/Transistemas-ac/ds-invite" }
     ],
@@ -193,7 +193,14 @@ export default component$(() => {
             >
               <div class="project-header">
                 <h2>
-                  <span class="project-emoji">{project.emoji}</span>
+                  <img
+                    class="project-favicon"
+                    src={project.favicon}
+                    alt=""
+                    width={28}
+                    height={28}
+                    loading="lazy"
+                  />
                   {project.name}
                 </h2>
                 <div class="project-links">
