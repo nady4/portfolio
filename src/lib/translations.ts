@@ -25,7 +25,7 @@ export const translations = {
         "Project management and team coordination, implementing Agile frameworks and task tracking through GitHub and Notion.\nClient Acquisition and NGO Partnerships for development projects involving lead generation, deal negotiation, functional analysis, stakeholders training and long-term support.\nTalent Acquisition for the Development Team, including technical interviewing, candidate selection, and structured onboarding.\nCross-team coordination between Development, Design, Education, and Communications to assess organizational needs and propose potential software solutions.\nLeadership of cybersecurity initiatives and modernization of the organization’s digital infrastructure.",
 
       education_title: "Education",
-      education_university: "Software Engineering",
+      education_university: "Bachelor of Information Systems",
       education_highschool: "H.S. Diploma, Economics & Administration",
 
       projects_title: "Projects",

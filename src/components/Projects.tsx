@@ -1,72 +1,300 @@
-import { component$ } from "@builder.io/qwik";
+import { component$, useSignal, $ } from "@builder.io/qwik";
 import { useTranslations } from "~/routes/layout";
 import "../styles/Projects.scss";
 
+interface ProjectShot {
+  src: string;
+  alt: string;
+}
+
+type DescKey =
+  | "project_calendar_desc"
+  | "project_nyady_desc"
+  | "project_nya_desc"
+  | "project_ds_desc";
+
+interface Project {
+  emoji: string;
+  name: string;
+  descKey: DescKey;
+  demo?: string;
+  repos: { label: string; href: string }[];
+  shots: ProjectShot[];
+}
+
+const projects: Project[] = [
+  {
+    emoji: "💸",
+    name: "Calendar Money",
+    descKey: "project_calendar_desc",
+    demo: "https://money.nady4.com",
+    repos: [
+      { label: "Repo Front", href: "https://github.com/nady4/calendar-money" },
+      {
+        label: "Repo Back",
+        href: "https://github.com/nady4/calendar-money-api"
+      }
+    ],
+    shots: [
+      {
+        src: "https://raw.githubusercontent.com/nady4/calendar-money/main/public/assets/docs/landing.png",
+        alt: "Landing"
+      },
+      {
+        src: "https://raw.githubusercontent.com/nady4/calendar-money/main/public/assets/docs/dashboard.png",
+        alt: "Dashboard"
+      },
+      {
+        src: "https://raw.githubusercontent.com/nady4/calendar-money/main/public/assets/docs/stats1.png",
+        alt: "Stats"
+      },
+      {
+        src: "https://raw.githubusercontent.com/nady4/calendar-money/main/public/assets/docs/stats2.png",
+        alt: "Stats breakdown"
+      },
+      {
+        src: "https://raw.githubusercontent.com/nady4/calendar-money/main/public/assets/docs/new-transaction.png",
+        alt: "New transaction"
+      },
+      {
+        src: "https://raw.githubusercontent.com/nady4/calendar-money/main/public/assets/docs/budgets.png",
+        alt: "Budgets"
+      },
+      {
+        src: "https://raw.githubusercontent.com/nady4/calendar-money/main/public/assets/docs/categories.png",
+        alt: "Categories"
+      },
+      {
+        src: "https://raw.githubusercontent.com/nady4/calendar-money/main/public/assets/docs/new-category.png",
+        alt: "New category"
+      }
+    ]
+  },
+  {
+    emoji: "🛒",
+    name: "Nyady",
+    descKey: "project_nyady_desc",
+    demo: "https://nyady.nady4.com",
+    repos: [{ label: "Repo", href: "https://github.com/nady4/nyady" }],
+    shots: [
+      {
+        src: "https://raw.githubusercontent.com/nady4/nyady/main/public/assets/screenshots/home.png",
+        alt: "Home"
+      },
+      {
+        src: "https://raw.githubusercontent.com/nady4/nyady/main/public/assets/screenshots/catalog.png",
+        alt: "Catalog"
+      },
+      {
+        src: "https://raw.githubusercontent.com/nady4/nyady/main/public/assets/screenshots/product.png",
+        alt: "Product"
+      },
+      {
+        src: "https://raw.githubusercontent.com/nady4/nyady/main/public/assets/screenshots/cart.png",
+        alt: "Cart"
+      },
+      {
+        src: "https://raw.githubusercontent.com/nady4/nyady/main/public/assets/screenshots/checkout.png",
+        alt: "Checkout"
+      },
+      {
+        src: "https://raw.githubusercontent.com/nady4/nyady/main/public/assets/screenshots/orders.png",
+        alt: "Orders & tracking"
+      }
+    ]
+  },
+  {
+    emoji: "🐱",
+    name: "Nya Store",
+    descKey: "project_nya_desc",
+    demo: "https://nya.nady4.com",
+    repos: [{ label: "Repo", href: "https://github.com/nady4/nya-store" }],
+    shots: [
+      {
+        src: "https://raw.githubusercontent.com/nady4/nya-store/main/public/assets/docs/1.png",
+        alt: "Home"
+      },
+      {
+        src: "https://raw.githubusercontent.com/nady4/nya-store/main/public/assets/docs/2.png",
+        alt: "Catalog"
+      },
+      {
+        src: "https://raw.githubusercontent.com/nady4/nya-store/main/public/assets/docs/3.png",
+        alt: "Product"
+      },
+      {
+        src: "https://raw.githubusercontent.com/nady4/nya-store/main/public/assets/docs/4.png",
+        alt: "Cart"
+      },
+      {
+        src: "https://raw.githubusercontent.com/nady4/nya-store/main/public/assets/docs/5.png",
+        alt: "Checkout"
+      },
+      {
+        src: "https://raw.githubusercontent.com/nady4/nya-store/main/public/assets/docs/6.png",
+        alt: "Orders"
+      }
+    ]
+  },
+  {
+    emoji: "🔗",
+    name: "DS Invite",
+    descKey: "project_ds_desc",
+    demo: "https://ds.transistemas.com",
+    repos: [
+      { label: "Repo", href: "https://github.com/Transistemas-ac/ds-invite" }
+    ],
+    shots: [
+      {
+        src: "https://raw.githubusercontent.com/Transistemas-ac/ds-invite/main/public/ui.png",
+        alt: "UI"
+      }
+    ]
+  }
+];
+
 export default component$(() => {
   const t = useTranslations().value;
+  const lightboxSrc = useSignal<string | null>(null);
+  const trackRefs = useSignal<HTMLDivElement[]>([]);
+  const activeIdx = useSignal(0);
+
+  const openLightbox = $((src: string) => {
+    lightboxSrc.value = src;
+  });
+
+  const closeLightbox = $(() => {
+    lightboxSrc.value = null;
+  });
+
+  const scrollBy = $((idx: number, dir: -1 | 1) => {
+    const track = trackRefs.value[idx];
+    if (!track) return;
+    const amount = track.clientWidth * 0.85 * dir;
+    track.scrollBy({ left: amount, behavior: "smooth" });
+  });
 
   return (
-    <div id="projects" class="projects-container">
-      <h1>{t.projects_title}</h1>
-      <div class="projects-list">
-        <div class="project">
-          <h2>💸 Calendar Money</h2>
-          <p>{t.project_calendar_desc}</p>
-          <div class="links-container">
-            <a href="https://money.nady4.com" target="_blank">
-              Demo
-            </a>
-            <a href="https://github.com/nady4/calendar-money" target="_blank">
-              Repo Front
-            </a>
-            <a
-              href="https://github.com/nady4/calendar-money-api"
-              target="_blank"
+    <>
+      <section id="projects" class="projects-section">
+        <header class="projects-head">
+          <h1>{t.projects_title}</h1>
+        </header>
+
+        <div class="projects-stack">
+          {projects.map((project, pIdx) => (
+            <article
+              key={pIdx}
+              class="project-card"
+              id={`project-${pIdx}`}
+              onMouseEnter$={() => {
+                activeIdx.value = pIdx;
+              }}
             >
-              Repo Back
-            </a>
-          </div>
+              <div class="project-header">
+                <h2>
+                  <span class="project-emoji">{project.emoji}</span>
+                  {project.name}
+                </h2>
+                <div class="project-links">
+                  {project.demo && (
+                    <a
+                      class="project-link demo"
+                      href={project.demo}
+                      target="_blank"
+                      rel="noopener"
+                    >
+                      Demo ↗
+                    </a>
+                  )}
+                  {project.repos.map((repo) => (
+                    <a
+                      key={repo.href}
+                      class="project-link"
+                      href={repo.href}
+                      target="_blank"
+                      rel="noopener"
+                    >
+                      {repo.label} ↗
+                    </a>
+                  ))}
+                </div>
+              </div>
+
+              <p class="project-desc">{t[project.descKey]}</p>
+
+              <div class="gallery">
+                <button
+                  type="button"
+                  class="gallery-nav prev"
+                  aria-label="Previous screenshot"
+                  onClick$={() => scrollBy(pIdx, -1)}
+                >
+                  ‹
+                </button>
+                <div
+                  class="gallery-track"
+                  ref={(el) => {
+                    trackRefs.value[pIdx] = el;
+                  }}
+                >
+                  {project.shots.map((shot) => (
+                    <figure class="shot" key={shot.src}>
+                      <button
+                        type="button"
+                        class="shot-btn"
+                        onClick$={() => openLightbox(shot.src)}
+                        aria-label={`Enlarge ${shot.alt}`}
+                      >
+                        <img
+                          src={shot.src}
+                          alt={shot.alt}
+                          loading="lazy"
+                          width={960}
+                          height={600}
+                        />
+                      </button>
+                      <figcaption>{shot.alt}</figcaption>
+                    </figure>
+                  ))}
+                </div>
+                <button
+                  type="button"
+                  class="gallery-nav next"
+                  aria-label="Next screenshot"
+                  onClick$={() => scrollBy(pIdx, 1)}
+                >
+                  ›
+                </button>
+              </div>
+            </article>
+          ))}
         </div>
-        <div class="project">
-          <h2>🛒 Nyady</h2>
-          <p>{t.project_nyady_desc}</p>
-          <div class="links-container">
-            <a href="https://nyady.nady4.com" target="_blank">
-              Demo
-            </a>
-            <a href="https://github.com/nady4/nyady" target="_blank">
-              Repo
-            </a>
-          </div>
+      </section>
+
+      {lightboxSrc.value && (
+        <div
+          class="lightbox"
+          onClick$={closeLightbox}
+          role="dialog"
+          aria-modal="true"
+        >
+          <button
+            type="button"
+            class="lightbox-close"
+            aria-label="Close"
+            onClick$={closeLightbox}
+          >
+            ×
+          </button>
+          <img
+            src={lightboxSrc.value}
+            alt="Enlarged screenshot"
+            width={1280}
+            height={800}
+          />
         </div>
-        <div class="project">
-          <h2>🐱 Nya Store</h2>
-          <p>{t.project_nya_desc}</p>
-          <div class="links-container">
-            <a href="https://nya.nady4.com" target="_blank">
-              Demo
-            </a>
-            <a href="https://github.com/nady4/nya-store" target="_blank">
-              Repo
-            </a>
-          </div>
-        </div>
-        <div class="project">
-          <h2>🔗 DS Invite</h2>
-          <p>{t.project_ds_desc}</p>
-          <div class="links-container">
-            <a href="https://ds.transistemas.com" target="_blank">
-              Demo
-            </a>
-            <a
-              href="https://github.com/Transistemas-ac/ds-invite"
-              target="_blank"
-            >
-              Repo
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
+      )}
+    </>
   );
 });

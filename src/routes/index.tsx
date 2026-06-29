@@ -15,9 +15,9 @@ export default component$(() => {
     <main>
       <Navbar />
       <Hero />
+      <Projects />
       <Experience />
       <Education />
-      <Projects />
       <Skills />
       <Certifications />
       <Contact />

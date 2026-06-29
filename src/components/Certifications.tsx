@@ -1,4 +1,5 @@
 import { component$ } from "@builder.io/qwik";
+import { useTranslations } from "~/routes/layout";
 import "../styles/Certifications.scss";
 
 interface Certification {
@@ -7,6 +8,7 @@ interface Certification {
 }
 
 export default component$(() => {
+  const t = useTranslations().value;
   const certifications: Certification[] = [
     {
       title: "Full Stack Developer",
@@ -32,7 +34,7 @@ export default component$(() => {
 
   return (
     <div id="certifications" class="certifications-container">
-      <h2>Certifications</h2>
+      <h2>{t.nav_certifications}</h2>
       <div class="certifications-list">
         {certifications.map((cert, index) => (
           <div key={index} class="certifications-item">

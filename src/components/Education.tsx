@@ -1,9 +1,13 @@
 import { component$ } from "@builder.io/qwik";
-import { useTranslations } from "~/routes/layout";
+import { useTranslations, useLocale } from "~/routes/layout";
 import "../styles/Education.scss";
 
 export default component$(() => {
   const t = useTranslations().value;
+  const lang = useLocale().value;
+
+  const universityInstitution =
+    lang === "en" ? "National University of Lanús" : "Universidad Nacional de Lanús";
 
   const education = [
     {
@@ -12,7 +16,7 @@ export default component$(() => {
       items: [
         {
           degree: t.education_university,
-          institution: "Universidad Nacional de Lanús",
+          institution: universityInstitution,
           year: "2019 - 2025",
         },
       ],

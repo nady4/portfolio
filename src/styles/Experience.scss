@@ -8,11 +8,16 @@
   display: flex;
   flex-direction: column;
   gap: 2.5rem;
+  scroll-margin-top: 80px;
 
   h2 {
-    font-size: 2.2rem;
+    font-size: clamp(2rem, 4vw, 2.8rem);
     text-align: center;
-    color: $text-primary;
+    font-weight: 700;
+    background: linear-gradient(135deg, $text-primary 0%, $primary-hover 60%, $primary 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
   }
 
   .experience-item {
