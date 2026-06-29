@@ -19,7 +19,7 @@ export default component$(() => {
     typeof document !== "undefined" &&
       document.documentElement.dataset.theme === "light"
       ? "light"
-      : "dark",
+      : "dark"
   );
 
   const scrollOffset = useSignal(0);
@@ -40,7 +40,7 @@ export default component$(() => {
       } else {
         scrollOffset.value = 0;
       }
-    }),
+    })
   );
 
   const toggleTheme = $(() => {
@@ -85,14 +85,15 @@ export default component$(() => {
       <div
         class="navbar-bottom"
         style={{
-          transform: `translateY(-${scrollOffset.value}px)`,
+          transform: `translateY(-${scrollOffset.value}px)`
         }}
       >
         <div class="options">
           <a href="/#home">{t.nav_home}</a>
+          <a href="/#projects">{t.nav_projects}</a>
           <a href="/#experience">{t.nav_experience}</a>
           <a href="/#education">{t.nav_education}</a>
-          <a href="/#projects">{t.nav_projects}</a>
+          <a href="/#skills">{t.nav_skills}</a>
           <a href="/#certifications">{t.nav_certifications}</a>
           <a href="/#contact">{t.nav_contact}</a>
           <a href={resumeFile} download>
