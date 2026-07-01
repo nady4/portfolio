@@ -53,8 +53,8 @@ const projects: Project[] = [
         alt: "Stats breakdown"
       },
       {
-        src: "https://raw.githubusercontent.com/nady4/calendar-money/main/public/assets/docs/new-transaction.png",
-        alt: "New transaction"
+        src: "https://raw.githubusercontent.com/nady4/calendar-money/main/public/assets/docs/scan.png",
+        alt: "Scan"
       },
       {
         src: "https://raw.githubusercontent.com/nady4/calendar-money/main/public/assets/docs/budgets.png",
@@ -65,8 +65,8 @@ const projects: Project[] = [
         alt: "Categories"
       },
       {
-        src: "https://raw.githubusercontent.com/nady4/calendar-money/main/public/assets/docs/new-category.png",
-        alt: "New category"
+        src: "https://raw.githubusercontent.com/nady4/calendar-money/main/public/assets/docs/account.png",
+        alt: "Account"
       }
     ]
   },
@@ -112,26 +112,18 @@ const projects: Project[] = [
     shots: [
       {
         src: "https://raw.githubusercontent.com/nady4/nya-store/main/public/assets/docs/1.png",
-        alt: "Home"
-      },
-      {
-        src: "https://raw.githubusercontent.com/nady4/nya-store/main/public/assets/docs/2.png",
         alt: "Catalog"
       },
       {
-        src: "https://raw.githubusercontent.com/nady4/nya-store/main/public/assets/docs/3.png",
+        src: "https://raw.githubusercontent.com/nady4/nya-store/main/public/assets/docs/4.png",
         alt: "Product"
       },
       {
-        src: "https://raw.githubusercontent.com/nady4/nya-store/main/public/assets/docs/4.png",
-        alt: "Cart"
-      },
-      {
-        src: "https://raw.githubusercontent.com/nady4/nya-store/main/public/assets/docs/5.png",
+        src: "https://raw.githubusercontent.com/nady4/nya-store/main/public/assets/docs/6.png",
         alt: "Checkout"
       },
       {
-        src: "https://raw.githubusercontent.com/nady4/nya-store/main/public/assets/docs/6.png",
+        src: "https://raw.githubusercontent.com/nady4/nya-store/main/public/assets/docs/5.png",
         alt: "Orders"
       }
     ]
@@ -146,8 +138,16 @@ const projects: Project[] = [
     ],
     shots: [
       {
-        src: "https://raw.githubusercontent.com/Transistemas-ac/ds-invite/main/public/ui.png",
-        alt: "UI"
+        src: "https://raw.githubusercontent.com/Transistemas-ac/ds-invite/main/public/1.png",
+        alt: "Landing page"
+      },
+      {
+        src: "https://raw.githubusercontent.com/Transistemas-ac/ds-invite/main/public/3.png",
+        alt: "Bot"
+      },
+      {
+        src: "https://raw.githubusercontent.com/Transistemas-ac/ds-invite/main/public/2.png",
+        alt: "Worker"
       }
     ]
   }

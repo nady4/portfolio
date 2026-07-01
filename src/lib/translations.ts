@@ -33,7 +33,7 @@ export const translations = {
       project_nya_desc:
         "Full Stack e-commerce platform using Next.js 15 (App Router), TypeScript, Prisma ORM, PostgreSQL, Redux Toolkit, and a complete Mercado Pago payment integration (checkout + redirect flows + webhooks). It handles authentication with NextAuth.js + JWT sessions.",
       project_calendar_desc:
-        "Full-stack cash flow management web application built with React, Vite, TypeScript, Nodejs, Express, and MongoDB. Features include a landing page, calendar, drag-and-drop transaction management, advanced analytics with Chartjs, category-based budgeting, CSV backup and restore, and a customizable user interface.",
+        "Full-stack cash-flow management web application built with React 18, Vite 6, TypeScript, Chart.js, Sass, and a Node.js + Express + MongoDB backend. Calendar dashboard, drag-and-drop transaction editing, deep statistics with charts, category budgets, CSV backup/restore, AI receipt scanning with quota & BYOK, and UI customization.",
       project_nyady_desc:
         "Full-stack e-commerce platform built with Next.js (App Router), React, Prisma, PostgreSQL, NextAuth.js, and Redux Toolkit. Integrated with Mercado Pago for payment processing and Zipnova for shipping quotes and order fulfillment. Features include a landing page, product catalog, persistent shopping cart, coupons, volume-based discounts, shipping quotations, payment management, and order tracking.",
       project_ds_desc:
@@ -91,7 +91,7 @@ export const translations = {
       project_nya_desc:
         "Plataforma e-commerce Full Stack construida con Next.js 15 (App Router), TypeScript, Prisma ORM, PostgreSQL, Redux Toolkit e integración completa con Mercado Pago (checkout + redirect + webhooks). Maneja autenticación con NextAuth.js y sesiones JWT.",
       project_calendar_desc:
-        "Aplicación web full-stack para gestión de flujo de caja creada con TypeScript, Vite, Node.js, Express y MongoDB. Maneja autenticación y autorización con JWT y provee analíticas financieras detalladas con gráficos.",
+        "Aplicación web full-stack para gestión de flujo de caja creada con React 18, Vite 6, TypeScript, Chart.js, Sass y un backend Node.js + Express + MongoDB. Panel de calendario, edición de transacciones con drag-and-drop, estadísticas detalladas con gráficos, presupuestos por categoría, backup/restauración CSV, escaneo de recibos con IA con cuota y BYOK, y personalización de UI.",
       project_nyady_desc:
         "Full-stack e-commerce hecho con Next,js 16 (App Router), React 19, Prisma, PostgreSQL, Nextauth,js y Redux Toolkit. Integrado con MercadoPago para pagos y Zipnova para catizacién y gestion de envios. Incluye landing page, catalogo de productos, carrito persistente, cupones, descuentos por volumen, cotizaciones de envios, gestion de pagos y seguimiento de pedidos.",
       project_ds_desc:
