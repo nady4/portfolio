@@ -57,16 +57,16 @@ const projects: Project[] = [
         alt: "Scan"
       },
       {
+        src: "https://raw.githubusercontent.com/nady4/calendar-money/main/public/assets/docs/account.png",
+        alt: "Account"
+      },
+      {
         src: "https://raw.githubusercontent.com/nady4/calendar-money/main/public/assets/docs/budgets.png",
         alt: "Budgets"
       },
       {
         src: "https://raw.githubusercontent.com/nady4/calendar-money/main/public/assets/docs/categories.png",
         alt: "Categories"
-      },
-      {
-        src: "https://raw.githubusercontent.com/nady4/calendar-money/main/public/assets/docs/account.png",
-        alt: "Account"
       }
     ]
   },
