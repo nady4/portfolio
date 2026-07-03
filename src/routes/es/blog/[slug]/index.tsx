@@ -1,7 +1,6 @@
 import { component$ } from "@builder.io/qwik";
 import { routeLoader$, type DocumentHead } from "@builder.io/qwik-city";
 import { getPostBySlug } from "~/lib/blog";
-import { useLocale } from "~/routes/layout";
 import { JsonLd } from "~/components/JsonLd";
 import "~/styles/Post.scss";
 
@@ -18,8 +17,6 @@ export const useBlogPost = routeLoader$(({ params, status }) => {
 
 export default component$(() => {
   const post = useBlogPost();
-  const lang = useLocale().value;
-  const backHref = lang === "es" ? "/es/blog/" : "/blog/";
 
   if (!post.value) {
     return (
@@ -41,8 +38,8 @@ export default component$(() => {
         }}
       />
       <main class="post-page">
-        <a href={backHref} class="back-link">
-          &larr; {lang === "es" ? "Volver" : "Back"}
+        <a href="/es/blog/" class="back-link">
+          &larr; Volver
         </a>
         <h1>{post.value.title}</h1>
         <div>{post.value.date}</div>
@@ -80,8 +77,9 @@ export const head: DocumentHead = ({ resolveValue, params }) => {
       },
       {
         property: "og:url",
-        content: `https://nady4.com/blog/${slug}/`,
+        content: `https://nady4.com/es/blog/${slug}/`,
       },
+      { property: "og:locale", content: "es_AR" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:title", content: post.title },
       {

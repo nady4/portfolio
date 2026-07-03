@@ -28,7 +28,13 @@ export default component$(() => {
       </div>
       <div class="hero-right">
         <div class="hero-glow" />
-        <img src={devImage} width={450} height={450} alt="Developer" />
+        <img
+          src={devImage}
+          width={450}
+          height={450}
+          fetchPriority="high"
+          alt="Nadya Jerochim - Full Stack Developer portrait"
+        />
       </div>
     </section>
   );

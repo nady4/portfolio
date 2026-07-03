@@ -41,6 +41,22 @@
     color: transparent;
   }
 
+  .projects-head__title {
+    font-size: clamp(2.4rem, 5vw, 3.8rem);
+    margin: 0;
+    line-height: 1.05;
+    font-weight: 700;
+    background: linear-gradient(
+      135deg,
+      $text-primary 0%,
+      $primary-hover 60%,
+      $primary 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
   .projects-sub {
     margin: 0.4rem 0 0;
     color: $text-secondary;
@@ -285,8 +301,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 38px;
-  height: 38px;
+  width: 44px;
+  height: 44px;
   border-radius: 999px;
   border: 1px solid $border-soft;
   background: rgba($bg-surface, 0.85);

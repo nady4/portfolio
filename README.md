@@ -70,10 +70,23 @@ Server-rendered personal portfolio and integrated Markdown blog. Built with Qwik
 
 ### 🔍 SEO & metadata
 
-- **Per-route metadata** — every Qwik City route defines its own `head` (title, description, Open Graph, Twitter cards).
-- **JSON-LD `Person` schema** in the root layout for rich-result eligibility.
-- **Generated sitemap** at `/sitemap.xml`.
-- **`robots.txt` and `manifest.json`** shipped from `public/`.
+- **Per-route metadata** — every Qwik City route defines its own `head` (title, description, Open Graph, Twitter cards, `og:locale` / `og:locale:alternate`).
+- **Single canonical per page** — the dynamic canonical is generated in `src/components/RouterHead.tsx` from the request URL (query params stripped). No per-route canonical is duplicated.
+- **Hreflang for both languages** — every page emits `hreflang="en"`, `hreflang="es"` and `hreflang="x-default"` link alternates pointing to the path-prefixed counterparts (`/`, `/es/`).
+- **Path-prefixed i18n** — the Spanish version of every page lives at `/es/…` (e.g. `/es/`, `/es/blog/`, `/es/blog/[slug]/`). The locale is resolved from `url.pathname` in `src/routes/layout.tsx`, with `?lang=` and `Accept-Language` as fallbacks. The language switcher in the Navbar swaps the path prefix instead of appending a query param.
+- **Reactive `<html lang>`** — `src/entry.ssr.tsx` reads the request URL from `serverData.url` and sets the SSR `containerAttributes.lang` to `"es"` or `"en"` accordingly. The `<body lang>` in `src/root.tsx` is set from the `useLocale` route loader so the client tree stays in sync.
+- **Multi-block JSON-LD** — `src/components/JsonLd.tsx` injects a `Person`, a `WebSite`, an `Organization`, and a `WebPage` (or `BlogPosting` for posts) directly as `<script type="application/ld+json">` tags. Rich-result validated against Google's Rich Results Test. The Person block references `knowsAbout`, `worksFor`, `alumniOf`, `hasCredential`, `address`, and `sameAs`.
+- **Single H1 per page** — the only `<h1>` lives in the Hero section. Every other section title is an `<h2>`, items are `<h3>`. Heading hierarchy has no gaps.
+- **Title length and keywords** — `<title>` is keyword-rich and within the 50-60 char SEO window. The Hero alt text and the meta description are aligned with the primary keyword cluster (Full Stack, TypeScript, React, Next.js, Node.js).
+- **Inline styles removed** — `src/components/Navbar.tsx` no longer uses `style={{ ... }}`; the hide-on-scroll transform is now a `.navbar-bottom--hidden` class in `src/styles/Navbar.scss`. Blog-post inline `style` attributes are converted to a `.callout` class in `src/styles/Post.scss`.
+- **Mobile tap targets** — the dark-mode toggle in `Navbar` and the gallery nav arrows in `Projects` are sized to a 44×44 minimum hit area.
+- **Generated sitemap** at `/sitemap.xml` — every static URL and every blog post has both English and Spanish entries, each with `<xhtml:link rel="alternate">` hreflang alternates. Cache header `s-maxage=3600`.
+- **`llms.txt`** at `/llms.txt` — entity description for LLM crawlers, generated per the emerging `llms.txt` spec, including the sitemap reference at the bottom.
+- **`robots.txt`** declares the canonical host and the sitemap URL.
+- **Favicon** — `public/favicon.svg` (modern browsers) plus a `public/favicon.ico` fallback for older clients and parsers that don't read SVG favicons.
+- **Email deliverability (DNS)** — recommended (must be set at the DNS provider, not in this repo): an SPF record at the apex of `nady4.com` and a DMARC record at `_dmarc.nady4.com`. See the _Link Building & off-page_ section below for the exact records.
+- **Performance hints** — `<link rel="preconnect">` for `fonts.googleapis.com` and `fonts.gstatic.com`, `fetchpriority="high"` on the hero image, lazy loading on every below-the-fold image, explicit `width`/`height` on every `<img>` to keep CLS at 0.
+- **Out of scope (intentional)** — YouTube and Facebook are not linked (intentionally absent per the owner's social-media strategy). Analytics (Plausible / Umami / GA4) is not yet installed; once picked, it can be added to `src/components/RouterHead.tsx` via `useDocumentHead` scripts.
 
 ### ⚡ Performance
 
@@ -277,14 +290,6 @@ Caching headers in `vercel.json`:
 | ----------------------- | -------------------------------------------------------- |
 | `/service-worker.js`    | `public, max-age=0, must-revalidate`                     |
 | `/assets/*`, `/build/*` | `public, max-age=31536000, s-maxage=31536000, immutable` |
-
-<br>
-
-## 📝 Notes
-
-- The Vercel Edge adapter in `adapters/vercel-edge/` is the only deploy target that's exercised; the other `entry.*.tsx` files exist to support other runtimes (dev, preview, custom server) without touching the build graph.
-- All CVs, blog posts, and images under `public/` are reserved content. Source code is MIT; see the License section below.
-- The screenshots in the README and on the live site are taken against the production build — if you change a section's layout, refresh the corresponding `public/*.png` to keep the gallery in sync.
 
 <br>
 

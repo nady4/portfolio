@@ -178,7 +178,7 @@ export default component$(() => {
     <>
       <section id="projects" class="projects-section">
         <header class="projects-head">
-          <h1>{t.projects_title}</h1>
+          <h2 class="projects-head__title">{t.projects_title}</h2>
         </header>
 
         <div class="projects-stack">

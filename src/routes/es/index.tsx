@@ -28,7 +28,7 @@ export default component$(() => {
 
 export const head: DocumentHead = {
   title:
-    "Nadya Jerochim - FullStack Developer | TypeScript | React | Next.js | Node.js",
+    "Nadya Jerochim - Desarrolladora FullStack | TypeScript | React | Next.js | Node.js",
   meta: [
     {
       name: "description",
@@ -42,13 +42,13 @@ export const head: DocumentHead = {
         "Full Stack Developer experienced in building web apps and serverless services with React, Node.js, TypeScript and Next.js.",
     },
     { property: "og:image", content: "https://www.nady4.com/dev.png" },
-    { property: "og:url", content: "https://www.nady4.com/" },
+    { property: "og:url", content: "https://www.nady4.com/es/" },
     { property: "og:type", content: "website" },
     { property: "og:image:type", content: "image/png" },
     { property: "og:image:width", content: "1024" },
     { property: "og:image:height", content: "1024" },
-    { property: "og:locale", content: "en_US" },
-    { property: "og:locale:alternate", content: "es_AR" },
+    { property: "og:locale", content: "es_AR" },
+    { property: "og:locale:alternate", content: "en_US" },
     { name: "twitter:card", content: "summary" },
     { name: "twitter:site", content: "@_nady4" },
     { name: "twitter:title", content: "Nadya Jerochim - Full Stack Developer" },

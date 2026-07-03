@@ -6,15 +6,26 @@ export const RouterHead = component$(() => {
   const head = useDocumentHead();
   const loc = useLocation();
 
+  const canonicalUrl = `${loc.url.origin}${loc.url.pathname}`;
+
   return (
     <>
       <title>{head.title}</title>
 
-      <link rel="canonical" href={loc.url.href} />
+      <link rel="canonical" href={canonicalUrl} />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="icon" type="image/svg+xml" href={faviconHref} />
+      <link rel="alternate icon" href="/favicon.ico" sizes="any" />
       <link rel="manifest" href="/manifest.json" />
       <meta name="theme-color" content="#1a1a2e" />
+      <meta name="apple-mobile-web-app-capable" content="yes" />
+      <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossOrigin="anonymous"
+      />
 
       {head.meta.map((m) => (
         <meta key={m.key} {...m} />

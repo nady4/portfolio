@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
 
+Host: https://nady4.com
 Sitemap: https://nady4.com/sitemap.xml

@@ -26,7 +26,7 @@ export default component$(() => {
           `}
         />
       </head>
-      <body lang="en">
+      <body>
         <RouterOutlet />
         <ServiceWorkerRegister />
       </body>

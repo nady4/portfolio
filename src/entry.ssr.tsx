@@ -16,12 +16,29 @@ import {
 } from "@builder.io/qwik/server";
 import Root from "./root";
 
+function detectLangFromUrl(url: string | undefined): string {
+  if (!url) return "en";
+  try {
+    const u = new URL(url);
+    if (u.pathname === "/es" || u.pathname.startsWith("/es/")) return "es";
+    if (u.pathname === "/en" || u.pathname.startsWith("/en/")) return "en";
+  } catch {
+    return "en";
+  }
+  return "en";
+}
+
 export default function (opts: RenderToStreamOptions) {
+  const requestUrl =
+    (opts.serverData?.url as string | undefined) ??
+    (opts as { url?: string }).url;
+  const lang = detectLangFromUrl(requestUrl);
+
   return renderToStream(<Root />, {
     ...opts,
     // Use container attributes to set attributes on the html tag.
     containerAttributes: {
-      lang: "en-us",
+      lang,
       ...opts.containerAttributes,
     },
     serverData: {

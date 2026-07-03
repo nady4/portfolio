@@ -9,6 +9,6 @@ tags: ["qwik", "markdown-it"]
 
 Esto es **Markdown**.
 
-<div style="padding:12px;border:1px solid #555;border-radius:10px">
+<div class="callout">
 HTML embebido porque <code>html: true</code> ✅
 </div>

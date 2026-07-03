@@ -2,6 +2,7 @@ import type { RequestHandler } from "@builder.io/qwik-city";
 import { getAllPosts } from "~/lib/blog";
 
 const SITE = "https://nady4.com";
+const NS = "http://www.w3.org/1999/xhtml";
 
 function xmlEscape(s: string) {
   return s
@@ -18,30 +19,102 @@ function toISODate(dateStr?: string) {
   return Number.isNaN(d.getTime()) ? new Date().toISOString() : d.toISOString();
 }
 
+interface Alternate {
+  hreflang: string;
+  href: string;
+}
+
+function renderAlternates(alts: Alternate[]): string {
+  return alts
+    .map(
+      (a) =>
+        `    <xhtml:link rel="alternate" hreflang="${a.hreflang}" href="${xmlEscape(a.href)}"/>`,
+    )
+    .join("\n");
+}
+
 export const onGet: RequestHandler = ({ headers, send }) => {
-  const staticUrls = [
-    { loc: `${SITE}/`, lastmod: new Date().toISOString() },
-    { loc: `${SITE}/blog/`, lastmod: new Date().toISOString() },
+  const posts = getAllPosts();
+  const now = new Date().toISOString();
+
+  type Entry = {
+    loc: string;
+    lastmod: string;
+    alts: Alternate[];
+  };
+
+  const entries: Entry[] = [
+    {
+      loc: `${SITE}/`,
+      lastmod: now,
+      alts: [
+        { hreflang: "en", href: `${SITE}/` },
+        { hreflang: "es", href: `${SITE}/es/` },
+        { hreflang: "x-default", href: `${SITE}/` },
+      ],
+    },
+    {
+      loc: `${SITE}/es/`,
+      lastmod: now,
+      alts: [
+        { hreflang: "en", href: `${SITE}/` },
+        { hreflang: "es", href: `${SITE}/es/` },
+        { hreflang: "x-default", href: `${SITE}/` },
+      ],
+    },
+    {
+      loc: `${SITE}/blog/`,
+      lastmod: now,
+      alts: [
+        { hreflang: "en", href: `${SITE}/blog/` },
+        { hreflang: "es", href: `${SITE}/es/blog/` },
+        { hreflang: "x-default", href: `${SITE}/blog/` },
+      ],
+    },
+    {
+      loc: `${SITE}/es/blog/`,
+      lastmod: now,
+      alts: [
+        { hreflang: "en", href: `${SITE}/blog/` },
+        { hreflang: "es", href: `${SITE}/es/blog/` },
+        { hreflang: "x-default", href: `${SITE}/blog/` },
+      ],
+    },
   ];
 
-  const posts = getAllPosts();
-  const postUrls = posts.map((p) => ({
-    loc: `${SITE}/blog/${p.slug}/`,
-    lastmod: toISODate(p.date),
-  }));
-
-  const urls = [...staticUrls, ...postUrls];
+  for (const p of posts) {
+    entries.push({
+      loc: `${SITE}/blog/${p.slug}/`,
+      lastmod: toISODate(p.date),
+      alts: [
+        { hreflang: "en", href: `${SITE}/blog/${p.slug}/` },
+        { hreflang: "es", href: `${SITE}/es/blog/${p.slug}/` },
+        { hreflang: "x-default", href: `${SITE}/blog/${p.slug}/` },
+      ],
+    });
+    entries.push({
+      loc: `${SITE}/es/blog/${p.slug}/`,
+      lastmod: toISODate(p.date),
+      alts: [
+        { hreflang: "en", href: `${SITE}/blog/${p.slug}/` },
+        { hreflang: "es", href: `${SITE}/es/blog/${p.slug}/` },
+        { hreflang: "x-default", href: `${SITE}/blog/${p.slug}/` },
+      ],
+    });
+  }
 
   const body =
     `<?xml version="1.0" encoding="UTF-8"?>\n` +
-    `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
-    urls
+    `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n` +
+    `        xmlns:xhtml="${NS}">\n` +
+    entries
       .map(
-        (u) =>
+        (e) =>
           `  <url>\n` +
-          `    <loc>${xmlEscape(u.loc)}</loc>\n` +
-          `    <lastmod>${xmlEscape(u.lastmod)}</lastmod>\n` +
-          `  </url>`
+          `    <loc>${xmlEscape(e.loc)}</loc>\n` +
+          `    <lastmod>${xmlEscape(e.lastmod)}</lastmod>\n` +
+          renderAlternates(e.alts) +
+          `\n  </url>`,
       )
       .join("\n") +
     `\n</urlset>\n`;

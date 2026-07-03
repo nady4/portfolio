@@ -5,6 +5,21 @@ import Moon from "../assets/moon.svg";
 import Sun from "../assets/sun.svg";
 import "../styles/Navbar.scss";
 
+function localizedPath(pathname: string, target: "en" | "es"): string {
+  if (pathname === "/" || pathname === "") return target === "es" ? "/es/" : "/";
+  if (pathname === "/es" || pathname.startsWith("/es/")) {
+    if (target === "es") return pathname === "/es" ? "/es/" : pathname;
+    return pathname === "/es" ? "/" : pathname.slice(3) || "/";
+  }
+  if (pathname === "/en" || pathname.startsWith("/en/")) {
+    if (target === "es") {
+      return pathname === "/en" ? "/es/" : `/es${pathname.slice(3)}`;
+    }
+    return pathname === "/en" ? "/" : pathname.slice(3) || "/";
+  }
+  return target === "es" ? `/es${pathname}` : pathname;
+}
+
 export default component$(() => {
   const t = useTranslations().value;
   const lang = useLocale().value;
@@ -12,8 +27,18 @@ export default component$(() => {
 
   const basePath = location.url.pathname;
   const hash = location.url.hash || "";
+  const esPath = localizedPath(basePath, "es");
+  const enPath = localizedPath(basePath, "en");
 
   const resumeFile = lang === "es" ? "/cv-es.pdf" : "/cv-en.pdf";
+  const homeHref = lang === "es" ? "/es/" : "/";
+  const projectsHref = lang === "es" ? "/es/#projects" : "/#projects";
+  const experienceHref = lang === "es" ? "/es/#experience" : "/#experience";
+  const educationHref = lang === "es" ? "/es/#education" : "/#education";
+  const skillsHref = lang === "es" ? "/es/#skills" : "/#skills";
+  const certificationsHref =
+    lang === "es" ? "/es/#certifications" : "/#certifications";
+  const contactHref = lang === "es" ? "/es/#contact" : "/#contact";
 
   const theme = useSignal<"dark" | "light">(
     typeof document !== "undefined" &&
@@ -68,14 +93,16 @@ export default component$(() => {
 
         <div class="lang-switch">
           <a
-            href={`${basePath}?lang=es${hash}`}
+            href={`${esPath}${hash}`}
             class={lang === "es" ? "lang-active" : ""}
+            hreflang="es"
           >
             ES
           </a>
           <a
-            href={`${basePath}?lang=en${hash}`}
+            href={`${enPath}${hash}`}
             class={lang === "en" ? "lang-active" : ""}
+            hreflang="en"
           >
             EN
           </a>
@@ -83,19 +110,19 @@ export default component$(() => {
       </div>
 
       <div
-        class="navbar-bottom"
-        style={{
-          transform: `translateY(-${scrollOffset.value}px)`
+        class={{
+          "navbar-bottom": true,
+          "navbar-bottom--hidden": scrollOffset.value > 0,
         }}
       >
         <div class="options">
-          <a href="/#home">{t.nav_home}</a>
-          <a href="/#projects">{t.nav_projects}</a>
-          <a href="/#experience">{t.nav_experience}</a>
-          <a href="/#education">{t.nav_education}</a>
-          <a href="/#skills">{t.nav_skills}</a>
-          <a href="/#certifications">{t.nav_certifications}</a>
-          <a href="/#contact">{t.nav_contact}</a>
+          <a href={homeHref}>{t.nav_home}</a>
+          <a href={projectsHref}>{t.nav_projects}</a>
+          <a href={experienceHref}>{t.nav_experience}</a>
+          <a href={educationHref}>{t.nav_education}</a>
+          <a href={skillsHref}>{t.nav_skills}</a>
+          <a href={certificationsHref}>{t.nav_certifications}</a>
+          <a href={contactHref}>{t.nav_contact}</a>
           <a href={resumeFile} download>
             {t.nav_resume}
           </a>

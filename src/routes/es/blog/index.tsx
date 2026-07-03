@@ -2,7 +2,6 @@ import { component$ } from "@builder.io/qwik";
 import { routeLoader$, type DocumentHead } from "@builder.io/qwik-city";
 import { getAllPosts } from "~/lib/blog";
 import Footer from "~/components/Footer";
-import { useLocale } from "~/routes/layout";
 import "~/styles/Blog.scss";
 
 export const useBlogFeed = routeLoader$(() => {
@@ -21,14 +20,12 @@ const formatDate = (date: string, lang: string) => {
 
 export default component$(() => {
   const feed = useBlogFeed();
-  const lang = useLocale().value;
-  const basePath = lang === "es" ? "/es/blog" : "/blog";
-  const homeHref = lang === "es" ? "/es/" : "/";
+  const basePath = "/es/blog";
 
   return (
     <main class="blog-page">
       <p>
-        <a href={homeHref}>&larr; Home</a>
+        <a href="/es/">&larr; Inicio</a>
       </p>
       <h1>nady4</h1>
 
@@ -38,7 +35,7 @@ export default component$(() => {
             <a href={`${basePath}/${p.slug}/`}>
               <strong>{p.title}</strong>
             </a>
-            <p>{formatDate(p.date, lang)}</p>
+            <p>{formatDate(p.date, "es")}</p>
             {p.description ? <p>{p.description}</p> : null}
           </li>
         ))}
@@ -48,25 +45,19 @@ export default component$(() => {
   );
 });
 
-export const head: DocumentHead = () => {
-  return {
-    title: "nady4",
-    meta: [
-      {
-        name: "description",
-        content:
-          "Full Stack Developer experienced in building web apps and serverless services with React, Node.js, TypeScript and Next.js.",
-      },
-      { name: "robots", content: "index, follow" },
-    ],
-    links: [
-      { rel: "alternate", hreflang: "en", href: "https://nady4.com/blog/" },
-      { rel: "alternate", hreflang: "es", href: "https://nady4.com/es/blog/" },
-      {
-        rel: "alternate",
-        hreflang: "x-default",
-        href: "https://nady4.com/blog/",
-      },
-    ],
-  };
+export const head: DocumentHead = {
+  title: "nady4",
+  meta: [
+    {
+      name: "description",
+      content:
+        "Full Stack Developer experienced in building web apps and serverless services with React, Node.js, TypeScript and Next.js.",
+    },
+    { name: "robots", content: "index, follow" },
+  ],
+  links: [
+    { rel: "alternate", hreflang: "en", href: "https://nady4.com/blog/" },
+    { rel: "alternate", hreflang: "es", href: "https://nady4.com/es/blog/" },
+    { rel: "alternate", hreflang: "x-default", href: "https://nady4.com/blog/" },
+  ],
 };
