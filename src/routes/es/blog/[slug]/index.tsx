@@ -80,6 +80,9 @@ export const head: DocumentHead = ({ resolveValue, params }) => {
         content: `https://nady4.com/es/blog/${slug}/`,
       },
       { property: "og:locale", content: "es_AR" },
+      { property: "og:locale:alternate", content: "en_US" },
+      { property: "og:image", content: "https://www.nady4.com/dev.png" },
+      { property: "og:image:alt", content: "Nadya Jerochim" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:title", content: post.title },
       {
@@ -88,6 +91,8 @@ export const head: DocumentHead = ({ resolveValue, params }) => {
           post.description ??
           "Full Stack Developer blog post by Nadya Jerochim.",
       },
+      { name: "twitter:image", content: "https://www.nady4.com/dev.png" },
+      { name: "twitter:image:alt", content: "Nadya Jerochim" },
     ],
     links: [
       {

@@ -12,6 +12,10 @@ export default component$(() => {
     <QwikCityProvider>
       <head>
         <meta charset="utf-8" />
+        <meta
+          name="google-site-verification"
+          content="_Gebr9SHL1Tcx7xNKIcuHoaq1P64fGlHT6ZtpqfetYc"
+        />
         <RouterHead />
         <script
           dangerouslySetInnerHTML={`

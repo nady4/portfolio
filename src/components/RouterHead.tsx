@@ -16,6 +16,7 @@ export const RouterHead = component$(() => {
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="icon" type="image/svg+xml" href={faviconHref} />
       <link rel="alternate icon" href="/favicon.ico" sizes="any" />
+      <link rel="apple-touch-icon" href="/favicon.svg" />
       <link rel="manifest" href="/manifest.json" />
       <meta name="theme-color" content="#1a1a2e" />
       <meta name="apple-mobile-web-app-capable" content="yes" />

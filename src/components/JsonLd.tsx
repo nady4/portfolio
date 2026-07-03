@@ -88,16 +88,27 @@ function websiteLd() {
   };
 }
 
-function organizationLd() {
+function professionalServiceLd() {
   return {
     "@context": "https://schema.org",
-    "@type": "Organization",
+    "@type": "ProfessionalService",
     "@id": ORG_ID,
     name: "Nadya Jerochim",
     url: `${SITE}/`,
+    image: `${SITE}/dev.png`,
     logo: `${SITE}/dev.png`,
     sameAs: SAME_AS,
     founder: { "@id": PERSON_ID },
+    serviceType: "Full Stack Web Development",
+    areaServed: {
+      "@type": "Country",
+      name: "Argentina",
+    },
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Buenos Aires",
+      addressCountry: "AR",
+    },
   };
 }
 
@@ -156,7 +167,7 @@ export const JsonLd = component$<{ post?: BlogPostLite }>(({ post }) => {
     head.meta.find((m) => m.name === "description")?.content ??
     "Full Stack Developer experienced in building web apps and serverless services with React, Node.js, TypeScript and Next.js.";
 
-  const blocks: object[] = [personLd(), websiteLd(), organizationLd()];
+  const blocks: object[] = [personLd(), websiteLd(), professionalServiceLd()];
 
   if (post) {
     blocks.push(blogPostingLd(post, locale));
