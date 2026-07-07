@@ -8,30 +8,34 @@ import { JsonLd } from "~/components/JsonLd";
 function detectLocale(
   pathname: string,
   paramLang: string | null,
+  cookieLang: string | null,
   acceptLanguage: string,
 ): Locale {
   if (pathname === "/es" || pathname.startsWith("/es/")) return "es";
   if (pathname === "/en" || pathname.startsWith("/en/")) return "en";
 
   if (paramLang === "es" || paramLang === "en") return paramLang;
+  if (cookieLang === "es" || cookieLang === "en") return cookieLang;
 
   return acceptLanguage.toLowerCase().startsWith("es") ? "es" : "en";
 }
 
-export const useLocale = routeLoader$(({ request, url }) => {
+export const useLocale = routeLoader$(({ request, url, cookie }) => {
   const acceptLanguage = request.headers.get("accept-language") || "";
   return detectLocale(
     url.pathname,
     url.searchParams.get("lang"),
+    cookie.get("lang")?.value ?? null,
     acceptLanguage,
   );
 });
 
-export const useTranslations = routeLoader$(({ request, url }) => {
+export const useTranslations = routeLoader$(({ request, url, cookie }) => {
   const acceptLanguage = request.headers.get("accept-language") || "";
   const lang = detectLocale(
     url.pathname,
     url.searchParams.get("lang"),
+    cookie.get("lang")?.value ?? null,
     acceptLanguage,
   );
   return t[lang];

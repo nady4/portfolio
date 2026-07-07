@@ -74,6 +74,10 @@ export default component$(() => {
     localStorage.setItem("theme", theme.value);
   });
 
+  const setLangCookie = $((target: "en" | "es") => {
+    document.cookie = `lang=${target}; path=/; max-age=${60 * 60 * 24 * 365}; SameSite=Lax`;
+  });
+
   return (
     <nav class="navbar">
       <div class="navbar-top">
@@ -96,6 +100,7 @@ export default component$(() => {
             href={`${esPath}${hash}`}
             class={lang === "es" ? "lang-active" : ""}
             hreflang="es"
+            onClick$={() => setLangCookie("es")}
           >
             ES
           </a>
@@ -103,6 +108,7 @@ export default component$(() => {
             href={`${enPath}${hash}`}
             class={lang === "en" ? "lang-active" : ""}
             hreflang="en"
+            onClick$={() => setLangCookie("en")}
           >
             EN
           </a>
