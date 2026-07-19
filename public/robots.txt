@@ -1,5 +1,7 @@
 User-agent: *
 Allow: /
+Disallow: /*-bundle-graph.json$
+Disallow: /q-manifest.json
 
 Host: https://nady4.com
 Sitemap: https://nady4.com/sitemap.xml

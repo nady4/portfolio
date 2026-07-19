@@ -1,24 +1,10 @@
 import { component$, useSignal, useOnWindow, $ } from "@builder.io/qwik";
 import { useLocation } from "@builder.io/qwik-city";
 import { useTranslations, useLocale } from "~/routes/layout";
+import { localizedPath } from "~/lib/locale";
 import Moon from "../assets/moon.svg";
 import Sun from "../assets/sun.svg";
 import "../styles/Navbar.scss";
-
-function localizedPath(pathname: string, target: "en" | "es"): string {
-  if (pathname === "/" || pathname === "") return target === "es" ? "/es/" : "/";
-  if (pathname === "/es" || pathname.startsWith("/es/")) {
-    if (target === "es") return pathname === "/es" ? "/es/" : pathname;
-    return pathname === "/es" ? "/" : pathname.slice(3) || "/";
-  }
-  if (pathname === "/en" || pathname.startsWith("/en/")) {
-    if (target === "es") {
-      return pathname === "/en" ? "/es/" : `/es${pathname.slice(3)}`;
-    }
-    return pathname === "/en" ? "/" : pathname.slice(3) || "/";
-  }
-  return target === "es" ? `/es${pathname}` : pathname;
-}
 
 export default component$(() => {
   const t = useTranslations().value;
