@@ -1,6 +1,6 @@
 import { useDocumentHead, useLocation } from "@builder.io/qwik-city";
 import { component$ } from "@builder.io/qwik";
-import { faviconHref } from "virtual:favicon-href";
+import { faviconHref, faviconIcoHref } from "virtual:favicon-href";
 
 export const RouterHead = component$(() => {
   const head = useDocumentHead();
@@ -15,7 +15,7 @@ export const RouterHead = component$(() => {
       <link rel="canonical" href={canonicalUrl} />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="icon" type="image/svg+xml" href={faviconHref} />
-      <link rel="alternate icon" href="/favicon.ico" sizes="any" />
+      <link rel="alternate icon" href={faviconIcoHref} sizes="any" />
       <link rel="apple-touch-icon" href="/favicon.svg" />
       <link rel="manifest" href="/manifest.json" />
       <meta name="theme-color" content="#111414" />

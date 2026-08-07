@@ -15,6 +15,10 @@ export default function faviconHref(): Plugin {
     return `/favicon.svg?v=${hash}`;
   }
 
+  function computeVersion(): string {
+    return computeHref().split("?v=")[1];
+  }
+
   let cachedHref: string | null = null;
 
   return {
@@ -25,7 +29,12 @@ export default function faviconHref(): Plugin {
     load(id) {
       if (id !== RESOLVED_VIRTUAL_ID) return;
       if (!cachedHref) cachedHref = computeHref();
-      return `export const faviconHref = ${JSON.stringify(cachedHref)};\n`;
+      const version = computeVersion();
+      return [
+        `export const faviconHref = ${JSON.stringify(cachedHref)};`,
+        `export const faviconIcoHref = ${JSON.stringify(`/favicon.ico?v=${version}`)};`,
+        "",
+      ].join("\n");
     },
     configureServer(server) {
       const absWatch = resolve(process.cwd(), FAVICON_PATH);
