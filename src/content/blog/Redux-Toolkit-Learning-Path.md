@@ -7,11 +7,6 @@ tags: ["redux", "redux-toolkit", "react", "web-dev"]
 
 # Redux Toolkit (RTK) Learning Path
 
-Category: Web Dev
-⭐ Skills: Redux (https://app.notion.com/p/Redux-ce0211f802fb4771aa86651428a2788d?pvs=21)
-
-[Redux Toolkit | Redux Toolkit](https://redux-toolkit.js.org/)
-
 ## 🛠️ Redux Basics
 
 ### What is Redux?
@@ -29,21 +24,17 @@ Think of Redux as a **centralized store** 🏪 where all your app’s data lives
 - **Subscribe** 👂: Allows the UI to listen for state updates.
 
 - **View/UI (Component) 🎨 → Dispatch 🚀**
-    - The user interacts with the UI 🎭, triggering an event.
-    - This event dispatches an **Action** 🎬 using `dispatch(action)`.
-    
+  - The user interacts with the UI 🎭, triggering an event.
+  - This event dispatches an **Action** 🎬 using `dispatch(action)`.
 - **Actions** ▶️ **→ Reducers 🔄**
-    - The dispatched action is sent to the **Reducers** 🔄.
-    - Actions are plain JavaScript objects 📜 that describe **what happened** (e.g., `{ type: 'INCREMENT' }`).
-    
+  - The dispatched action is sent to the **Reducers** 🔄.
+  - Actions are plain JavaScript objects 📜 that describe **what happened** (e.g., `{ type: 'INCREMENT' }`).
 - **Reducers 🔄 → Store 🏪**
-    - Reducers are **pure functions** 🧼 that take the current state 📦 and the action 🎬, then return a new state.
-    - The new state is stored in the **Redux Store** 🏪.
-    
+  - Reducers are **pure functions** 🧼 that take the current state 📦 and the action 🎬, then return a new state.
+  - The new state is stored in the **Redux Store** 🏪.
 - **Store 🏪 → View/UI 🎨 (Subscription 👂)**
-    - Components **subscribe** 📡 to the store to receive updates.
-    - When the store updates, the UI 🔄 re-renders with the new state.
-    
+  - Components **subscribe** 📡 to the store to receive updates.
+  - When the store updates, the UI 🔄 re-renders with the new state.
 
 ---
 
@@ -74,7 +65,7 @@ npm i @reduxjs/toolkit react-redux
 
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-const initialState: {value: number} = {value: 0};
+const initialState: { value: number } = { value: 0 };
 
 export const counterSlice = createSlice({
   name: "counter",
@@ -94,8 +85,8 @@ export const counterSlice = createSlice({
     },
     reset: (state) => {
       state.value = 0;
-    },
-  },
+    }
+  }
 });
 
 export const {
@@ -103,7 +94,7 @@ export const {
   decrement,
   incrementByAmount,
   decrementByAmount,
-  reset,
+  reset
 } = counterSlice.actions;
 
 export default counterSlice.reducer;
@@ -120,8 +111,8 @@ import { taskSlice } from "../features/tasks/taskSlice";
 // 🏪 Creating the Redux store and adding reducers
 export const store = configureStore({
   reducer: {
-    tasks: taskSlice.reducer, // 🔄 Adding the task reducer to the store
-  },
+    tasks: taskSlice.reducer // 🔄 Adding the task reducer to the store
+  }
 });
 
 // 🔹 Defining types for better TypeScript support
@@ -167,7 +158,7 @@ import ProviderWrapper from "@/redux/provider";
 import { store } from "@/redux/store";
 
 export default function RootLayout({
-  children,
+  children
 }: {
   children: React.ReactNode;
 }) {
@@ -235,21 +226,21 @@ export const useAppDispatch = () => useDispatch<AppDispatch>();
 ```tsx
 // redux/services/userApi.ts
 
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 export const userApi = createApi({
-  reducerPath: 'userAPI', // 🗂️ Unique key for the slice of state
+  reducerPath: "userAPI", // 🗂️ Unique key for the slice of state
   baseQuery: fetchBaseQuery({
-    baseUrl: 'https://jsonplaceholder.typicode.com/', // 🌐 Base URL for API requests
+    baseUrl: "https://jsonplaceholder.typicode.com/" // 🌐 Base URL for API requests
   }),
   endpoints: (builder) => ({
     getUsers: builder.query<User[], null>({
-      query: () => 'users', // 🚀 Fetch all users from the endpoint
+      query: () => "users" // 🚀 Fetch all users from the endpoint
     }),
     getUserById: builder.query<User, { id: string }>({
-      query: ({ id }) => `users/${id}`, // 🚀 Fetch a user by ID from the endpoint
-    }),
-  }),
+      query: ({ id }) => `users/${id}` // 🚀 Fetch a user by ID from the endpoint
+    })
+  })
 });
 
 // 🌟 Exporting hooks for component usage
@@ -362,12 +353,12 @@ npm i redux-thunk
 ### 🧩 Setup Middleware
 
 ```tsx
-import { configureStore } from '@reduxjs/toolkit';
-import thunk from 'redux-thunk';
+import { configureStore } from "@reduxjs/toolkit";
+import thunk from "redux-thunk";
 
 const store = configureStore({
   reducer: rootReducer,
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(thunk),
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(thunk)
 });
 ```
 
@@ -381,7 +372,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   data: [],
   loading: false,
-  error: null,
+  error: null
 };
 
 const dataSlice = createSlice({
@@ -398,8 +389,8 @@ const dataSlice = createSlice({
     fetchFailure: (state, action) => {
       state.loading = false;
       state.error = action.payload;
-    },
-  },
+    }
+  }
 });
 
 // Async Thunk Action
@@ -437,7 +428,9 @@ interface Post {
 
 function Home() {
   const dispatch = useAppDispatch();
-  const { data, loading, error } = useAppSelector((state: RootState) => state.data); // Access state correctly
+  const { data, loading, error } = useAppSelector(
+    (state: RootState) => state.data
+  ); // Access state correctly
 
   useEffect(() => {
     dispatch(fetchData()); // Dispatch the thunk on mount
@@ -470,21 +463,20 @@ function Home() {
 }
 
 export default Home;
-
 ```
 
 ```tsx
 // redux/store.ts
 
-import { configureStore } from '@reduxjs/toolkit';
-import counterReducer from './features/counterSlice';
-import dataReducer from './features/dataSlice'; // Import the new reducer
+import { configureStore } from "@reduxjs/toolkit";
+import counterReducer from "./features/counterSlice";
+import dataReducer from "./features/dataSlice"; // Import the new reducer
 
 export const store = configureStore({
   reducer: {
     counterReducer: counterReducer,
-    data: dataReducer, // Add the data reducer
-  },
+    data: dataReducer // Add the data reducer
+  }
 });
 
 export type RootState = ReturnType<typeof store.getState>;

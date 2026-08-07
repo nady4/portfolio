@@ -7,9 +7,6 @@ tags: ["nextjs", "react", "web-dev"]
 
 # Next.js Roadmap
 
-Category: Web Dev
-⭐ Skills: NextJS (https://app.notion.com/p/NextJS-c8c6f7d6322f40239fd1c0e21eb347e8?pvs=21)
-
 [Next.js by Vercel - The React Framework](https://nextjs.org/learn)
 
 ## Initialization
@@ -44,12 +41,12 @@ Next.js uses a file-system based router where folders are used to define routes.
 ```tsx
 export default function Page({
   params,
-  searchParams,
+  searchParams
 }: {
-  params: Promise<{ slug: string }>
-  searchParams: Promise<{ [key: string]: string | string[] | undefined }>
+  params: Promise<{ slug: string }>;
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }) {
-  return <h1>My Page</h1>
+  return <h1>My Page</h1>;
 }
 ```
 
@@ -71,7 +68,7 @@ A **`loading.js`** file can create instant loading states built on [Suspense]
 ```tsx
 export default function Loading() {
   // Or a custom loading skeleton component
-  return <p>Loading...</p>
+  return <p>Loading...</p>;
 }
 ```
 
@@ -82,8 +79,8 @@ export default function Loading() {
 The **`not-found.js`** file is used to render UI when the [`notFound`](https://nextjs.org/docs/app/api-reference/functions/not-found) function is thrown within a route segment. Along with serving a custom UI, Next.js will return a `200` HTTP status code for streamed responses, and `404` for non-streamed responses.
 
 ```tsx
-import Link from 'next/link'
- 
+import Link from "next/link";
+
 export default function NotFound() {
   return (
     <div>
@@ -91,7 +88,7 @@ export default function NotFound() {
       <p>Could not find requested resource</p>
       <Link href="/">Return Home</Link>
     </div>
-  )
+  );
 }
 ```
 
@@ -99,8 +96,8 @@ export default function NotFound() {
 
 ## Import Alias
 
-In Next.js, you can set up aliases for directories to simplify import statements by 
-configuring the `paths` property in the `tsconfig.json`  or `jsconfig.json`
+In Next.js, you can set up aliases for directories to simplify import statements by
+configuring the `paths` property in the `tsconfig.json` or `jsconfig.json`
 
 ```tsx
 {
@@ -140,7 +137,7 @@ They combine the best of SSR and client-side interactivity. They allow component
 ```tsx
 // Server Component
 async function ServerComponent() {
-  const data = await db.query('SELECT * FROM users');
+  const data = await db.query("SELECT * FROM users");
   return <UserList users={data} />;
 }
 ```
@@ -157,18 +154,14 @@ Client Side Rendering (CSR) is a rendering method where the initial HTML is mini
 
 ```tsx
 //Client Component
-'use client'
- 
-import { useState } from 'react'
- 
+"use client";
+
+import { useState } from "react";
+
 export default function Counter() {
-  const [count, setCount] = useState(0)
- 
-  return (
-    <button onClick={() => setCount(count + 1)}>
-      Count: {count}
-    </button>
-  )
+  const [count, setCount] = useState(0);
+
+  return <button onClick={() => setCount(count + 1)}>Count: {count}</button>;
 }
 ```
 
@@ -183,10 +176,10 @@ export default function Counter() {
 - You can enforce fully static rendering by using the `dynamic = 'force-static'` directive. This ensures that the page is generated at build time and never updated until the next build. This method is ideal for content that doesn't change, such as landing pages or archived blog posts.
 
 ```tsx
-export const dynamic = 'force-static';
+export const dynamic = "force-static";
 
 export default async function Page() {
-  const res = await fetch('https://api.example.com/data');
+  const res = await fetch("https://api.example.com/data");
   const data = await res.json();
 
   return <div>{data.message}</div>;
@@ -200,13 +193,13 @@ export default async function Page() {
 ```tsx
 export default async function Page() {
   // Data will be cached and revalidated every 60 seconds
-  const data = await fetch('https://api.example.com/data', {
+  const data = await fetch("https://api.example.com/data", {
     next: {
       revalidate: 60
     }
-  })
- 
-  return <main>{data.title}</main>
+  });
+
+  return <main>{data.title}</main>;
 }
 ```
 
@@ -221,14 +214,14 @@ Lets you wrap components that may need to wait for data to load. It provides a d
 - Prevents "waterfalls" by loading multiple components in parallel
 
 ```tsx
-import { Suspense } from 'react'
+import { Suspense } from "react";
 
 export default function Page() {
   return (
     <Suspense fallback={<Loading />}>
       <SlowComponent />
     </Suspense>
-  )
+  );
 }
 ```
 
@@ -241,47 +234,47 @@ Next.js has a Metadata API that can be used to define your application metadata 
 ### Static Metadata
 
 ```tsx
-import type { Metadata } from 'next'
- 
+import type { Metadata } from "next";
+
 export const metadata: Metadata = {
-  title: 'Next.js App',
-  description: 'Example web app for my portfolio',
-}
- 
+  title: "Next.js App",
+  description: "Example web app for my portfolio"
+};
+
 export default function Page() {}
 ```
 
 ### Dynamic Metadata
 
 ```tsx
-import type { Metadata, ResolvingMetadata } from 'next'
- 
+import type { Metadata, ResolvingMetadata } from "next";
+
 type Props = {
-  params: Promise<{ id: string }>
-  searchParams: Promise<{ [key: string]: string | string[] | undefined }>
-}
- 
+  params: Promise<{ id: string }>;
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+};
+
 export async function generateMetadata(
   { params, searchParams }: Props,
   parent: ResolvingMetadata
 ): Promise<Metadata> {
   // read route params
-  const id = (await params).id
- 
+  const id = (await params).id;
+
   // fetch data
-  const product = await fetch(`https://.../${id}`).then((res) => res.json())
- 
+  const product = await fetch(`https://.../${id}`).then((res) => res.json());
+
   // optionally access and extend (rather than replace) parent metadata
-  const previousImages = (await parent).openGraph?.images || []
- 
+  const previousImages = (await parent).openGraph?.images || [];
+
   return {
     title: product.title,
     openGraph: {
-      images: ['/some-specific-page-image.jpg', ...previousImages],
-    },
-  }
+      images: ["/some-specific-page-image.jpg", ...previousImages]
+    }
+  };
 }
- 
+
 export default function Page({ params, searchParams }: Props) {}
 ```
 
@@ -296,8 +289,8 @@ The `<Image />` component is an extension of the HTML `<img />` element, optimiz
 - Prevents layout shift by enforcing size requirements
 
 ```tsx
-import Image from 'next/image'
- 
+import Image from "next/image";
+
 export default function Page() {
   return (
     <Image
@@ -306,7 +299,7 @@ export default function Page() {
       height={500}
       alt="Picture of the author"
     />
-  )
+  );
 }
 ```
 
@@ -317,26 +310,26 @@ export default function Page() {
 - The next/font module provides built-in performance and font optimization features. It automatically hosts Google Fonts and custom fonts with zero layout shift, while also enabling self-hosting for improved privacy and performance. This module supports both variable and static fonts.
 
 ```tsx
-import { Inter, Lora, Source_Sans_3 } from 'next/font/google'
-import localFont from 'next/font/local'
- 
+import { Inter, Lora, Source_Sans_3 } from "next/font/google";
+import localFont from "next/font/local";
+
 // define your variable fonts
-const inter = Inter()
-const lora = Lora()
+const inter = Inter();
+const lora = Lora();
 
 // define 2 weights of a non-variable font
-const sourceCodePro400 = Source_Sans_3({ weight: '400' })
-const sourceCodePro700 = Source_Sans_3({ weight: '700' })
+const sourceCodePro400 = Source_Sans_3({ weight: "400" });
+const sourceCodePro700 = Source_Sans_3({ weight: "700" });
 
 // define a custom local font where GreatVibes-Regular.ttf is stored in the styles folder
-const greatVibes = localFont({ src: './GreatVibes-Regular.ttf' })
- 
-export { inter, lora, sourceCodePro400, sourceCodePro700, greatVibes }
+const greatVibes = localFont({ src: "./GreatVibes-Regular.ttf" });
+
+export { inter, lora, sourceCodePro400, sourceCodePro700, greatVibes };
 ```
 
 ```tsx
-import { inter, lora, sourceCodePro700, greatVibes } from '../styles/fonts'
- 
+import { inter, lora, sourceCodePro700, greatVibes } from "../styles/fonts";
+
 export default function Page() {
   return (
     <div>
@@ -347,7 +340,7 @@ export default function Page() {
       </p>
       <p className={greatVibes.className}>My title in Great Vibes font</p>
     </div>
-  )
+  );
 }
 ```
 
@@ -366,7 +359,7 @@ export default function Page() {
 - You can now import any font definition as follows:
 
 ```tsx
-import { greatVibes, sourceCodePro400 } from '@/fonts'
+import { greatVibes, sourceCodePro400 } from "@/fonts";
 ```
 
 ---
@@ -380,7 +373,7 @@ The `<Script />` component is an extension of the HTML `<script />` tag that opt
 - Built-in performance optimization for third-party scripts
 
 ```tsx
-import Script from 'next/script'
+import Script from "next/script";
 
 export default function Page() {
   return (
@@ -388,10 +381,10 @@ export default function Page() {
       <Script
         src="https://example.com/script.js"
         strategy="afterInteractive"
-        onLoad={() => console.log('Script loaded')}
+        onLoad={() => console.log("Script loaded")}
       />
     </>
-  )
+  );
 }
 ```
 
@@ -403,22 +396,21 @@ export default function Page() {
 
 - It automatically handles prefetching pages in the background, optimizing the UX by making navigation feel instant. It also maintains the application state and scroll position during navigation.
 - Dynamic routes can be handled by passing dynamic segments in the href prop:
-    
-    ```tsx
-    import Link from 'next/link';
-    
-    export default function HomePage() {
-      return (
-        <div>
-          <h1>Welcome</h1>
-          <Link href="/about">
-            <a>Go to About Page</a>
-          </Link>
-        </div>
-      );
-    }
-    ```
-    
+
+  ```tsx
+  import Link from "next/link";
+
+  export default function HomePage() {
+    return (
+      <div>
+        <h1>Welcome</h1>
+        <Link href="/about">
+          <a>Go to About Page</a>
+        </Link>
+      </div>
+    );
+  }
+  ```
 
 ---
 
@@ -433,8 +425,8 @@ revalidatePath(path: string, type?: 'page' | 'layout'): void;
 ```
 
 ```tsx
-import { revalidatePath } from 'next/cache'
-revalidatePath('/blog/post-1')
+import { revalidatePath } from "next/cache";
+revalidatePath("/blog/post-1");
 ```
 
 ---
@@ -456,16 +448,16 @@ redirect(path: string, type?: 'redirect' | 'push'): void;
 - A client-side hook that returns the current URL pathname. Useful for tracking the current route, implementing active link states, or triggering effects based on route changes. It's commonly used alongside other navigation hooks for building dynamic navigation interfaces.
 
 ```tsx
-'use client';
- 
-import { usePathname } from 'next/navigation';
- 
+"use client";
+
+import { usePathname } from "next/navigation";
+
 export default function Navigation() {
   const pathname = usePathname();
- 
+
   return (
     <nav>
-      <Link href="/" className={pathname === '/' ? 'active' : ''}>
+      <Link href="/" className={pathname === "/" ? "active" : ""}>
         Home
       </Link>
     </nav>
@@ -481,21 +473,17 @@ This hook provides client-side routing capabilities by enabling programmatic nav
 - The `router.back()` method navigates to the previous page in the browser's history stack, similar to clicking the browser's back button.
 
 ```tsx
-'use client';
- 
-import { useRouter } from 'next/navigation';
- 
+"use client";
+
+import { useRouter } from "next/navigation";
+
 export default function NavigationButtons() {
   const router = useRouter();
- 
+
   return (
     <div>
-      <button onClick={() => router.push('/dashboard')}>
-        Go to Dashboard
-      </button>
-      <button onClick={() => router.back()}>
-        Go Back
-      </button>
+      <button onClick={() => router.push("/dashboard")}>Go to Dashboard</button>
+      <button onClick={() => router.back()}>Go Back</button>
     </div>
   );
 }
@@ -504,16 +492,16 @@ export default function NavigationButtons() {
 - The `router.replace()` method is similar to `router.push()`, but it replaces the current history entry instead of adding a new one. This means that clicking the browser's back button won't return to the previous page. This is particularly useful for login/logout flows or when you want to prevent users from navigating back to a specific state.
 
 ```tsx
-'use client';
- 
-import { useRouter } from 'next/navigation';
- 
+"use client";
+
+import { useRouter } from "next/navigation";
+
 export default function LoginForm() {
   const router = useRouter();
- 
+
   const handleLogin = async () => {
     // After successful login
-    router.replace('/dashboard'); // User can't go back to login page
+    router.replace("/dashboard"); // User can't go back to login page
   };
 }
 ```
@@ -523,19 +511,15 @@ export default function LoginForm() {
 - This hook allows you to access and manipulate URL search parameters within your client components. This is particularly useful for handling query parameters in your application's routing and state management.
 
 ```tsx
-'use client';
- 
-import { useSearchParams } from 'next/navigation';
- 
+"use client";
+
+import { useSearchParams } from "next/navigation";
+
 export default function SearchBar() {
   const searchParams = useSearchParams();
-  const search = searchParams.get('q');
- 
-  return (
-    <div>
-      Search query: {search}
-    </div>
-  );
+  const search = searchParams.get("q");
+
+  return <div>Search query: {search}</div>;
 }
 ```
 
@@ -547,11 +531,11 @@ export default function SearchBar() {
 
 ```tsx
 export default async function Page({
-  params,
+  params
 }: {
-  params: Promise<{ slug: string }>
+  params: Promise<{ slug: string }>;
 }) {
-  const slug = (await params).slug
+  const slug = (await params).slug;
 }
 ```
 
@@ -568,16 +552,14 @@ http://localhost:3000/search?page=2&query=example
 ```
 
 ```tsx
-export default async function Page({
-  searchParams
-}) {
+export default async function Page({ searchParams }) {
   const currentPage = Number(searchParams?.page) || 1;
-  const query = searchParams?.query || '';
+  const query = searchParams?.query || "";
 
   return (
     <div>
       <h1>Search Results</h1>
-      <Table query={query} page={currentPage}/>
+      <Table query={query} page={currentPage} />
     </div>
   );
 }
@@ -592,29 +574,30 @@ export default async function Page({
 
 ```tsx
 export default function Page() {
-  async function create() {   // Server Action
-    'use server'
+  async function create() {
+    // Server Action
+    "use server";
     // Mutate data
   }
-  return '...'
+  return "...";
 }
 ```
 
 ```tsx
-'use server'
- 
+"use server";
+
 export async function create() {}
 ```
 
 - Then you can use them in client components.
 
 ```tsx
-'use client'
- 
-import { create } from '@/app/actions'
- 
+"use client";
+
+import { create } from "@/app/actions";
+
 export function Button() {
-  return <button onClick={() => create()}>Create</button>
+  return <button onClick={() => create()}>Create</button>;
 }
 ```
 
@@ -623,22 +606,22 @@ export function Button() {
 ```tsx
 export default function Page() {
   async function createInvoice(formData: FormData) {
-    'use server'
- 
+    "use server";
+
     const rawFormData = {
-      customerId: formData.get('customerId'),
-      amount: formData.get('amount'),
-      status: formData.get('status'),
-    }
- 
+      customerId: formData.get("customerId"),
+      amount: formData.get("amount"),
+      status: formData.get("status")
+    };
+
     sql`
       INSERT INTO invoices (customer_id, amount, status)
       VALUES (${rawFormData.customerId}, ${rawFormData.amount}, ${rawFormData.status});
     `;
-    revalidatePath("/invoices") //We need to revalidate the path as the data has changed
+    revalidatePath("/invoices"); //We need to revalidate the path as the data has changed
   }
- 
-  return <form action={createInvoice}>...</form>
+
+  return <form action={createInvoice}>...</form>;
 }
 ```
 
@@ -727,8 +710,8 @@ npm i next-auth
 ```tsx
 // .env
 
-NEXTAUTH_URL="http://localhost:3000"
-NEXTAUTH_SECRET="mysecret"
+NEXTAUTH_URL = "http://localhost:3000";
+NEXTAUTH_SECRET = "mysecret";
 ```
 
 - And set up our credential-based authentication
@@ -747,22 +730,22 @@ export const authOptions = {
         email: {
           label: "Email",
           type: "text",
-          placeholder: "nadyajerochim@gmail.com",
+          placeholder: "nadyajerochim@gmail.com"
         },
         password: {
           label: "Password",
           type: "password",
-          placeholder: "******",
-        },
+          placeholder: "******"
+        }
       },
       async authorize(credentials) {
         //... Validate email and password then return the user or an error
-      },
-    }),
+      }
+    })
   ],
   pages: {
-    signIn: "/auth/signin",
-  },
+    signIn: "/auth/signin"
+  }
 };
 
 const handler = NextAuth(authOptions);
@@ -807,7 +790,7 @@ function SignInPage() {
 export { default } from "next-auth/middleware";
 
 export const config = {
-  matcher: ["/dashboard/:path*"],
+  matcher: ["/dashboard/:path*"]
 };
 ```
 
@@ -840,19 +823,19 @@ export const config = {
 
 ```markdown
 /src
-	/app
-	  /api
-	  /page.tsx
-	  /cart
-		  /page.tsx
-	/components
-	  /ProductList.js
-	  /CartSummary.js
-	/db               
-	/lib
-	/models
-	/hooks
-	/styles
+/app
+/api
+/page.tsx
+/cart
+/page.tsx
+/components
+/ProductList.js
+/CartSummary.js
+/db  
+ /lib
+/models
+/hooks
+/styles
 ```
 
 ### Feature-Slice Design
@@ -861,24 +844,24 @@ export const config = {
 
 ```markdown
 /src
-  /features
-    /auth
-      /components
-      /api
-      /hooks
-      /models
-    /products
-      /components
-      /api
-      /hooks
-    /cart
-      /components
-      /api
-      /hooks
-  /shared
-    /ui
-    /lib
-    /api
+/features
+/auth
+/components
+/api
+/hooks
+/models
+/products
+/components
+/api
+/hooks
+/cart
+/components
+/api
+/hooks
+/shared
+/ui
+/lib
+/api
 ```
 
 ### Monorepo
@@ -887,17 +870,17 @@ export const config = {
 
 ```markdown
 /
-  /apps
-    /web
-    /mobile
-    /admin
-  /packages
-    /ui-components
-    /utils
-    /config
-  /tools
-    /scripts
-    /testing
+/apps
+/web
+/mobile
+/admin
+/packages
+/ui-components
+/utils
+/config
+/tools
+/scripts
+/testing
 ```
 
 ---
@@ -908,7 +891,7 @@ export const config = {
 
 [https://www.youtube.com/watch?v=m6KESRxAdK4&list=PLTHsJ1otlcc-Xfz5DyrQe7dC1YynTjSnn&index=16](https://www.youtube.com/watch?v=m6KESRxAdK4&list=PLTHsJ1otlcc-Xfz5DyrQe7dC1YynTjSnn&index=16)
 
-[https://www.youtube.com/watch?v=_SPoSMmN3ZU&list=PLTHsJ1otlcc-Xfz5DyrQe7dC1YynTjSnn&index=39](https://www.youtube.com/watch?v=_SPoSMmN3ZU&list=PLTHsJ1otlcc-Xfz5DyrQe7dC1YynTjSnn&index=39)
+[https://www.youtube.com/watch?v=\_SPoSMmN3ZU&list=PLTHsJ1otlcc-Xfz5DyrQe7dC1YynTjSnn&index=39](https://www.youtube.com/watch?v=_SPoSMmN3ZU&list=PLTHsJ1otlcc-Xfz5DyrQe7dC1YynTjSnn&index=39)
 
 [https://www.youtube.com/watch?v=2eAstzL1u_s&list=PLTHsJ1otlcc-Xfz5DyrQe7dC1YynTjSnn&index=39&pp=gAQBiAQB](https://www.youtube.com/watch?v=2eAstzL1u_s&list=PLTHsJ1otlcc-Xfz5DyrQe7dC1YynTjSnn&index=39&pp=gAQBiAQB)
 

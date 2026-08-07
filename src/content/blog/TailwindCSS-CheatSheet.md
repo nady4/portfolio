@@ -7,9 +7,6 @@ tags: ["tailwindcss", "css", "web-dev"]
 
 # TailwindCSS CheatSheet
 
-Category: Web Dev
-⭐ Skills: TailwindCSS (https://app.notion.com/p/TailwindCSS-5165f55e51224ae4a14e826a3679d19a?pvs=21)
-
 ## Installation
 
 ```tsx
@@ -22,15 +19,12 @@ npx tailwindcss init -p
 
 /** @type { import('tailwindcss).Config } */
 export default {
-	content: [
-		"./index.html",
-		"./src/**/*.{js,ts,jsx,tsx}",
-	],
-	theme: {
-		extend: {},
-	},
-	plugins: [],
-}
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  theme: {
+    extend: {}
+  },
+  plugins: []
+};
 ```
 
 ```css
@@ -46,13 +40,13 @@ export default {
 
 <!doctype html>
 <html>
-<head>
-	<!...>
-	<link href="./output.css" rel="stylesheet">
-</head>
-<body>
-	<!...>
-</body>
+  <head>
+    <!...>
+    <link href="./output.css" rel="stylesheet" />
+  </head>
+  <body>
+    <!...>
+  </body>
 </html>
 ```
 
@@ -105,10 +99,10 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        customFont: ["Custom Font", "sans-serif"],
-      },
-    },
-  },
+        customFont: ["Custom Font", "sans-serif"]
+      }
+    }
+  }
 };
 ```
 
@@ -130,25 +124,27 @@ module.exports = {
     extend: {
       colors: {
         // Add your custom colors here
-        primary: '#1a73e8',
-        secondary: '#ff8c00',
-        accent: '#d32f2f',
+        primary: "#1a73e8",
+        secondary: "#ff8c00",
+        accent: "#d32f2f",
         customGray: {
-          50: '#f9f9f9',
-          100: '#f0f0f0',
-          200: '#d9d9d9',
-          300: '#c2c2c2',
-        },
-      },
-    },
-  },
+          50: "#f9f9f9",
+          100: "#f0f0f0",
+          200: "#d9d9d9",
+          300: "#c2c2c2"
+        }
+      }
+    }
+  }
 };
 ```
 
 ### Background Gradient
 
 ```html
-<div className="bg-gradient-to-r from-blue-500 to-green-500">Gradient Background</div>
+<div className="bg-gradient-to-r from-blue-500 to-green-500">
+  Gradient Background
+</div>
 ```
 
 - Background gradient classes include `bg-gradient-to-t`, `bg-gradient-to-r`, `bg-gradient-to-b`, `bg-gradient-to-l`, and diagonal directions like `bg-gradient-to-tl`, combined with `from-{color}`, `via-{color}`, and `to-{color}` for multi-color gradients.
@@ -281,16 +277,16 @@ You can change the default breakpoints in the `tailwind.config.js` file.
 module.exports = {
   theme: {
     screens: {
-      'sm': '640px',
-      'md': '768px',
-      'lg': '1024px',
-      'xl': '1280px',
-      '2xl': '1536px',
-      
+      sm: "640px",
+      md: "768px",
+      lg: "1024px",
+      xl: "1280px",
+      "2xl": "1536px",
+
       //Custom breakpoint
-      'custom': '900px',
-    },
-  },
+      custom: "900px"
+    }
+  }
 };
 ```
 
@@ -435,7 +431,9 @@ module.exports = {
 ### Transform & Transition
 
 ```html
-<div className="transform hover:scale-110 transition duration-300">Hover to Enlarge</div>
+<div className="transform hover:scale-110 transition duration-300">
+  Hover to Enlarge
+</div>
 ```
 
 - Transform and transition classes include `transform`, `scale-{value}`, `rotate-{degrees}`, `translate-x-{value}`, `translate-y-{value}`, as well as `transition`, `duration-{ms}`, `ease-linear`, `ease-in`, and more to control animations and transformations.
@@ -455,10 +453,10 @@ module.exports = {
   theme: {
     extend: {
       animation: {
-        'spin-slow': 'spin 3s linear infinite',
-      },
-    },
-  },
+        "spin-slow": "spin 3s linear infinite"
+      }
+    }
+  }
 };
 ```
 

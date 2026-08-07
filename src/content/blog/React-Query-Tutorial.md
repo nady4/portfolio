@@ -7,9 +7,6 @@ tags: ["react-query", "tanstack-query", "react", "web-dev"]
 
 # React Query Tutorial
 
-Category: Web Dev
-⭐ Skills: React Query (https://app.notion.com/p/React-Query-704f2d0e781b4e29a47deaebd9315716?pvs=21)
-
 ## Installation
 
 ```bash
@@ -20,22 +17,22 @@ npm i @tanstack/react-query
 ```tsx
 //main.tsx
 
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import App from './App';
-import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
-import { ReactQueryDevTools } from '@tanstack/react-query-devtools';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App";
+import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
+import { ReactQueryDevTools } from "@tanstack/react-query-devtools";
 
-const queryClient = new QueryClient;
+const queryClient = new QueryClient();
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-	<React.StrictMode>
-		<QueryClientProvider client={queryClient}>
-			<App />
-			<ReactQueryDevTools />
-		</QueryClientProvider>
-	</React.StrictMode>
-)
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <React.StrictMode>
+    <QueryClientProvider client={queryClient}>
+      <App />
+      <ReactQueryDevTools />
+    </QueryClientProvider>
+  </React.StrictMode>
+);
 ```
 
 ## useQuery
@@ -43,15 +40,13 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 ```tsx
 // src/App.tsx
 
-import Products from './components/Products';
+import Products from "./components/Products";
 
 function App() {
-	return (
-		<Products />
-	)
+  return <Products />;
 }
 
-export default App
+export default App;
 ```
 
 ```tsx
@@ -68,17 +63,17 @@ export interface Product {
 ```tsx
 // src/api/productsAPI.js
 
-import axios from 'axios'
-import { Product } from '../types.d'
+import axios from "axios";
+import { Product } from "../types.d";
 
 const productsApi = axios.create({
-	baseURL: 'http://localhost:3000'
-})
+  baseURL: "http://localhost:3000"
+});
 
 export const getProducts = async (): Promise<Product[]> => {
-	const res = await	productsApi.get('/products');
-	return res.data;
-}
+  const res = await productsApi.get("/products");
+  return res.data;
+};
 ```
 
 ```tsx
@@ -93,7 +88,7 @@ function Products() {
 		queryKey: ['products'],
 		queryFn: getProducts
 	});
-	
+
 	if (isLoading) return <h3>Loading...</h3>
 	else if (isError) return <h3>Error: {error.message}</h3>
 
@@ -118,19 +113,19 @@ export default Products
 ```tsx
 // src/App.tsx
 
-import Products from './components/Products';
-import ProductForm from '/components/ProductForm';
+import Products from "./components/Products";
+import ProductForm from "/components/ProductForm";
 
 function App() {
-	return (
-		<>
-			<ProductForm/>
-			<Products />
-		</>
-	)
+  return (
+    <>
+      <ProductForm />
+      <Products />
+    </>
+  );
 }
 
-export default App
+export default App;
 ```
 
 ```tsx
@@ -138,9 +133,9 @@ export default App
 
 //...
 export const createProduct = (product: Product): Promise<Product> => {
-  const res = await productsApi.delete('/', product);
+  const res = await productsApi.delete("/", product);
   return res.data;
-}
+};
 ```
 
 ```tsx
@@ -174,13 +169,13 @@ function ProductForm() {
 		<form>
 			<label htmlFor="name">Name</label>
 			<input type="text" id="name" name="name" />
-			
+
 			<label htmlFor="description">Description</label>
 			<input type="text" id="description" name="description" />
-			
+
 			<label htmlFor="price">Price</label>
 			<input type="number" id="price" name="price" />
-			
+
 			<button>Add Product</button>
 		</form>
 	)
@@ -196,12 +191,12 @@ export default ProductForm
 
 //...
 function Products() {
-	const { isLoading, data, isError, error } = useQuery<Product[], Error>({
-		queryKey: ['products'],
-		queryFn: getProducts,
-		select: (products) => products.sort((a, b) => b.id - a.id)
-	});
-	//...	
+  const { isLoading, data, isError, error } = useQuery<Product[], Error>({
+    queryKey: ["products"],
+    queryFn: getProducts,
+    select: (products) => products.sort((a, b) => b.id - a.id)
+  });
+  //...
 }
 ```
 
@@ -212,9 +207,9 @@ function Products() {
 
 //...
 export const deleteProduct = (id: number): Promise<Product> => {
-  const res = await productsApi.post('/${id}');
+  const res = await productsApi.post("/${id}");
   return res.data;
-}
+};
 ```
 
 ```tsx
@@ -229,9 +224,9 @@ function Products() {
 		queryKey: ['products'],
 		queryFn: getProducts
 	});
-	
+
 	const queryClient = useQueryClient();
-	
+
 	const deleteProductMutation = useMutation({
 		mutationFn: deleteProduct,
 		onSuccess: () => {
@@ -239,7 +234,7 @@ function Products() {
 			queryClient.invalidateQueries('products');
 		}
 	})
-	
+
 	if (isLoading) return <h3>Loading...</h3>
 	else if (isError) return <h3>Error: {error.message}</h3>
 
@@ -271,9 +266,9 @@ export default Products
 
 //...
 export const updateProduct = (product: Product): Promise<Product> => {
-  const res = await productsApi.put('/${product.id}', product);
+  const res = await productsApi.put("/${product.id}", product);
   return res.data;
-}
+};
 ```
 
 ```tsx
@@ -288,9 +283,9 @@ function Products() {
 		queryKey: ['products'],
 		queryFn: getProducts
 	});
-	
+
 	const queryClient = useQueryClient();
-	
+
 	const deleteProductMutation = useMutation({
 		mutationFn: deleteProduct,
 		onSuccess: () => {
@@ -298,7 +293,7 @@ function Products() {
 			queryClient.invalidateQueries('products');
 		}
 	})
-	
+
 	const updateProdcutMutation = useMutation({
 		mutationFn: updateProduct,
 		onSuccess: () => {
@@ -306,7 +301,7 @@ function Products() {
 			queryClient.invalidateQueries('products');
 		}
 	})
-	
+
 	if (isLoading) return <h3>Loading...</h3>
 	else if (isError) return <h3>Error: {error.message}</h3>
 
@@ -342,7 +337,7 @@ export default Products
 
 ```tsx
 // src/hooks/useFetchUsers.tsx
-import { useInfiniteQuery } from '@tanstack/react-query';
+import { useInfiniteQuery } from "@tanstack/react-query";
 import { UsersResponse } from "../../types.d";
 
 const fetchUsers = async ({ pageParam = 0 }): Promise<UsersResponse> => {
@@ -363,7 +358,7 @@ const useFetchUsers = () => {
       const nextSkip = allPages.length * 10;
       return nextSkip < lastPage.total ? nextSkip : undefined;
     },
-    initialPageParam: 0,
+    initialPageParam: 0
   });
 };
 
@@ -371,7 +366,6 @@ export default useFetchUsers;
 ```
 
 ```tsx
-
 // src/App.tsx
 function App() {
   const { data, error, fetchNextPage, isFetchingNextPage } = useFetchUsers();

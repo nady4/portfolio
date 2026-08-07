@@ -7,8 +7,6 @@ tags: ["testing", "vitest", "jest", "cypress", "web-dev"]
 
 # Testing Notes
 
-⭐ Skills: Jest (https://app.notion.com/p/Jest-b07c2294b7c94572b7fb2878ef0968e6?pvs=21), Cypress (https://app.notion.com/p/Cypress-a6b54bdf59394d00870cc4e93d6babc7?pvs=21), Vitest (https://app.notion.com/p/Vitest-29324dee474b4315bc5c8c08f22360dc?pvs=21)
-
 ## Test Driven Development (TDD)
 
 **Test-driven development** (**TDD**) is a way of writing code that involves writing an automated unit-level test case that fails, then writing just enough code to make the test pass, then refactoring both the test code and the production code, then repeating with another new test case.
@@ -56,8 +54,8 @@ export default defineConfig({
   plugins: [react()],
   test: {
     globals: true,
-    environment: "happy-dom",
-  },
+    environment: "happy-dom"
+  }
 });
 ```
 
@@ -80,15 +78,16 @@ import { fizzBuzz } from "../src/fizzbuzz";
 
 describe("fizzBuzz", () => {
   it("should throw an error if no argument is provided", () => {
-    expect(() => fizzBuzz("")).toThrowError( // this calls the function
+    expect(() => fizzBuzz("")).toThrowError(
+      // this calls the function
       /The argument must be a number/
     );
   });
-  
+
   it("should return 1 if the argument is 1", () => {
     expect(fizzBuzz(1)).toBe("1"); // this passes the function as argument
   });
-  
+
   it("should return Fizz if the argument is multiple of 3", (): void => {
     expect(fizzBuzz(3)).toBe("Fizz");
     expect(fizzBuzz(6)).toBe("Fizz");
@@ -144,7 +143,7 @@ import { render, screen, cleanup, fireEvent } from "@testing-library/react";
 
 describe("Calculator", (): void => {
   afterEach(cleanup); // avoids calling cleanup (which cleans the DOM) on each test
-  
+
   it("should render", (): void => {
     render(<Calculator />);
   });
@@ -153,7 +152,7 @@ describe("Calculator", (): void => {
     render(<Calculator />);
     screen.getByText("Calculator"); // only visible after render
   });
-  
+
   it("should update user input after clicking a number", (): void => {
     render(<Calculator />);
     const oneButton = screen.getByText("1");
@@ -175,11 +174,11 @@ describe("Accordion", (): void => {
   test("should render", () => {
     expect(<Accordion title="Hello" content="World" />).toBeDefined();
   });
-  
+
   test("should not show the content at the start", () => {
     expect(screen.queryByText(/World/i)).toBeNull();
   });
-  
+
   test("should show the content when open", () => {
     fireEvent.click(screen.getByText(/Open/i));
     expect(screen.getByText(/World/i)).toBeDefined();
@@ -219,7 +218,7 @@ test('after clicking its children must be shown', () => {
 
 ```bash
 npm i jest -D
-npm i supertest -D 
+npm i supertest -D
 ```
 
 ```tsx
@@ -244,174 +243,168 @@ npm i supertest -D
 
 ```tsx
 // index.js
-const app = express()
+const app = express();
 
 export const server = app.listen(PORT, () => {
-	console.log(`Server running on port ${PORT}`)
-})
+  console.log(`Server running on port ${PORT}`);
+});
 
-export const api = supertest(app)
+export const api = supertest(app);
 ```
 
 ```tsx
 // tests/notes.test.ts
-const supertest = require('supertest')
-const Note = require('../models/Note')
-const initialNotes = require('../utils/notes')
-const { server, api } = require('../index.js')
+const supertest = require("supertest");
+const Note = require("../models/Note");
+const initialNotes = require("../utils/notes");
+const { server, api } = require("../index.js");
 
 // we create a mock database before each test
 beforeEach(async () => {
-	await Note.deleteMany({})
-	for (const note of initialNotes) {
-		const noteObject = new Note(note)
-		await noteObject.save()
-	}
-})
+  await Note.deleteMany({});
+  for (const note of initialNotes) {
+    const noteObject = new Note(note);
+    await noteObject.save();
+  }
+});
 
 //and close the connections after
 afterAll(() => {
-	mongoose.connection.close()
-	server.close()
-})
+  mongoose.connection.close();
+  server.close();
+});
 
 describe("GET /api/notes", () => {
-	test('notes are returned as json', async () => {
-		await api
-			.get('/api/notes')
-			.expect(200)
-			.expect('Content-Type', /application\/json/)
-	})
-	
-	test('there are two notes', async () => {
-		const res = await api.get('/api/notes')
-		expect(res.body).toHaveLength(initialNotes.length)
-	})
-	
-	test('the first note has expected title', async () => {
-		const res = await api.get('/api/notes')
-		const titles = res.body.map(note => note.title)
-		expect(titles).toContain('First note title')
-	})
-})
+  test("notes are returned as json", async () => {
+    await api
+      .get("/api/notes")
+      .expect(200)
+      .expect("Content-Type", /application\/json/);
+  });
+
+  test("there are two notes", async () => {
+    const res = await api.get("/api/notes");
+    expect(res.body).toHaveLength(initialNotes.length);
+  });
+
+  test("the first note has expected title", async () => {
+    const res = await api.get("/api/notes");
+    const titles = res.body.map((note) => note.title);
+    expect(titles).toContain("First note title");
+  });
+});
 
 describe("POST /api/notes", () => {
-	test('a valid note can be added', async () => {
-		const newNote = {
-			title: "New Note",
-			content: "testing"
-		}
-		
-		await api
-			.post('/api/notes')
-			.send(newNote)
-			.expect(200)
-			.expect('Content-Type', /application\/json/)
-			
-		const res = await api.get('/api/notes')
-		const contents = res.body.map(note => note.content)
-		
-		expect(contents).toContain(newNote.content)
-	})
-	
-	test('note without content is cant be added', async () => {
-	  const newNote = {
-	    title: "Invalid Note"
-	  }
-	
-	  await api
-	    .post('/api/notes')
-	    .send(newNote)
-	    .expect(400)
-	
-	  const res = await api.get('/api/notes')
-	  
-	  expect(res.body).toHaveLength(initialNotes.length)
-	})
-})
-
-describe("DELETE /api/notes", () => {
-	test('existing note can be deleted', async () => {
-		let res = await api.get('/api/notes')
-		const id = res.body[0].id
-		
-		await api
-			.delete(`/api/notes/${id}`)
-			.expect(204)
-		
-		res = await api.get('/api/notes')
-		const titles = res.body.map(note => note.title)
-		
-		expect(res.body).toHaveLength(initialNotes.length - 1)
-		expect(titles).not.toContain('First note title')
-	})
-	
-	test('invalid note cant be deleted', async () => {
-		await api
-			.delete(`/api/notes/invalidID`)
-			.expect(400)
-		
-		res = await api.get('/api/notes')
-		expect(res.body).toHaveLength(initialNotes.length)
-	})
-})
-
-describe("PUT /api/notes/:id", () => {
-	test('an existing note can be updated', async () => {
-	  let res = await api.get('/api/notes')
-    const noteToUpdate = res.body[0]
-
-    const updatedNote = {
-	    title: "Updated Title",
-	    content: "Updated content"
-    }
+  test("a valid note can be added", async () => {
+    const newNote = {
+      title: "New Note",
+      content: "testing"
+    };
 
     await api
-	    .put(`/api/notes/${noteToUpdate.id}`)
+      .post("/api/notes")
+      .send(newNote)
+      .expect(200)
+      .expect("Content-Type", /application\/json/);
+
+    const res = await api.get("/api/notes");
+    const contents = res.body.map((note) => note.content);
+
+    expect(contents).toContain(newNote.content);
+  });
+
+  test("note without content is cant be added", async () => {
+    const newNote = {
+      title: "Invalid Note"
+    };
+
+    await api.post("/api/notes").send(newNote).expect(400);
+
+    const res = await api.get("/api/notes");
+
+    expect(res.body).toHaveLength(initialNotes.length);
+  });
+});
+
+describe("DELETE /api/notes", () => {
+  test("existing note can be deleted", async () => {
+    let res = await api.get("/api/notes");
+    const id = res.body[0].id;
+
+    await api.delete(`/api/notes/${id}`).expect(204);
+
+    res = await api.get("/api/notes");
+    const titles = res.body.map((note) => note.title);
+
+    expect(res.body).toHaveLength(initialNotes.length - 1);
+    expect(titles).not.toContain("First note title");
+  });
+
+  test("invalid note cant be deleted", async () => {
+    await api.delete(`/api/notes/invalidID`).expect(400);
+
+    res = await api.get("/api/notes");
+    expect(res.body).toHaveLength(initialNotes.length);
+  });
+});
+
+describe("PUT /api/notes/:id", () => {
+  test("an existing note can be updated", async () => {
+    let res = await api.get("/api/notes");
+    const noteToUpdate = res.body[0];
+
+    const updatedNote = {
+      title: "Updated Title",
+      content: "Updated content"
+    };
+
+    await api
+      .put(`/api/notes/${noteToUpdate.id}`)
       .send(updatedNote)
       .expect(200)
-      .expect('Content-Type', /application\/json/)
+      .expect("Content-Type", /application\/json/);
 
-      res = await api.get('/api/notes')
-      const updatedNoteInDb = res.body.find(note => note.id === noteToUpdate.id)
+    res = await api.get("/api/notes");
+    const updatedNoteInDb = res.body.find(
+      (note) => note.id === noteToUpdate.id
+    );
 
-      expect(updatedNoteInDb.title).toBe(updatedNote.title)
-      expect(updatedNoteInDb.content).toBe(updatedNote.content)
-  })
+    expect(updatedNoteInDb.title).toBe(updatedNote.title);
+    expect(updatedNoteInDb.content).toBe(updatedNote.content);
+  });
 
-  test('cant update a note with invalid data', async () => {
-    let res = await api.get('/api/notes')
-    const noteToUpdate = res.body[0]
+  test("cant update a note with invalid data", async () => {
+    let res = await api.get("/api/notes");
+    const noteToUpdate = res.body[0];
 
     const invalidUpdate = {
       title: "",
       content: ""
-    }
+    };
 
     await api
       .put(`/api/notes/${noteToUpdate.id}`)
       .send(invalidUpdate)
-      .expect(400)
+      .expect(400);
 
-    res = await api.get('/api/notes')
-    const noteAfterUpdate = res.body.find(note => note.id === noteToUpdate.id)
+    res = await api.get("/api/notes");
+    const noteAfterUpdate = res.body.find(
+      (note) => note.id === noteToUpdate.id
+    );
 
-    expect(noteAfterUpdate.title).toBe(noteToUpdate.title)
-    expect(noteAfterUpdate.content).toBe(noteToUpdate.content)
-  })
+    expect(noteAfterUpdate.title).toBe(noteToUpdate.title);
+    expect(noteAfterUpdate.content).toBe(noteToUpdate.content);
+  });
 
-  test('invalid note cant be updated', async () => {
+  test("invalid note cant be updated", async () => {
     const newNote = {
       title: "Invalid Note",
       content: "This note does not exist"
-    }
+    };
 
-    await api
-      .put(`/api/notes/invalidID`)
-      .send(newNote)
-      .expect(404)
-  })
-})
+    await api.put(`/api/notes/invalidID`).send(newNote).expect(404);
+  });
+});
 ```
 
 - Another example with a different approach
@@ -436,7 +429,7 @@ describe("POST /tasks", () => {
   describe("given a title and description", () => {
     const newTask = {
       title: "some title",
-      description: "some description",
+      description: "some description"
     };
 
     // should respond with a 200 code
@@ -465,7 +458,7 @@ describe("POST /tasks", () => {
     test("shoud respond with a 400 status code", async () => {
       const fields = [
         { title: "some title" },
-        { description: "some description" },
+        { description: "some description" }
       ];
 
       for (const body of fields) {
@@ -534,115 +527,112 @@ if(process.env.NODE_ENV === 'test'}){
 
 ```tsx
 // frontend: crypress/support/commands.js
-Cypress.Commands.add('login', ({ username, password }) => {
-	cy.request('POST', 'http://localhost:3001/api/login', {
-		username,
-	  password
-	}).then(res => {
-	  localStorage.setItem(
-	    'user', JSON.stringify(res.body)
-	  )
-	})
-	cy.visit('http://localhost:3000') // we should revisit the page after login
-})
+Cypress.Commands.add("login", ({ username, password }) => {
+  cy.request("POST", "http://localhost:3001/api/login", {
+    username,
+    password
+  }).then((res) => {
+    localStorage.setItem("user", JSON.stringify(res.body));
+  });
+  cy.visit("http://localhost:3000"); // we should revisit the page after login
+});
 
-Cypress.Commands.add('addNote', ({ content, important }) => {
-	cy.request({
-		method: 'POST',
-		url: 'http://localhost:3001/api/notes',
-		body: { content, important },
-		headers: {
-			Authorization: `Bearer ${JSON.parse(localStorage.getItem('user')).token}`
-		}
-	})
-	cy.visit('http://localhost:3000') // if not the new note won't be there
-})
+Cypress.Commands.add("addNote", ({ content, important }) => {
+  cy.request({
+    method: "POST",
+    url: "http://localhost:3001/api/notes",
+    body: { content, important },
+    headers: {
+      Authorization: `Bearer ${JSON.parse(localStorage.getItem("user")).token}`
+    }
+  });
+  cy.visit("http://localhost:3000"); // if not the new note won't be there
+});
 ```
 
 - Now we can test the backend like a real user
 
 ```tsx
 // frontend: cypress/integration/note_app.spec.js
-describe('Note App', () => {
+describe("Note App", () => {
   const user = {
-    name: 'Nadya', // me uwu
-    username: 'nady4',
-    password: 'asd1234',
+    name: "Nadya", // me uwu
+    username: "nady4",
+    password: "asd1234"
   };
 
-	// we call the mock database endpoint
+  // we call the mock database endpoint
   beforeEach(() => {
-    cy.request('POST', 'http://localhost:3001/api/testing/reset')
-    cy.request('POST', 'http://localhost:3001/api/users', user)
-    cy.visit('http://localhost:3000')
+    cy.request("POST", "http://localhost:3001/api/testing/reset");
+    cy.request("POST", "http://localhost:3001/api/users", user);
+    cy.visit("http://localhost:3000");
   });
 
-  it('can open frontpage', () => {
-    cy.contains('Notes');
+  it("can open frontpage", () => {
+    cy.contains("Notes");
   });
-  
+
   // this tests the login form but the login itself should be tested with cy.login()
-  it('can submit login form', () => {
-		cy.get('#login-form').find('input[name="username"]').type(user.username)
-    cy.get('#login-form').find('input[name="password"]').type(user.password)
-    cy.get('#login-form').find('button[type="submit"]').click()
-    cy.contains('Create a new note');
+  it("can submit login form", () => {
+    cy.get("#login-form").find('input[name="username"]').type(user.username);
+    cy.get("#login-form").find('input[name="password"]').type(user.password);
+    cy.get("#login-form").find('button[type="submit"]').click();
+    cy.contains("Create a new note");
   });
-  
-  it('can login', () => {
-	  cy.login(user.username, user.password)
-    cy.contains('Create a new note'); // only visible after successful login
-  })
-  
-  it('fails login with wrong password', () => {
-	  cy.login(user.username, "incorrectPassword")
-	  cy.contains('Wrong credentials') // only visible after failed login
-  })
 
-  describe('when logged in', () => {
+  it("can login", () => {
+    cy.login(user.username, user.password);
+    cy.contains("Create a new note"); // only visible after successful login
+  });
+
+  it("fails login with wrong password", () => {
+    cy.login(user.username, "incorrectPassword");
+    cy.contains("Wrong credentials"); // only visible after failed login
+  });
+
+  describe("when logged in", () => {
     beforeEach(() => {
-      cy.login(user.username, user.password)
+      cy.login(user.username, user.password);
     });
-  
-    it('can create a new note from the form', () => {
-	    const noteContent = 'new note :D'
-      cy.get('input[name="note-content"]').type(noteContent)
-      cy.contains('Create a new note').click()
-      cy.contains(noteContent)
+
+    it("can create a new note from the form", () => {
+      const noteContent = "new note :D";
+      cy.get('input[name="note-content"]').type(noteContent);
+      cy.contains("Create a new note").click();
+      cy.contains(noteContent);
     });
-    
-    describe('and a note exists', () => {
-	    beforeEach(() => {
-		    cy.addNote({ content: "New Note", important: false })
-		    cy.contains("New Note")
-	    })
-	    
-	    it('can be made important', () => {
-		    cy.contains('New Note').as('newNote') // stores element reference as alias
-		        
-		    cy.get('@newNote') // calls the alias
-			    .contains('make important')
-			    .click()
-			    
-		    cy.get('@newNote')
-			    .contains('make not important')
-	    })
-    })
+
+    describe("and a note exists", () => {
+      beforeEach(() => {
+        cy.addNote({ content: "New Note", important: false });
+        cy.contains("New Note");
+      });
+
+      it("can be made important", () => {
+        cy.contains("New Note").as("newNote"); // stores element reference as alias
+
+        cy.get("@newNote") // calls the alias
+          .contains("make important")
+          .click();
+
+        cy.get("@newNote").contains("make not important");
+      });
+    });
   });
 });
 ```
 
 ## Resources
 
-[https://www.youtube.com/watch?v=_t9l2TwGioc&list=PLTHsJ1otlcc-Xfz5DyrQe7dC1YynTjSnn&index=35&pp=gAQBiAQB](https://www.youtube.com/watch?v=_t9l2TwGioc&list=PLTHsJ1otlcc-Xfz5DyrQe7dC1YynTjSnn&index=35&pp=gAQBiAQB)
+[https://www.youtube.com/watch?v=\_t9l2TwGioc&list=PLTHsJ1otlcc-Xfz5DyrQe7dC1YynTjSnn&index=35&pp=gAQBiAQB](https://www.youtube.com/watch?v=_t9l2TwGioc&list=PLTHsJ1otlcc-Xfz5DyrQe7dC1YynTjSnn&index=35&pp=gAQBiAQB)
 
 [https://www.youtube.com/watch?v=Yocj2BB3AQU&list=PLTHsJ1otlcc-Xfz5DyrQe7dC1YynTjSnn&index=36&pp=gAQBiAQB](https://www.youtube.com/watch?v=Yocj2BB3AQU&list=PLTHsJ1otlcc-Xfz5DyrQe7dC1YynTjSnn&index=36&pp=gAQBiAQB)
 
 [https://www.youtube.com/watch?v=KYjjtRgg_H0&list=PLTHsJ1otlcc-Xfz5DyrQe7dC1YynTjSnn&index=37&pp=gAQBiAQB](https://www.youtube.com/watch?v=KYjjtRgg_H0&list=PLTHsJ1otlcc-Xfz5DyrQe7dC1YynTjSnn&index=37&pp=gAQBiAQB)
 
-[https://www.youtube.com/watch?v=_DzBez4qMi0&list=PLTHsJ1otlcc-Xfz5DyrQe7dC1YynTjSnn&index=38&pp=gAQBiAQB](https://www.youtube.com/watch?v=_DzBez4qMi0&list=PLTHsJ1otlcc-Xfz5DyrQe7dC1YynTjSnn&index=38&pp=gAQBiAQB)
+[https://www.youtube.com/watch?v=\_DzBez4qMi0&list=PLTHsJ1otlcc-Xfz5DyrQe7dC1YynTjSnn&index=38&pp=gAQBiAQB](https://www.youtube.com/watch?v=_DzBez4qMi0&list=PLTHsJ1otlcc-Xfz5DyrQe7dC1YynTjSnn&index=38&pp=gAQBiAQB)
 
-[https://www.youtube.com/watch?v=_xxVJdGNMrs&list=PLTHsJ1otlcc-Xfz5DyrQe7dC1YynTjSnn&index=39&pp=gAQBiAQB](https://www.youtube.com/watch?v=_xxVJdGNMrs&list=PLTHsJ1otlcc-Xfz5DyrQe7dC1YynTjSnn&index=39&pp=gAQBiAQB)
+[https://www.youtube.com/watch?v=\_xxVJdGNMrs&list=PLTHsJ1otlcc-Xfz5DyrQe7dC1YynTjSnn&index=39&pp=gAQBiAQB](https://www.youtube.com/watch?v=_xxVJdGNMrs&list=PLTHsJ1otlcc-Xfz5DyrQe7dC1YynTjSnn&index=39&pp=gAQBiAQB)
 
 [https://www.youtube.com/watch?v=lZJ1mar_znk&list=PLTHsJ1otlcc-Xfz5DyrQe7dC1YynTjSnn&index=40&pp=gAQBiAQB](https://www.youtube.com/watch?v=lZJ1mar_znk&list=PLTHsJ1otlcc-Xfz5DyrQe7dC1YynTjSnn&index=40&pp=gAQBiAQB)
 

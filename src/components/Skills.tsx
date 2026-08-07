@@ -18,8 +18,8 @@ export default component$(() => {
         "SQL",
         "HTML5",
         "CSS3",
-        "SASS/SCSS",
-      ],
+        "SASS/SCSS"
+      ]
     },
     {
       key: "frontend",
@@ -32,8 +32,8 @@ export default component$(() => {
         "Redux Toolkit",
         "TanStack Query",
         "Zustand",
-        "Tailwind CSS",
-      ],
+        "Tailwind CSS"
+      ]
     },
     {
       key: "backend",
@@ -46,13 +46,13 @@ export default component$(() => {
         "Cloudflare Workers",
         "Serverless",
         "JWT Auth",
-        "OAuth2",
-      ],
+        "OAuth2"
+      ]
     },
     {
       key: "databases",
       title: t.skill_category_databases,
-      items: ["PostgreSQL", "MySQL", "MongoDB", "Redis", "Supabase", "NoSQL"],
+      items: ["PostgreSQL", "MySQL", "MongoDB", "Redis", "Supabase", "NoSQL"]
     },
     {
       key: "devops",
@@ -63,38 +63,37 @@ export default component$(() => {
         "CI/CD",
         "Cloudflare Firewall",
         "DNS",
-        "Email Routing",
-      ],
+        "Email Routing"
+      ]
     },
     {
       key: "testing",
       title: t.skill_category_testing,
-      items: ["Jest", "Cypress", "Vitest", "Playwright"],
+      items: ["Jest", "Cypress", "Vitest", "Playwright"]
     },
     {
       key: "tools",
       title: t.skill_category_tools,
-      items: ["Git", "Figma", "n8n", "Notion", "Scrum", "Agile"],
+      items: ["Git", "Figma", "n8n", "Notion", "Scrum", "Agile"]
     },
     {
       key: "ai",
       title: t.skill_category_ai,
       items: [
-        "LLM APIs",
-        "Prompt and output design",
+        "LLM APIs integration",
+        "Prompt engineering",
         "Tool calling",
         "Agent orchestration",
         "MCP",
         "RAG",
-        "Workflow automation",
-        "AI user experiences",
-      ],
+        "Workflow automations"
+      ]
     },
     {
       key: "spoken_languages",
       title: t.skill_category_spoken_languages,
-      items: ["English (C2)", "Spanish (Native)"],
-    },
+      items: ["English (C2)", "Spanish (Native)"]
+    }
   ];
 
   return (

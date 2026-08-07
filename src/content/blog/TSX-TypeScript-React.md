@@ -7,18 +7,6 @@ tags: ["typescript", "react", "tsx", "web-dev"]
 
 # TSX: TypeScript + React
 
-Category: Web Dev  
-⭐ Skills: [TypeScript](https://app.notion.com/p/TypeScript-20ea79aba59347ddadd5ea55397a99cb?pvs=21)
-
-<aside>
-💡
-
-> For TypeScript specific notes check these
-
-[Adapting from JS to TS | Notion](https://nady4.notion.site/Adapting-from-JS-to-TS-dcc31797b463472c859ac100d031b4dc)
-
-</aside>
-
 ## Create project
 
 ```bash
@@ -57,23 +45,23 @@ export default [
         ecmaVersion: 2021,
         sourceType: "module",
         ecmaFeatures: {
-          jsx: true,
-        },
-      },
+          jsx: true
+        }
+      }
     },
     plugins: ["react"],
     settings: {
       react: {
-        version: "detect",
-      },
+        version: "detect"
+      }
     },
     rules: {
       "react/react-in-jsx-scope": "off",
-      "react/jsx-uses-react": "off",
-    },
+      "react/jsx-uses-react": "off"
+    }
   },
   ...tseslint.configs.recommended,
-  pluginReact.configs.recommended,
+  pluginReact.configs.recommended
 ];
 ```
 
@@ -385,7 +373,7 @@ const Form = () => {
     nick: "",
     subMonths: 0,
     avatar: "",
-    description: "",
+    description: ""
   });
   // form state setup
 };
@@ -398,7 +386,7 @@ const Form = () => {
 const handleChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
   setInputValues({
     ...inputValues,
-    [evt.target.name]: evt.target.value,
+    [evt.target.name]: evt.target.value
   });
 };
 
@@ -456,7 +444,7 @@ const Form = ({ onNewSub }: FormProps) => {
     nick: "",
     subMonths: 0,
     avatar: "",
-    description: "",
+    description: ""
   });
 };
 
@@ -509,7 +497,7 @@ const Form = ({ onNewSub }: FormProps) => {
     nick: "",
     subMonths: 0,
     avatar: "",
-    description: "",
+    description: ""
   });
 
   const handleSubmit = (evt: React.FormEvent<HTMLFormElement>) => {
@@ -548,14 +536,14 @@ type FormReducerAction =
 
 const formReducer = (
   state: FormState["inputValues"],
-  action: FormReducerAction,
+  action: FormReducerAction
 ) => {
   switch (action.type) {
     case "change_value": {
       const { inputName, inputValue } = action.payload;
       return {
         ...state,
-        [inputName]: inputValue,
+        [inputName]: inputValue
       };
     }
     case "clear":
@@ -575,7 +563,7 @@ const Form = ({ onNewSub }: FormProps) => {
   };
 
   const handleChange = (
-    evt: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+    evt: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = evt.target;
 
@@ -583,8 +571,8 @@ const Form = ({ onNewSub }: FormProps) => {
       type: "change_value",
       payload: {
         inputName: name,
-        inputValue: value,
-      },
+        inputValue: value
+      }
     });
   };
 

@@ -7,9 +7,6 @@ tags: ["typescript", "javascript"]
 
 # From JavaScript to TypeScript in production
 
-Category: Engineering notes
-Skills: TypeScript, JavaScript
-
 ## **Compilation**
 
 TypeScript code runs on compiler time, in which it’s converted to JavaScript, that runs on execution time.
@@ -141,7 +138,7 @@ function throwError (message: string): never => {
 function createAddress() {
   return {
     planet: "Earth",
-    city: "Barcelona",
+    city: "Barcelona"
   };
 }
 
@@ -149,7 +146,7 @@ type Address = ReturnType<typeof createAddress>;
 
 const myAddress: Address = {
   planet: "Mars",
-  city: "Mount Olympus",
+  city: "Mount Olympus"
 };
 ```
 
@@ -243,7 +240,7 @@ const enum Direction {
   Up, // 0
   Down, // 1
   Left, // 2
-  Right, // 3
+  Right // 3
 }
 
 let move: Direction = Direction.Up;
@@ -285,7 +282,7 @@ interface Person {
 
 let user: Person = {
   name: "John",
-  age: 30,
+  age: 30
 };
 ```
 
@@ -316,7 +313,7 @@ interface Car {
 
 let myCar: Car = {
   make: "Toyota",
-  model: "Corolla",
+  model: "Corolla"
 }; // valid without 'year' ✔️
 ```
 
@@ -332,7 +329,7 @@ interface Book {
 
 let myBook: Book = {
   title: "TypeScript Handbook",
-  author: "Unknown",
+  author: "Unknown"
 };
 
 myBook.title = "Advanced TypeScript"; // ✔️
@@ -365,7 +362,7 @@ type HeroProperties = {
 
 const addressHero: HeroProperties["address"] = {
   city: "Madrid",
-  planet: "Earth",
+  planet: "Earth"
 };
 ```
 
@@ -389,7 +386,7 @@ type ElevatedEmployee = Admin & Employee;
 const e1: ElevatedEmployee = {
   name: "John",
   privileges: ["create-server"],
-  startDate: new Date(),
+  startDate: new Date()
 };
 ```
 
@@ -625,7 +622,7 @@ interface Todo {
 
 const todo: Readonly<Todo> = {
   title: "Learn TypeScript",
-  description: "Understand advanced concepts",
+  description: "Understand advanced concepts"
 };
 
 todo.title = "Learn JavaScript"; // ❌
@@ -647,7 +644,7 @@ type ReadonlyTodo = Readonly<Todo>;
 type PickTitle = Pick<Todo, "title">;
 
 let todo: PartialTodo = {
-  title: "Learn TypeScript",
+  title: "Learn TypeScript"
 };
 ```
 
