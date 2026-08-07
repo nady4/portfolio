@@ -1,12 +1,14 @@
-<h1 align="center"> nady4.com — Personal Portfolio </h1>
+<h1 align="center"> nady4.com — Full Stack AI Engineer Portfolio </h1>
 
 <p align="center">
-Server-rendered personal portfolio and integrated Markdown blog. Built with Qwik + Qwik City, deployed on the edge via Vercel. Bilingual (EN/ES) and with dark mode.
+Server-rendered Full Stack AI Engineer portfolio and integrated Markdown blog. Built with Qwik + Qwik City, deployed on the edge via Vercel. Bilingual (EN/ES), dark by default, and focused on production web products with LLM integrations, AI agents, and workflow automation.
 </p>
 
 <br>
 
 ## 📸 Screenshots
+
+> The checked-in PNGs are repository reference captures. The current deployed interface uses the dark-first editorial system described below.
 
 <table>
   <tr>
@@ -31,26 +33,35 @@ Server-rendered personal portfolio and integrated Markdown blog. Built with Qwik
 
 - **URL:** <b><a href="https://nady4.com">nady4.com</a></b>
 
+## Positioning
+
+Nadya builds software products enhanced with AI, not standalone AI demos. The portfolio presents full-stack systems that connect LLM APIs and agents to React or Next.js interfaces, Node.js services, databases, external APIs, and real business workflows.
+
+The primary role is **Full Stack AI Engineer**, with a focus on AI product engineering, LLM application development, agent orchestration, intelligent assistants, and production-ready automation.
+
 <br>
 
 ## ✨ Features
 
 ### 🏠 Portfolio
 
-- **Hero section** with a short bio, role, primary CTA into the projects gallery, and a secondary "Download resume" button that picks the right CV per locale (`cv-en.pdf` / `cv-es.pdf`).
-- **Navbar** with smooth-scroll anchors to Home, Experience, Education, Projects, Skills, Certifications and Contact — fully translated in EN/ES.
-- **Experience timeline** rendered as bullet lists of role contributions, sourced from the translation file so both languages stay in sync.
+- **Hero section** positioning Nadya as a Full Stack AI Engineer who ships AI features inside real products, with a primary CTA into the projects archive and a secondary resume download that picks the right CV per locale (`cv-en.pdf` / `cv-es.pdf`).
+- **Navbar** with smooth-scroll anchors to Home, Experience, Education, Projects, Stack, Credentials, Notes and Contact — fully translated in EN/ES.
+- **Data stream** with a single technical marquee for LLM integration, AI agents, workflow automation, TypeScript, React, and Cloudflare Workers.
+- **Experience ledger** rendered as dense role contribution lists, sourced from the translation file so both languages stay in sync.
 - **Education block** with degree, institution, and year range.
-- **Skills grid** with 8 categories (Languages, Frontend, Backend, Databases, DevOps, Testing, Tools, AI + Spoken Languages) — each rendered as a tag cloud.
-- **Certifications list** (Full Stack, QA, UX, Scrum, English C2) shown as cards.
+- **Tech Stack grid** with 9 indexed categories covering languages, frontend, backend, databases, DevOps, testing, tools, AI applications, and spoken languages.
+- **Credentials register** (Full Stack, QA, UX, Scrum, English C2) presented as an indexed ledger.
 - **Contact section** with a direct `mailto:dev@nady4.com` link.
-- **Footer** with name, email, and language-aware credits.
+- **Footer** with name, email, social links, notes link, and high-contrast theme-aware tokens.
 
 ### 🖼️ Projects showcase
 
-- **Per-project cards** with favicon, title, description, optional demo link, and one or more repo links.
-- **Horizontal-scroll screenshot gallery** per project, with `‹` / `›` navigation buttons and lazy-loaded images.
+- **Indexed case files** with project favicon, title, description, optional demo link, and one or more repo links.
+- **Horizontal-scroll screenshot gallery** per project, with `←` / `→` navigation buttons and lazy-loaded images.
+- **Clean project imagery** — screenshots render without grayscale, contrast, scanline, displacement, scaling, or animation effects.
 - **Lightbox preview** — click any screenshot to open it full-screen, close with `×` or by clicking the backdrop.
+- **Keyboard support** — press `Escape` to close the screenshot lightbox.
 - **Live data source** — remote screenshot URLs are inlined directly from each project's repo `public/` folder, so the gallery stays in sync with the deployed demos without re-committing binaries.
 - **Four featured projects**: [Calendar Money](https://money.nady4.com) (full-stack cash-flow app), [NYADY](https://nyady.nady4.com) (e-commerce + MercadoPago + Zipnova), [Nya Store](https://nya.nady4.com) (Next.js 15 e-commerce), and [DS Invite](https://ds.transistemas.org) (Cloudflare Workers + Discord OAuth).
 
@@ -59,13 +70,15 @@ Server-rendered personal portfolio and integrated Markdown blog. Built with Qwik
 - **Auto-discovered posts** in `src/content/blog/` — no manual registration needed. A custom Vite plugin in `vite-plugins/` walks the folder and exposes the content as the `virtual:blog-content` virtual module.
 - **Per-post frontmatter** (`title`, `date`, `description`, `tags`) drives the index page and per-post SEO.
 - **Rendered at build time** with `markdown-it`, so there is no runtime markdown parser in the client bundle.
-- **Localized slugs and metadata** — the blog index and the post route both pull translations from the same `translations.ts` file the rest of the app uses.
+- **Localized interface and metadata** — blog navigation, descriptions, fallbacks, and route metadata are localized in EN/ES while Markdown posts remain content-managed files.
 
 ### 🎨 Design & UX
 
-- **Dark / light theme** with persistence in `localStorage` and a token-driven SCSS layer (CSS custom properties + SCSS variables that wrap them).
+- **Dark-first theme** with explicit light mode, persistence in `localStorage`, and a token-driven SCSS layer (CSS custom properties + SCSS variables that wrap them).
+- **Industrial editorial design system** using off-black/off-white substrates, electric purple signals, green/red status artifacts, square geometry, technical labels, and asymmetric archive layouts.
 - **Bilingual out of the box** — language is resolved from `?lang=` first, then from the `Accept-Language` header, and exposed via `useTranslations()` / `useLocale()` route loaders.
-- **Reduced motion-aware** — lightbox transitions, navbar scroll, and gallery scroll respect `prefers-reduced-motion`.
+- **Responsive by design** — mobile layouts explicitly collapse grids, keep screenshot tracks touch-scrollable, wrap long project names, and preserve 44×44 interaction targets.
+- **Reduced motion-aware** — reveals, lightbox transitions, data stream motion, and gallery scrolling respect `prefers-reduced-motion`.
 - **Accessible** — keyboard-friendly lightbox, semantic landmarks, focus rings, and ARIA labels on every icon-only button.
 
 ### 🔍 SEO & metadata
@@ -75,17 +88,17 @@ Server-rendered personal portfolio and integrated Markdown blog. Built with Qwik
 - **Hreflang for both languages** — every page emits `hreflang="en"`, `hreflang="es"` and `hreflang="x-default"` link alternates pointing to the path-prefixed counterparts (`/`, `/es/`).
 - **Path-prefixed i18n** — the Spanish version of every page lives at `/es/…` (e.g. `/es/`, `/es/blog/`, `/es/blog/[slug]/`). The locale is resolved from `url.pathname` in `src/routes/layout.tsx`, with `?lang=` and `Accept-Language` as fallbacks. The language switcher in the Navbar swaps the path prefix instead of appending a query param.
 - **Reactive `<html lang>`** — `src/entry.ssr.tsx` reads the request URL from `serverData.url` and sets the SSR `containerAttributes.lang` to `"es"` or `"en"` accordingly. The `<body lang>` in `src/root.tsx` is set from the `useLocale` route loader so the client tree stays in sync.
-- **Multi-block JSON-LD** — `src/components/JsonLd.tsx` injects a `Person`, a `WebSite`, an `Organization`, and a `WebPage` (or `BlogPosting` for posts) directly as `<script type="application/ld+json">` tags. Rich-result validated against Google's Rich Results Test. The Person block references `knowsAbout`, `worksFor`, `alumniOf`, `hasCredential`, `address`, and `sameAs`.
-- **Single H1 per page** — the only `<h1>` lives in the Hero section. Every other section title is an `<h2>`, items are `<h3>`. Heading hierarchy has no gaps.
-- **Title length and keywords** — `<title>` is keyword-rich and within the 50-60 char SEO window. The Hero alt text and the meta description are aligned with the primary keyword cluster (Full Stack, TypeScript, React, Next.js, Node.js).
-- **Inline styles removed** — `src/components/Navbar.tsx` no longer uses `style={{ ... }}`; the hide-on-scroll transform is now a `.navbar-bottom--hidden` class in `src/styles/Navbar.scss`. Blog-post inline `style` attributes are converted to a `.callout` class in `src/styles/Post.scss`.
+- **Multi-block JSON-LD** — `src/components/JsonLd.tsx` injects a `Person`, a `WebSite`, a `ProfessionalService`, and a `WebPage` (or `BlogPosting` for posts) directly as `<script type="application/ld+json">` tags. The Person block references AI product engineering, LLM application development, agents, orchestration, API integration, databases, `worksFor`, `alumniOf`, `hasCredential`, `address`, and `sameAs`.
+- **Semantic heading hierarchy** — each route has its own page heading and section headings use `<h2>` with item headings at `<h3>`.
+- **AI positioning metadata** — titles, descriptions, Open Graph, Twitter cards, JSON-LD, `manifest.json`, and `llms.txt` consistently use the Full Stack AI Engineer positioning.
+- **Inline styles removed** — component styling stays in SCSS files; Markdown callouts use the `.callout` class in `src/styles/Post.scss`.
 - **Mobile tap targets** — the dark-mode toggle in `Navbar` and the gallery nav arrows in `Projects` are sized to a 44×44 minimum hit area.
 - **Generated sitemap** at `/sitemap.xml` — every static URL and every blog post has both English and Spanish entries, each with `<xhtml:link rel="alternate">` hreflang alternates. Cache header `s-maxage=3600`.
 - **`llms.txt`** at `/llms.txt` — entity description for LLM crawlers, generated per the emerging `llms.txt` spec, including the sitemap reference at the bottom.
 - **`robots.txt`** declares the canonical host and the sitemap URL.
-- **Favicon** — `public/favicon.svg` (modern browsers) plus a `public/favicon.ico` fallback for older clients and parsers that don't read SVG favicons.
+- **Favicon** — `public/favicon.svg` and regenerated `public/favicon.ico` both use the navbar's `N4` logo mark.
 - **Email deliverability (DNS)** — recommended (must be set at the DNS provider, not in this repo): an SPF record at the apex of `nady4.com` and a DMARC record at `_dmarc.nady4.com`. See the _Link Building & off-page_ section below for the exact records.
-- **Performance hints** — `<link rel="preconnect">` for `fonts.googleapis.com` and `fonts.gstatic.com`, `fetchpriority="high"` on the hero image, lazy loading on every below-the-fold image, explicit `width`/`height` on every `<img>` to keep CLS at 0.
+- **Performance hints** — system font stacks avoid external font requests, `fetchpriority="high"` is set on the hero image, below-the-fold images are lazy-loaded, and every image has explicit dimensions to reduce CLS.
 - **Out of scope (intentional)** — YouTube and Facebook are not linked (intentionally absent per the owner's social-media strategy). Analytics (Plausible / Umami / GA4) is not yet installed; once picked, it can be added to `src/components/RouterHead.tsx` via `useDocumentHead` scripts.
 
 ### ⚡ Performance
@@ -104,7 +117,7 @@ Server-rendered personal portfolio and integrated Markdown blog. Built with Qwik
 | Framework       | [Qwik](https://qwik.dev) + [Qwik City](https://qwik.dev/qwikcity/overview/)        |
 | Build tool      | [Vite](https://vitejs.dev) `7.x`                                                   |
 | Language        | TypeScript `5.4`                                                                   |
-| Styling         | SCSS modules with CSS custom properties for theming                                |
+| Styling         | Component SCSS stylesheets with CSS custom properties for theming                  |
 | Content         | Markdown (`markdown-it`) loaded through a custom Vite virtual module               |
 | Linting         | ESLint `9` (flat config)                                                           |
 | Formatting      | Prettier `3`                                                                       |
@@ -124,14 +137,16 @@ portfolio/                  # This repo
 │   ├── 1.png / 2.png / 3.png   # README screenshots
 │   ├── cv-en.pdf / cv-es.pdf   # Bilingual resume
 │   ├── dev.png                 # Hero illustration
-│   ├── favicon.svg
+│   ├── favicon.svg / favicon.ico # N4 navbar mark
+│   ├── llms.txt
 │   ├── manifest.json
 │   ├── projects/               # Project favicons
 │   └── robots.txt
 ├── src/
 │   ├── assets/             # Images and SVGs imported as URLs
-│   ├── components/         # Hero, Navbar, Projects, Experience, Education,
-│   │                        # Skills, Certifications, Contact, Footer, RouterHead
+│   ├── components/         # Hero, DataStream, Signal, Navbar, Projects,
+│   │                        # Experience, Education, Skills, Credentials, Contact,
+│   │                        # Footer, RouterHead
 │   ├── content/blog/       # Markdown posts (auto-discovered)
 │   ├── lib/                # Translations, blog helpers
 │   ├── routes/             # Qwik City file-based routes
@@ -140,14 +155,14 @@ portfolio/                  # This repo
 │   │   │   └── index.tsx   # Blog index
 │   │   ├── sitemap.xml/    # Generated sitemap endpoint
 │   │   ├── index.tsx       # Landing page
-│   │   └── layout.tsx      # Root layout, i18n + SEO + theme
+│   │   └── layout.tsx      # Root layout, i18n + SEO + dark-first theme
 │   ├── styles/             # Component-scoped SCSS files
 │   ├── types/              # Shared TypeScript types
 │   ├── entry.dev.tsx
 │   ├── entry.preview.tsx
 │   ├── entry.ssr.tsx
 │   ├── entry.vercel-edge.tsx
-│   ├── global.css
+│   ├── global.css          # Theme tokens, focus states, motion primitives
 │   └── root.tsx
 ├── vite-plugins/           # Custom Vite plugin for blog content
 ├── vercel.json             # Edge caching headers
@@ -161,9 +176,11 @@ portfolio/                  # This repo
 
 - **Vite virtual module for blog content** — a tiny custom plugin in `vite-plugins/` walks `src/content/blog/` at build time, parses frontmatter + body with `markdown-it`, and exposes the result as `virtual:blog-content`. Routes import from the virtual module, so adding a `.md` file is enough to publish a new post.
 - **i18n resolved at request time** — `src/routes/layout.tsx` checks `?lang=` first, then the `Accept-Language` header, then falls back to English. The chosen locale is exposed through `useLocale()` and `useTranslations()` route loaders so any component can read strings without prop-drilling.
-- **SCSS tokens as CSS custom properties** — colors, borders, shadows, radii, and font sizes are defined once in CSS variables on `:root` (and overridden for the light theme). SCSS variables wrap them via `var(...)`, so every component automatically responds to theme switches.
-- **Image preloading** — the hero `<img>` and the project gallery thumbnails all set explicit `width`/`height` and `loading="lazy"` (when below the fold) to keep CLS at 0.
-- **SEO head** — `src/components/RouterHead.tsx` builds a `<DocumentHead>` value for every route, including Open Graph, Twitter cards, canonical URL, and the JSON-LD `Person` blob injected by the root layout.
+- **Dark-first theme initialization** — `src/root.tsx` applies the persisted light theme before paint when selected; otherwise dark mode is used by default. `Navbar` synchronizes its signal with the document theme before interaction.
+- **SCSS tokens as CSS custom properties** — colors, borders, footer contrast, and typography are defined once in CSS variables on `:root` (dark) and overridden under `[data-theme="light"]`. SCSS variables wrap them via `var(...)`, so every component responds to theme switches.
+- **Image treatment** — the hero keeps its editorial scanlines and border treatment, while project screenshots remain clean and unfiltered. The hero `<img>` and project gallery images use explicit dimensions; gallery images are lazy-loaded below the fold.
+- **Reusable editorial primitives** — `Signal` provides technical labels and `DataStream` provides the single controlled marquee used between the hero and project archive.
+- **SEO head** — `src/components/RouterHead.tsx` builds a `<DocumentHead>` value for every route, including Open Graph, Twitter cards, canonical URL, and the JSON-LD blocks injected by the root layout.
 
 <br>
 
