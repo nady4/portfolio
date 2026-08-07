@@ -12,22 +12,23 @@ export const translations = {
 
     hero_title: "Nadya Jerochim",
     hero_subtitle: "Full Stack AI Engineer",
-    hero_kicker: "AI PRODUCT ENGINEERING / FULL STACK SYSTEMS",
+    hero_kicker: "AI PRODUCT ENGINEERING / FULL STACK DEVELOPER",
     hero_signal: "signal acquired",
     hero_status_label: "interface online",
     hero_role_detail: "LLM INTEGRATIONS, AGENTS, AUTOMATION",
-    hero_footnote: "PRODUCTION AI / NOT DEMOS",
+    hero_footnote: "AVAILABLE FOR WORK",
     hero_status:
-      "I connect models to product interfaces, APIs, data, and business logic.",
+      "Make it simple, but significant",
     hero_image_alt: "Nadya Jerochim, Full Stack AI Engineer",
     hero_desc:
       "I build production web products with AI integrated into real workflows: LLM features, agents, APIs, data, and automation.",
 
     projects_title: "Projects",
-    projects_signal: "selected builds",
+    projects_suffix: "CODING EXPERIENCES",
+    projects_signal: "shipped products",
     projects_index: "IMAGE INDEX / 2021—26",
     projects_intro:
-      "A working archive of full-stack products, platform integrations, and AI-enabled workflows.",
+      "My portfolio of full-stack products, platform integrations, and AI-enabled workflows.",
     project_active: "active system",
     project_archived: "archived system",
     project_live_demo: "Live demo",
@@ -50,7 +51,7 @@ export const translations = {
 
     experience_signal: "career log",
     experience_title: "Experience",
-    experience_suffix: "/ PRODUCT SYSTEMS",
+    experience_suffix: "/ PROFFESIONAL JOURNEY",
     experience_1_title: "Full Stack Developer",
     experience_1_company: "Transistemas",
     experience_1_period: "Dec 2024 - Present",
@@ -62,15 +63,15 @@ export const translations = {
     experience_2_desc:
       "Coordinate delivery across development projects using Agile planning, GitHub, and Notion.\nTranslate client and NGO needs into software requirements, delivery plans, and long-term support.\nLead technical interviews, candidate selection, and structured onboarding for the development team.\nCoordinate Development, Design, Education, and Communications around product and infrastructure needs.\nLead cybersecurity initiatives and modernization of the organization's digital infrastructure.",
 
-    education_signal: "background",
+    education_signal: "knowledge graph",
     education_title: "Education",
-    education_suffix: "/ ORIGIN",
+    education_suffix: "/ CONTINUOUS LEARNING",
     education_university: "Bachelor of Information Systems",
     education_highschool: "H.S. Diploma, Economics & Administration",
 
-    skills_signal: "AI product stack",
+    skills_signal: "toolkit",
     skills_title: "Tech Stack",
-    skills_suffix: "/ MATERIALS",
+    skills_suffix: "/ SKILLS",
     skill_category_frontend: "Frontend",
     skill_category_languages: "Languages",
     skill_category_devops: "DevOps & Cloud",
@@ -115,22 +116,23 @@ export const translations = {
 
     hero_title: "Nadya Jerochim",
     hero_subtitle: "Ingeniera Full Stack de IA",
-    hero_kicker: "INGENIERÍA DE PRODUCTOS CON IA / SISTEMAS FULL STACK",
+    hero_kicker: "AI PRODUCT ENGINEERING / FULL STACK DEVELOPER",
     hero_signal: "señal adquirida",
     hero_status_label: "interfaz en línea",
     hero_role_detail: "INTEGRACIONES CON LLM, AGENTES, AUTOMATIZACIÓN",
-    hero_footnote: "IA EN PRODUCCIÓN / NO DEMOS",
+    hero_footnote: "DISPONIBLE PARA TRABAJAR",
     hero_status:
-      "Conecto modelos con interfaces de producto, APIs, datos y lógica de negocio.",
+      "Make it simple, but significant",
     hero_image_alt: "Nadya Jerochim, ingeniera Full Stack de IA",
     hero_desc:
       "Construyo productos web listos para producción con IA integrada en flujos reales: funcionalidades con LLM, agentes, APIs, datos y automatización.",
 
     projects_title: "Proyectos",
-    projects_signal: "proyectos seleccionados",
+    projects_suffix: "EXPERIENCIAS DIGITALES",
+    projects_signal: "productos entregados",
     projects_index: "ÍNDICE DE IMÁGENES / 2021—26",
     projects_intro:
-      "Un archivo de productos full stack, integraciones de plataforma y flujos de trabajo potenciados con IA.",
+      "Mi portfolio de productos full stack, integraciones de plataforma y flujos de trabajo potenciados con IA.",
     project_active: "sistema activo",
     project_archived: "sistema archivado",
     project_live_demo: "Demo en vivo",
@@ -153,7 +155,7 @@ export const translations = {
 
     experience_signal: "registro profesional",
     experience_title: "Experiencia",
-    experience_suffix: "/ SISTEMAS DE PRODUCTO",
+    experience_suffix: "/ TRAYECTORIA PROFESIONAL",
     experience_1_title: "Full Stack Developer",
     experience_1_company: "Transistemas",
     experience_1_period: "Dic 2024 - Presente",
@@ -165,15 +167,15 @@ export const translations = {
     experience_2_desc:
       "Coordino entregas de proyectos de desarrollo con planificación Agile, GitHub y Notion.\nConvierto necesidades de clientes y ONGs en requerimientos de software, planes de entrega y soporte a largo plazo.\nLidero entrevistas técnicas, selección y onboarding estructurado para el equipo de desarrollo.\nCoordino Desarrollo, Diseño, Educación y Comunicación alrededor de necesidades de producto e infraestructura.\nLidero iniciativas de ciberseguridad y modernización de la infraestructura digital de la organización.",
 
-    education_signal: "formación",
+    education_signal: "knowledge graph",
     education_title: "Educación",
-    education_suffix: "/ ORIGEN",
+    education_suffix: "/ APRENDIZAJE CONTINUO",
     education_university: "Licenciatura en Sistemas",
     education_highschool: "Bachiller en Economía y Administración",
 
-    skills_signal: "stack de productos con IA",
+    skills_signal: "habilidades",
     skills_title: "Stack tecnológico",
-    skills_suffix: "/ MATERIALES",
+    skills_suffix: "/ SKILLS",
     skill_category_frontend: "Frontend",
     skill_category_languages: "Lenguajes",
     skill_category_devops: "DevOps y Cloud",

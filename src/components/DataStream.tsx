@@ -2,15 +2,16 @@ import { component$ } from "@builder.io/qwik";
 import "../styles/DataStream.scss";
 
 const stream = [
-  "N4 / LIVE INDEX",
+  "NADY4",
   "TYPESCRIPT",
   "REACT",
+  "NODE.JS",
   "LLM INTEGRATION",
   "AI AGENTS",
   "WORKFLOW AUTOMATION",
   "CLOUDFLARE WORKERS",
-  "SYSTEMS / 2026",
-  "BUENOS AIRES",
+  "N4 / 2026",
+  "BUENOS AIRES"
 ];
 
 export default component$(() => {

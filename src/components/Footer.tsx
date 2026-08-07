@@ -5,7 +5,6 @@ import "../styles/Footer.scss";
 import GithubLogo from "../assets/github.svg";
 import LinkedInLogo from "../assets/linkedIn.svg";
 import XLogo from "../assets/x.svg";
-import InstagramLogo from "../assets/ig.svg";
 
 export default component$(() => {
   const t = useTranslations().value;
@@ -53,14 +52,6 @@ export default component$(() => {
               aria-label="X profile"
             >
               <img src={XLogo} alt="X" width="24" height="24" />
-            </a>
-            <a
-              href="https://www.instagram.com/nady4_dev"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Instagram profile"
-            >
-              <img src={InstagramLogo} alt="Instagram" width="24" height="24" />
             </a>
           </div>
           <span class="footer__year">© 2026 / N4</span>

@@ -33,43 +33,43 @@ const projects: Project[] = [
       { label: "Repo Front", href: "https://github.com/nady4/calendar-money" },
       {
         label: "Repo Back",
-        href: "https://github.com/nady4/calendar-money-api",
-      },
+        href: "https://github.com/nady4/calendar-money-api"
+      }
     ],
     shots: [
       {
         src: "https://raw.githubusercontent.com/nady4/calendar-money/main/public/assets/docs/landing.png",
-        alt: "Calendar Money landing page",
+        alt: "Calendar Money landing page"
       },
       {
         src: "https://raw.githubusercontent.com/nady4/calendar-money/main/public/assets/docs/dashboard.png",
-        alt: "Calendar Money dashboard",
+        alt: "Calendar Money dashboard"
       },
       {
         src: "https://raw.githubusercontent.com/nady4/calendar-money/main/public/assets/docs/stats1.png",
-        alt: "Calendar Money statistics",
+        alt: "Calendar Money statistics"
       },
       {
         src: "https://raw.githubusercontent.com/nady4/calendar-money/main/public/assets/docs/stats2.png",
-        alt: "Calendar Money statistics breakdown",
+        alt: "Calendar Money statistics breakdown"
       },
       {
         src: "https://raw.githubusercontent.com/nady4/calendar-money/main/public/assets/docs/scan.png",
-        alt: "Calendar Money receipt scanner",
+        alt: "Calendar Money receipt scanner"
       },
       {
         src: "https://raw.githubusercontent.com/nady4/calendar-money/main/public/assets/docs/account.png",
-        alt: "Calendar Money account settings",
+        alt: "Calendar Money account settings"
       },
       {
         src: "https://raw.githubusercontent.com/nady4/calendar-money/main/public/assets/docs/budgets.png",
-        alt: "Calendar Money budgets",
+        alt: "Calendar Money budgets"
       },
       {
         src: "https://raw.githubusercontent.com/nady4/calendar-money/main/public/assets/docs/categories.png",
-        alt: "Calendar Money categories",
-      },
-    ],
+        alt: "Calendar Money categories"
+      }
+    ]
   },
   {
     favicon: "/projects/nyady.png",
@@ -80,29 +80,29 @@ const projects: Project[] = [
     shots: [
       {
         src: "https://raw.githubusercontent.com/nady4/nyady/main/public/assets/screenshots/home.png",
-        alt: "NYADY home page",
+        alt: "NYADY home page"
       },
       {
         src: "https://raw.githubusercontent.com/nady4/nyady/main/public/assets/screenshots/catalog.png",
-        alt: "NYADY product catalog",
+        alt: "NYADY product catalog"
       },
       {
         src: "https://raw.githubusercontent.com/nady4/nyady/main/public/assets/screenshots/product.png",
-        alt: "NYADY product detail",
+        alt: "NYADY product detail"
       },
       {
         src: "https://raw.githubusercontent.com/nady4/nyady/main/public/assets/screenshots/cart.png",
-        alt: "NYADY cart",
+        alt: "NYADY cart"
       },
       {
         src: "https://raw.githubusercontent.com/nady4/nyady/main/public/assets/screenshots/checkout.png",
-        alt: "NYADY checkout",
+        alt: "NYADY checkout"
       },
       {
         src: "https://raw.githubusercontent.com/nady4/nyady/main/public/assets/screenshots/orders.png",
-        alt: "NYADY orders and tracking",
-      },
-    ],
+        alt: "NYADY orders and tracking"
+      }
+    ]
   },
   {
     favicon: "/projects/nya-store.ico",
@@ -113,21 +113,21 @@ const projects: Project[] = [
     shots: [
       {
         src: "https://raw.githubusercontent.com/nady4/nya-store/main/public/assets/docs/1.png",
-        alt: "Nya Store catalog",
+        alt: "Nya Store catalog"
       },
       {
         src: "https://raw.githubusercontent.com/nady4/nya-store/main/public/assets/docs/4.png",
-        alt: "Nya Store product page",
+        alt: "Nya Store product page"
       },
       {
         src: "https://raw.githubusercontent.com/nady4/nya-store/main/public/assets/docs/6.png",
-        alt: "Nya Store checkout",
+        alt: "Nya Store checkout"
       },
       {
         src: "https://raw.githubusercontent.com/nady4/nya-store/main/public/assets/docs/5.png",
-        alt: "Nya Store orders",
-      },
-    ],
+        alt: "Nya Store orders"
+      }
+    ]
   },
   {
     favicon: "/projects/ds-invite.png",
@@ -135,23 +135,23 @@ const projects: Project[] = [
     descKey: "project_ds_desc",
     demo: "https://ds.transistemas.org",
     repos: [
-      { label: "Repo", href: "https://github.com/Transistemas-ac/ds-invite" },
+      { label: "Repo", href: "https://github.com/Transistemas-ac/ds-invite" }
     ],
     shots: [
       {
         src: "https://raw.githubusercontent.com/Transistemas-ac/ds-invite/main/public/1.png",
-        alt: "DS Invite landing page",
+        alt: "DS Invite landing page"
       },
       {
         src: "https://raw.githubusercontent.com/Transistemas-ac/ds-invite/main/public/3.png",
-        alt: "DS Invite bot flow",
+        alt: "DS Invite bot flow"
       },
       {
         src: "https://raw.githubusercontent.com/Transistemas-ac/ds-invite/main/public/2.png",
-        alt: "DS Invite worker interface",
-      },
-    ],
-  },
+        alt: "DS Invite worker interface"
+      }
+    ]
+  }
 ];
 
 export default component$(() => {
@@ -163,7 +163,7 @@ export default component$(() => {
     "keydown",
     $((event: KeyboardEvent) => {
       if (event.key === "Escape") lightboxSrc.value = null;
-    }),
+    })
   );
 
   const openLightbox = $((src: string) => {
@@ -193,7 +193,7 @@ export default component$(() => {
           </div>
           <h2>
             {t.projects_title}
-            <span> / CASE FILES</span>
+            <span> / {t.projects_suffix}</span>
           </h2>
           <p>{t.projects_intro}</p>
         </header>

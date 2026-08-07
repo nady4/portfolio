@@ -3,6 +3,7 @@ import {
   isBrowser,
   useSignal,
   useTask$,
+  useVisibleTask$,
   $,
 } from "@builder.io/qwik";
 import { useLocation } from "@builder.io/qwik-city";
@@ -11,6 +12,18 @@ import { localizedPath } from "~/lib/locale";
 import Moon from "../assets/moon.svg";
 import Sun from "../assets/sun.svg";
 import "../styles/Navbar.scss";
+
+const sectionIds = [
+  "home",
+  "projects",
+  "experience",
+  "education",
+  "skills",
+  "certifications",
+  "contact",
+] as const;
+
+type SectionId = (typeof sectionIds)[number];
 
 export default component$(() => {
   const t = useTranslations().value;
@@ -37,6 +50,7 @@ export default component$(() => {
     basePath.startsWith("/blog") || basePath.startsWith("/es/blog");
 
   const theme = useSignal<"dark" | "light">("dark");
+  const activeSection = useSignal<SectionId>("home");
 
   useTask$(() => {
     if (!isBrowser) return;
@@ -44,14 +58,53 @@ export default component$(() => {
       document.documentElement.dataset.theme === "light" ? "light" : "dark";
   });
 
+  // IntersectionObserver needs the browser DOM and is intentionally initialized once.
+  // eslint-disable-next-line qwik/no-use-visible-task
+  useVisibleTask$(({ cleanup }) => {
+    if (!isHome) return;
+
+    const sections = sectionIds
+      .map((id) => document.getElementById(id))
+      .filter((section): section is HTMLElement => section !== null);
+    const visibleSections = new Set<string>();
+    const navbarHeight =
+      document.querySelector<HTMLElement>(".navbar")?.offsetHeight ?? 78;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            visibleSections.add(entry.target.id);
+          } else {
+            visibleSections.delete(entry.target.id);
+          }
+        }
+
+        const currentSection = sections
+          .filter((section) => visibleSections.has(section.id))
+          .sort(
+            (a, b) =>
+              a.getBoundingClientRect().top - b.getBoundingClientRect().top,
+          )[0];
+
+        if (currentSection) {
+          activeSection.value = currentSection.id as SectionId;
+        }
+      },
+      {
+        rootMargin: `-${navbarHeight}px 0px -65% 0px`,
+        threshold: 0,
+      },
+    );
+
+    sections.forEach((section) => observer.observe(section));
+    cleanup(() => observer.disconnect());
+  });
+
   const toggleTheme = $(() => {
     theme.value = theme.value === "dark" ? "light" : "dark";
     document.documentElement.dataset.theme = theme.value;
     localStorage.setItem("theme", theme.value);
-  });
-
-  const setLangCookie = $((target: "en" | "es") => {
-    document.cookie = `lang=${target}; path=/; max-age=${60 * 60 * 24 * 365}; SameSite=Lax`;
   });
 
   return (
@@ -94,7 +147,6 @@ export default component$(() => {
               href={`${esPath}${hash}`}
               class={lang === "es" ? "is-active" : ""}
               hreflang="es"
-              onClick$={() => setLangCookie("es")}
             >
               ES
             </a>
@@ -102,7 +154,6 @@ export default component$(() => {
               href={`${enPath}${hash}`}
               class={lang === "en" ? "is-active" : ""}
               hreflang="en"
-              onClick$={() => setLangCookie("en")}
             >
               EN
             </a>
@@ -113,18 +164,65 @@ export default component$(() => {
       <div class="navbar__nav-row">
         <span class="navbar__nav-index">01—09</span>
         <div class="navbar__links">
-          <a class={isHome ? "is-current" : ""} href={homeHref}>
+          <a
+            class={isHome && activeSection.value === "home" ? "is-current" : ""}
+            href={homeHref}
+          >
             {t.nav_home}
           </a>
-          <a href={projectsHref}>{t.nav_projects}</a>
-          <a href={experienceHref}>{t.nav_experience}</a>
-          <a href={educationHref}>{t.nav_education}</a>
-          <a href={skillsHref}>{t.nav_skills}</a>
-          <a href={certificationsHref}>{t.nav_certifications}</a>
+          <a
+            class={
+              isHome && activeSection.value === "projects" ? "is-current" : ""
+            }
+            href={projectsHref}
+          >
+            {t.nav_projects}
+          </a>
+          <a
+            class={
+              isHome && activeSection.value === "experience" ? "is-current" : ""
+            }
+            href={experienceHref}
+          >
+            {t.nav_experience}
+          </a>
+          <a
+            class={
+              isHome && activeSection.value === "education" ? "is-current" : ""
+            }
+            href={educationHref}
+          >
+            {t.nav_education}
+          </a>
+          <a
+            class={
+              isHome && activeSection.value === "skills" ? "is-current" : ""
+            }
+            href={skillsHref}
+          >
+            {t.nav_skills}
+          </a>
+          <a
+            class={
+              isHome && activeSection.value === "certifications"
+                ? "is-current"
+                : ""
+            }
+            href={certificationsHref}
+          >
+            {t.nav_certifications}
+          </a>
           <a class={isBlog ? "is-current" : ""} href={blogHref}>
             {t.nav_blog}
           </a>
-          <a href={contactHref}>{t.nav_contact}</a>
+          <a
+            class={
+              isHome && activeSection.value === "contact" ? "is-current" : ""
+            }
+            href={contactHref}
+          >
+            {t.nav_contact}
+          </a>
           <a class="navbar__resume" href={resumeFile} download>
             {t.nav_resume} /
           </a>
