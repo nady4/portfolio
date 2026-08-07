@@ -82,7 +82,7 @@ export const translations = {
     skill_category_ai: "AI Applications",
 
     certifications_signal: "verified records",
-    certifications_suffix: "/ CREDENTIALS",
+    certifications_suffix: "/ CERTIFICATIONS",
     certifications_status: "VALID / RECORD",
 
     contact_signal: "open channel",
@@ -185,7 +185,7 @@ export const translations = {
     skill_category_ai: "Aplicaciones con IA",
 
     certifications_signal: "registros verificados",
-    certifications_suffix: "/ CREDENCIALES",
+    certifications_suffix: "/ CERTIFICACIONES",
     certifications_status: "VÁLIDO / REGISTRO",
 
     contact_signal: "canal abierto",
