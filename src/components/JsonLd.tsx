@@ -19,6 +19,17 @@ const KNOWS_ABOUT = [
   "React",
   "Next.js",
   "Node.js",
+  "AI product engineering",
+  "LLM application development",
+  "LLM APIs",
+  "AI agents",
+  "Agent orchestration",
+  "Workflow automation",
+  "Tool calling",
+  "MCP",
+  "RAG",
+  "API integration",
+  "Database architecture",
   "PostgreSQL",
   "MongoDB",
   "Serverless",
@@ -34,7 +45,8 @@ const CERTIFICATIONS = [
   { name: "English C2 Proficiency", issuer: "EF Education First" },
 ];
 
-function personLd() {
+function personLd(locale: string) {
+  const isSpanish = locale === "es";
   return {
     "@context": "https://schema.org",
     "@type": "Person",
@@ -44,9 +56,12 @@ function personLd() {
     familyName: "Jerochim",
     url: `${SITE}/`,
     image: `${SITE}/dev.png`,
-    jobTitle: "Full Stack Developer",
-    description:
-      "Full Stack Developer experienced in building web apps and serverless services with React, Node.js, TypeScript and Next.js.",
+    jobTitle: isSpanish
+      ? "Ingeniera Full Stack de IA"
+      : "Full Stack AI Engineer",
+    description: isSpanish
+      ? "Ingeniera Full Stack de IA que construye productos web con React, Next.js, Node.js, integraciones con LLM, agentes y automatización."
+      : "Full Stack AI Engineer building production web products with React, Next.js, Node.js, LLM integrations, AI agents, and workflow automation.",
     email: "mailto:dev@nady4.com",
     address: {
       "@type": "PostalAddress",
@@ -76,7 +91,7 @@ function websiteLd() {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "@id": WEBSITE_ID,
-    name: "Nadya Jerochim - Portfolio",
+    name: "Nadya Jerochim | Full Stack AI Engineer",
     url: `${SITE}/`,
     inLanguage: ["en", "es"],
     publisher: { "@id": PERSON_ID },
@@ -88,7 +103,7 @@ function websiteLd() {
   };
 }
 
-function professionalServiceLd() {
+function professionalServiceLd(locale: string) {
   return {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
@@ -99,7 +114,10 @@ function professionalServiceLd() {
     logo: `${SITE}/dev.png`,
     sameAs: SAME_AS,
     founder: { "@id": PERSON_ID },
-    serviceType: "Full Stack Web Development",
+    serviceType:
+      locale === "es"
+        ? "Ingeniería de productos con IA y desarrollo Full Stack"
+        : "AI Product Engineering and Full Stack Development",
     areaServed: {
       "@type": "Country",
       name: "Argentina",
@@ -137,13 +155,15 @@ interface BlogPostLite {
 
 function blogPostingLd(post: BlogPostLite, locale: string) {
   const baseLocale = locale === "es" ? "es" : "en";
+  const fallbackDescription =
+    locale === "es"
+      ? "Notas técnicas sobre ingeniería de productos full stack con IA por Nadya Jerochim."
+      : "Technical writing on full-stack AI product engineering by Nadya Jerochim.";
   return {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
     headline: post.title,
-    description:
-      post.description ??
-      "Full Stack Developer blog post by Nadya Jerochim.",
+    description: post.description ?? fallbackDescription,
     datePublished: post.date,
     inLanguage: baseLocale,
     author: { "@id": PERSON_ID },
@@ -161,13 +181,16 @@ export const JsonLd = component$<{ post?: BlogPostLite }>(({ post }) => {
   const loc = useLocation();
   const locale = loc.url.pathname.startsWith("/es/") ? "es" : "en";
 
-  const headTitle =
-    head.title || "Nadya Jerochim - FullStack Developer";
+  const headTitle = head.title || "Nadya Jerochim | Full Stack AI Engineer";
   const headDescription =
     head.meta.find((m) => m.name === "description")?.content ??
-    "Full Stack Developer experienced in building web apps and serverless services with React, Node.js, TypeScript and Next.js.";
+    "Full Stack AI Engineer building production web products with React, Next.js, Node.js, LLM integrations, AI agents, and workflow automation.";
 
-  const blocks: object[] = [personLd(), websiteLd(), professionalServiceLd()];
+  const blocks: object[] = [
+    personLd(locale),
+    websiteLd(),
+    professionalServiceLd(locale),
+  ];
 
   if (post) {
     blocks.push(blogPostingLd(post, locale));

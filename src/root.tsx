@@ -22,9 +22,7 @@ export default component$(() => {
             (function () {
               try {
                 var t = localStorage.getItem('theme');
-                if (t === 'light' || t === 'dark') {
-                  document.documentElement.dataset.theme = t;
-                }
+                document.documentElement.dataset.theme = t === 'light' ? 'light' : 'dark';
               } catch (e) {}
             })();
           `}

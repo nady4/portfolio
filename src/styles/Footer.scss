@@ -1,98 +1,136 @@
 @use "./vars" as *;
 
 .footer {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  height: 50px;
-  background-color: $bg-surface;
-  padding: 1rem;
-  flex-wrap: wrap;
-  gap: 1rem;
-
-  p {
-    font-size: 1rem;
-    font-weight: 500;
-    color: $text-primary;
-    transition:
-      text-shadow 0.25s ease,
-      filter 0.25s ease,
-      transform 0.25s ease;
-    padding: 4px 8px;
-    border-radius: 6px;
-
-    text-shadow:
-      0 0 4px rgba($primary, 0.2),
-      0 0 8px rgba($primary-dark, 0.15);
-
-    &:hover {
-      text-shadow:
-        0 0 6px rgba($primary, 0.75),
-        0 0 14px rgba($primary-dark, 0.4),
-        0 0 22px rgba($primary-hover, 0.25);
-      filter: brightness(1.2);
-      transform: scale(1.02);
-      background-color: $hover-bg;
-    }
-  }
-
-  .footer-socials {
-    display: flex;
-    gap: 30px;
-
-    a {
-      img {
-        transition:
-          transform 0.25s ease,
-          filter 0.25s ease,
-          box-shadow 0.35s ease;
-
-        box-shadow:
-          0 0 12px rgba($primary, 0.15),
-          0 0 30px rgba($primary-dark, 0.1);
-
-        &:hover {
-          transform: scale(1.08);
-
-          box-shadow:
-            0 0 20px rgba($primary, 0.25),
-            0 0 45px rgba($primary-dark, 0.35),
-            0 0 70px rgba($primary-hover, 0.2);
-          filter: brightness(1.1);
-        }
-      }
-    }
-  }
-
-  [data-theme="light"] & {
-    a {
-      img {
-        filter: brightness(0);
-        &:hover {
-          filter: brightness(0) brightness(1.1);
-        }
-      }
-    }
-  }
+  color: $footer-ink;
+  background: $footer-surface;
 }
 
-@media screen and (max-width: 600px) {
-  .footer {
-    height: auto;
+.footer__inner {
+  padding-top: 1rem;
+  padding-bottom: 1.25rem;
+}
+
+.footer__top,
+.footer__bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.footer__top {
+  min-height: 48px;
+  border-bottom: 1px solid $footer-line;
+}
+
+.footer .signal-label {
+  color: $footer-muted;
+}
+
+.footer .signal-label__code,
+.footer .signal-label__mark {
+  color: $footer-ink;
+}
+
+.footer__blog {
+  color: $footer-ink;
+  font-family: $font-mono;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition:
+    color 180ms ease,
+    transform 180ms ease;
+}
+
+.footer__blog:hover {
+  color: $blue;
+  transform: translateX(3px);
+}
+
+.footer__bottom {
+  align-items: end;
+  padding-top: 1rem;
+}
+
+.footer__identity {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.7rem 1.4rem;
+  color: $footer-muted;
+  font-family: $font-mono;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.footer__identity strong {
+  color: $footer-ink;
+}
+
+.footer__identity a {
+  color: $blue;
+  text-decoration: none;
+}
+
+.footer__identity a:hover {
+  color: $footer-ink;
+}
+
+.footer__socials {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.footer__socials a {
+  display: grid;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+  border: 1px solid $footer-line;
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease,
+    transform 180ms ease;
+}
+
+.footer__socials a:hover {
+  background: $blue;
+  border-color: $blue;
+  transform: translateY(-2px);
+}
+
+.footer__socials img {
+  width: 18px;
+  height: 18px;
+}
+
+.footer__year {
+  color: $footer-muted;
+  font-family: $font-mono;
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+@media (max-width: 767px) {
+  .footer__top,
+  .footer__bottom {
+    align-items: flex-start;
     flex-direction: column;
+  }
 
-    p {
-      margin: 10px;
-      font-size: 20px;
-      text-align: center;
-    }
+  .footer__bottom {
+    gap: 1.2rem;
+  }
 
-    a {
-      img {
-        margin: 20px 0;
-        width: 36px;
-        height: 36px;
-      }
-    }
+  .footer__year {
+    align-self: flex-end;
   }
 }

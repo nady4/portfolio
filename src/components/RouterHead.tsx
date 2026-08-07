@@ -18,16 +18,12 @@ export const RouterHead = component$(() => {
       <link rel="alternate icon" href="/favicon.ico" sizes="any" />
       <link rel="apple-touch-icon" href="/favicon.svg" />
       <link rel="manifest" href="/manifest.json" />
-      <meta name="theme-color" content="#1a1a2e" />
+      <meta name="theme-color" content="#111414" />
       <meta name="apple-mobile-web-app-capable" content="yes" />
-      <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-      <link rel="preconnect" href="https://fonts.googleapis.com" />
-      <link
-        rel="preconnect"
-        href="https://fonts.gstatic.com"
-        crossOrigin="anonymous"
+      <meta
+        name="apple-mobile-web-app-status-bar-style"
+        content="black-translucent"
       />
-
       {head.meta.map((m) => (
         <meta key={m.key} {...m} />
       ))}

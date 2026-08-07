@@ -1,118 +1,198 @@
 @use "./vars" as *;
 
-.experience-container {
-  padding: 4rem 1.5rem;
-  max-width: 1000px;
-  margin: 0 auto;
-  color: $text-primary;
+.experience-section {
+  padding-top: clamp(5rem, 11vw, 10rem);
+  padding-bottom: clamp(4rem, 9vw, 9rem);
+  scroll-margin-top: var(--nav-height);
+}
+
+.experience-head,
+.education-head,
+.skills-head,
+.certifications-head {
+  display: grid;
+  grid-template-columns: minmax(190px, 0.5fr) minmax(0, 1.5fr);
+  align-items: start;
+  gap: clamp(2rem, 7vw, 9rem);
+  border-top: 1px solid $line-strong;
+  padding-top: 0.75rem;
+}
+
+.experience-head h2,
+.education-head h2,
+.skills-head h2,
+.certifications-head h2 {
+  max-width: 12ch;
+  margin: 0;
+  color: $ink;
+  font-family: $font-sans;
+  font-size: clamp(3.7rem, 8vw, 8rem);
+  font-weight: 900;
+  letter-spacing: -0.09em;
+  line-height: 0.83;
+  text-transform: uppercase;
+}
+
+.experience-head h2 span,
+.education-head h2 span,
+.skills-head h2 span,
+.certifications-head h2 span {
+  display: block;
+  margin-left: 0.18em;
+  color: $red;
+  font-family: $font-serif;
+  font-size: 0.42em;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  line-height: 1.2;
+}
+
+.experience-list {
+  margin-top: clamp(3.5rem, 7vw, 7rem);
+  border-top: 1px solid $line-strong;
+}
+
+.experience-entry {
+  display: grid;
+  grid-template-columns: 70px minmax(0, 1fr);
+  border-bottom: 1px solid $line-soft;
+}
+
+.experience-entry__index {
+  padding: 1.4rem 0;
+  color: $red;
+  font-family: $font-mono;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.experience-entry__body {
+  min-width: 0;
+  padding: clamp(1.5rem, 4vw, 3rem) 0 clamp(2rem, 5vw, 4rem)
+    clamp(1rem, 3vw, 3rem);
+  border-left: 1px solid $line-soft;
+}
+
+.experience-entry__body header {
   display: flex;
-  flex-direction: column;
-  gap: 2.5rem;
-  scroll-margin-top: 80px;
+  align-items: start;
+  justify-content: space-between;
+  gap: 2rem;
+}
 
-  h2 {
-    font-size: clamp(2rem, 4vw, 2.8rem);
-    text-align: center;
-    font-weight: 700;
-    background: linear-gradient(135deg, $text-primary 0%, $primary-hover 60%, $primary 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-  }
+.experience-entry h3 {
+  max-width: 18ch;
+  margin: 0;
+  color: $ink;
+  font-family: $font-sans;
+  font-size: clamp(1.7rem, 3.2vw, 3.5rem);
+  font-weight: 900;
+  letter-spacing: -0.065em;
+  line-height: 0.92;
+  text-transform: uppercase;
+}
 
-  .experience-item {
-    background: $bg-surface;
-    border: 1px solid $border-soft;
-    padding: 2rem;
-    border-radius: 1rem;
-    backdrop-filter: blur(6px);
-    transition:
-      transform 0.2s ease,
-      box-shadow 0.2s ease,
-      border-color 0.2s ease;
+.experience-entry h4 {
+  margin: 0.85rem 0 0;
+  color: $blue;
+  font-family: $font-serif;
+  font-size: clamp(1rem, 1.4vw, 1.4rem);
+  font-style: italic;
+  font-weight: 400;
+}
 
-    &:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 0 12px $hover-shadow;
-      border-color: $hover-shadow;
-    }
+.experience-period {
+  flex: 0 0 auto;
+  margin: 0;
+  padding-top: 0.3rem;
+  color: $ink-muted;
+  font-family: $font-mono;
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1.4;
+  text-align: right;
+  text-transform: uppercase;
+}
 
-    h3 {
-      font-size: 1.6rem;
-      color: $text-primary;
-      margin: 0;
-    }
+.experience-entry ul {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.8rem 2.5rem;
+  max-width: 1000px;
+  margin: clamp(2rem, 4vw, 3.5rem) 0 0;
+  padding: 0;
+  list-style: none;
+}
 
-    h4 {
-      margin: 1rem 0 0.5rem 0;
-      font-size: 1.2rem;
-      font-weight: 400;
-      opacity: 0.85;
-      color: $text-secondary;
-    }
+.experience-entry li {
+  display: grid;
+  grid-template-columns: 1rem minmax(0, 1fr);
+  gap: 0.45rem;
+  color: $ink-muted;
+  font-size: 0.94rem;
+  line-height: 1.5;
+}
 
-    .experience-period {
-      margin: 0;
-      line-height: 1.6;
-      margin-bottom: 1.8rem;
-      color: $text-secondary;
-    }
+.experience-entry li span {
+  color: $green;
+  font-family: $font-mono;
+  font-weight: 700;
+}
 
-    .experience-list {
-      margin: 0;
-      padding-left: 1.4rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.3rem;
-      color: $text-secondary;
-      list-style-type: disc;
-
-      li {
-        line-height: 1.5;
-        font-size: 1.1rem;
-      }
-    }
+@media (max-width: 900px) {
+  .experience-entry ul {
+    grid-template-columns: 1fr;
   }
 }
 
-@media screen and (max-width: 600px) {
-  .experience-container {
-    padding: 64px 32px;
-    gap: 40px;
+@media (max-width: 767px) {
+  .experience-head,
+  .education-head,
+  .skills-head,
+  .certifications-head {
+    display: block;
+  }
 
-    h2 {
-      font-size: 42px;
-      margin-bottom: 32px;
-      line-height: 1.2;
-    }
+  .experience-head h2,
+  .education-head h2,
+  .skills-head h2,
+  .certifications-head h2 {
+    max-width: 100%;
+    margin-top: 2.5rem;
+    font-size: clamp(3.2rem, 15.5vw, 5.6rem);
+    overflow-wrap: anywhere;
+  }
 
-    .experience-item {
-      padding: 32px;
+  .experience-entry {
+    grid-template-columns: 30px minmax(0, 1fr);
+  }
 
-      h3 {
-        font-size: 27px;
-        line-height: 1.3;
-      }
+  .experience-entry__index {
+    padding-top: 1.5rem;
+    font-size: 0.56rem;
+  }
 
-      h4 {
-        font-size: 22px;
-        line-height: 1.4;
-      }
+  .experience-entry__body {
+    padding: 1.5rem 0 3rem 0.8rem;
+  }
 
-      .experience-period {
-        font-size: 18px;
-        line-height: 1.7;
-      }
+  .experience-entry__body header {
+    display: block;
+  }
 
-      .experience-list {
-        font-size: 18px;
-        gap: 10px;
-        padding-left: 24px;
+  .experience-period {
+    margin-top: 1.2rem;
+    text-align: left;
+  }
 
-        li {
-          line-height: 1.7;
-        }
-      }
-    }
+  .experience-entry ul {
+    margin-top: 2rem;
+  }
+
+  .experience-entry li {
+    font-size: 0.9rem;
   }
 }

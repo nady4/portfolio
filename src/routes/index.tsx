@@ -2,6 +2,7 @@ import { component$ } from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
 import Navbar from "~/components/Navbar";
 import Hero from "~/components/Hero";
+import DataStream from "~/components/DataStream";
 import Experience from "~/components/Experience";
 import Education from "~/components/Education";
 import Projects from "~/components/Projects";
@@ -15,6 +16,7 @@ export default component$(() => {
     <main>
       <Navbar />
       <Hero />
+      <DataStream />
       <Projects />
       <Experience />
       <Education />
@@ -27,19 +29,21 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = {
-  title:
-    "Nadya Jerochim - FullStack Developer | TypeScript | React | Next.js | Node.js",
+  title: "Nadya Jerochim | Full Stack AI Engineer",
   meta: [
     {
       name: "description",
       content:
-        "Full Stack Developer experienced in building web apps and serverless services with React, Node.js, TypeScript and Next.js.",
+        "Full Stack AI Engineer building production web products with React, Next.js, Node.js, LLM integrations, AI agents, and workflow automation.",
     },
-    { property: "og:title", content: "Nadya Jerochim - Full Stack Developer" },
+    {
+      property: "og:title",
+      content: "Nadya Jerochim | Full Stack AI Engineer",
+    },
     {
       property: "og:description",
       content:
-        "Full Stack Developer experienced in building web apps and serverless services with React, Node.js, TypeScript and Next.js.",
+        "Production web products with AI integrated into real workflows: LLM features, agents, APIs, data, and automation.",
     },
     { property: "og:image", content: "https://www.nady4.com/dev.png" },
     { property: "og:url", content: "https://www.nady4.com/" },
@@ -51,16 +55,19 @@ export const head: DocumentHead = {
     { property: "og:locale:alternate", content: "es_AR" },
     { name: "twitter:card", content: "summary" },
     { name: "twitter:site", content: "@_nady4" },
-    { name: "twitter:title", content: "Nadya Jerochim - Full Stack Developer" },
+    {
+      name: "twitter:title",
+      content: "Nadya Jerochim | Full Stack AI Engineer",
+    },
     {
       name: "twitter:description",
       content:
-        "Full Stack Developer experienced in building web apps and serverless services with React, Node.js, TypeScript and Next.js.",
+        "Production web products with AI integrated into real workflows: LLM features, agents, APIs, data, and automation.",
     },
     { name: "twitter:image", content: "https://www.nady4.com/dev.png" },
     { name: "author", content: "Nadya Jerochim" },
     { name: "robots", content: "index, follow" },
-    { name: "theme-color", content: "#1a1a2e" },
+    { name: "theme-color", content: "#111414" },
   ],
   links: [
     { rel: "alternate", hreflang: "en", href: "https://nady4.com/" },

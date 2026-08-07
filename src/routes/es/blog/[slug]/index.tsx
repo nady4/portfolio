@@ -2,6 +2,9 @@ import { component$ } from "@builder.io/qwik";
 import { routeLoader$, type DocumentHead } from "@builder.io/qwik-city";
 import { getPostBySlug } from "~/lib/blog";
 import { JsonLd } from "~/components/JsonLd";
+import Navbar from "~/components/Navbar";
+import Footer from "~/components/Footer";
+import { useTranslations } from "~/routes/layout";
 import "~/styles/Post.scss";
 
 export const useBlogPost = routeLoader$(({ params, status }) => {
@@ -17,13 +20,18 @@ export const useBlogPost = routeLoader$(({ params, status }) => {
 
 export default component$(() => {
   const post = useBlogPost();
+  const t = useTranslations().value;
 
   if (!post.value) {
     return (
-      <main>
-        <h1>404</h1>
-        <p>No existe ese post.</p>
-      </main>
+      <>
+        <Navbar />
+        <main class="post-page post-page--404">
+          <h1>404</h1>
+          <p>No existe ese post.</p>
+        </main>
+        <Footer />
+      </>
     );
   }
 
@@ -37,15 +45,18 @@ export default component$(() => {
           description: post.value.description,
         }}
       />
+      <Navbar />
       <main class="post-page">
-        <a href="/es/blog/" class="back-link">
-          &larr; Volver
-        </a>
-        <h1>{post.value.title}</h1>
-        <div>{post.value.date}</div>
-
+        <header class="post-page__head">
+          <a href="/es/blog/" class="back-link">
+            &larr; {t.blog_back}
+          </a>
+          <h1>{post.value.title}</h1>
+          <time dateTime={post.value.date}>{post.value.date}</time>
+        </header>
         <article dangerouslySetInnerHTML={post.value.html} />
       </main>
+      <Footer />
     </>
   );
 });
@@ -63,7 +74,7 @@ export const head: DocumentHead = ({ resolveValue, params }) => {
         name: "description",
         content:
           post.description ??
-          "Full Stack Developer blog post by Nadya Jerochim.",
+          "Notas técnicas sobre ingeniería de productos full stack con IA por Nadya Jerochim.",
       },
       { name: "author", content: "Nadya Jerochim" },
       { name: "robots", content: "index, follow" },
@@ -73,7 +84,7 @@ export const head: DocumentHead = ({ resolveValue, params }) => {
         property: "og:description",
         content:
           post.description ??
-          "Full Stack Developer blog post by Nadya Jerochim.",
+          "Notas técnicas sobre ingeniería de productos full stack con IA por Nadya Jerochim.",
       },
       {
         property: "og:url",
@@ -89,7 +100,7 @@ export const head: DocumentHead = ({ resolveValue, params }) => {
         name: "twitter:description",
         content:
           post.description ??
-          "Full Stack Developer blog post by Nadya Jerochim.",
+          "Notas técnicas sobre ingeniería de productos full stack con IA por Nadya Jerochim.",
       },
       { name: "twitter:image", content: "https://www.nady4.com/dev.png" },
       { name: "twitter:image:alt", content: "Nadya Jerochim" },

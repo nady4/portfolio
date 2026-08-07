@@ -1,55 +1,52 @@
 import { component$ } from "@builder.io/qwik";
 import { useTranslations, useLocale } from "~/routes/layout";
+import Signal from "./Signal";
 import "../styles/Education.scss";
 
 export default component$(() => {
   const t = useTranslations().value;
   const lang = useLocale().value;
 
-  const universityInstitution =
-    lang === "en" ? "National University of Lanús" : "Universidad Nacional de Lanús";
-
   const education = [
     {
-      key: "university",
       title: t.education_university,
-      items: [
-        {
-          degree: t.education_university,
-          institution: universityInstitution,
-          year: "2019 - 2025",
-        },
-      ],
+      institution:
+        lang === "en"
+          ? "National University of Lanús"
+          : "Universidad Nacional de Lanús",
+      year: "2019 - 2025",
     },
     {
-      key: "highschool",
       title: t.education_highschool,
-      items: [
-        {
-          degree: t.education_highschool,
-          institution: "Colegio Jesús María",
-          year: "2011 - 2017",
-        },
-      ],
+      institution: "Colegio Jesús María",
+      year: "2011 - 2017",
     },
   ];
 
   return (
-    <div id="education" class="education-container">
-      <h2>{t.education_title}</h2>
+    <section id="education" class="education-section section-shell">
+      <header class="education-head reveal">
+        <Signal code="04 / 04" tone="green">
+          {t.education_signal}
+        </Signal>
+        <h2>
+          {t.education_title}
+          <span> {t.education_suffix}</span>
+        </h2>
+      </header>
+
       <div class="education-list">
-        {education.map((edu) => (
-          <div key={edu.key} class="education-item">
-            <h3>{edu.title}</h3>
-            {edu.items.map((item, index) => (
-              <div key={index} class="education-detail">
-                <p>{item.institution}</p>
-                <span>{item.year}</span>
-              </div>
-            ))}
-          </div>
+        {education.map((item, index) => (
+          <article class="education-entry reveal" key={item.title}>
+            <span class="education-entry__index">0{index + 1}</span>
+            <div>
+              <h3>{item.title}</h3>
+              <p>{item.institution}</p>
+            </div>
+            <time>{item.year}</time>
+          </article>
         ))}
       </div>
-    </div>
+    </section>
   );
 });

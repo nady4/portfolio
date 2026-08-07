@@ -1,5 +1,6 @@
 import { component$ } from "@builder.io/qwik";
 import { useTranslations } from "~/routes/layout";
+import Signal from "./Signal";
 import "../styles/Skills.scss";
 
 export default component$(() => {
@@ -29,7 +30,7 @@ export default component$(() => {
         "Astro",
         "Vite",
         "Redux Toolkit",
-        "Tanstack Query",
+        "TanStack Query",
         "Zustand",
         "Tailwind CSS",
       ],
@@ -60,7 +61,9 @@ export default component$(() => {
         "Docker",
         "GitHub Actions",
         "CI/CD",
-        "Cloudflare (Firewall, DNS, Email Routing)",
+        "Cloudflare Firewall",
+        "DNS",
+        "Email Routing",
       ],
     },
     {
@@ -77,11 +80,14 @@ export default component$(() => {
       key: "ai",
       title: t.skill_category_ai,
       items: [
-        "Agentic AI Systems",
-        "Tool Calling",
-        "LLM Integration and Orchestration",
+        "LLM APIs",
+        "Prompt and output design",
+        "Tool calling",
+        "Agent orchestration",
         "MCP",
         "RAG",
+        "Workflow automation",
+        "AI user experiences",
       ],
     },
     {
@@ -92,22 +98,33 @@ export default component$(() => {
   ];
 
   return (
-    <div id="skills" class="skills-container">
-      <h2>{t.skills_title}</h2>
+    <section id="skills" class="skills-section section-shell">
+      <header class="skills-head reveal">
+        <Signal code="05 / 09" tone="purple">
+          {t.skills_signal}
+        </Signal>
+        <h2>
+          {t.skills_title}
+          <span> {t.skills_suffix}</span>
+        </h2>
+      </header>
+
       <div class="skills-grid">
-        {skills.map((category) => (
-          <div key={category.key} class="skill-category">
-            <h3>{category.title}</h3>
-            <div class="skill-items">
-              {category.items.map((skill, index) => (
-                <span key={index} class="skill-item">
-                  {skill}
-                </span>
-              ))}
+        {skills.map((category, index) => (
+          <article class="skill-category reveal" key={category.key}>
+            <div class="skill-category__top">
+              <span>0{index + 1}</span>
+              <span>INDEXED</span>
             </div>
-          </div>
+            <h3>{category.title}</h3>
+            <ul>
+              {category.items.map((skill) => (
+                <li key={skill}>{skill}</li>
+              ))}
+            </ul>
+          </article>
         ))}
       </div>
-    </div>
+    </section>
   );
 });

@@ -2,7 +2,9 @@ import { component$ } from "@builder.io/qwik";
 import { routeLoader$, type DocumentHead } from "@builder.io/qwik-city";
 import { getAllPosts } from "~/lib/blog";
 import Footer from "~/components/Footer";
-import { useLocale } from "~/routes/layout";
+import Navbar from "~/components/Navbar";
+import Signal from "~/components/Signal";
+import { useLocale, useTranslations } from "~/routes/layout";
 import "~/styles/Blog.scss";
 
 export const useBlogFeed = routeLoader$(() => {
@@ -22,40 +24,58 @@ const formatDate = (date: string, lang: string) => {
 export default component$(() => {
   const feed = useBlogFeed();
   const lang = useLocale().value;
+  const t = useTranslations().value;
   const basePath = lang === "es" ? "/es/blog" : "/blog";
   const homeHref = lang === "es" ? "/es/" : "/";
 
   return (
-    <main class="blog-page">
-      <p>
-        <a href={homeHref}>&larr; Home</a>
-      </p>
-      <h1>nady4</h1>
+    <>
+      <Navbar />
+      <main class="blog-page">
+        <header class="blog-page__head">
+          <div class="blog-page__back-row">
+            <a href={homeHref}>&larr; {t.blog_back}</a>
+            <Signal code="08 / 09" tone="purple">
+              {t.blog_signal}
+            </Signal>
+          </div>
+          <h1>
+            nady4 <span>/ NOTES</span>
+          </h1>
+          <p>{t.blog_intro}</p>
+        </header>
 
-      <ul>
-        {feed.value.map((p) => (
-          <li key={p.slug}>
-            <a href={`${basePath}/${p.slug}/`}>
-              <strong>{p.title}</strong>
-            </a>
-            <p>{formatDate(p.date, lang)}</p>
-            {p.description ? <p>{p.description}</p> : null}
-          </li>
-        ))}
-      </ul>
+        <ol class="blog-list">
+          {feed.value.map((p, index) => (
+            <li key={p.slug}>
+              <div class="blog-entry__meta">
+                <span>0{index + 1}</span>
+                <time dateTime={p.date}>{formatDate(p.date, lang)}</time>
+              </div>
+              <div class="blog-entry__copy">
+                <a href={`${basePath}/${p.slug}/`}>
+                  <strong>{p.title}</strong>
+                  <span aria-hidden="true">↗</span>
+                </a>
+                {p.description ? <p>{p.description}</p> : null}
+              </div>
+            </li>
+          ))}
+        </ol>
+      </main>
       <Footer />
-    </main>
+    </>
   );
 });
 
 export const head: DocumentHead = () => {
   return {
-    title: "nady4",
+    title: "Nadya Jerochim | Full Stack AI Engineer Notes",
     meta: [
       {
         name: "description",
         content:
-          "Full Stack Developer experienced in building web apps and serverless services with React, Node.js, TypeScript and Next.js.",
+          "Technical notes on building production AI products with React, Next.js, Node.js, LLM integrations, agents, and automation.",
       },
       { name: "robots", content: "index, follow" },
     ],

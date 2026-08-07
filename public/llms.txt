@@ -1,24 +1,28 @@
 # nady4.com
 
-> Portfolio and technical writing of Nadya Jerochim, a Full Stack Developer based in Buenos Aires, Argentina.
+> Portfolio and technical writing of Nadya Jerochim, a Full Stack AI Engineer based in Buenos Aires, Argentina.
 
 ## About
 
 - **Name:** Nadya Jerochim
-- **Role:** Full Stack Developer
+- **Role:** Full Stack AI Engineer
 - **Location:** Buenos Aires, Argentina
 - **Email:** dev@nady4.com
 - **Languages:** English (C2), Spanish (Native)
 
 ## About this site
 
-A bilingual (English / Spanish) server-rendered personal portfolio and integrated Markdown blog. Built with Qwik + Qwik City, deployed on Vercel Edge. The site is the primary public surface for Nadya's professional identity: projects, experience, education, certifications, skills, contact, and a developer-focused blog.
+A bilingual (English / Spanish) server-rendered portfolio and integrated Markdown blog. Built with Qwik + Qwik City, deployed on Vercel Edge. The site is the primary public surface for Nadya's professional identity: production web products, AI integrations, experience, education, credentials, technical stack, contact, and engineering notes.
+
+## Positioning
+
+Nadya builds software products enhanced with AI, not standalone AI demos. Her work connects LLM APIs and agents to React or Next.js interfaces, Node.js services, databases, external APIs, and business workflows. The focus is production-ready AI features, intelligent assistants, tool calling, orchestration, and automation that users can actually use.
 
 ## Primary entity
 
 `@type: Person` (see JSON-LD in the head of every page):
 - name: "Nadya Jerochim"
-- jobTitle: "Full Stack Developer"
+- jobTitle: "Full Stack AI Engineer"
 - url: "https://nady4.com/"
 - sameAs: GitHub, LinkedIn, X, Instagram
 - alumniOf: National University of Lanús
@@ -28,14 +32,14 @@ A bilingual (English / Spanish) server-rendered personal portfolio and integrate
 
 - [Home (EN)](https://nady4.com/) — landing, projects, experience, education, skills, certifications, contact
 - [Home (ES)](https://nady4.com/es/) — Spanish version of the landing
-- [Blog index (EN)](https://nady4.com/blog/) — technical writing
-- [Blog index (ES)](https://nady4.com/es/blog/) — Spanish technical writing
+- [Blog index (EN)](https://nady4.com/blog/) — notes on full-stack AI product engineering
+- [Blog index (ES)](https://nady4.com/es/blog/) — notas sobre productos full stack con IA
 - [Resume (EN)](https://nady4.com/cv-en.pdf) — downloadable CV, English
 - [Resume (ES)](https://nady4.com/cv-es.pdf) — downloadable CV, Spanish
 
 ## Featured projects
 
-- [Calendar Money](https://money.nady4.com) — full-stack cash-flow web app (React 18, Vite 6, TypeScript, Chart.js, Node.js, Express, MongoDB)
+- [Calendar Money](https://money.nady4.com) — full-stack cash-flow web app with AI receipt scanning (React 18, Vite 6, TypeScript, Chart.js, Node.js, Express, MongoDB)
   - [Frontend repo](https://github.com/nady4/calendar-money)
   - [Backend repo](https://github.com/nady4/calendar-money-api)
 - [NYADY](https://nyady.nady4.com) — full-stack e-commerce (Next.js, React, Prisma, PostgreSQL, NextAuth.js, Redux Toolkit, Mercado Pago, Zipnova)
@@ -53,7 +57,7 @@ A bilingual (English / Spanish) server-rendered personal portfolio and integrate
 - **Databases:** PostgreSQL, MySQL, MongoDB, Redis, Supabase
 - **DevOps & Cloud:** Docker, GitHub Actions, CI/CD, Cloudflare
 - **Testing:** Jest, Cypress, Vitest, Playwright
-- **AI:** Agentic AI Systems, Tool Calling, LLM Integration, MCP, RAG
+- **AI applications:** LLM APIs, prompt and output design, tool calling, agent orchestration, MCP, RAG, workflow automation, AI user experiences
 
 ## Certifications
 

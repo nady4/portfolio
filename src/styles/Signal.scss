@@ -1,0 +1,46 @@
+@use "./vars" as *;
+
+.signal-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  min-height: 1.8rem;
+  color: $ink-muted;
+  font-family: $font-mono;
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  line-height: 1;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.signal-label__mark {
+  color: $blue;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 0.8;
+}
+
+.signal-label__code {
+  color: $ink;
+}
+
+.signal-label--green .signal-label__mark {
+  color: $green;
+}
+
+.signal-label--red .signal-label__mark {
+  color: $red;
+}
+
+.signal-label--ink .signal-label__mark {
+  color: $ink;
+}
+
+@media (max-width: 767px) {
+  .signal-label {
+    font-size: 0.6rem;
+    letter-spacing: 0.09em;
+  }
+}

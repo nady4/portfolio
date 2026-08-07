@@ -1,4 +1,10 @@
-import { component$, useSignal, useOnWindow, $ } from "@builder.io/qwik";
+import {
+  component$,
+  isBrowser,
+  useSignal,
+  useTask$,
+  $,
+} from "@builder.io/qwik";
 import { useLocation } from "@builder.io/qwik-city";
 import { useTranslations, useLocale } from "~/routes/layout";
 import { localizedPath } from "~/lib/locale";
@@ -25,34 +31,18 @@ export default component$(() => {
   const certificationsHref =
     lang === "es" ? "/es/#certifications" : "/#certifications";
   const contactHref = lang === "es" ? "/es/#contact" : "/#contact";
+  const blogHref = lang === "es" ? "/es/blog/" : "/blog/";
+  const isHome = basePath === "/" || basePath === "/es/";
+  const isBlog =
+    basePath.startsWith("/blog") || basePath.startsWith("/es/blog");
 
-  const theme = useSignal<"dark" | "light">(
-    typeof document !== "undefined" &&
-      document.documentElement.dataset.theme === "light"
-      ? "light"
-      : "dark"
-  );
+  const theme = useSignal<"dark" | "light">("dark");
 
-  const scrollOffset = useSignal(0);
-  const lastScrollY = useSignal(0);
-
-  useOnWindow(
-    "scroll",
-    $(() => {
-      if (window.innerWidth > 768) return;
-
-      const currY = window.scrollY;
-      const isScrollingDown = currY > lastScrollY.value;
-      lastScrollY.value = currY;
-
-      // Show navbar when scrolling up or at top, hide when scrolling down
-      if (isScrollingDown && currY > 50) {
-        scrollOffset.value = 140;
-      } else {
-        scrollOffset.value = 0;
-      }
-    })
-  );
+  useTask$(() => {
+    if (!isBrowser) return;
+    theme.value =
+      document.documentElement.dataset.theme === "light" ? "light" : "dark";
+  });
 
   const toggleTheme = $(() => {
     theme.value = theme.value === "dark" ? "light" : "dark";
@@ -65,58 +55,78 @@ export default component$(() => {
   });
 
   return (
-    <nav class="navbar">
-      <div class="navbar-top">
-        <button
-          type="button"
-          class="dark-mode-toggle"
-          onClick$={toggleTheme}
-          aria-label="Toggle theme"
+    <nav class="navbar" aria-label="Primary navigation">
+      <div class="navbar__masthead">
+        <a
+          class="navbar__identity"
+          href={homeHref}
+          aria-label="Nadya Jerochim home"
         >
-          <img
-            src={theme.value === "dark" ? Sun : Moon}
-            alt={theme.value === "dark" ? "Light mode" : "Dark mode"}
-            width={24}
-            height={24}
-          />
-        </button>
+          <span class="navbar__mark">N4</span>
+          <span class="navbar__name">NADYA JEROCHIM</span>
+        </a>
 
-        <div class="lang-switch">
-          <a
-            href={`${esPath}${hash}`}
-            class={lang === "es" ? "lang-active" : ""}
-            hreflang="es"
-            onClick$={() => setLangCookie("es")}
+        <div class="navbar__meta" aria-label="Archive status">
+          <span>BA / AR</span>
+          <span>FIELD 01</span>
+          <span class="navbar__live">LIVE INDEX</span>
+        </div>
+
+        <div class="navbar__controls">
+          <button
+            type="button"
+            class="navbar__theme"
+            onClick$={toggleTheme}
+            aria-label={
+              theme.value === "dark" ? "Use light theme" : "Use dark theme"
+            }
           >
-            ES
-          </a>
-          <a
-            href={`${enPath}${hash}`}
-            class={lang === "en" ? "lang-active" : ""}
-            hreflang="en"
-            onClick$={() => setLangCookie("en")}
-          >
-            EN
-          </a>
+            <img
+              src={theme.value === "dark" ? Sun : Moon}
+              alt={theme.value === "dark" ? "Light mode" : "Dark mode"}
+              width={24}
+              height={24}
+            />
+          </button>
+
+          <div class="navbar__language" aria-label="Language">
+            <a
+              href={`${esPath}${hash}`}
+              class={lang === "es" ? "is-active" : ""}
+              hreflang="es"
+              onClick$={() => setLangCookie("es")}
+            >
+              ES
+            </a>
+            <a
+              href={`${enPath}${hash}`}
+              class={lang === "en" ? "is-active" : ""}
+              hreflang="en"
+              onClick$={() => setLangCookie("en")}
+            >
+              EN
+            </a>
+          </div>
         </div>
       </div>
 
-      <div
-        class={{
-          "navbar-bottom": true,
-          "navbar-bottom--hidden": scrollOffset.value > 0,
-        }}
-      >
-        <div class="options">
-          <a href={homeHref}>{t.nav_home}</a>
+      <div class="navbar__nav-row">
+        <span class="navbar__nav-index">01—09</span>
+        <div class="navbar__links">
+          <a class={isHome ? "is-current" : ""} href={homeHref}>
+            {t.nav_home}
+          </a>
           <a href={projectsHref}>{t.nav_projects}</a>
           <a href={experienceHref}>{t.nav_experience}</a>
           <a href={educationHref}>{t.nav_education}</a>
           <a href={skillsHref}>{t.nav_skills}</a>
           <a href={certificationsHref}>{t.nav_certifications}</a>
+          <a class={isBlog ? "is-current" : ""} href={blogHref}>
+            {t.nav_blog}
+          </a>
           <a href={contactHref}>{t.nav_contact}</a>
-          <a href={resumeFile} download>
-            {t.nav_resume}
+          <a class="navbar__resume" href={resumeFile} download>
+            {t.nav_resume} /
           </a>
         </div>
       </div>

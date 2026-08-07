@@ -1,8 +1,5 @@
 import { component$, Slot } from "@builder.io/qwik";
-import {
-  routeLoader$,
-  type RequestHandler,
-} from "@builder.io/qwik-city";
+import { routeLoader$, type RequestHandler } from "@builder.io/qwik-city";
 import type { DocumentHead } from "@builder.io/qwik-city";
 import { translations as t } from "~/lib/translations";
 import { type Locale, localizedPath } from "~/lib/locale";
@@ -68,7 +65,7 @@ export default component$(() => {
 export const head: DocumentHead = {
   meta: [
     { name: "viewport", content: "width=device-width, initial-scale=1" },
-    { name: "theme-color", content: "#161320" },
+    { name: "theme-color", content: "#111414" },
     {
       name: "robots",
       content: "index, follow, max-image-preview:large, max-snippet:-1",

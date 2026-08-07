@@ -1,56 +1,109 @@
 @use "./vars" as *;
 
-.contact-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-height: 200px;
-  padding: 4rem 1.5rem;
-  scroll-margin-top: 80px;
-
-  h3 {
-    font-size: clamp(2rem, 5vw, 3rem);
-    color: $text-primary;
-    margin: 0 0 20px;
-    line-height: 1.2;
-    text-align: center;
-    font-weight: 700;
-    background: linear-gradient(135deg, $text-primary 0%, $primary-hover 60%, $primary 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-  }
-
-  p {
-    color: $text-secondary;
-    font-size: 20px;
-    text-align: center;
-    font-size: 1.3rem;
-
-    a {
-      color: $primary;
-      text-decoration: none;
-      font-weight: bold;
-      padding: 2px 4px;
-      border-radius: 4px;
-      transition: all 0.2s ease;
-      font-size: 1.2rem;
-      line-height: 1.8;
-
-      &:hover {
-        color: $primary-hover;
-        background-color: $hover-bg;
-        text-decoration: none;
-      }
-    }
-  }
+.contact-section {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(190px, 0.5fr) minmax(0, 1.5fr);
+  gap: clamp(2rem, 7vw, 9rem);
+  padding-top: clamp(4rem, 9vw, 8rem);
+  padding-bottom: clamp(5rem, 12vw, 12rem);
+  border-top: 2px solid $ink;
+  scroll-margin-top: var(--nav-height);
 }
 
-@media screen and (max-width: 600px) {
-  .contact-container {
-    height: auto;
-    min-height: 200px;
-    padding: 50px 32px;
+.contact__signal {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  color: $ink-muted;
+  font-family: $font-mono;
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.contact__copy h2 {
+  margin: 0;
+  color: $ink;
+  font-family: $font-sans;
+  font-size: clamp(5rem, 14vw, 14rem);
+  font-weight: 900;
+  letter-spacing: -0.11em;
+  line-height: 0.75;
+  text-transform: uppercase;
+}
+
+.contact__copy p {
+  margin: 2.25rem 0 0;
+  color: $ink-muted;
+  font-family: $font-serif;
+  font-size: clamp(1.1rem, 1.8vw, 1.6rem);
+  font-style: italic;
+}
+
+.contact__copy a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin-top: 0.75rem;
+  color: $blue;
+  font-family: $font-mono;
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  text-decoration: none;
+  border-bottom: 2px solid $blue;
+  transition:
+    color 180ms ease,
+    border-color 180ms ease,
+    transform 180ms ease;
+}
+
+.contact__copy a:hover {
+  color: $red;
+  border-color: $red;
+  transform: translateX(5px);
+}
+
+.contact__copy a span {
+  font-size: 1.2em;
+}
+
+.contact__coordinates {
+  position: absolute;
+  right: 0;
+  bottom: 3rem;
+  display: flex;
+  gap: 1.2rem;
+  color: $line-strong;
+  font-family: $font-mono;
+  font-size: 0.56rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 767px) {
+  .contact-section {
+    display: block;
+    padding-bottom: 7rem;
+  }
+
+  .contact__copy {
+    margin-top: 3rem;
+  }
+
+  .contact__copy h2 {
+    font-size: clamp(4rem, 20vw, 6.5rem);
+    overflow-wrap: anywhere;
+  }
+
+  .contact__coordinates {
+    position: static;
+    flex-wrap: wrap;
+    margin-top: 4rem;
+    line-height: 1.4;
   }
 }

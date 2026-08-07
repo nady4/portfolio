@@ -1,14 +1,14 @@
 ---
-title: "Adapting from JS to TS"
+title: "From JavaScript to TypeScript in production"
 date: "2025-12-22"
-description: "Study notes"
+description: "Practical TypeScript patterns for production frontend and backend work."
 tags: ["typescript", "javascript"]
 ---
 
-# Adapting from JS to TS
+# From JavaScript to TypeScript in production
 
-Category: Web Dev
-⭐ Skills: TypeScript (https://www.notion.so/TypeScript-20ea79aba59347ddadd5ea55397a99cb?pvs=21)
+Category: Engineering notes
+Skills: TypeScript, JavaScript
 
 ## **Compilation**
 

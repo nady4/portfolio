@@ -1,54 +1,150 @@
 @use "./vars" as *;
 
 .post-page {
-  padding: 20px;
+  width: min(100% - 32px, 1100px);
+  margin: 0 auto;
+  padding: clamp(4rem, 9vw, 9rem) 0 clamp(5rem, 10vw, 10rem);
+}
 
-  article {
-    pre {
-      overflow-x: auto;
-      padding: 1rem;
-      border-radius: 12px;
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      background: rgba(255, 255, 255, 0.04);
-      margin: 1rem 0;
-    }
+.post-page__head {
+  border-top: 1px solid $line-strong;
+  padding-top: 0.75rem;
+}
 
-    code {
-      font-family:
-        ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-        "Liberation Mono", "Courier New", monospace;
-      font-size: 0.95em;
-    }
+.back-link {
+  display: inline-block;
+  color: $blue;
+  font-family: $font-mono;
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
 
-    pre code {
-      display: block;
-      white-space: pre;
-      tab-size: 2;
-    }
+.back-link:hover {
+  color: $red;
+}
 
-    :not(pre) > code {
-      padding: 0.15rem 0.35rem;
-      border-radius: 8px;
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      background: rgba(255, 255, 255, 0.06);
-    }
+.post-page__head h1 {
+  max-width: 17ch;
+  margin: clamp(3rem, 7vw, 6rem) 0 1.4rem;
+  color: $ink;
+  font-family: $font-sans;
+  font-size: clamp(3rem, 7vw, 7rem);
+  font-weight: 900;
+  letter-spacing: -0.09em;
+  line-height: 0.84;
+  text-transform: uppercase;
+}
+
+.post-page__head time {
+  color: $ink-muted;
+  font-family: $font-mono;
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.post-page article {
+  max-width: 70ch;
+  margin: clamp(4rem, 8vw, 8rem) auto 0;
+  color: $ink;
+  font-size: 1.08rem;
+  line-height: 1.75;
+}
+
+.post-page article h1,
+.post-page article h2,
+.post-page article h3 {
+  margin: 3rem 0 1rem;
+  color: $ink;
+  font-family: $font-sans;
+  font-weight: 900;
+  letter-spacing: -0.055em;
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+
+.post-page article h1 {
+  font-size: 2.7rem;
+}
+
+.post-page article h2 {
+  font-size: 2rem;
+}
+
+.post-page article h3 {
+  font-size: 1.5rem;
+}
+
+.post-page article a {
+  color: $blue;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+}
+
+.post-page article a:hover {
+  color: $red;
+}
+
+.post-page article ul,
+.post-page article ol {
+  padding-left: 1.4rem;
+}
+
+.post-page article li::marker {
+  color: $green;
+}
+
+.post-page article pre {
+  overflow-x: auto;
+  padding: 1rem;
+  color: $paper-bright;
+  background: $ink;
+  border: 1px solid $line-strong;
+  font-size: 0.86rem;
+  line-height: 1.5;
+}
+
+.post-page article code {
+  font-family: $font-mono;
+  font-size: 0.92em;
+}
+
+.post-page article :not(pre) > code {
+  padding: 0.15rem 0.3rem;
+  color: $blue-dark;
+  background: $line-soft;
+}
+
+.post-page .callout {
+  padding: 1rem;
+  border-left: 3px solid $blue;
+  background: $paper-bright;
+}
+
+.post-page--404 {
+  min-height: calc(100dvh - var(--nav-height));
+}
+
+.post-page--404 h1 {
+  color: $red;
+  font-family: $font-mono;
+  font-size: clamp(5rem, 14vw, 14rem);
+}
+
+@media (max-width: 767px) {
+  .post-page {
+    width: min(100% - 24px, 1100px);
   }
 
-  .back-link {
-    text-decoration: none;
-    color: var(--text-primary);
-    font-size: 18px;
-    margin-bottom: 20px;
-    display: inline-block;
-
-    &:hover {
-      text-decoration: underline;
-    }
+  .post-page__head h1 {
+    font-size: clamp(3rem, 14vw, 5rem);
   }
 
-  .callout {
-    padding: 12px;
-    border: 1px solid #555;
-    border-radius: 10px;
+  .post-page article {
+    font-size: 1rem;
   }
 }

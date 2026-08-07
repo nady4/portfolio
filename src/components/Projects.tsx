@@ -1,5 +1,6 @@
-import { component$, useSignal, $ } from "@builder.io/qwik";
+import { component$, useSignal, useOnDocument, $ } from "@builder.io/qwik";
 import { useTranslations } from "~/routes/layout";
+import Signal from "./Signal";
 import "../styles/Projects.scss";
 
 interface ProjectShot {
@@ -32,43 +33,43 @@ const projects: Project[] = [
       { label: "Repo Front", href: "https://github.com/nady4/calendar-money" },
       {
         label: "Repo Back",
-        href: "https://github.com/nady4/calendar-money-api"
-      }
+        href: "https://github.com/nady4/calendar-money-api",
+      },
     ],
     shots: [
       {
         src: "https://raw.githubusercontent.com/nady4/calendar-money/main/public/assets/docs/landing.png",
-        alt: "Landing"
+        alt: "Calendar Money landing page",
       },
       {
         src: "https://raw.githubusercontent.com/nady4/calendar-money/main/public/assets/docs/dashboard.png",
-        alt: "Dashboard"
+        alt: "Calendar Money dashboard",
       },
       {
         src: "https://raw.githubusercontent.com/nady4/calendar-money/main/public/assets/docs/stats1.png",
-        alt: "Stats"
+        alt: "Calendar Money statistics",
       },
       {
         src: "https://raw.githubusercontent.com/nady4/calendar-money/main/public/assets/docs/stats2.png",
-        alt: "Stats breakdown"
+        alt: "Calendar Money statistics breakdown",
       },
       {
         src: "https://raw.githubusercontent.com/nady4/calendar-money/main/public/assets/docs/scan.png",
-        alt: "Scan"
+        alt: "Calendar Money receipt scanner",
       },
       {
         src: "https://raw.githubusercontent.com/nady4/calendar-money/main/public/assets/docs/account.png",
-        alt: "Account"
+        alt: "Calendar Money account settings",
       },
       {
         src: "https://raw.githubusercontent.com/nady4/calendar-money/main/public/assets/docs/budgets.png",
-        alt: "Budgets"
+        alt: "Calendar Money budgets",
       },
       {
         src: "https://raw.githubusercontent.com/nady4/calendar-money/main/public/assets/docs/categories.png",
-        alt: "Categories"
-      }
-    ]
+        alt: "Calendar Money categories",
+      },
+    ],
   },
   {
     favicon: "/projects/nyady.png",
@@ -79,29 +80,29 @@ const projects: Project[] = [
     shots: [
       {
         src: "https://raw.githubusercontent.com/nady4/nyady/main/public/assets/screenshots/home.png",
-        alt: "Home"
+        alt: "NYADY home page",
       },
       {
         src: "https://raw.githubusercontent.com/nady4/nyady/main/public/assets/screenshots/catalog.png",
-        alt: "Catalog"
+        alt: "NYADY product catalog",
       },
       {
         src: "https://raw.githubusercontent.com/nady4/nyady/main/public/assets/screenshots/product.png",
-        alt: "Product"
+        alt: "NYADY product detail",
       },
       {
         src: "https://raw.githubusercontent.com/nady4/nyady/main/public/assets/screenshots/cart.png",
-        alt: "Cart"
+        alt: "NYADY cart",
       },
       {
         src: "https://raw.githubusercontent.com/nady4/nyady/main/public/assets/screenshots/checkout.png",
-        alt: "Checkout"
+        alt: "NYADY checkout",
       },
       {
         src: "https://raw.githubusercontent.com/nady4/nyady/main/public/assets/screenshots/orders.png",
-        alt: "Orders & tracking"
-      }
-    ]
+        alt: "NYADY orders and tracking",
+      },
+    ],
   },
   {
     favicon: "/projects/nya-store.ico",
@@ -112,21 +113,21 @@ const projects: Project[] = [
     shots: [
       {
         src: "https://raw.githubusercontent.com/nady4/nya-store/main/public/assets/docs/1.png",
-        alt: "Catalog"
+        alt: "Nya Store catalog",
       },
       {
         src: "https://raw.githubusercontent.com/nady4/nya-store/main/public/assets/docs/4.png",
-        alt: "Product"
+        alt: "Nya Store product page",
       },
       {
         src: "https://raw.githubusercontent.com/nady4/nya-store/main/public/assets/docs/6.png",
-        alt: "Checkout"
+        alt: "Nya Store checkout",
       },
       {
         src: "https://raw.githubusercontent.com/nady4/nya-store/main/public/assets/docs/5.png",
-        alt: "Orders"
-      }
-    ]
+        alt: "Nya Store orders",
+      },
+    ],
   },
   {
     favicon: "/projects/ds-invite.png",
@@ -134,30 +135,36 @@ const projects: Project[] = [
     descKey: "project_ds_desc",
     demo: "https://ds.transistemas.org",
     repos: [
-      { label: "Repo", href: "https://github.com/Transistemas-ac/ds-invite" }
+      { label: "Repo", href: "https://github.com/Transistemas-ac/ds-invite" },
     ],
     shots: [
       {
         src: "https://raw.githubusercontent.com/Transistemas-ac/ds-invite/main/public/1.png",
-        alt: "Landing page"
+        alt: "DS Invite landing page",
       },
       {
         src: "https://raw.githubusercontent.com/Transistemas-ac/ds-invite/main/public/3.png",
-        alt: "Bot"
+        alt: "DS Invite bot flow",
       },
       {
         src: "https://raw.githubusercontent.com/Transistemas-ac/ds-invite/main/public/2.png",
-        alt: "Worker"
-      }
-    ]
-  }
+        alt: "DS Invite worker interface",
+      },
+    ],
+  },
 ];
 
 export default component$(() => {
   const t = useTranslations().value;
   const lightboxSrc = useSignal<string | null>(null);
   const trackRefs = useSignal<HTMLDivElement[]>([]);
-  const activeIdx = useSignal(0);
+
+  useOnDocument(
+    "keydown",
+    $((event: KeyboardEvent) => {
+      if (event.key === "Escape") lightboxSrc.value = null;
+    }),
+  );
 
   const openLightbox = $((src: string) => {
     lightboxSrc.value = src;
@@ -176,103 +183,135 @@ export default component$(() => {
 
   return (
     <>
-      <section id="projects" class="projects-section">
-        <header class="projects-head">
-          <h2 class="projects-head__title">{t.projects_title}</h2>
+      <section id="projects" class="projects-section section-shell">
+        <header class="projects-head reveal">
+          <div class="projects-head__meta">
+            <Signal code="02 / 04" tone="purple">
+              {t.projects_signal}
+            </Signal>
+            <span>{t.projects_index}</span>
+          </div>
+          <h2>
+            {t.projects_title}
+            <span> / CASE FILES</span>
+          </h2>
+          <p>{t.projects_intro}</p>
         </header>
 
         <div class="projects-stack">
           {projects.map((project, pIdx) => (
             <article
-              key={pIdx}
-              class="project-card"
+              key={project.name}
+              class={`project-card project-card--${pIdx + 1} reveal`}
               id={`project-${pIdx}`}
-              onMouseEnter$={() => {
-                activeIdx.value = pIdx;
-              }}
             >
-              <div class="project-header">
-                <h2>
-                  <img
-                    class="project-favicon"
-                    src={project.favicon}
-                    alt=""
-                    width={28}
-                    height={28}
-                    loading="lazy"
-                  />
-                  {project.name}
-                </h2>
-                <div class="project-links">
-                  {project.demo && (
-                    <a
-                      class="project-link demo"
-                      href={project.demo}
-                      target="_blank"
-                      rel="noopener"
-                    >
-                      Demo ↗
-                    </a>
-                  )}
-                  {project.repos.map((repo) => (
-                    <a
-                      key={repo.href}
-                      class="project-link"
-                      href={repo.href}
-                      target="_blank"
-                      rel="noopener"
-                    >
-                      {repo.label} ↗
-                    </a>
-                  ))}
-                </div>
+              <div class="project-card__edge" aria-hidden="true">
+                <span>0{pIdx + 1}</span>
+                <span>CASE</span>
+                <span>{pIdx === 0 ? "LIVE" : "FILE"}</span>
               </div>
 
-              <p class="project-desc">{t[project.descKey]}</p>
-
-              <div class="gallery">
-                <button
-                  type="button"
-                  class="gallery-nav prev"
-                  aria-label="Previous screenshot"
-                  onClick$={() => scrollBy(pIdx, -1)}
-                >
-                  ‹
-                </button>
-                <div
-                  class="gallery-track"
-                  ref={(el) => {
-                    trackRefs.value[pIdx] = el;
-                  }}
-                >
-                  {project.shots.map((shot) => (
-                    <figure class="shot" key={shot.src}>
-                      <button
-                        type="button"
-                        class="shot-btn"
-                        onClick$={() => openLightbox(shot.src)}
-                        aria-label={`Enlarge ${shot.alt}`}
+              <div class="project-card__body">
+                <header class="project-header">
+                  <div class="project-title">
+                    <Signal
+                      code={`CASE 0${pIdx + 1}`}
+                      tone={
+                        pIdx === 3 ? "red" : pIdx === 2 ? "green" : "purple"
+                      }
+                    >
+                      {pIdx === 0 ? t.project_active : t.project_archived}
+                    </Signal>
+                    <h3>
+                      <img
+                        class="project-favicon"
+                        src={project.favicon}
+                        alt=""
+                        width={28}
+                        height={28}
+                        loading="lazy"
+                      />
+                      <span class="project-name">{project.name}</span>
+                    </h3>
+                  </div>
+                  <div class="project-links">
+                    {project.demo && (
+                      <a
+                        class="project-link project-link--demo"
+                        href={project.demo}
+                        target="_blank"
+                        rel="noopener noreferrer"
                       >
-                        <img
-                          src={shot.src}
-                          alt={shot.alt}
-                          loading="lazy"
-                          width={960}
-                          height={600}
-                        />
-                      </button>
-                      <figcaption>{shot.alt}</figcaption>
-                    </figure>
-                  ))}
+                        {t.project_live_demo} ↗
+                      </a>
+                    )}
+                    {project.repos.map((repo) => (
+                      <a
+                        key={repo.href}
+                        class="project-link"
+                        href={repo.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {(repo.label === "Repo Front"
+                          ? t.project_repo_front
+                          : repo.label === "Repo Back"
+                            ? t.project_repo_back
+                            : t.project_repo) + " ↗"}
+                      </a>
+                    ))}
+                  </div>
+                </header>
+
+                <p class="project-desc">{t[project.descKey]}</p>
+
+                <div class="gallery">
+                  <button
+                    type="button"
+                    class="gallery-nav gallery-nav--prev"
+                    aria-label={`${t.project_previous} ${project.name}`}
+                    onClick$={() => scrollBy(pIdx, -1)}
+                  >
+                    ←
+                  </button>
+                  <div
+                    class="gallery-track"
+                    ref={(el) => {
+                      trackRefs.value[pIdx] = el;
+                    }}
+                  >
+                    {project.shots.map((shot, shotIdx) => (
+                      <figure class="shot" key={shot.src}>
+                        <button
+                          type="button"
+                          class="shot-btn"
+                          onClick$={() => openLightbox(shot.src)}
+                          aria-label={`${t.project_inspect} ${shot.alt}`}
+                        >
+                          <img
+                            src={shot.src}
+                            alt={shot.alt}
+                            loading="lazy"
+                            width={960}
+                            height={600}
+                          />
+                          <span class="shot-index" aria-hidden="true">
+                            {String(shotIdx + 1).padStart(2, "0")}
+                          </span>
+                        </button>
+                        <figcaption>{shot.alt}</figcaption>
+                      </figure>
+                    ))}
+                  </div>
+                  <button
+                    type="button"
+                    class="gallery-nav gallery-nav--next"
+                    aria-label={`${t.project_next} ${project.name}`}
+                    onClick$={() => scrollBy(pIdx, 1)}
+                  >
+                    →
+                  </button>
                 </div>
-                <button
-                  type="button"
-                  class="gallery-nav next"
-                  aria-label="Next screenshot"
-                  onClick$={() => scrollBy(pIdx, 1)}
-                >
-                  ›
-                </button>
               </div>
             </article>
           ))}
@@ -285,20 +324,22 @@ export default component$(() => {
           onClick$={closeLightbox}
           role="dialog"
           aria-modal="true"
+          aria-label={t.project_screenshot_inspection}
         >
           <button
             type="button"
             class="lightbox-close"
-            aria-label="Close"
+            aria-label={t.project_close_screenshot}
             onClick$={closeLightbox}
           >
             ×
           </button>
           <img
             src={lightboxSrc.value}
-            alt="Enlarged screenshot"
+            alt="Enlarged project screenshot"
             width={1280}
             height={800}
+            onClick$={(event) => event.stopPropagation()}
           />
         </div>
       )}
