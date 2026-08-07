@@ -1,43 +1,26 @@
-<h1 align="center"> nady4.com — Full Stack AI Engineer Portfolio </h1>
+<h1 align="center"><a href="https://nady4.com">nady4.com</h1></a>
 
 <p align="center">
-Server-rendered Full Stack AI Engineer portfolio and integrated Markdown blog. Built with Qwik + Qwik City, deployed on the edge via Vercel. Bilingual (EN/ES), dark by default, and focused on production web products with LLM integrations, AI agents, and workflow automation.
+🚀 Server-rendered personal portfolio with an integrated Markdown-powered blog. Built with Qwik and Qwik City, deployed on Vercel Edge, featuring bilingual (EN/ES) support and dark mode.
 </p>
 
 <br>
 
 ## 📸 Screenshots
 
-> The checked-in PNGs are repository reference captures. The current deployed interface uses the dark-first editorial system described below.
+<p align="center"><img src="./public/hero.png" alt="Hero section" width="99%" /></p>
 
-<table>
-  <tr>
-    <td colspan="2" align="center"><em>Hero</em></td>
-  </tr>
-  <tr>
-    <td colspan="2" align="center"><img src="./public/1.png" alt="Hero section" /></td>
-  </tr>
-  <tr>
-    <td align="center"><em>Projects gallery</em></td>
-    <td align="center"><em>Experience</em></td>
-  </tr>
-  <tr>
-    <td><img src="./public/2.png" alt="Projects gallery" /></td>
-    <td><img src="./public/3.png" alt="Experience section" /></td>
-  </tr>
-</table>
+<p align="center"><img src="./public/projects.png" alt="Projects section" width="99%" /></p>
 
-<br>
+<p align="center"><img src="./public/experience.png" alt="Experience section" width="99%" /></p>
 
-## 🌐 Live site
+<p align="center"><img src="./public/education.png" alt="Education section" width="99%" /></p>
 
-- **URL:** <b><a href="https://nady4.com">nady4.com</a></b>
+<p align="center"><img src="./public/stack.png" alt="Tech Stack section" width="99%" /></p>
 
-## Positioning
+<p align="center"><img src="./public/credentials.png" alt="Credentials section" width="99%" /></p>
 
-Nadya builds software products enhanced with AI, not standalone AI demos. The portfolio presents full-stack systems that connect LLM APIs and agents to React or Next.js interfaces, Node.js services, databases, external APIs, and real business workflows.
-
-The primary role is **Full Stack AI Engineer**, with a focus on AI product engineering, LLM application development, agent orchestration, intelligent assistants, and production-ready automation.
+<p align="center"><img src="./public/contact.png" alt="Contact section" width="99%" /></p>
 
 <br>
 

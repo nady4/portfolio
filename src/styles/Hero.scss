@@ -7,7 +7,7 @@
   align-items: center;
   min-height: calc(100dvh - var(--nav-height));
   gap: clamp(1.5rem, 4vw, 5rem);
-  padding-top: clamp(3rem, 8vh, 6rem);
+  padding-top: clamp(3rem, 1vh, 6rem);
   padding-bottom: clamp(3rem, 8vh, 7rem);
   scroll-margin-top: var(--nav-height);
 }
