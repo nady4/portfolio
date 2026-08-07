@@ -1,7 +1,6 @@
 @use "./vars" as *;
 
 .blog-section {
-  padding-top: clamp(4rem, 9vw, 8rem);
   padding-bottom: clamp(4rem, 9vw, 7rem);
   scroll-margin-top: var(--nav-height);
 }
@@ -119,6 +118,10 @@
     align-items: flex-start;
     flex-direction: column;
     gap: 1rem;
+
+    h2 {
+      font-size: 4rem;
+    }
   }
 
   .blog-section__entry {
