@@ -9,7 +9,7 @@ export default component$(() => {
   return (
     <section id="contact" class="contact-section section-shell">
       <div class="contact__signal reveal">
-        <Signal code="07 / 09" tone="green">
+        <Signal code="08 / 09" tone="green">
           {t.contact_signal}
         </Signal>
         <span>{t.contact_response}</span>

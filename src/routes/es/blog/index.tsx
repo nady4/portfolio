@@ -33,12 +33,12 @@ export default component$(() => {
         <header class="blog-page__head">
           <div class="blog-page__back-row">
             <a href="/es/">&larr; {t.blog_back}</a>
-            <Signal code="08 / 09" tone="purple">
+            <Signal code="07 / 09" tone="purple">
               {t.blog_signal}
             </Signal>
           </div>
           <h1>
-            nady4 <span>/ NOTAS</span>
+            nady4 <span>/ BLOG</span>
           </h1>
           <p>{t.blog_intro}</p>
         </header>
@@ -67,7 +67,7 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = {
-  title: "Nadya Jerochim | Notas de ingeniería Full Stack con IA",
+  title: "Nadya Jerochim | Blog",
   meta: [
     {
       name: "description",

@@ -19,7 +19,7 @@ export default component$(() => {
             {t.footer_signal}
           </Signal>
           <a class="footer__blog" href={blogHref}>
-            {t.nav_blog} / {lang === "es" ? "NOTAS" : "NOTES"} ↗
+            {t.nav_blog} ↗
           </a>
         </div>
         <div class="footer__bottom">

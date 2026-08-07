@@ -11,6 +11,7 @@ export default component$(() => {
   const lastName = rest.join(" ");
   const projectsHref = lang === "es" ? "/es/#projects" : "/#projects";
   const resumeFile = lang === "es" ? "/cv-es.pdf" : "/cv-en.pdf";
+  const blogHref = lang === "es" ? "/es/blog/" : "/blog/";
 
   return (
     <section id="home" class="hero-section section-shell">
@@ -40,6 +41,9 @@ export default component$(() => {
           </a>
           <a class="hero__button hero__button--text" href={resumeFile} download>
             {t.nav_resume} <span aria-hidden="true">↓</span>
+          </a>
+          <a class="hero__button hero__button--text" href={blogHref}>
+            {t.nav_blog} <span aria-hidden="true">↗</span>
           </a>
         </div>
         <div class="hero__footnote">

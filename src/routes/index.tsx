@@ -1,5 +1,5 @@
 import { component$ } from "@builder.io/qwik";
-import type { DocumentHead } from "@builder.io/qwik-city";
+import { routeLoader$, type DocumentHead } from "@builder.io/qwik-city";
 import Navbar from "~/components/Navbar";
 import Hero from "~/components/Hero";
 import DataStream from "~/components/DataStream";
@@ -8,10 +8,19 @@ import Education from "~/components/Education";
 import Projects from "~/components/Projects";
 import Skills from "~/components/Skills";
 import Certifications from "~/components/Certifications";
+import BlogSection from "~/components/BlogSection";
 import Contact from "~/components/Contact";
 import Footer from "~/components/Footer";
+import { getAllPosts } from "~/lib/blog";
+
+export const useBlogFeed = routeLoader$(() => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  return getAllPosts().map(({ html, ...meta }) => meta);
+});
 
 export default component$(() => {
+  const feed = useBlogFeed();
+
   return (
     <main>
       <Navbar />
@@ -22,6 +31,7 @@ export default component$(() => {
       <Education />
       <Skills />
       <Certifications />
+      <BlogSection posts={feed.value} />
       <Contact />
       <Footer />
     </main>

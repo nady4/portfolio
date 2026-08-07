@@ -6,7 +6,7 @@ export const translations = {
     nav_projects: "Projects",
     nav_skills: "Stack",
     nav_certifications: "Credentials",
-    nav_blog: "Notes",
+    nav_blog: "Blog",
     nav_contact: "Contact",
     nav_resume: "Resume",
 
@@ -109,7 +109,7 @@ export const translations = {
     nav_projects: "Proyectos",
     nav_skills: "Stack",
     nav_certifications: "Credenciales",
-    nav_blog: "Notas",
+    nav_blog: "Blog",
     nav_contact: "Contacto",
     nav_resume: "Currículum",
 
@@ -195,7 +195,7 @@ export const translations = {
       "Disponible para productos full stack con IA, integraciones con LLM y automatización de flujos. Escribime a",
     contact_coordinates: "BUENOS AIRES / AR",
 
-    blog_signal: "registro de notas",
+    blog_signal: "registro del blog",
     blog_intro: "Notas de trabajo sobre cómo integrar IA útil en productos reales.",
     blog_back: "Volver",
     blog_fallback_description:

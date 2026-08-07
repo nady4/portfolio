@@ -29,14 +29,14 @@
 ### 🏠 Portfolio
 
 - **Hero section** positioning Nadya as a Full Stack AI Engineer who ships AI features inside real products, with a primary CTA into the projects archive and a secondary resume download that picks the right CV per locale (`cv-en.pdf` / `cv-es.pdf`).
-- **Navbar** with smooth-scroll anchors to Home, Experience, Education, Projects, Stack, Credentials, Notes and Contact — fully translated in EN/ES.
+- **Navbar** with smooth-scroll anchors to Home, Experience, Education, Projects, Stack, Credentials, Blog and Contact — fully translated in EN/ES.
 - **Data stream** with a single technical marquee for LLM integration, AI agents, workflow automation, TypeScript, React, and Cloudflare Workers.
 - **Experience ledger** rendered as dense role contribution lists, sourced from the translation file so both languages stay in sync.
 - **Education block** with degree, institution, and year range.
 - **Tech Stack grid** with 9 indexed categories covering languages, frontend, backend, databases, DevOps, testing, tools, AI applications, and spoken languages.
 - **Credentials register** (Full Stack, QA, UX, Scrum, English C2) presented as an indexed ledger.
 - **Contact section** with a direct `mailto:dev@nady4.com` link.
-- **Footer** with name, email, social links, notes link, and high-contrast theme-aware tokens.
+- **Footer** with name, email, social links, blog link, and high-contrast theme-aware tokens.
 
 ### 🖼️ Projects showcase
 
