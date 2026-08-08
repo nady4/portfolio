@@ -27,18 +27,5 @@
         }
       ]
     }
-  ],
-  "redirects": [
-    {
-      "source": "/(.*)",
-      "has": [
-        {
-          "type": "host",
-          "value": "www.nady4.com"
-        }
-      ],
-      "destination": "https://nady4.com/$1",
-      "permanent": true
-    }
   ]
 }
