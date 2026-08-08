@@ -1,6 +1,6 @@
 User-agent: *
 Allow: /
-Disallow: /*-bundle-graph.json$
+Disallow: /*?q=
 Disallow: /q-manifest.json
 
 Host: https://nady4.com

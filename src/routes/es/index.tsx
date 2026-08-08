@@ -45,8 +45,8 @@ export const head: DocumentHead = {
       content:
         "Productos web listos para producción con IA integrada en flujos reales: funcionalidades con LLM, agentes, APIs, datos y automatización.",
     },
-    { property: "og:image", content: "https://www.nady4.com/dev.png" },
-    { property: "og:url", content: "https://www.nady4.com/es/" },
+    { property: "og:image", content: "https://nady4.com/dev.png" },
+    { property: "og:url", content: "https://nady4.com/es/" },
     { property: "og:type", content: "website" },
     { property: "og:image:type", content: "image/png" },
     { property: "og:image:width", content: "1024" },
@@ -64,7 +64,7 @@ export const head: DocumentHead = {
       content:
         "Productos web listos para producción con IA integrada en flujos reales: funcionalidades con LLM, agentes, APIs, datos y automatización.",
     },
-    { name: "twitter:image", content: "https://www.nady4.com/dev.png" },
+    { name: "twitter:image", content: "https://nady4.com/dev.png" },
     { name: "author", content: "Nadya Jerochim" },
     { name: "robots", content: "index, follow" },
     { name: "theme-color", content: "#111414" },

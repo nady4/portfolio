@@ -17,7 +17,7 @@ const formatDate = (date: string, lang: string) => {
   return new Date(date).toLocaleDateString(locale, {
     day: "2-digit",
     month: "2-digit",
-    year: "numeric",
+    year: "numeric"
   });
 };
 
@@ -75,9 +75,9 @@ export const head: DocumentHead = () => {
       {
         name: "description",
         content:
-          "Technical notes on building production AI products with React, Next.js, Node.js, LLM integrations, agents, and automation.",
+          "A blog about web development, programming, and technology. Explore articles, tutorials and insights."
       },
-      { name: "robots", content: "index, follow" },
+      { name: "robots", content: "index, follow" }
     ],
     links: [
       { rel: "alternate", hreflang: "en", href: "https://nady4.com/blog/" },
@@ -85,8 +85,8 @@ export const head: DocumentHead = () => {
       {
         rel: "alternate",
         hreflang: "x-default",
-        href: "https://nady4.com/blog/",
-      },
-    ],
+        href: "https://nady4.com/blog/"
+      }
+    ]
   };
 };

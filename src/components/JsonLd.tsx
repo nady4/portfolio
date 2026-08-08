@@ -95,11 +95,6 @@ function websiteLd() {
     url: `${SITE}/`,
     inLanguage: ["en", "es"],
     publisher: { "@id": PERSON_ID },
-    potentialAction: {
-      "@type": "SearchAction",
-      target: `${SITE}/blog/?q={search_term_string}`,
-      "query-input": "required name=search_term_string",
-    },
   };
 }
 
@@ -130,7 +125,7 @@ function professionalServiceLd(locale: string) {
   };
 }
 
-function webpageLd(headTitle: string, headDescription: string, locale: string) {
+function webpageLd(headTitle: string, headDescription: string, locale: string, pathname: string) {
   return {
     "@context": "https://schema.org",
     "@type": "WebPage",
@@ -138,7 +133,7 @@ function webpageLd(headTitle: string, headDescription: string, locale: string) {
     description: headDescription,
     inLanguage: locale,
     isPartOf: { "@id": WEBSITE_ID },
-    url: `${SITE}/`,
+    url: `${SITE}${pathname}`,
     primaryImageOfPage: {
       "@type": "ImageObject",
       url: `${SITE}/dev.png`,
@@ -195,7 +190,7 @@ export const JsonLd = component$<{ post?: BlogPostLite }>(({ post }) => {
   if (post) {
     blocks.push(blogPostingLd(post, locale));
   } else {
-    blocks.push(webpageLd(headTitle, headDescription, locale));
+    blocks.push(webpageLd(headTitle, headDescription, locale, loc.url.pathname));
   }
 
   return (

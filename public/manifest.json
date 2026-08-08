@@ -2,7 +2,7 @@
   "$schema": "https://json.schemastore.org/web-manifest-combined.json",
   "name": "Nadya Jerochim | Full Stack AI Engineer",
   "short_name": "Nadya AI Engineer",
-  "start_url": ".",
+  "start_url": "/",
   "display": "standalone",
   "background_color": "#111414",
   "theme_color": "#6d4bd1",

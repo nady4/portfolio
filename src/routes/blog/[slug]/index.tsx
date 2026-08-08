@@ -92,7 +92,7 @@ export const head: DocumentHead = ({ resolveValue, params }) => {
         property: "og:url",
         content: `https://nady4.com/blog/${slug}/`,
       },
-      { property: "og:image", content: "https://www.nady4.com/dev.png" },
+      { property: "og:image", content: "https://nady4.com/dev.png" },
       { property: "og:image:alt", content: "Nadya Jerochim" },
       { property: "og:locale", content: "en_US" },
       { property: "og:locale:alternate", content: "es_AR" },
@@ -104,7 +104,7 @@ export const head: DocumentHead = ({ resolveValue, params }) => {
           post.description ??
           "Technical writing on full-stack AI product engineering by Nadya Jerochim.",
       },
-      { name: "twitter:image", content: "https://www.nady4.com/dev.png" },
+      { name: "twitter:image", content: "https://nady4.com/dev.png" },
       { name: "twitter:image:alt", content: "Nadya Jerochim" },
     ],
     links: [

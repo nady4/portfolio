@@ -6,7 +6,7 @@ export const RouterHead = component$(() => {
   const head = useDocumentHead();
   const loc = useLocation();
 
-  const canonicalUrl = `${loc.url.origin}${loc.url.pathname}`;
+  const canonicalUrl = `https://nady4.com${loc.url.pathname}`;
 
   return (
     <>
