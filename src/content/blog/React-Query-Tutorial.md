@@ -5,8 +5,6 @@ description: "Practical React Query notes covering queries, mutations, cache inv
 tags: ["react-query", "tanstack-query", "react", "web-dev"]
 ---
 
-# React Query Tutorial
-
 ## Installation
 
 ```bash

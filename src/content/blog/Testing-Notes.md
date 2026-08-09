@@ -5,8 +5,6 @@ description: "Testing notes covering TDD, Vitest, React Testing Library, Jest, b
 tags: ["testing", "vitest", "jest", "cypress", "web-dev"]
 ---
 
-# Testing Notes
-
 ## Test Driven Development (TDD)
 
 **Test-driven development** (**TDD**) is a way of writing code that involves writing an automated unit-level test case that fails, then writing just enough code to make the test pass, then refactoring both the test code and the production code, then repeating with another new test case.

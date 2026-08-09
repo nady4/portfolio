@@ -5,8 +5,6 @@ description: "A practical Tailwind CSS reference covering installation, typograp
 tags: ["tailwindcss", "css", "web-dev"]
 ---
 
-# TailwindCSS CheatSheet
-
 ## Installation
 
 ```tsx

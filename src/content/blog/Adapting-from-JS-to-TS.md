@@ -5,8 +5,6 @@ description: "Practical TypeScript patterns for production frontend and backend 
 tags: ["typescript", "javascript"]
 ---
 
-# From JavaScript to TypeScript in production
-
 ## **Compilation**
 
 TypeScript code runs on compiler time, in which it’s converted to JavaScript, that runs on execution time.

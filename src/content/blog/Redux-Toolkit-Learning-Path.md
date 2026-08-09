@@ -5,8 +5,6 @@ description: "A hands-on Redux Toolkit guide covering stores, slices, typed hook
 tags: ["redux", "redux-toolkit", "react", "web-dev"]
 ---
 
-# Redux Toolkit (RTK) Learning Path
-
 ## 🛠️ Redux Basics
 
 ### What is Redux?

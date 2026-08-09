@@ -5,8 +5,6 @@ description: "A structured Next.js roadmap covering routing, rendering, metadata
 tags: ["nextjs", "react", "web-dev"]
 ---
 
-# Next.js Roadmap
-
 [Next.js by Vercel - The React Framework](https://nextjs.org/learn)
 
 ## Initialization

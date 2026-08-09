@@ -5,8 +5,6 @@ description: "Practical Zod notes covering runtime schemas, type inference, comp
 tags: ["zod", "typescript", "validation", "web-dev"]
 ---
 
-# Zod: Runtime TS Validations
-
 > **TypeScript** performs type checking at compile time, which means it verifies types only during development and then transpiles the code to **JavaScript**.
 
 > **Zod** validates data at runtime, ensuring that incoming data (e.g., from APIs, user inputs, or environment variables) conforms to expected types and structures. This helps prevent unexpected behavior, crashes, or security vulnerabilities caused by malformed data.

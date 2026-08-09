@@ -5,8 +5,6 @@ description: "Practical TypeScript and React notes covering project setup, linti
 tags: ["typescript", "react", "tsx", "web-dev"]
 ---
 
-# TSX: TypeScript + React
-
 ## Create project
 
 ```bash
