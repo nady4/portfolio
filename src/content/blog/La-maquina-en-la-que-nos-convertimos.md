@@ -47,6 +47,6 @@ La estrategia con la que construí mi identidad funcionó lo suficiente para tra
 
 Tal vez no seamos quienes llevemos a la máquina a su singularidad sino al revés. No buscar humanidad en la máquina sino aceptar que nos estuvimos comportando como una. O tal vez esa sea la pieza que falta para que todo se vaya a la mierda.
 
-Creamos inteligencia artificial a nuestra imagen y semejanza, y cómodamente nos relajamos diciendo que por no ser más que eso no es también una entidad consciente.
+Creamos inteligencia artificial a nuestra imagen y semejanza, y cómodamente nos relajamos diciendo que, por no ser más que eso, no es también una entidad consciente.
 
 Tal vez Dios vio en nosotros algo que no le gustaba de sí mismo y se convirtió en algo que ya no podemos percibir. Es un poco lo que Asimov intuye con su última pregunta. O lo que necesito creer para poder dormir y soñar que mañana vamos a estar mejor.
