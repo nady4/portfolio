@@ -11,17 +11,17 @@ export const translations = {
     nav_resume: "Resume",
 
     hero_title: "Nadya Jerochim",
-    hero_subtitle: "Full Stack AI Engineer",
-    hero_kicker: "AI PRODUCT ENGINEERING / FULL STACK DEVELOPER",
     hero_signal: "signal acquired",
     hero_status_label: "interface online",
-    hero_role_detail: "LLM INTEGRATIONS, AGENTS, AUTOMATION",
+    hero_kicker: "BUENOS AIRES → WORLDWIDE",
+    hero_subtitle: "Full Stack Engineer",
+    hero_role_detail: "AI & Product Engineering",
     hero_footnote: "AVAILABLE FOR WORK",
     hero_status:
       "Make it simple, but significant",
-    hero_image_alt: "Nadya Jerochim, Full Stack AI Engineer",
+    hero_image_alt: "Nadya Jerochim, Full Stack Engineer",
     hero_desc:
-      "I build AI-powered products end-to-end, combining product thinking, modern software engineering, and clean architecture to turn ideas into scalable, user-focused experiences.",
+      "I build AI-powered products end-to-end, combining product thinking and software engineering to transform ideas into scalable, user-focused experiences.",
     projects_title: "Projects",
     projects_suffix: "CODING EXPERIENCES",
     projects_signal: "shipped products",
@@ -51,16 +51,11 @@ export const translations = {
     experience_signal: "career log",
     experience_title: "Experience",
     experience_suffix: "/ PROFFESIONAL JOURNEY",
-    experience_1_title: "Full Stack Developer",
+    experience_1_title: "Full Stack Engineer",
     experience_1_company: "Transistemas",
     experience_1_period: "Dec 2024 - Present",
     experience_1_desc:
-      "Built and maintained the organization's full-stack course and student management platform.\nMaintained and extended the institutional website as requirements evolved.\nMigrated the frontend toolchain to Vite, hosting to Vercel, and DNS operations to Cloudflare.\nDeveloped Cloudflare Workers for DNS and nameserver monitoring.\nImplemented custom email routing with SMTP and POP3.\nAutomated deployments and configured firewall and observability workflows.\nDocumented architecture, DNS, deployments, and security policies for reliable handoff.",
-    experience_2_title: "Development Team Coordinator",
-    experience_2_company: "Transistemas",
-    experience_2_period: "July 2025 - Present",
-    experience_2_desc:
-      "Coordinate delivery across development projects using Agile planning, GitHub, and Notion.\nTranslate client and NGO needs into software requirements, delivery plans, and long-term support.\nLead technical interviews, candidate selection, and structured onboarding for the development team.\nCoordinate Development, Design, Education, and Communications around product and infrastructure needs.\nLead cybersecurity initiatives and modernization of the organization's digital infrastructure.",
+      "Design, development, and maintenance of scalable full-stack applications for clients and NGO partners, including REST APIs, database architecture, responsive interfaces, and internal management platforms.\nDeveloped and optimized the institutional website, implementing new requirements, migrating from legacy bundling tools to Vite, and improving deployment workflows.\nLed modernization of the organization's digital infrastructure, including migration to Vercel, Cloudflare DNS management, automated monitoring through Cloudflare Workers, custom email routing, and security improvements.\nImplemented deployment automation, firewall configuration, observability practices, and technical documentation covering architecture, infrastructure, security policies, and operational procedures.\nCoordinated development initiatives using Agile methodologies, GitHub, and Notion, managing priorities, technical requirements, and project delivery.\nCollaborated with Design, Education, and Communications teams to identify organizational needs and translate them into software solutions.\nManaged client and NGO partnerships, contributing to lead generation, technical discovery, requirements gathering, stakeholder communication, and long-term technical support.\nSupported team growth through technical interviews, candidate evaluation, onboarding processes, and development workflow improvements.\nLed cybersecurity initiatives and infrastructure improvements to increase reliability, maintainability, and organizational resilience.",
 
     education_signal: "knowledge graph",
     education_title: "Education",
@@ -126,17 +121,17 @@ export const translations = {
     nav_resume: "Currículum",
 
     hero_title: "Nadya Jerochim",
-    hero_subtitle: "Ingeniera Full Stack de IA",
-    hero_kicker: "AI PRODUCT ENGINEERING / FULL STACK DEVELOPER",
+    hero_subtitle: "Full Stack Engineer",
     hero_signal: "señal adquirida",
     hero_status_label: "interfaz en línea",
-    hero_role_detail: "INTEGRACIONES CON LLM, AGENTES, AUTOMATIZACIÓN",
+    hero_kicker: "BUENOS AIRES → WORLDWIDE",
+    hero_role_detail: "AI & Product Engineering",
     hero_footnote: "DISPONIBLE PARA TRABAJAR",
     hero_status:
       "Make it simple, but significant",
-    hero_image_alt: "Nadya Jerochim, ingeniera Full Stack de IA",
+    hero_image_alt: "Nadya Jerochim, Full Stack Engineer",
     hero_desc:
-      "Construyo productos con IA de principio a fin, combinando pensamiento de producto, ingeniería de software moderna y arquitectura limpia para convertir ideas en experiencias escalables y centradas en el usuario.",
+      "Construyo productos con IA de principio a fin, combinando pensamiento de producto e ingeniería de software moderna para convertir ideas en experiencias escalables y centradas en el usuario.",
     projects_title: "Proyectos",
     projects_suffix: "EXPERIENCIAS DIGITALES",
     projects_signal: "productos entregados",
@@ -166,16 +161,11 @@ export const translations = {
     experience_signal: "registro profesional",
     experience_title: "Experiencia",
     experience_suffix: "/ TRAYECTORIA PROFESIONAL",
-    experience_1_title: "Full Stack Developer",
+    experience_1_title: "Full Stack Engineer",
     experience_1_company: "Transistemas",
     experience_1_period: "Dic 2024 - Presente",
     experience_1_desc:
-      "Construí y mantengo la plataforma full stack de la organización para gestionar cursos y estudiantes.\nMantengo y extiendo la web institucional según nuevos requerimientos.\nMigré el stack frontend a Vite, el hosting a Vercel y las operaciones DNS a Cloudflare.\nDesarrollé Workers para monitorear configuraciones DNS y nameservers.\nImplementé routing de correo personalizado con SMTP y POP3.\nAutomaticé despliegues y configuré flujos de firewall y observabilidad.\nDocumenté arquitectura, DNS, despliegues y políticas de seguridad para facilitar la continuidad técnica.",
-    experience_2_title: "Coordinadora del Equipo de Desarrollo",
-    experience_2_company: "Transistemas",
-    experience_2_period: "Julio 2025 - Presente",
-    experience_2_desc:
-      "Coordino entregas de proyectos de desarrollo con planificación Agile, GitHub y Notion.\nConvierto necesidades de clientes y ONGs en requerimientos de software, planes de entrega y soporte a largo plazo.\nLidero entrevistas técnicas, selección y onboarding estructurado para el equipo de desarrollo.\nCoordino Desarrollo, Diseño, Educación y Comunicación alrededor de necesidades de producto e infraestructura.\nLidero iniciativas de ciberseguridad y modernización de la infraestructura digital de la organización.",
+      "Diseño, desarrollo y mantenimiento de proyectos escalables para clientes y ONGs asociadas, implementando REST APIs, arquitecturas serverless, esquemas de bases de datos e interfaces frontend responsivas.\nMantenimiento e implementación de nuevos requerimientos en la web institucional, mejorando los flujos de despliegue a producción.\nLiderazgo en la modernización de la infraestructura digital de la organización, incluyendo migración a Vercel, gestión de DNS con Cloudflare, monitoreo automatizado mediante Cloudflare Workers, configuración de correo personalizado y mejoras de seguridad.\nAutomatización de despliegues, configuración de firewalls, observabilidad y documentación técnica de arquitectura, infraestructura, políticas de seguridad y procedimientos operativos.\nCoordinación de iniciativas de desarrollo utilizando metodologías ágiles, GitHub y Notion, gestionando prioridades, requerimientos técnicos y entregas de proyectos.\nTrabajo colaborativo con los equipos de Diseño, Educación y Comunicación para identificar necesidades organizacionales y transformarlas en soluciones de software.\nParticipación en la gestión de alianzas con clientes y organizaciones, incluyendo generación de leads, análisis funcional, capacitación de usuarios y soporte continuo.\nParticipación en la incorporación de talento para el equipo de desarrollo mediante entrevistas técnicas, evaluación de candidatos y procesos estructurados de onboarding.\nLiderazgo de iniciativas de ciberseguridad, documentación y mejora de infraestructura para aumentar la confiabilidad, mantenibilidad y resiliencia tecnológica de la organización.",
 
     education_signal: "knowledge graph",
     education_title: "Educación",

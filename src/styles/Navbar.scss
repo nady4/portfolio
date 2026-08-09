@@ -162,6 +162,7 @@
   align-items: center;
   min-width: 0;
   gap: clamp(0.65rem, 1.35vw, 1.25rem);
+  font-size: 0.72rem;
   overflow-x: auto;
   scrollbar-width: none;
 
@@ -228,7 +229,7 @@
 
   .navbar__links {
     gap: 0.95rem;
-    font-size: 0.58rem;
+    font-size: 0.64rem;
   }
 }
 

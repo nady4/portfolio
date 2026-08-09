@@ -104,6 +104,7 @@
   align-items: start;
   justify-content: space-between;
   gap: 1rem;
+  min-width: 0;
   color: $ink;
   font-family: $font-sans;
   font-size: clamp(1.5rem, 3vw, 3.4rem);
@@ -112,6 +113,7 @@
   line-height: 0.95;
   text-decoration: none;
   text-transform: uppercase;
+  overflow-wrap: anywhere;
   transition:
     color 180ms ease,
     transform 180ms ease;

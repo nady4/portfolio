@@ -13,12 +13,6 @@ export default component$(() => {
       period: t.experience_1_period,
       description: t.experience_1_desc,
     },
-    {
-      title: t.experience_2_title,
-      company: t.experience_2_company,
-      period: t.experience_2_period,
-      description: t.experience_2_desc,
-    },
   ];
 
   return (
