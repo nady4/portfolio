@@ -93,10 +93,22 @@ export const translations = {
     contact_coordinates: "BUENOS AIRES / AR",
 
     blog_signal: "publication log",
-    blog_intro: "Working notes on building useful AI features into real products.",
+    blog_intro: "Artisanal writing in the AI era. Schizo rants, poetry and some notes on my never-ending learning journey.",
     blog_back: "Back",
     blog_fallback_description:
-      "Technical writing on full-stack AI product engineering by Nadya Jerochim.",
+      "Artisanal writing in the AI era. Schizo rants, poetry and some notes on my never-ending learning journey.",
+
+    newsletter_signal: "stay updated on new posts",
+    newsletter_title: "NEWSLETTER",
+    newsletter_text:
+      "No spam. No data sent to national or foreign intelligence services. Unsubscribe at anytime.",
+    newsletter_field: "Email address",
+    newsletter_placeholder: "you@example.com",
+    newsletter_button: "Subscribe",
+    newsletter_sending: "Sending…",
+    newsletter_success: "// Subscribed — welcome to the channel",
+    newsletter_invalid: "// Invalid address — check the format",
+    newsletter_error: "// Transmission failed — try again",
 
     footer_signal: "end of transmission",
     footer_name: "Nadya Jerochim",
@@ -196,10 +208,22 @@ export const translations = {
     contact_coordinates: "BUENOS AIRES / AR",
 
     blog_signal: "registro del blog",
-    blog_intro: "Notas de trabajo sobre cómo integrar IA útil en productos reales.",
+    blog_intro: "Escritura artesanal en la era de la IA. Rants esquizoides, poesía y algunos apuntes de mi aprendizaje autodidacta.",
     blog_back: "Volver",
     blog_fallback_description:
-      "Notas técnicas sobre ingeniería de productos full stack con IA por Nadya Jerochim.",
+      "Escritura artesanal en la era de la IA. Rants esquizoides, poesía y algunos apuntes de mi aprendizaje autodidacta.",
+
+    newsletter_signal: "enterate de nuevos posts",
+    newsletter_title: "NEWSLETTER",
+    newsletter_text:
+      "Sin spam. No se envían datos a servicios de inteligencia nacionales o extranjeros. Podés darte de baja en cualquier momento.",
+    newsletter_field: "Dirección de email",
+    newsletter_placeholder: "tu@correo.com",
+    newsletter_button: "Suscribirme",
+    newsletter_sending: "Enviando…",
+    newsletter_success: "// Suscritx — bienvenidx al canal",
+    newsletter_invalid: "// Dirección inválida — revisá el formato",
+    newsletter_error: "// Error de transmisión — intentá de nuevo",
 
     footer_signal: "fin de la transmisión",
     footer_name: "Nadya Jerochim",

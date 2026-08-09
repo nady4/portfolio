@@ -3,6 +3,7 @@ import { routeLoader$, type DocumentHead } from "@builder.io/qwik-city";
 import { getAllPosts } from "~/lib/blog";
 import Footer from "~/components/Footer";
 import Navbar from "~/components/Navbar";
+import Newsletter from "~/components/Newsletter";
 import Signal from "~/components/Signal";
 import { useTranslations } from "~/routes/layout";
 import "~/styles/Blog.scss";
@@ -60,6 +61,7 @@ export default component$(() => {
             </li>
           ))}
         </ol>
+        <Newsletter />
       </main>
       <Footer />
     </>

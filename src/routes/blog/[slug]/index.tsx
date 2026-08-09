@@ -5,6 +5,7 @@ import { useLocale, useTranslations } from "~/routes/layout";
 import { JsonLd } from "~/components/JsonLd";
 import Navbar from "~/components/Navbar";
 import Footer from "~/components/Footer";
+import Newsletter from "~/components/Newsletter";
 import "~/styles/Post.scss";
 
 export const useBlogPost = routeLoader$(({ params, status }) => {
@@ -57,6 +58,7 @@ export default component$(() => {
           <time dateTime={post.value.date}>{post.value.date}</time>
         </header>
         <article dangerouslySetInnerHTML={post.value.html} />
+        <Newsletter />
       </main>
       <Footer />
     </>

@@ -1,0 +1,167 @@
+@use "./vars" as *;
+
+.newsletter {
+  width: 100%;
+  margin: clamp(4rem, 9vw, 9rem) 0 0;
+  border-top: 1px solid $line-strong;
+  padding-top: 0.75rem;
+}
+
+.newsletter__head h2 {
+  max-width: 16ch;
+  margin: clamp(2.5rem, 6vw, 4.5rem) 0 0;
+  color: $ink;
+  font-family: $font-sans;
+  font-size: clamp(2.2rem, 5vw, 4.5rem);
+  font-weight: 900;
+  letter-spacing: -0.07em;
+  line-height: 0.9;
+  text-transform: uppercase;
+}
+
+.newsletter__head p {
+  max-width: 60ch;
+  margin: 1.2rem 0 0;
+  color: $ink-muted;
+  font-family: $font-serif;
+  font-size: 1.02rem;
+  font-style: italic;
+  line-height: 1.6;
+}
+
+.newsletter__form {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  margin: clamp(2rem, 4vw, 3rem) 0 0;
+}
+
+.newsletter__field {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  gap: 0.4rem;
+  min-width: 0;
+}
+
+.newsletter__field-label {
+  color: $ink-muted;
+  font-family: $font-mono;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.newsletter__field input {
+  width: 100%;
+  min-height: 52px;
+  padding: 0 0.9rem;
+  color: $ink;
+  background: transparent;
+  border: 1px solid $line-strong;
+  border-radius: 0;
+  font-family: $font-mono;
+  font-size: 0.95rem;
+  transition: border-color 180ms ease;
+}
+
+.newsletter__field input::placeholder {
+  color: $ink-muted;
+  opacity: 0.7;
+}
+
+.newsletter__field input:focus {
+  outline: none;
+  border-color: $blue;
+}
+
+.newsletter__field input[aria-invalid="true"] {
+  border-color: $red;
+}
+
+.newsletter__field input:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.newsletter__form button {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-end;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 52px;
+  padding: 0 1.4rem;
+  color: $paper;
+  background: $blue;
+  border: 1px solid $blue;
+  border-radius: 0;
+  cursor: pointer;
+  font-family: $font-mono;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition:
+    background-color 180ms ease,
+    color 180ms ease;
+}
+
+.newsletter__form button span {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.newsletter__form button:hover:not(:disabled) {
+  color: $blue;
+  background: transparent;
+}
+
+.newsletter__form button:focus-visible {
+  outline: 2px solid $blue;
+  outline-offset: 2px;
+}
+
+.newsletter__form button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.newsletter__status {
+  min-height: 1.2em;
+  margin: 0.9rem 0 0;
+  color: $ink-muted;
+  font-family: $font-mono;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.newsletter__status[data-status="success"] {
+  color: $green;
+}
+
+.newsletter__status[data-status="invalid"],
+.newsletter__status[data-status="error"] {
+  color: $red;
+}
+
+@media (max-width: 767px) {
+  .newsletter__form {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .newsletter__field-label {
+    display: none;
+  }
+
+  .newsletter__form button {
+    width: 100%;
+    min-height: 48px;
+    align-self: stretch;
+  }
+}
