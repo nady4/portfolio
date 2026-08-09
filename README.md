@@ -55,6 +55,14 @@
 - **Rendered at build time** with `markdown-it`, so there is no runtime markdown parser in the client bundle.
 - **Localized interface and metadata** — blog navigation, descriptions, fallbacks, and route metadata are localized in EN/ES while Markdown posts remain content-managed files.
 
+### 📰 Newsletter
+
+- **Signup form on every blog surface** — a shared `Newsletter` component renders at the bottom of the blog index and each post, in both languages, styled as an archive plate consistent with the design system.
+- **Validated end-to-end** — client-side HTML5 `type="email"` + regex check first, then a second validation pass server-side in the API route before anything touches storage.
+- **Stored in Upstash Redis** — the endpoint writes to the `newsletter:subscribers` set via Upstash's REST API (`SADD`), so duplicates are silently ignored and emails are normalized to lowercase.
+- **Editorial status feedback** — a live `aria-live` status line reports success (green trace), invalid address, or transmission failure (red fragment), matching the site's artifact language.
+- **Zero SDK dependency** — the endpoint calls Upstash's REST API with a single `fetch` and the `KV_REST_API_*` env vars, avoiding a deprecated `@vercel/kv` dependency.
+
 ### 🎨 Design & UX
 
 - **Dark-first theme** with explicit light mode, persistence in `localStorage`, and a token-driven SCSS layer (CSS custom properties + SCSS variables that wrap them).
@@ -95,18 +103,19 @@
 
 ## 🛠️ Tech stack
 
-| Area            | Technology                                                                         |
-| --------------- | ---------------------------------------------------------------------------------- |
-| Framework       | [Qwik](https://qwik.dev) + [Qwik City](https://qwik.dev/qwikcity/overview/)        |
-| Build tool      | [Vite](https://vitejs.dev) `7.x`                                                   |
-| Language        | TypeScript `5.4`                                                                   |
-| Styling         | Component SCSS stylesheets with CSS custom properties for theming                  |
-| Content         | Markdown (`markdown-it`) loaded through a custom Vite virtual module               |
-| Linting         | ESLint `9` (flat config)                                                           |
-| Formatting      | Prettier `3`                                                                       |
-| Deployment      | [Vercel Edge Functions](https://vercel.com/docs/concepts/functions/edge-functions) |
-| Package manager | pnpm / bun (both lockfiles are committed)                                          |
-| Edge runtime    | Vercel Edge + Qwik City SSR                                                        |
+| Area            | Technology                                                                                  |
+| --------------- | ------------------------------------------------------------------------------------------- |
+| Framework       | [Qwik](https://qwik.dev) + [Qwik City](https://qwik.dev/qwikcity/overview/)                 |
+| Build tool      | [Vite](https://vitejs.dev) `7.x`                                                            |
+| Language        | TypeScript `5.4`                                                                            |
+| Styling         | Component SCSS stylesheets with CSS custom properties for theming                           |
+| Content         | Markdown (`markdown-it`) loaded through a custom Vite virtual module                        |
+| Linting         | ESLint `9` (flat config)                                                                    |
+| Formatting      | Prettier `3`                                                                                |
+| Deployment      | [Vercel Edge Functions](https://vercel.com/docs/concepts/functions/edge-functions)          |
+| Storage         | [Upstash Redis](https://upstash.com) via REST API (`KV_REST_API_URL` / `KV_REST_API_TOKEN`) |
+| Package manager | pnpm / bun (both lockfiles are committed)                                                   |
+| Edge runtime    | Vercel Edge + Qwik City SSR                                                                 |
 
 <br>
 
@@ -129,10 +138,11 @@ portfolio/                  # This repo
 │   ├── assets/             # Images and SVGs imported as URLs
 │   ├── components/         # Hero, DataStream, Signal, Navbar, Projects,
 │   │                        # Experience, Education, Skills, Credentials, Contact,
-│   │                        # Footer, RouterHead
+│   │                        # Footer, RouterHead, Newsletter
 │   ├── content/blog/       # Markdown posts (auto-discovered)
 │   ├── lib/                # Translations, blog helpers
 │   ├── routes/             # Qwik City file-based routes
+│   │   ├── api/newsletter/ # Newsletter signup endpoint (Upstash Redis)
 │   │   ├── blog/
 │   │   │   ├── [slug]/     # Dynamic post route
 │   │   │   └── index.tsx   # Blog index
@@ -158,6 +168,7 @@ portfolio/                  # This repo
 ### 🔍 Notable implementation details
 
 - **Vite virtual module for blog content** — a tiny custom plugin in `vite-plugins/` walks `src/content/blog/` at build time, parses frontmatter + body with `markdown-it`, and exposes the result as `virtual:blog-content`. Routes import from the virtual module, so adding a `.md` file is enough to publish a new post.
+- **Newsletter signup** — `src/routes/api/newsletter/index.ts` validates the email server-side and persists it into the `newsletter:subscribers` set on Upstash Redis via a single REST `fetch` (`SADD`). The form component lives in `src/components/Newsletter.tsx` and is rendered below the feed and below every post in both languages. Subscribers can be exported anytime with a `SMEMBERS` call or the Upstash console's data browser.
 - **i18n resolved at request time** — `src/routes/layout.tsx` checks `?lang=` first, then the `Accept-Language` header, then falls back to English. The chosen locale is exposed through `useLocale()` and `useTranslations()` route loaders so any component can read strings without prop-drilling.
 - **Dark-first theme initialization** — `src/root.tsx` applies the persisted light theme before paint when selected; otherwise dark mode is used by default. `Navbar` synchronizes its signal with the document theme before interaction.
 - **SCSS tokens as CSS custom properties** — colors, borders, footer contrast, and typography are defined once in CSS variables on `:root` (dark) and overridden under `[data-theme="light"]`. SCSS variables wrap them via `var(...)`, so every component responds to theme switches.
@@ -188,6 +199,17 @@ pnpm install
 # or: npm install
 # or: bun install
 ```
+
+### 📧 Newsletter storage
+
+The newsletter signup persists subscribers to an Upstash Redis store through its REST API. Create a store (Vercel Marketplace → Upstash for Redis, connected to this project) and copy its REST credentials into `.env` (already gitignored) for local development — on Vercel they are injected automatically by the integration:
+
+```sh
+KV_REST_API_URL="https://your-store-name.upstash.io"
+KV_REST_API_TOKEN="your-rest-token"
+```
+
+Subscribers accumulate in the `newsletter:subscribers` set; read them anytime with `SMEMBERS newsletter:subscribers` or the Upstash console's data browser.
 
 ### 💻 Run the dev server
 
@@ -282,7 +304,7 @@ To add a new language, extend the `translations` object and the `useLocale` reso
 
 ## 🚢 Deployment
 
-The site is configured for [Vercel Edge Functions](https://vercel.com/docs/concepts/functions/edge-functions). Pushing to the default branch triggers a production build, and `pnpm deploy` can be used for ad-hoc previews from the CLI.
+The site is configured for [Vercel Edge Functions](https://vercel.com/docs/concepts/functions/edge-functions). Pushing to the default branch triggers a production build, and `pnpm deploy` can be used for ad-hoc previews from the CLI. The Upstash Redis store connected via the Vercel Marketplace injects the `KV_REST_API_URL` / `KV_REST_API_TOKEN` variables into every environment automatically.
 
 Caching headers in `vercel.json`:
 
