@@ -40,7 +40,5 @@
     "vite": "^7.3.6",
     "vite-tsconfig-paths": "^4.3.2"
   },
-  "dependencies": {
-    "@vercel/kv": "^3.0.0"
-  }
+  "dependencies": {}
 }

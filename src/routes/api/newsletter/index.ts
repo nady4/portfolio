@@ -1,5 +1,4 @@
 import { type RequestHandler } from "@builder.io/qwik-city";
-import { kv } from "@vercel/kv";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 const SUBSCRIBERS_KEY = "newsletter:subscribers";
@@ -23,8 +22,29 @@ export const onPost: RequestHandler = async ({ request, json }) => {
     return;
   }
 
+  const url = process.env.KV_REST_API_URL;
+  const token = process.env.KV_REST_API_TOKEN;
+
+  if (!url || !token) {
+    json(500, { ok: false, message: "storage_failure" });
+    return;
+  }
+
   try {
-    await kv.sadd(SUBSCRIBERS_KEY, email.toLowerCase());
+    const res = await fetch(
+      `${url}/sadd/${SUBSCRIBERS_KEY}/${encodeURIComponent(
+        email.toLowerCase(),
+      )}`,
+      {
+        method: "POST",
+        headers: { Authorization: `Bearer ${token}` },
+      },
+    );
+
+    if (!res.ok) {
+      json(500, { ok: false, message: "storage_failure" });
+      return;
+    }
   } catch {
     json(500, { ok: false, message: "storage_failure" });
     return;
