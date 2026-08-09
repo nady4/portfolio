@@ -1,12 +1,12 @@
 {
   "$schema": "https://json.schemastore.org/web-manifest-combined.json",
-  "name": "Nadya Jerochim | Full Stack AI Engineer",
-  "short_name": "Nadya AI Engineer",
+  "name": "Nadya Jerochim | Full Stack Engineer",
+  "short_name": "Nadya Engineer",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#111414",
   "theme_color": "#6d4bd1",
-  "description": "Portfolio of Nadya Jerochim, a Full Stack AI Engineer building production web products, LLM integrations, agents, and workflow automation.",
+  "description": "Portfolio of Nadya Jerochim, a Full Stack Engineer building production web products, LLM integrations, agents, and workflow automation.",
   "icons": [
     {
       "src": "/favicon.svg",

@@ -39,21 +39,21 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = {
-  title: "Nadya Jerochim | Full Stack AI Engineer",
+  title: "Nadya Jerochim | Full Stack Engineer",
   meta: [
     {
       name: "description",
       content:
-        "Full Stack AI Engineer building production web products with React, Next.js, Node.js, LLM integrations, AI agents, and workflow automation.",
+        "I build AI-powered products end-to-end, combining product thinking and software engineering to transform ideas into scalable, user-focused experiences.",
     },
     {
       property: "og:title",
-      content: "Nadya Jerochim | Full Stack AI Engineer",
+      content: "Nadya Jerochim | Full Stack Engineer",
     },
     {
       property: "og:description",
       content:
-        "Production web products with AI integrated into real workflows: LLM features, agents, APIs, data, and automation.",
+        "I build AI-powered products end-to-end, combining product thinking and software engineering to transform ideas into scalable, user-focused experiences.",
     },
     { property: "og:image", content: "https://nady4.com/dev.png" },
     { property: "og:url", content: "https://nady4.com/" },
@@ -67,12 +67,12 @@ export const head: DocumentHead = {
     { name: "twitter:site", content: "@_nady4" },
     {
       name: "twitter:title",
-      content: "Nadya Jerochim | Full Stack AI Engineer",
+      content: "Nadya Jerochim | Full Stack Engineer",
     },
     {
       name: "twitter:description",
       content:
-        "Production web products with AI integrated into real workflows: LLM features, agents, APIs, data, and automation.",
+        "I build AI-powered products end-to-end, combining product thinking and software engineering to transform ideas into scalable, user-focused experiences.",
     },
     { name: "twitter:image", content: "https://nady4.com/dev.png" },
     { name: "author", content: "Nadya Jerochim" },

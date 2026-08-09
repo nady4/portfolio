@@ -28,7 +28,7 @@
 
 ### 🏠 Portfolio
 
-- **Hero section** positioning Nadya as a Full Stack AI Engineer who ships AI features inside real products, with a primary CTA into the projects archive and a secondary resume download that picks the right CV per locale (`cv-en.pdf` / `cv-es.pdf`).
+- **Hero section** positioning Nadya as a Full Stack Engineer who ships AI features inside real products, with a primary CTA into the projects archive and a secondary resume download that picks the right CV per locale (`cv-en.pdf` / `cv-es.pdf`).
 - **Navbar** with smooth-scroll anchors to Home, Experience, Education, Projects, Stack, Credentials, Blog and Contact — fully translated in EN/ES.
 - **Data stream** with a single technical marquee for LLM integration, AI agents, workflow automation, TypeScript, React, and Cloudflare Workers.
 - **Experience ledger** rendered as dense role contribution lists, sourced from the translation file so both languages stay in sync.
@@ -81,7 +81,7 @@
 - **Reactive `<html lang>`** — `src/entry.ssr.tsx` reads the request URL from `serverData.url` and sets the SSR `containerAttributes.lang` to `"es"` or `"en"` accordingly. The `<body lang>` in `src/root.tsx` is set from the `useLocale` route loader so the client tree stays in sync.
 - **Multi-block JSON-LD** — `src/components/JsonLd.tsx` injects a `Person`, a `WebSite`, a `ProfessionalService`, and a `WebPage` (or `BlogPosting` for posts) directly as `<script type="application/ld+json">` tags. The Person block references AI product engineering, LLM application development, agents, orchestration, API integration, databases, `worksFor`, `alumniOf`, `hasCredential`, `address`, and `sameAs`.
 - **Semantic heading hierarchy** — each route has its own page heading and section headings use `<h2>` with item headings at `<h3>`.
-- **AI positioning metadata** — titles, descriptions, Open Graph, Twitter cards, JSON-LD, `manifest.json`, and `llms.txt` consistently use the Full Stack AI Engineer positioning.
+- **AI positioning metadata** — titles, descriptions, Open Graph, Twitter cards, JSON-LD, `manifest.json`, and `llms.txt` consistently use the Full Stack Engineer positioning.
 - **Inline styles removed** — component styling stays in SCSS files; Markdown callouts use the `.callout` class in `src/styles/Post.scss`.
 - **Mobile tap targets** — the dark-mode toggle in `Navbar` and the gallery nav arrows in `Projects` are sized to a 44×44 minimum hit area.
 - **Generated sitemap** at `/sitemap.xml` — every static URL and every blog post has both English and Spanish entries, each with `<xhtml:link rel="alternate">` hreflang alternates. Cache header `s-maxage=3600`.

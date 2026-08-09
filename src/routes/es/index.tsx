@@ -29,21 +29,21 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = {
-  title: "Nadya Jerochim | Ingeniera Full Stack de IA",
+  title: "Nadya Jerochim | Ingeniera Full Stack",
   meta: [
     {
       name: "description",
       content:
-        "Ingeniera Full Stack de IA que construye productos web con React, Next.js, Node.js, integraciones con LLM, agentes y automatización.",
+        "Construyo productos con IA de principio a fin, combinando pensamiento de producto e ingeniería de software moderna para convertir ideas en experiencias escalables y centradas en el usuario.",
     },
     {
       property: "og:title",
-      content: "Nadya Jerochim | Ingeniera Full Stack de IA",
+      content: "Nadya Jerochim | Ingeniera Full Stack",
     },
     {
       property: "og:description",
       content:
-        "Productos web listos para producción con IA integrada en flujos reales: funcionalidades con LLM, agentes, APIs, datos y automatización.",
+        "Construyo productos con IA de principio a fin, combinando pensamiento de producto e ingeniería de software moderna para convertir ideas en experiencias escalables y centradas en el usuario.",
     },
     { property: "og:image", content: "https://nady4.com/dev.png" },
     { property: "og:url", content: "https://nady4.com/es/" },
@@ -57,12 +57,12 @@ export const head: DocumentHead = {
     { name: "twitter:site", content: "@_nady4" },
     {
       name: "twitter:title",
-      content: "Nadya Jerochim | Ingeniera Full Stack de IA",
+      content: "Nadya Jerochim | Ingeniera Full Stack",
     },
     {
       name: "twitter:description",
       content:
-        "Productos web listos para producción con IA integrada en flujos reales: funcionalidades con LLM, agentes, APIs, datos y automatización.",
+        "Construyo productos con IA de principio a fin, combinando pensamiento de producto e ingeniería de software moderna para convertir ideas en experiencias escalables y centradas en el usuario.",
     },
     { name: "twitter:image", content: "https://nady4.com/dev.png" },
     { name: "author", content: "Nadya Jerochim" },

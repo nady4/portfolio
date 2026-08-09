@@ -57,11 +57,11 @@ function personLd(locale: string) {
     url: `${SITE}/`,
     image: `${SITE}/dev.png`,
     jobTitle: isSpanish
-      ? "Ingeniera Full Stack de IA"
-      : "Full Stack AI Engineer",
+      ? "Ingeniera Full Stack"
+      : "Full Stack Engineer",
     description: isSpanish
-      ? "Ingeniera Full Stack de IA que construye productos web con React, Next.js, Node.js, integraciones con LLM, agentes y automatización."
-      : "Full Stack AI Engineer building production web products with React, Next.js, Node.js, LLM integrations, AI agents, and workflow automation.",
+      ? "Construyo productos con IA de principio a fin, combinando pensamiento de producto e ingeniería de software moderna para convertir ideas en experiencias escalables y centradas en el usuario."
+      : "I build AI-powered products end-to-end, combining product thinking and software engineering to transform ideas into scalable, user-focused experiences.",
     email: "mailto:dev@nady4.com",
     address: {
       "@type": "PostalAddress",
@@ -91,7 +91,7 @@ function websiteLd() {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "@id": WEBSITE_ID,
-    name: "Nadya Jerochim | Full Stack AI Engineer",
+    name: "Nadya Jerochim | Full Stack Engineer",
     url: `${SITE}/`,
     inLanguage: ["en", "es"],
     publisher: { "@id": PERSON_ID },
@@ -176,10 +176,10 @@ export const JsonLd = component$<{ post?: BlogPostLite }>(({ post }) => {
   const loc = useLocation();
   const locale = loc.url.pathname.startsWith("/es/") ? "es" : "en";
 
-  const headTitle = head.title || "Nadya Jerochim | Full Stack AI Engineer";
+  const headTitle = head.title || "Nadya Jerochim | Full Stack Engineer";
   const headDescription =
     head.meta.find((m) => m.name === "description")?.content ??
-    "Full Stack AI Engineer building production web products with React, Next.js, Node.js, LLM integrations, AI agents, and workflow automation.";
+    "I build AI-powered products end-to-end, combining product thinking and software engineering to transform ideas into scalable, user-focused experiences.";
 
   const blocks: object[] = [
     personLd(locale),

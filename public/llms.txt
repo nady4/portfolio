@@ -1,11 +1,11 @@
 # nady4.com
 
-> Portfolio and technical writing of Nadya Jerochim, a Full Stack AI Engineer based in Buenos Aires, Argentina.
+> Portfolio and technical writing of Nadya Jerochim, a Full Stack Engineer based in Buenos Aires, Argentina.
 
 ## About
 
 - **Name:** Nadya Jerochim
-- **Role:** Full Stack AI Engineer
+- **Role:** Full Stack Engineer
 - **Location:** Buenos Aires, Argentina
 - **Email:** dev@nady4.com
 - **Languages:** English (C2), Spanish (Native)
@@ -22,7 +22,7 @@ Nadya builds software products enhanced with AI, not standalone AI demos. Her wo
 
 `@type: Person` (see JSON-LD in the head of every page):
 - name: "Nadya Jerochim"
-- jobTitle: "Full Stack AI Engineer"
+- jobTitle: "Full Stack Engineer"
 - url: "https://nady4.com/"
 - sameAs: GitHub, LinkedIn, X, Instagram
 - alumniOf: National University of Lanús

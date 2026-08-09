@@ -2,7 +2,7 @@
 
 ## Design read
 
-This is a bilingual Full Stack AI Engineer portfolio for technical collaborators, product teams, and international hiring teams. It presents production web products, LLM integrations, AI agents, and workflow automation through a futuristic underground editorial language. The system borrows from Swiss industrial print, corrupted image archives, early web interfaces, and terminal telemetry without reproducing the supplied reference literally.
+This is a bilingual Full Stack Engineer portfolio for technical collaborators, product teams, and international hiring teams. It presents production web products, LLM integrations, AI agents, and workflow automation through a futuristic underground editorial language. The system borrows from Swiss industrial print, corrupted image archives, early web interfaces, and terminal telemetry without reproducing the supplied reference literally.
 
 ## Dials
 
