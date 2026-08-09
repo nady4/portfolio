@@ -8,6 +8,13 @@ import Newsletter from "~/components/Newsletter";
 import { useTranslations } from "~/routes/layout";
 import "~/styles/Post.scss";
 
+const formatDate = (date: string) => {
+  const d = new Date(date);
+  const day = String(d.getDate()).padStart(2, "0");
+  const month = String(d.getMonth() + 1).padStart(2, "0");
+  return `${day}-${month}-${d.getFullYear()}`;
+};
+
 export const useBlogPost = routeLoader$(({ params, status }) => {
   const post = getPostBySlug(params.slug);
 
@@ -49,13 +56,21 @@ export default component$(() => {
       <Navbar />
       <main class="post-page">
         <header class="post-page__head">
-          <a href="/es/blog/" class="back-link">
-            &larr; {t.blog_back}
-          </a>
+          <div class="post-page__meta">
+            <a href="/es/blog/" class="back-link">
+              &larr; {t.blog_back}
+            </a>
+            <time dateTime={post.value.date}>{formatDate(post.value.date)}</time>
+          </div>
           <h1>{post.value.title}</h1>
-          <time dateTime={post.value.date}>{post.value.date}</time>
         </header>
         <article dangerouslySetInnerHTML={post.value.html} />
+        <footer class="post-page__signature">
+          <span class="post-page__author">Nadya Jerochim</span>
+          <time class="post-page__date" dateTime={post.value.date}>
+            {formatDate(post.value.date)}
+          </time>
+        </footer>
         <Newsletter />
       </main>
       <Footer />

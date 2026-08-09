@@ -51,13 +51,21 @@ export default component$(() => {
       <Navbar />
       <main class="post-page">
         <header class="post-page__head">
-          <a href={backHref} class="back-link">
-            &larr; {t.blog_back}
-          </a>
+          <div class="post-page__meta">
+            <a href={backHref} class="back-link">
+              &larr; {t.blog_back}
+            </a>
+            <time dateTime={post.value.date}>{post.value.date}</time>
+          </div>
           <h1>{post.value.title}</h1>
-          <time dateTime={post.value.date}>{post.value.date}</time>
         </header>
         <article dangerouslySetInnerHTML={post.value.html} />
+        <footer class="post-page__signature">
+          <span class="post-page__author">Nadya Jerochim</span>
+          <time class="post-page__date" dateTime={post.value.date}>
+            {post.value.date}
+          </time>
+        </footer>
         <Newsletter />
       </main>
       <Footer />

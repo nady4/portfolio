@@ -11,8 +11,13 @@
   padding-top: 0.75rem;
 }
 
+.post-page__meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .back-link {
-  display: inline-block;
   color: $blue;
   font-family: $font-mono;
   font-size: 0.66rem;
@@ -27,11 +32,12 @@
 }
 
 .post-page__head h1 {
-  max-width: 17ch;
-  margin: clamp(3rem, 7vw, 6rem) 0 1.4rem;
+  max-width: 20ch;
+  margin: clamp(3rem, 7vw, 6rem) auto 1.4rem;
   color: $ink;
   font-family: $font-sans;
-  font-size: clamp(3rem, 7vw, 7rem);
+  font-size: 5rem;
+  text-align: center;
   font-weight: 900;
   letter-spacing: -0.09em;
   line-height: 0.84;
@@ -49,7 +55,7 @@
 
 .post-page article {
   max-width: 70ch;
-  margin: clamp(4rem, 8vw, 8rem) auto 0;
+  margin: 0 auto 3rem;
   color: $ink;
   font-size: 1.08rem;
   line-height: 1.75;
@@ -117,6 +123,29 @@
   padding: 0.15rem 0.3rem;
   color: $blue-dark;
   background: $line-soft;
+}
+
+.post-page__signature {
+  max-width: 70ch;
+  margin: 2rem auto 0;
+  font-family: $font-mono;
+  font-size: 0.66rem;
+  letter-spacing: 0.12em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.post-page__author {
+  display: block;
+  color: $footer-ink;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.post-page__date {
+  display: block;
+  margin-top: 0.35rem;
+  color: $footer-muted;
 }
 
 .post-page .callout {
