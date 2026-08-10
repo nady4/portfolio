@@ -62,7 +62,6 @@ export default component$(() => {
             fetchPriority="high"
             alt={t.hero_image_alt}
           />
-          <div class="hero__scanlines" aria-hidden="true" />
           <div class="hero__artifacts" aria-hidden="true">
             <span class="pixel pixel--one" />
             <span class="pixel pixel--two" />
