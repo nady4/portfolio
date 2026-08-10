@@ -1,5 +1,6 @@
 ---
 title: "La máquina en la que nos convertimos"
+category: personal
 date: "2026-08-08"
 description: "Un ensayo sobre identidad, incertidumbre y el futuro del trabajo frente a la inteligencia artificial."
 tags: ["ensayo", "ia", "futuro"]

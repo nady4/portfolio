@@ -1,5 +1,6 @@
 ---
 title: "Todavía despierta"
+category: personal
 date: "2025-09-09"
 description: "Poesía desvelada."
 tags: ["poesía", "amor", "sueño"]

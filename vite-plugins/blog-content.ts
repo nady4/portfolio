@@ -9,6 +9,7 @@ export type BlogPost = {
   date: string;
   description?: string;
   tags?: string[];
+  category: "professional" | "personal";
   html: string;
 };
 
@@ -70,8 +71,18 @@ export default function blogContent(): Plugin {
       const tags = Array.isArray(data.tags)
         ? data.tags.map(String)
         : undefined;
+      const category =
+        data.category === "personal" ? "personal" : "professional";
 
-      return { slug, title, date, description, tags, html: md.render(content) };
+      return {
+        slug,
+        title,
+        date,
+        description,
+        tags,
+        category,
+        html: md.render(content),
+      };
     });
 
     return posts.sort((a, b) =>

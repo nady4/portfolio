@@ -1,5 +1,6 @@
 ---
 title: "From JavaScript to TypeScript in production"
+category: professional
 date: "2025-12-22"
 description: "Practical TypeScript patterns for production frontend and backend work."
 tags: ["typescript", "javascript"]

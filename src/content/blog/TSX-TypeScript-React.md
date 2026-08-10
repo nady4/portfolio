@@ -1,5 +1,6 @@
 ---
 title: "TSX: TypeScript + React"
+category: professional
 date: "2026-08-07"
 description: "Practical TypeScript and React notes covering project setup, linting, props, state, forms, reducers, refs, and data fetching."
 tags: ["typescript", "react", "tsx", "web-dev"]

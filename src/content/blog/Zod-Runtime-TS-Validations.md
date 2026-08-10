@@ -1,5 +1,6 @@
 ---
 title: "Zod: Runtime TS Validations"
+category: professional
 date: "2026-08-07"
 description: "Practical Zod notes covering runtime schemas, type inference, composition, environment variables, and validated REST API requests."
 tags: ["zod", "typescript", "validation", "web-dev"]

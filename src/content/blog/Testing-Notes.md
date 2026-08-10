@@ -1,5 +1,6 @@
 ---
 title: "Testing Notes"
+category: professional
 date: "2026-08-07"
 description: "Testing notes covering TDD, Vitest, React Testing Library, Jest, backend tests, and Cypress end-to-end workflows."
 tags: ["testing", "vitest", "jest", "cypress", "web-dev"]

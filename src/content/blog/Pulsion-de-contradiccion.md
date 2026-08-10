@@ -1,5 +1,6 @@
 ---
 title: "Pulsión de contradicción"
+category: personal
 date: "2026-01-21"
 description: "Un ensayo sobre la pulsión de muerte, la contradicción como motor y el coraje de mirar el abismo."
 tags: ["ensayo", "psicoanálisis", "filosofía"]

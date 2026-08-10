@@ -1,5 +1,6 @@
 ---
 title: "Next.js Roadmap"
+category: professional
 date: "2026-08-07"
 description: "A structured Next.js roadmap covering routing, rendering, metadata, data loading, server actions, authentication, and architecture."
 tags: ["nextjs", "react", "web-dev"]

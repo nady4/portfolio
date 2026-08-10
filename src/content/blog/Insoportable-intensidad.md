@@ -1,5 +1,6 @@
 ---
 title: "Insoportable intensidad"
+category: personal
 date: "2025-11-17"
 description: "La intensidad como forma de conectar, la superficialidad y la dificultad de encontrar quién te entienda."
 tags: ["poesía", "introspección", "relaciones"]

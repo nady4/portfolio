@@ -1,5 +1,6 @@
 ---
 title: "Tailwind CSS Cheat Sheet"
+category: professional
 date: "2026-08-07"
 description: "A practical Tailwind CSS reference covering installation, typography, layout, responsive design, and utility classes."
 tags: ["tailwindcss", "css", "web-dev"]

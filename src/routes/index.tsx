@@ -11,11 +11,10 @@ import Certifications from "~/components/Certifications";
 import BlogSection from "~/components/BlogSection";
 import Contact from "~/components/Contact";
 import Footer from "~/components/Footer";
-import { getAllPosts } from "~/lib/blog";
+import { getAllPostsMeta } from "~/lib/blog";
 
 export const useBlogFeed = routeLoader$(() => {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  return getAllPosts().map(({ html, ...meta }) => meta);
+  return getAllPostsMeta().filter((p) => p.category === "professional");
 });
 
 export default component$(() => {

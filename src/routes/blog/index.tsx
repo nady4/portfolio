@@ -1,6 +1,6 @@
 import { component$ } from "@builder.io/qwik";
 import { routeLoader$, type DocumentHead } from "@builder.io/qwik-city";
-import { getAllPosts } from "~/lib/blog";
+import { getAllPostsMeta } from "~/lib/blog";
 import Footer from "~/components/Footer";
 import Navbar from "~/components/Navbar";
 import Newsletter from "~/components/Newsletter";
@@ -9,8 +9,17 @@ import { useLocale, useTranslations } from "~/routes/layout";
 import "~/styles/Blog.scss";
 
 export const useBlogFeed = routeLoader$(() => {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  return getAllPosts().map(({ html, ...meta }) => meta);
+  return getAllPostsMeta().sort((a, b) =>
+    a.category === b.category
+      ? a.date < b.date
+        ? 1
+        : a.date > b.date
+          ? -1
+          : 0
+      : a.category === "professional"
+        ? -1
+        : 1,
+  );
 });
 
 const formatDate = (date: string, lang: string) => {

@@ -1,5 +1,6 @@
 ---
 title: "React Query Tutorial"
+category: professional
 date: "2026-08-07"
 description: "Practical React Query notes covering queries, mutations, cache invalidation, CRUD operations, and infinite queries."
 tags: ["react-query", "tanstack-query", "react", "web-dev"]

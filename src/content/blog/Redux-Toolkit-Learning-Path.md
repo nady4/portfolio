@@ -1,5 +1,6 @@
 ---
 title: "Redux Toolkit (RTK) Learning Path"
+category: professional
 date: "2026-08-07"
 description: "A hands-on Redux Toolkit guide covering stores, slices, typed hooks, RTK Query, middleware, and async thunks."
 tags: ["redux", "redux-toolkit", "react", "web-dev"]
