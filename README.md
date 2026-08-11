@@ -1,7 +1,10 @@
 <h1 align="center"><a href="https://nady4.com">nady4.com</h1></a>
 
 <p align="center">
-🚀 Server-rendered personal portfolio with an integrated Markdown-powered blog. Built with Qwik and Qwik City, deployed on Vercel Edge, featuring bilingual (EN/ES) support and dark mode.
+🚀 I build products end-to-end, combining product thinking, UX, full-stack engineering, AI integrations, and deployment. Turning ideas into useful digital experiences.
+</p>
+<p align="center">
+Built with Qwik and Qwik City, deployed on Vercel Edge, featuring bilingual (EN/ES) support and dark mode.
 </p>
 
 <br>
