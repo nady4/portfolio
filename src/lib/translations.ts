@@ -18,7 +18,7 @@ export const translations = {
     hero_role_detail: "AI & Product Engineering",
     hero_footnote: "AVAILABLE FOR WORK",
     hero_status:
-      "Make it simple, but significant",
+      "From idea to production.",
     hero_image_alt: "Nadya Jerochim, Full Stack Engineer",
     hero_desc:
       "I build products end-to-end, combining product thinking, UX, full-stack engineering, AI integrations, and deployment. Turning ideas into useful digital experiences.",
@@ -128,7 +128,7 @@ export const translations = {
     hero_role_detail: "AI & Product Engineering",
     hero_footnote: "DISPONIBLE PARA TRABAJAR",
     hero_status:
-      "Make it simple, but significant",
+      "From idea to production.",
     hero_image_alt: "Nadya Jerochim, Full Stack Engineer",
     hero_desc:
       "Construyo productos de principio a fin, combinando pensamiento de producto, UX, ingeniería full stack, integraciones con IA y despliegue. Convirtiendo ideas en experiencias digitales útiles.",
