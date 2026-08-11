@@ -21,7 +21,7 @@ export const translations = {
       "Make it simple, but significant",
     hero_image_alt: "Nadya Jerochim, Full Stack Engineer",
     hero_desc:
-      "I build AI-powered products end-to-end, combining product thinking and software engineering to transform ideas into scalable, user-focused experiences.",
+      "I build products end-to-end, combining product thinking, UX, full-stack engineering, AI integrations, and deployment. Turning ideas into useful digital experiences.",
     projects_title: "Projects",
     projects_suffix: "CODING EXPERIENCES",
     projects_signal: "shipped products",
@@ -131,7 +131,7 @@ export const translations = {
       "Make it simple, but significant",
     hero_image_alt: "Nadya Jerochim, Full Stack Engineer",
     hero_desc:
-      "Construyo productos con IA de principio a fin, combinando pensamiento de producto e ingeniería de software moderna para convertir ideas en experiencias escalables y centradas en el usuario.",
+      "Construyo productos de principio a fin, combinando pensamiento de producto, UX, ingeniería full stack, integraciones con IA y despliegue. Convirtiendo ideas en experiencias digitales útiles.",
     projects_title: "Proyectos",
     projects_suffix: "EXPERIENCIAS DIGITALES",
     projects_signal: "productos entregados",
