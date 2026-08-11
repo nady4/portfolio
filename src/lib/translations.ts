@@ -40,11 +40,11 @@ export const translations = {
     project_screenshot_inspection: "Screenshot inspection",
     project_close_screenshot: "Close screenshot inspection",
     project_calendar_desc:
-      "Full-stack cash-flow product built with React, Vite, TypeScript, Chart.js, Node.js, Express, and MongoDB. Includes calendar-based transactions, budgets, CSV backup and restore, and an AI receipt-scanning flow with quotas and BYOK controls.",
+      "A personal finance app that turns your income and expenses into a calendar, so you can plan your life.",
     project_nyady_desc:
-      "Production e-commerce application built with Next.js, React, Prisma, PostgreSQL, NextAuth.js, Redux Toolkit, Mercado Pago, and Zipnova. Covers catalog, persistent cart, discounts, shipping, payments, and order tracking.",
+      "Full-stack e-commerce platform with product catalog, persistent shopping cart, coupons, shipping quotations, payment management and order tracking.",
     project_nya_desc:
-      "Full-stack commerce application built with Next.js 15, TypeScript, Prisma, PostgreSQL, Redux Toolkit, and Mercado Pago. Includes authentication, checkout, webhooks, payment redirects, and order management.",
+      "Full-stack e-commerce platform with product catalogs, persistent carts, wishlists, authentication, order management, and a complete Mercado Pago checkout flow.",
     project_ds_desc:
       "Cloudflare Workers application for Discord OAuth, session validation, and role and invite workflows. Ships a lightweight frontend with protected APIs, modular controllers, and secure cookie utilities.",
 
@@ -150,11 +150,11 @@ export const translations = {
     project_screenshot_inspection: "Inspección de captura",
     project_close_screenshot: "Cerrar inspección de captura",
     project_calendar_desc:
-      "Producto full stack de gestión de flujo de caja construido con React, Vite, TypeScript, Chart.js, Node.js, Express y MongoDB. Incluye transacciones por calendario, presupuestos, backup y restauración CSV, y un flujo de escaneo de recibos con IA, cuotas y controles BYOK.",
+      "Una app de finanzas personales que convierte tus ingresos y gastos en un calendario, para que puedas planificar tu vida.",
     project_nyady_desc:
-      "Aplicación e-commerce lista para producción construida con Next.js, React, Prisma, PostgreSQL, NextAuth.js, Redux Toolkit, Mercado Pago y Zipnova. Incluye catálogo, carrito persistente, descuentos, envíos, pagos y seguimiento de pedidos.",
+      "Plataforma e-commerce full stack con catálogo de productos, carrito de compras persistente, cupones, cotización de envíos, gestión de pagos y seguimiento de pedidos.",
     project_nya_desc:
-      "Aplicación de comercio full stack construida con Next.js 15, TypeScript, Prisma, PostgreSQL, Redux Toolkit y Mercado Pago. Incluye autenticación, checkout, webhooks, redirecciones de pago y gestión de pedidos.",
+      "Plataforma e-commerce full stack con catálogos de productos, carritos persistentes, listas de deseos, autenticación, gestión de pedidos y un flujo de checkout completo con Mercado Pago.",
     project_ds_desc:
       "Aplicación sobre Cloudflare Workers para OAuth de Discord, validación de sesiones y flujos de roles e invitaciones. Incluye un frontend liviano, APIs protegidas, controladores modulares y utilidades seguras para cookies.",
 
