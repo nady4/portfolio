@@ -21,7 +21,7 @@ export const translations = {
       "From idea to production.",
     hero_image_alt: "Nadya Jerochim, Full Stack Engineer",
     hero_desc:
-      "I build products end-to-end, combining product thinking, UX, full-stack engineering, AI integrations, and deployment. Building software that makes an uncertain future easier to navigate.",
+      "I build products end-to-end, combining product thinking, UX, full-stack engineering, AI integrations, and systems architecture. Making an uncertain future easier to navigate.",
     projects_title: "Projects",
     projects_suffix: "CODING EXPERIENCES",
     projects_signal: "shipped products",
@@ -131,7 +131,7 @@ export const translations = {
       "From idea to production.",
     hero_image_alt: "Nadya Jerochim, Full Stack Engineer",
     hero_desc:
-      "Construyo productos combinando diseño de producto, UX, ingeniería full stack, integraciones con IA y despliegue. Construyendo software que hace más fácil de navegar un futuro incierto.",
+      "Construyo productos combinando diseño de producto, UX, ingeniería full stack, integraciones con IA y arquitectura de sistemas. Haciendo el futuro incierto más fácil de navegar.",
     projects_title: "Proyectos",
     projects_suffix: "EXPERIENCIAS DIGITALES",
     projects_signal: "productos entregados",

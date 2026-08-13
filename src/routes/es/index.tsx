@@ -34,7 +34,7 @@ export const head: DocumentHead = {
     {
       name: "description",
       content:
-        "Construyo productos de principio a fin, combinando pensamiento de producto, UX, ingeniería full stack, integraciones con IA y despliegue. Construyendo software que hace más fácil de navegar un futuro incierto.",
+        "Construyo productos de principio a fin, combinando pensamiento de producto, UX, ingeniería full stack, integraciones con IA y arquitectura de sistemas. Haciendo el futuro incierto más fácil de navegar.",
     },
     {
       property: "og:title",
@@ -43,7 +43,7 @@ export const head: DocumentHead = {
     {
       property: "og:description",
       content:
-        "Construyo productos de principio a fin, combinando pensamiento de producto, UX, ingeniería full stack, integraciones con IA y despliegue. Construyendo software que hace más fácil de navegar un futuro incierto.",
+        "Construyo productos de principio a fin, combinando pensamiento de producto, UX, ingeniería full stack, integraciones con IA y arquitectura de sistemas. Haciendo el futuro incierto más fácil de navegar.",
     },
     { property: "og:image", content: "https://nady4.com/dev.png" },
     { property: "og:url", content: "https://nady4.com/es/" },
@@ -62,7 +62,7 @@ export const head: DocumentHead = {
     {
       name: "twitter:description",
       content:
-        "Construyo productos de principio a fin, combinando pensamiento de producto, UX, ingeniería full stack, integraciones con IA y despliegue. Construyendo software que hace más fácil de navegar un futuro incierto.",
+        "Construyo productos de principio a fin, combinando pensamiento de producto, UX, ingeniería full stack, integraciones con IA y arquitectura de sistemas. Haciendo el futuro incierto más fácil de navegar.",
     },
     { name: "twitter:image", content: "https://nady4.com/dev.png" },
     { name: "author", content: "Nadya Jerochim" },
