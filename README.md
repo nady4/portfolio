@@ -1,7 +1,7 @@
 <h1 align="center"><a href="https://nady4.com">nady4.com</h1></a>
 
 <p align="center">
-🚀 I build products end-to-end, combining product thinking, UX, full-stack engineering, AI integrations, and deployment. Turning ideas into useful digital experiences.
+🚀 I build products end-to-end, combining product thinking, UX, full-stack engineering, AI integrations, and deployment. Building software that makes an uncertain future easier to navigate.
 </p>
 <p align="center">
 Built with Qwik and Qwik City, deployed on Vercel Edge, featuring bilingual (EN/ES) support and dark mode.

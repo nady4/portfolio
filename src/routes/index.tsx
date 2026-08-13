@@ -43,7 +43,7 @@ export const head: DocumentHead = {
     {
       name: "description",
       content:
-        "I build products end-to-end, combining product thinking, UX, full-stack engineering, AI integrations, and deployment. Turning ideas into useful digital experiences.",
+        "I build products end-to-end, combining product thinking, UX, full-stack engineering, AI integrations, and deployment. Building software that makes an uncertain future easier to navigate.",
     },
     {
       property: "og:title",
@@ -52,7 +52,7 @@ export const head: DocumentHead = {
     {
       property: "og:description",
       content:
-        "I build products end-to-end, combining product thinking, UX, full-stack engineering, AI integrations, and deployment. Turning ideas into useful digital experiences.",
+        "I build products end-to-end, combining product thinking, UX, full-stack engineering, AI integrations, and deployment. Building software that makes an uncertain future easier to navigate.",
     },
     { property: "og:image", content: "https://nady4.com/dev.png" },
     { property: "og:url", content: "https://nady4.com/" },
@@ -71,7 +71,7 @@ export const head: DocumentHead = {
     {
       name: "twitter:description",
       content:
-        "I build products end-to-end, combining product thinking, UX, full-stack engineering, AI integrations, and deployment. Turning ideas into useful digital experiences.",
+        "I build products end-to-end, combining product thinking, UX, full-stack engineering, AI integrations, and deployment. Building software that makes an uncertain future easier to navigate.",
     },
     { name: "twitter:image", content: "https://nady4.com/dev.png" },
     { name: "author", content: "Nadya Jerochim" },

@@ -60,8 +60,8 @@ function personLd(locale: string) {
       ? "Ingeniera Full Stack"
       : "Full Stack Engineer",
     description: isSpanish
-      ? "Construyo productos de principio a fin, combinando pensamiento de producto, UX, ingeniería full stack, integraciones con IA y despliegue. Convirtiendo ideas en experiencias digitales útiles."
-      : "I build products end-to-end, combining product thinking, UX, full-stack engineering, AI integrations, and deployment. Turning ideas into useful digital experiences.",
+      ? "Construyo productos de principio a fin, combinando pensamiento de producto, UX, ingeniería full stack, integraciones con IA y despliegue. Construyendo software que hace más fácil de navegar un futuro incierto."
+      : "I build products end-to-end, combining product thinking, UX, full-stack engineering, AI integrations, and deployment. Building software that makes an uncertain future easier to navigate.",
     email: "mailto:dev@nady4.com",
     address: {
       "@type": "PostalAddress",
@@ -179,7 +179,7 @@ export const JsonLd = component$<{ post?: BlogPostLite }>(({ post }) => {
   const headTitle = head.title || "Nadya Jerochim | Full Stack Engineer";
   const headDescription =
     head.meta.find((m) => m.name === "description")?.content ??
-    "I build products end-to-end, combining product thinking, UX, full-stack engineering, AI integrations, and deployment. Turning ideas into useful digital experiences.";
+    "I build products end-to-end, combining product thinking, UX, full-stack engineering, AI integrations, and deployment. Building software that makes an uncertain future easier to navigate.";
 
   const blocks: object[] = [
     personLd(locale),
