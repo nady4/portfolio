@@ -17,7 +17,7 @@ export const translations = {
     hero_status_label: "interface online",
     hero_kicker: "BUENOS AIRES → WORLDWIDE",
     hero_subtitle: "Full Stack Engineer",
-    hero_role_detail: "AI & Product Engineering",
+    hero_role_detail: "AI & Product",
     hero_footnote: "AVAILABLE FOR WORK",
     hero_status:
       "From idea to production.",
@@ -129,7 +129,7 @@ export const translations = {
     hero_signal: "señal adquirida",
     hero_status_label: "interfaz en línea",
     hero_kicker: "BUENOS AIRES → WORLDWIDE",
-    hero_role_detail: "AI & Product Engineering",
+    hero_role_detail: "AI & Product",
     hero_footnote: "DISPONIBLE PARA TRABAJAR",
     hero_status:
       "From idea to production.",
