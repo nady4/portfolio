@@ -52,4 +52,8 @@ export const head: DocumentHead = {
       content: "index, follow, max-image-preview:large, max-snippet:-1",
     },
   ],
+  links: [
+    { rel: "llms.txt", href: "/llms.txt" },
+    { rel: "sitemap", href: "/sitemap.xml" },
+  ],
 };

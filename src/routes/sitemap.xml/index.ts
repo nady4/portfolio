@@ -33,6 +33,23 @@ function renderAlternates(alts: Alternate[]): string {
     .join("\n");
 }
 
+function altPair(en: string, es: string): Alternate[] {
+  return [
+    { hreflang: "en", href: `${SITE}${en}` },
+    { hreflang: "es", href: `${SITE}${es}` },
+    { hreflang: "x-default", href: `${SITE}${en}` },
+  ];
+}
+
+const STATIC_PAGES: Array<{ en: string; es: string; lastmod: string }> = [
+  { en: "/", es: "/es/", lastmod: "2026-08-22T00:00:00Z" },
+  { en: "/about", es: "/es/about", lastmod: "2026-08-22T00:00:00Z" },
+  { en: "/contact", es: "/es/contact", lastmod: "2026-08-22T00:00:00Z" },
+  { en: "/privacy", es: "/es/privacy", lastmod: "2026-08-22T00:00:00Z" },
+  { en: "/developers", es: "/es/developers", lastmod: "2026-08-22T00:00:00Z" },
+  { en: "/blog/", es: "/es/blog/", lastmod: "2026-08-22T00:00:00Z" },
+];
+
 export const onGet: RequestHandler = ({ headers, send }) => {
   const posts = getAllPosts();
   const now = new Date().toISOString();
@@ -43,63 +60,30 @@ export const onGet: RequestHandler = ({ headers, send }) => {
     alts: Alternate[];
   };
 
-  const entries: Entry[] = [
-    {
-      loc: `${SITE}/`,
-      lastmod: now,
-      alts: [
-        { hreflang: "en", href: `${SITE}/` },
-        { hreflang: "es", href: `${SITE}/es/` },
-        { hreflang: "x-default", href: `${SITE}/` },
-      ],
-    },
-    {
-      loc: `${SITE}/es/`,
-      lastmod: now,
-      alts: [
-        { hreflang: "en", href: `${SITE}/` },
-        { hreflang: "es", href: `${SITE}/es/` },
-        { hreflang: "x-default", href: `${SITE}/` },
-      ],
-    },
-    {
-      loc: `${SITE}/blog/`,
-      lastmod: now,
-      alts: [
-        { hreflang: "en", href: `${SITE}/blog/` },
-        { hreflang: "es", href: `${SITE}/es/blog/` },
-        { hreflang: "x-default", href: `${SITE}/blog/` },
-      ],
-    },
-    {
-      loc: `${SITE}/es/blog/`,
-      lastmod: now,
-      alts: [
-        { hreflang: "en", href: `${SITE}/blog/` },
-        { hreflang: "es", href: `${SITE}/es/blog/` },
-        { hreflang: "x-default", href: `${SITE}/blog/` },
-      ],
-    },
-  ];
+  const entries: Entry[] = [];
+  for (const p of STATIC_PAGES) {
+    entries.push({
+      loc: `${SITE}${p.en}`,
+      lastmod: p.lastmod || now,
+      alts: altPair(p.en, p.es),
+    });
+    entries.push({
+      loc: `${SITE}${p.es}`,
+      lastmod: p.lastmod || now,
+      alts: altPair(p.en, p.es),
+    });
+  }
 
   for (const p of posts) {
     entries.push({
       loc: `${SITE}/blog/${p.slug}/`,
       lastmod: toISODate(p.date),
-      alts: [
-        { hreflang: "en", href: `${SITE}/blog/${p.slug}/` },
-        { hreflang: "es", href: `${SITE}/es/blog/${p.slug}/` },
-        { hreflang: "x-default", href: `${SITE}/blog/${p.slug}/` },
-      ],
+      alts: altPair(`/blog/${p.slug}/`, `/es/blog/${p.slug}/`),
     });
     entries.push({
       loc: `${SITE}/es/blog/${p.slug}/`,
       lastmod: toISODate(p.date),
-      alts: [
-        { hreflang: "en", href: `${SITE}/blog/${p.slug}/` },
-        { hreflang: "es", href: `${SITE}/es/blog/${p.slug}/` },
-        { hreflang: "x-default", href: `${SITE}/blog/${p.slug}/` },
-      ],
+      alts: altPair(`/blog/${p.slug}/`, `/es/blog/${p.slug}/`),
     });
   }
 

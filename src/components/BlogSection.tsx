@@ -4,7 +4,7 @@ import type { BlogPost } from "~/lib/blog";
 import Signal from "./Signal";
 import "../styles/BlogSection.scss";
 
-type PostMeta = Omit<BlogPost, "html">;
+type PostMeta = Omit<BlogPost, "html" | "markdown">;
 
 interface BlogSectionProps {
   posts: PostMeta[];

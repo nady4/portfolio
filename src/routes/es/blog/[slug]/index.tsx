@@ -1,12 +1,32 @@
 import { component$ } from "@builder.io/qwik";
-import { routeLoader$, type DocumentHead } from "@builder.io/qwik-city";
+import {
+  routeLoader$,
+  type DocumentHead,
+  type RequestHandler,
+} from "@builder.io/qwik-city";
 import { getPostBySlug } from "~/lib/blog";
+import { acceptsMarkdown, postAsMarkdown } from "~/lib/markdown-negotiation";
 import { JsonLd } from "~/components/JsonLd";
 import Navbar from "~/components/Navbar";
 import Footer from "~/components/Footer";
 import Newsletter from "~/components/Newsletter";
 import { useTranslations } from "~/routes/layout";
 import "~/styles/Post.scss";
+
+export const onRequest: RequestHandler = ({
+  params,
+  request,
+  headers,
+  send,
+}) => {
+  const post = getPostBySlug(params.slug);
+  if (!post) return;
+  headers.set("Vary", "Accept, Accept-Encoding");
+  if (!acceptsMarkdown(request.headers.get("accept"))) return;
+  headers.set("Content-Type", "text/markdown; charset=utf-8");
+  headers.set("Cache-Control", "public, max-age=300, s-maxage=300");
+  send(200, postAsMarkdown(post));
+};
 
 const formatDate = (date: string) => {
   const d = new Date(date);
@@ -60,7 +80,9 @@ export default component$(() => {
             <a href="/es/blog/" class="back-link">
               &larr; {t.blog_back}
             </a>
-            <time dateTime={post.value.date}>{formatDate(post.value.date)}</time>
+            <time dateTime={post.value.date}>
+              {formatDate(post.value.date)}
+            </time>
           </div>
           <h1>{post.value.title}</h1>
         </header>

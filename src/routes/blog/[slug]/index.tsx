@@ -1,12 +1,32 @@
 import { component$ } from "@builder.io/qwik";
-import { routeLoader$, type DocumentHead } from "@builder.io/qwik-city";
+import {
+  routeLoader$,
+  type DocumentHead,
+  type RequestHandler,
+} from "@builder.io/qwik-city";
 import { getPostBySlug } from "~/lib/blog";
+import { acceptsMarkdown, postAsMarkdown } from "~/lib/markdown-negotiation";
 import { useLocale, useTranslations } from "~/routes/layout";
 import { JsonLd } from "~/components/JsonLd";
 import Navbar from "~/components/Navbar";
 import Footer from "~/components/Footer";
 import Newsletter from "~/components/Newsletter";
 import "~/styles/Post.scss";
+
+export const onRequest: RequestHandler = ({
+  params,
+  request,
+  headers,
+  send,
+}) => {
+  const post = getPostBySlug(params.slug);
+  if (!post) return;
+  headers.set("Vary", "Accept, Accept-Encoding");
+  if (!acceptsMarkdown(request.headers.get("accept"))) return;
+  headers.set("Content-Type", "text/markdown; charset=utf-8");
+  headers.set("Cache-Control", "public, max-age=300, s-maxage=300");
+  send(200, postAsMarkdown(post));
+};
 
 export const useBlogPost = routeLoader$(({ params, status }) => {
   const post = getPostBySlug(params.slug);

@@ -11,6 +11,7 @@ export type BlogPost = {
   tags?: string[];
   category: "professional" | "personal";
   html: string;
+  markdown: string;
 };
 
 const VIRTUAL_ID = "virtual:blog-content";
@@ -68,9 +69,7 @@ export default function blogContent(): Plugin {
       const description = data.description
         ? String(data.description)
         : undefined;
-      const tags = Array.isArray(data.tags)
-        ? data.tags.map(String)
-        : undefined;
+      const tags = Array.isArray(data.tags) ? data.tags.map(String) : undefined;
       const category =
         data.category === "personal" ? "personal" : "professional";
 
@@ -82,6 +81,7 @@ export default function blogContent(): Plugin {
         tags,
         category,
         html: md.render(content),
+        markdown: content.trim(),
       };
     });
 

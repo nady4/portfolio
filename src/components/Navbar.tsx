@@ -44,7 +44,7 @@ export default component$(() => {
   const certificationsHref =
     lang === "es" ? "/es/#certifications" : "/#certifications";
   const contactHref = lang === "es" ? "/es/#contact" : "/#contact";
-  const blogHref = lang === "es" ? "/es/blog/" : "/blog/";
+const blogHref = lang === "es" ? "/es/blog/" : "/blog/";
   const isHome = basePath === "/" || basePath === "/es/";
   const isBlog =
     basePath.startsWith("/blog") || basePath.startsWith("/es/blog");

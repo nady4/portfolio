@@ -1,5 +1,7 @@
 import { component$ } from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
+import { homepageMarkdown } from "~/lib/llms-txt";
+import { negotiateHomepage } from "~/lib/markdown-negotiation";
 import Navbar from "~/components/Navbar";
 import Hero from "~/components/Hero";
 import DataStream from "~/components/DataStream";
@@ -10,6 +12,8 @@ import Skills from "~/components/Skills";
 import Certifications from "~/components/Certifications";
 import Contact from "~/components/Contact";
 import Footer from "~/components/Footer";
+
+export const onRequest = negotiateHomepage(homepageMarkdown);
 
 export default component$(() => {
   return (

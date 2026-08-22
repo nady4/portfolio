@@ -8,15 +8,17 @@ export type BlogPost = {
   tags?: string[];
   category: "professional" | "personal";
   html: string;
+  markdown: string;
 };
 
 export function getAllPosts(): BlogPost[] {
   return posts;
 }
 
-export function getAllPostsMeta(): Omit<BlogPost, "html">[] {
-  return posts.map(({ html, ...meta }) => {
+export function getAllPostsMeta(): Omit<BlogPost, "html" | "markdown">[] {
+  return posts.map(({ html, markdown, ...meta }) => {
     void html;
+    void markdown;
     return meta;
   });
 }

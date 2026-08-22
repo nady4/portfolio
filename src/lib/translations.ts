@@ -7,6 +7,8 @@ export const translations = {
     nav_skills: "Stack",
     nav_certifications: "Credentials",
     nav_blog: "Blog",
+    nav_about: "About",
+    nav_developers: "Developers",
     nav_contact: "Contact",
     nav_resume: "Resume",
 
@@ -108,6 +110,8 @@ export const translations = {
     footer_signal: "end of transmission",
     footer_name: "Nadya Jerochim",
     footer_mail: "dev@nady4.com",
+    footer_links: "Site",
+    footer_machine: "Machine-readable",
   },
   es: {
     nav_home: "Inicio",
@@ -117,6 +121,8 @@ export const translations = {
     nav_skills: "Stack",
     nav_certifications: "Credenciales",
     nav_blog: "Blog",
+    nav_about: "Sobre mí",
+    nav_developers: "Developers",
     nav_contact: "Contacto",
     nav_resume: "Currículum",
 
@@ -218,5 +224,7 @@ export const translations = {
     footer_signal: "fin de la transmisión",
     footer_name: "Nadya Jerochim",
     footer_mail: "dev@nady4.com",
+    footer_links: "Sitio",
+    footer_machine: "Legible por máquinas",
   },
 };

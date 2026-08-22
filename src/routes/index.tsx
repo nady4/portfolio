@@ -1,5 +1,7 @@
 import { component$ } from "@builder.io/qwik";
 import { routeLoader$, type DocumentHead } from "@builder.io/qwik-city";
+import { homepageMarkdown } from "~/lib/llms-txt";
+import { negotiateHomepage } from "~/lib/markdown-negotiation";
 import Navbar from "~/components/Navbar";
 import Hero from "~/components/Hero";
 import DataStream from "~/components/DataStream";
@@ -16,6 +18,8 @@ import { getAllPostsMeta } from "~/lib/blog";
 export const useBlogFeed = routeLoader$(() => {
   return getAllPostsMeta().filter((p) => p.category === "professional");
 });
+
+export const onRequest = negotiateHomepage(homepageMarkdown);
 
 export default component$(() => {
   const feed = useBlogFeed();

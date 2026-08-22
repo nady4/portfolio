@@ -56,9 +56,7 @@ function personLd(locale: string) {
     familyName: "Jerochim",
     url: `${SITE}/`,
     image: `${SITE}/dev.png`,
-    jobTitle: isSpanish
-      ? "Ingeniera Full Stack"
-      : "Full Stack Engineer",
+    jobTitle: isSpanish ? "Ingeniera Full Stack" : "Full Stack Engineer",
     description: isSpanish
       ? "Construyo productos de principio a fin, combinando pensamiento de producto, UX, ingeniería full stack, integraciones con IA y arquitectura de sistemas. Haciendo el futuro incierto más fácil de navegar."
       : "I build products end-to-end, combining product thinking, UX, full-stack engineering, AI integrations, and systems architecture. Making an uncertain future easier to navigate.",
@@ -122,10 +120,22 @@ function professionalServiceLd(locale: string) {
       addressLocality: "Buenos Aires",
       addressCountry: "AR",
     },
+    contactPoint: {
+      "@type": "ContactPoint",
+      email: "dev@nady4.com",
+      contactType: "customer service",
+      availableLanguage: ["en", "es"],
+      areaServed: "AR",
+    },
   };
 }
 
-function webpageLd(headTitle: string, headDescription: string, locale: string, pathname: string) {
+function webpageLd(
+  headTitle: string,
+  headDescription: string,
+  locale: string,
+  pathname: string,
+) {
   return {
     "@context": "https://schema.org",
     "@type": "WebPage",
@@ -190,7 +200,9 @@ export const JsonLd = component$<{ post?: BlogPostLite }>(({ post }) => {
   if (post) {
     blocks.push(blogPostingLd(post, locale));
   } else {
-    blocks.push(webpageLd(headTitle, headDescription, locale, loc.url.pathname));
+    blocks.push(
+      webpageLd(headTitle, headDescription, locale, loc.url.pathname),
+    );
   }
 
   return (

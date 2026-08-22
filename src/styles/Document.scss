@@ -1,0 +1,158 @@
+@use "./vars" as *;
+
+.doc-page {
+  width: min(100% - 32px, 1100px);
+  min-height: calc(100dvh - var(--nav-height));
+  margin: 0 auto;
+  padding: clamp(4rem, 2vw, 9rem) 0 clamp(5rem, 10vw, 10rem);
+}
+
+.doc-page__head {
+  border-top: 1px solid $line-strong;
+  padding-top: 0.75rem;
+}
+
+.doc-page__back-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.doc-page__back-row > a {
+  color: $blue;
+  font-family: $font-mono;
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.doc-page__back-row > a:hover {
+  color: $red;
+}
+
+.doc-page h1 {
+  margin: clamp(3rem, 7vw, 6rem) 0 0;
+  color: $ink;
+  font-family: $font-sans;
+  font-size: clamp(4.5rem, 12vw, 12rem);
+  font-weight: 900;
+  letter-spacing: -0.11em;
+  line-height: 0.78;
+  text-transform: lowercase;
+}
+
+.doc-page h1 span {
+  display: block;
+  margin-left: 0.15em;
+  color: $blue;
+  font-family: $font-serif;
+  font-size: 0.38em;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.doc-page__intro {
+  max-width: 42rem;
+  margin: 2rem 0 0;
+  color: $ink-muted;
+  font-family: $font-serif;
+  font-size: 1.1rem;
+  font-style: italic;
+}
+
+.doc-prose {
+  margin: clamp(3rem, 7vw, 6rem) 0 0;
+}
+
+.doc-prose section {
+  padding: clamp(1.75rem, 3vw, 2.5rem) 0;
+  border-top: 1px solid $line-strong;
+}
+
+.doc-prose section:last-child {
+  border-bottom: 1px solid $line-strong;
+}
+
+.doc-prose h2 {
+  margin: 0 0 1.25rem;
+  color: $blue;
+  font-family: $font-mono;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.doc-prose h3 {
+  margin: 1.5rem 0 0.5rem;
+  color: $ink;
+  font-family: $font-sans;
+  font-size: 1.15rem;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+}
+
+.doc-prose p,
+.doc-prose li {
+  max-width: 66ch;
+  color: $ink;
+  font-size: 1.02rem;
+  line-height: 1.7;
+}
+
+.doc-prose p + p {
+  margin-top: 0.9rem;
+}
+
+.doc-prose ul,
+.doc-prose ol {
+  margin: 0.75rem 0;
+  padding-left: 1.1rem;
+}
+
+.doc-prose li {
+  margin: 0.35rem 0;
+}
+
+.doc-prose a {
+  color: $blue;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.doc-prose a:hover {
+  color: $red;
+}
+
+.doc-prose code {
+  padding: 0.08em 0.35em;
+  border: 1px solid $line-soft;
+  border-radius: 3px;
+  background: $paper-bright;
+  font-family: $font-mono;
+  font-size: 0.85em;
+}
+
+.doc-prose pre {
+  overflow-x: auto;
+  margin: 1rem 0;
+  padding: 1rem 1.25rem;
+  border: 1px solid $line-soft;
+  border-radius: 4px;
+  background: $paper-bright;
+}
+
+.doc-prose pre code {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  font-size: 0.82rem;
+  line-height: 1.6;
+}
