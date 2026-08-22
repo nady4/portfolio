@@ -47,8 +47,8 @@ export const translations = {
       "Full-stack e-commerce platform with product catalog, persistent shopping cart, coupons, shipping quotations, payment management and order tracking.",
     project_nya_desc:
       "Full-stack e-commerce platform with product catalogs, persistent carts, wishlists, authentication, order management, and a complete Mercado Pago checkout flow.",
-    project_ds_desc:
-      "Cloudflare Workers application for Discord OAuth, session validation, and role and invite workflows. Ships a lightweight frontend with protected APIs, modular controllers, and secure cookie utilities.",
+    project_dns_desc:
+      "Domain and infrastructure monitoring with email alerts: detects changes to DNS records, nameservers, registrar, DNSSEC, certificates, email configuration, website availability, and monitor health. Runs as a scheduled Cloudflare Worker with a custom landing page.",
 
     experience_signal: "career log",
     experience_title: "Experience",
@@ -161,8 +161,8 @@ export const translations = {
       "Plataforma e-commerce full stack con catálogo de productos, carrito de compras persistente, cupones, cotización de envíos, gestión de pagos y seguimiento de pedidos.",
     project_nya_desc:
       "Plataforma e-commerce full stack con catálogos de productos, carritos persistentes, listas de deseos, autenticación, gestión de pedidos y un flujo de checkout completo con Mercado Pago.",
-    project_ds_desc:
-      "Aplicación sobre Cloudflare Workers para OAuth de Discord, validación de sesiones y flujos de roles e invitaciones. Incluye un frontend liviano, APIs protegidas, controladores modulares y utilidades seguras para cookies.",
+    project_dns_desc:
+      "Monitoreo de dominios e infraestructura con alertas por email: detecta cambios en registros DNS, nameservers, registrador, DNSSEC, certificados, configuración de correo, disponibilidad web y salud del monitor. Corre como un Cloudflare Worker programado con una landing page propia.",
 
     experience_signal: "registro profesional",
     experience_title: "Experiencia",

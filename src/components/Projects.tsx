@@ -12,7 +12,7 @@ type DescKey =
   | "project_calendar_desc"
   | "project_nyady_desc"
   | "project_nya_desc"
-  | "project_ds_desc";
+  | "project_dns_desc";
 
 interface Project {
   favicon: string;
@@ -24,6 +24,41 @@ interface Project {
 }
 
 const projects: Project[] = [
+  {
+    favicon: "/projects/dns-monitor.png",
+    name: "DNS Monitor",
+    descKey: "project_dns_desc",
+    demo: "https://dns.transistemas.org",
+    repos: [
+      { label: "Repo", href: "https://github.com/Transistemas-ac/dns-monitor" }
+    ],
+    shots: [
+      {
+        src: "https://raw.githubusercontent.com/Transistemas-ac/dns-monitor/main/docs/1.png",
+        alt: "DNS Monitor landing page"
+      },
+      {
+        src: "https://raw.githubusercontent.com/Transistemas-ac/dns-monitor/main/docs/2.png",
+        alt: "DNS Monitor dashboard"
+      },
+      {
+        src: "https://raw.githubusercontent.com/Transistemas-ac/dns-monitor/main/docs/3.png",
+        alt: "DNS Monitor domain checks"
+      },
+      {
+        src: "https://raw.githubusercontent.com/Transistemas-ac/dns-monitor/main/docs/4.png",
+        alt: "DNS Monitor alert emails"
+      },
+      {
+        src: "https://raw.githubusercontent.com/Transistemas-ac/dns-monitor/main/docs/5.png",
+        alt: "DNS Monitor configuration"
+      },
+      {
+        src: "https://raw.githubusercontent.com/Transistemas-ac/dns-monitor/main/docs/6.png",
+        alt: "DNS Monitor status and health"
+      }
+    ]
+  },
   {
     favicon: "/projects/calendar-money.svg",
     name: "Calendar Money",
@@ -126,29 +161,6 @@ const projects: Project[] = [
       {
         src: "https://raw.githubusercontent.com/nady4/nya-store/main/public/assets/docs/5.png",
         alt: "Nya Store orders"
-      }
-    ]
-  },
-  {
-    favicon: "/projects/ds-invite.png",
-    name: "DS Invite",
-    descKey: "project_ds_desc",
-    demo: "https://ds.transistemas.org",
-    repos: [
-      { label: "Repo", href: "https://github.com/Transistemas-ac/ds-invite" }
-    ],
-    shots: [
-      {
-        src: "https://raw.githubusercontent.com/Transistemas-ac/ds-invite/main/public/1.png",
-        alt: "DS Invite landing page"
-      },
-      {
-        src: "https://raw.githubusercontent.com/Transistemas-ac/ds-invite/main/public/3.png",
-        alt: "DS Invite bot flow"
-      },
-      {
-        src: "https://raw.githubusercontent.com/Transistemas-ac/ds-invite/main/public/2.png",
-        alt: "DS Invite worker interface"
       }
     ]
   }

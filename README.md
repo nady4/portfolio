@@ -49,7 +49,7 @@ Built with Qwik and Qwik City, deployed on Vercel Edge, featuring bilingual (EN/
 - **Lightbox preview** — click any screenshot to open it full-screen, close with `×` or by clicking the backdrop.
 - **Keyboard support** — press `Escape` to close the screenshot lightbox.
 - **Live data source** — remote screenshot URLs are inlined directly from each project's repo `public/` folder, so the gallery stays in sync with the deployed demos without re-committing binaries.
-- **Four featured projects**: [Calendar Money](https://money.nady4.com) (full-stack cash-flow app), [NYADY](https://nyady.nady4.com) (e-commerce + MercadoPago + Zipnova), [Nya Store](https://nya.nady4.com) (Next.js 15 e-commerce), and [DS Invite](https://ds.transistemas.org) (Cloudflare Workers + Discord OAuth).
+- **Four featured projects**: [DNS Monitor](https://dns.transistemas.org) (domain & infrastructure monitoring), [Calendar Money](https://money.nady4.com) (full-stack cash-flow app), [NYADY](https://nyady.nady4.com) (e-commerce + MercadoPago + Zipnova), and [Nya Store](https://nya.nady4.com) (Next.js 15 e-commerce).
 
 ### ✍️ Markdown blog
 

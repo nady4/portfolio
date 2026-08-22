@@ -67,6 +67,8 @@ Subscribe an email to the newsletter.
 
 ## Featured projects
 
+- [DNS Monitor](https://dns.transistemas.org) — domain and infrastructure monitoring with email alerts (Cloudflare Worker with cron: DNS diffs, nameservers, registrar/RDAP, DNSSEC, MX/SPF/DMARC/DKIM, web availability, heartbeat)
+  - [Repo](https://github.com/Transistemas-ac/dns-monitor)
 - [Calendar Money](https://money.nady4.com) — full-stack cash-flow web app with AI receipt scanning (React 18, Vite 6, TypeScript, Chart.js, Node.js, Express, MongoDB)
   - [Frontend repo](https://github.com/nady4/calendar-money)
   - [Backend repo](https://github.com/nady4/calendar-money-api)
@@ -74,8 +76,6 @@ Subscribe an email to the newsletter.
   - [Repo](https://github.com/nady4/nyady)
 - [Nya Store](https://nya.nady4.com) — e-commerce (Next.js 15 App Router, TypeScript, Prisma, PostgreSQL, Redux Toolkit, Mercado Pago)
   - [Repo](https://github.com/nady4/nya-store)
-- [DS Invite](https://ds.transistemas.org) — Cloudflare Workers app (Discord OAuth, session cookies, role/invite flows)
-  - [Repo](https://github.com/Transistemas-ac/ds-invite)
 
 ## Skills (selected)
 
