@@ -48,31 +48,22 @@
   line-height: 1.2;
 }
 
+.experience-head h2 span {
+  color: $yellow;
+}
+
 .experience-list {
   margin-top: clamp(3.5rem, 7vw, 7rem);
   border-top: 1px solid $line-strong;
 }
 
 .experience-entry {
-  display: grid;
-  grid-template-columns: 70px minmax(0, 1fr);
   border-bottom: 1px solid $line-soft;
-}
-
-.experience-entry__index {
-  padding: 1.4rem 0;
-  color: $red;
-  font-family: $font-mono;
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
 }
 
 .experience-entry__body {
   min-width: 0;
-  padding: clamp(1.5rem, 4vw, 3rem) 0 clamp(2rem, 5vw, 4rem)
-    clamp(1rem, 3vw, 3rem);
-  border-left: 1px solid $line-soft;
+  padding: clamp(1.5rem, 4vw, 3rem) 0 clamp(2rem, 5vw, 4rem);
 }
 
 .experience-entry__body header {
@@ -166,17 +157,8 @@
     overflow-wrap: anywhere;
   }
 
-  .experience-entry {
-    grid-template-columns: 30px minmax(0, 1fr);
-  }
-
-  .experience-entry__index {
-    padding-top: 1.5rem;
-    font-size: 0.56rem;
-  }
-
   .experience-entry__body {
-    padding: 1.5rem 0 3rem 0.8rem;
+    padding: 1.5rem 0 3rem;
   }
 
   .experience-entry__body header {

@@ -74,16 +74,14 @@ Subscribe an email to the newsletter.
   - [Backend repo](https://github.com/nady4/calendar-money-api)
 - [NYADY](https://nyady.nady4.com) — full-stack e-commerce (Next.js, React, Prisma, PostgreSQL, NextAuth.js, Redux Toolkit, Mercado Pago, Zipnova)
   - [Repo](https://github.com/nady4/nyady)
-- [Nya Store](https://nya.nady4.com) — e-commerce (Next.js 15 App Router, TypeScript, Prisma, PostgreSQL, Redux Toolkit, Mercado Pago)
-  - [Repo](https://github.com/nady4/nya-store)
 
 ## Skills (selected)
 
 - **Languages:** TypeScript, JavaScript, Python, Java, SQL, HTML5, CSS3, SASS/SCSS
 - **Frontend:** React, Next.js, Astro, Vite, Redux Toolkit, Tanstack Query, Zustand, Tailwind CSS
-- **Backend:** Node.js, Express, REST API Design, Prisma ORM, Cloudflare Workers, Serverless, JWT Auth, OAuth2
+- **Backend:** Node.js, Express, REST API Design, Prisma ORM, Cloudflare Workers, Cron / Scheduled Jobs, Cloudflare KV, Serverless, JWT Auth, OAuth2
 - **Databases:** PostgreSQL, MySQL, MongoDB, Redis, Supabase
-- **DevOps & Cloud:** Docker, GitHub Actions, CI/CD, Cloudflare
+- **DevOps & Cloud:** Docker, GitHub Actions, CI/CD, Cloudflare, Email Security (SPF / DMARC / DKIM), Observability
 - **Testing:** Jest, Cypress, Vitest, Playwright
 - **AI applications:** LLM APIs, prompt and output design, tool calling, agent orchestration, MCP, RAG, workflow automation, AI user experiences
 

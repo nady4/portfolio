@@ -9,6 +9,8 @@
   --signal-purple-dark: #c3b8ff;
   --signal-green: #63cf8a;
   --signal-red: #ff7183;
+  --signal-blue: #8ab4ff;
+  --signal-yellow: #f2cf6b;
   --shadow-ink: rgba(0, 0, 0, 0.38);
   --footer-surface: #222a27;
   --footer-ink: #f4f7ef;
@@ -32,6 +34,8 @@
   --signal-purple-dark: #50339c;
   --signal-green: #21814e;
   --signal-red: #d52a45;
+  --signal-blue: #2f6bd8;
+  --signal-yellow: #b4891c;
   --shadow-ink: rgba(12, 14, 14, 0.16);
   --footer-surface: #0c0e0e;
   --footer-ink: #fafaf5;

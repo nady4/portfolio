@@ -45,7 +45,7 @@
 .projects-head h2 span {
   display: block;
   margin-left: 0.18em;
-  color: $blue;
+  color: $azure;
   font-family: $font-serif;
   font-size: 0.46em;
   font-style: italic;
@@ -153,6 +153,11 @@
   width: clamp(2.4rem, 4.5vw, 4.5rem);
   height: clamp(2.4rem, 4.5vw, 4.5rem);
   object-fit: contain;
+}
+
+.project-favicon--nyady {
+  width: clamp(2rem, 3.6vw, 3.6rem);
+  height: clamp(2rem, 3.6vw, 3.6rem);
 }
 
 .project-links {
@@ -450,6 +455,11 @@
     width: clamp(2.2rem, 11vw, 3.4rem);
     height: clamp(2.2rem, 11vw, 3.4rem);
     margin-top: 0.1rem;
+  }
+
+  .project-favicon--nyady {
+    width: clamp(1.8rem, 9vw, 2.7rem);
+    height: clamp(1.8rem, 9vw, 2.7rem);
   }
 
   .project-desc {

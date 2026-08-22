@@ -42,11 +42,9 @@ export const translations = {
     project_screenshot_inspection: "Screenshot inspection",
     project_close_screenshot: "Close screenshot inspection",
     project_calendar_desc:
-      "A personal finance app that turns your income and expenses into a calendar, so you can plan your life.",
+      "A personal finance app that turns your income and expenses into a calendar, so you can plan your life. Built with React 18, TypeScript, Vite, Sass, Chart.js and Zod.",
     project_nyady_desc:
       "Full-stack e-commerce platform with product catalog, persistent shopping cart, coupons, shipping quotations, payment management and order tracking.",
-    project_nya_desc:
-      "Full-stack e-commerce platform with product catalogs, persistent carts, wishlists, authentication, order management, and a complete Mercado Pago checkout flow.",
     project_dns_desc:
       "Domain and infrastructure monitoring with email alerts: detects changes to DNS records, nameservers, registrar, DNSSEC, certificates, email configuration, website availability, and monitor health. Runs as a scheduled Cloudflare Worker with a custom landing page.",
 
@@ -156,11 +154,9 @@ export const translations = {
     project_screenshot_inspection: "Inspección de captura",
     project_close_screenshot: "Cerrar inspección de captura",
     project_calendar_desc:
-      "Una app de finanzas personales que convierte tus ingresos y gastos en un calendario, para que puedas planificar tu vida.",
+      "Una app de finanzas personales que convierte tus ingresos y gastos en un calendario, para que puedas planificar tu vida. Construida con React 18, TypeScript, Vite, Sass, Chart.js y Zod.",
     project_nyady_desc:
       "Plataforma e-commerce full stack con catálogo de productos, carrito de compras persistente, cupones, cotización de envíos, gestión de pagos y seguimiento de pedidos.",
-    project_nya_desc:
-      "Plataforma e-commerce full stack con catálogos de productos, carritos persistentes, listas de deseos, autenticación, gestión de pedidos y un flujo de checkout completo con Mercado Pago.",
     project_dns_desc:
       "Monitoreo de dominios e infraestructura con alertas por email: detecta cambios en registros DNS, nameservers, registrador, DNSSEC, certificados, configuración de correo, disponibilidad web y salud del monitor. Corre como un Cloudflare Worker programado con una landing page propia.",
 

@@ -44,6 +44,8 @@ export default component$(() => {
         "REST API Design",
         "Prisma ORM",
         "Cloudflare Workers",
+        "Cron / Scheduled Jobs",
+        "Cloudflare KV",
         "Serverless",
         "JWT Auth",
         "OAuth2"
@@ -61,9 +63,9 @@ export default component$(() => {
         "Docker",
         "GitHub Actions",
         "CI/CD",
-        "Cloudflare Firewall",
         "DNS",
-        "Email Routing"
+        "Email Security (SPF / DMARC / DKIM)",
+        "Observability"
       ]
     },
     {

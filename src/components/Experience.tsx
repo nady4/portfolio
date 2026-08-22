@@ -28,16 +28,13 @@ export default component$(() => {
       </header>
 
       <div class="experience-list">
-        {experiences.map((experience, index) => {
+        {experiences.map((experience) => {
           const lines = experience.description
             .split("\n")
             .filter((line: string) => line.trim() !== "");
 
           return (
             <article class="experience-entry reveal" key={experience.title}>
-              <div class="experience-entry__index" aria-hidden="true">
-                0{index + 1}
-              </div>
               <div class="experience-entry__body">
                 <header>
                   <div>

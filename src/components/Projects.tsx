@@ -11,7 +11,6 @@ interface ProjectShot {
 type DescKey =
   | "project_calendar_desc"
   | "project_nyady_desc"
-  | "project_nya_desc"
   | "project_dns_desc";
 
 interface Project {
@@ -25,7 +24,7 @@ interface Project {
 
 const projects: Project[] = [
   {
-    favicon: "/projects/dns-monitor.png",
+    favicon: "/projects/dns-monitor.svg",
     name: "DNS Monitor",
     descKey: "project_dns_desc",
     demo: "https://dns.transistemas.org",
@@ -60,7 +59,7 @@ const projects: Project[] = [
     ]
   },
   {
-    favicon: "/projects/calendar-money.svg",
+    favicon: "/projects/calendar-money.png",
     name: "Calendar Money",
     descKey: "project_calendar_desc",
     demo: "https://money.nady4.com",
@@ -138,31 +137,6 @@ const projects: Project[] = [
         alt: "NYADY orders and tracking"
       }
     ]
-  },
-  {
-    favicon: "/projects/nya-store.ico",
-    name: "Nya Store",
-    descKey: "project_nya_desc",
-    demo: "https://nya.nady4.com",
-    repos: [{ label: "Repo", href: "https://github.com/nady4/nya-store" }],
-    shots: [
-      {
-        src: "https://raw.githubusercontent.com/nady4/nya-store/main/public/assets/docs/1.png",
-        alt: "Nya Store catalog"
-      },
-      {
-        src: "https://raw.githubusercontent.com/nady4/nya-store/main/public/assets/docs/4.png",
-        alt: "Nya Store product page"
-      },
-      {
-        src: "https://raw.githubusercontent.com/nady4/nya-store/main/public/assets/docs/6.png",
-        alt: "Nya Store checkout"
-      },
-      {
-        src: "https://raw.githubusercontent.com/nady4/nya-store/main/public/assets/docs/5.png",
-        alt: "Nya Store orders"
-      }
-    ]
   }
 ];
 
@@ -198,7 +172,7 @@ export default component$(() => {
       <section id="projects" class="projects-section section-shell">
         <header class="projects-head reveal">
           <div class="projects-head__meta">
-            <Signal code="02 / 04" tone="purple">
+            <Signal code="02 / 03" tone="purple">
               {t.projects_signal}
             </Signal>
             <span>{t.projects_index}</span>
@@ -228,15 +202,17 @@ export default component$(() => {
                   <div class="project-title">
                     <Signal
                       code={`CASE 0${pIdx + 1}`}
-                      tone={
-                        pIdx === 3 ? "red" : pIdx === 2 ? "green" : "purple"
-                      }
+                      tone={pIdx === 2 ? "green" : "purple"}
                     >
                       {pIdx === 0 ? t.project_active : t.project_archived}
                     </Signal>
                     <h3>
                       <img
-                        class="project-favicon"
+                        class={`project-favicon${
+                          project.name === "NYADY"
+                            ? " project-favicon--nyady"
+                            : ""
+                        }`}
                         src={project.favicon}
                         alt=""
                         width={28}
