@@ -44,7 +44,6 @@ export default component$(() => {
         "REST API Design",
         "Prisma ORM",
         "Cloudflare Workers",
-        "Cron / Scheduled Jobs",
         "Cloudflare KV",
         "Serverless",
         "JWT Auth",
@@ -63,8 +62,8 @@ export default component$(() => {
         "Docker",
         "GitHub Actions",
         "CI/CD",
-        "DNS",
-        "Email Security (SPF / DMARC / DKIM)",
+        "DNS Security",
+        "Email Authentication (SPF / DMARC / DKIM)",
         "Observability"
       ]
     },
@@ -82,13 +81,13 @@ export default component$(() => {
       key: "ai",
       title: t.skill_category_ai,
       items: [
-        "LLM APIs integration",
-        "Prompt engineering",
-        "Tool calling",
-        "Agent orchestration",
+        "LLM APIs Integration",
+        "Prompt Engineering",
+        "Tool Calling",
+        "Agent Orchestration",
         "MCP",
         "RAG",
-        "Workflow automations"
+        "Workflow Automations"
       ]
     },
     {

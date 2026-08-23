@@ -79,9 +79,9 @@ Subscribe an email to the newsletter.
 
 - **Languages:** TypeScript, JavaScript, Python, Java, SQL, HTML5, CSS3, SASS/SCSS
 - **Frontend:** React, Next.js, Astro, Vite, Redux Toolkit, Tanstack Query, Zustand, Tailwind CSS
-- **Backend:** Node.js, Express, REST API Design, Prisma ORM, Cloudflare Workers, Cron / Scheduled Jobs, Cloudflare KV, Serverless, JWT Auth, OAuth2
+- **Backend:** Node.js, Express, REST API Design, Prisma ORM, Cloudflare Workers, Cloudflare KV, Serverless, JWT Auth, OAuth2
 - **Databases:** PostgreSQL, MySQL, MongoDB, Redis, Supabase
-- **DevOps & Cloud:** Docker, GitHub Actions, CI/CD, Cloudflare, Email Security (SPF / DMARC / DKIM), Observability
+- **DevOps & Cloud:** Docker, GitHub Actions, CI/CD, Cloudflare, DNS Security, Email Authentication (SPF / DMARC / DKIM), Observability
 - **Testing:** Jest, Cypress, Vitest, Playwright
 - **AI applications:** LLM APIs, prompt and output design, tool calling, agent orchestration, MCP, RAG, workflow automation, AI user experiences
 

@@ -211,6 +211,11 @@
   line-height: 1.65;
 }
 
+.project-desc strong {
+  color: $ink;
+  font-weight: 800;
+}
+
 .gallery {
   position: relative;
   min-width: 0;

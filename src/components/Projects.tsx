@@ -181,7 +181,6 @@ export default component$(() => {
             {t.projects_title}
             <span> / {t.projects_suffix}</span>
           </h2>
-          <p>{t.projects_intro}</p>
         </header>
 
         <div class="projects-stack">
@@ -251,7 +250,10 @@ export default component$(() => {
                   </div>
                 </header>
 
-                <p class="project-desc">{t[project.descKey]}</p>
+                <p
+                  class="project-desc"
+                  dangerouslySetInnerHTML={t[project.descKey]}
+                />
 
                 <div class="gallery">
                   <button
