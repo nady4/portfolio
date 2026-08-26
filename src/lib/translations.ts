@@ -42,7 +42,7 @@ export const translations = {
     project_screenshot_inspection: "Screenshot inspection",
     project_close_screenshot: "Close screenshot inspection",
     project_calendar_desc:
-      "A personal finance app that turns your income and expenses into a calendar, so you can plan your life. Built with <strong>React 18</strong>, <strong>TypeScript</strong>, <strong>Vite</strong>, <strong>Sass</strong>, <strong>Chart.js</strong> and <strong>Zod</strong>.",
+      "A personal finance app that turns your income and expenses into a calendar, so you can plan your life. Built with <strong>React 18</strong>, <strong>TypeScript</strong>, <strong>Vite</strong>, <strong>Sass</strong>, <strong>Chart.js</strong> and <strong>Zod</strong>. Featuring an interactive calendar with drag-and-drop transactions, instant search, AI-powered receipt scanning, advanced Chart.js analytics, category-based budgeting, CSV/PDF backup and restore, adaptive responsive layouts, and a customizable UI.",
     project_nyady_desc:
       "Full-stack e-commerce platform with product catalog, persistent shopping cart, coupons, shipping quotations, payment management and order tracking. Built with <strong>Next.js</strong>, <strong>TypeScript</strong>, <strong>Redux Toolkit</strong>, <strong>Prisma + PostgreSQL</strong> and <strong>NextAuth</strong>. Integrated with <strong>MercadoPago</strong> and <strong>Zipnova</strong>.",
     project_dns_desc:
@@ -154,7 +154,7 @@ export const translations = {
     project_screenshot_inspection: "Inspección de captura",
     project_close_screenshot: "Cerrar inspección de captura",
     project_calendar_desc:
-      "Una app de finanzas personales que convierte tus ingresos y gastos en un calendario, para que puedas planificar tu vida. Construida con <strong>React 18</strong>, <strong>TypeScript</strong>, <strong>Vite</strong>, <strong>Sass</strong>, <strong>Chart.js</strong> y <strong>Zod</strong>.",
+      "Una app de finanzas personales que convierte tus ingresos y gastos en un calendario, para que puedas planificar tu vida. Construida con <strong>React 18</strong>, <strong>TypeScript</strong>, <strong>Vite</strong>, <strong>Sass</strong>, <strong>Chart.js</strong> y <strong>Zod</strong>. Incluyendo un calendario interactivo con transacciones arrastrar y soltar, búsqueda instantánea, escaneo de recibos con IA, análisis avanzados de Chart.js, presupuestos por categorías, respaldo y restauración en CSV/PDF, diseños adaptables y una interfaz personalizable.",
     project_nyady_desc:
       "Plataforma e-commerce full stack con catálogo de productos, carrito de compras persistente, cupones, cotización de envíos, gestión de pagos y seguimiento de pedidos. Construida con <strong>Next.js</strong>, <strong>TypeScript</strong>, <strong>Redux Toolkit</strong>, <strong>Prisma + PostgreSQL</strong> y <strong>NextAuth</strong>. Integrada con <strong>MercadoPago</strong> y <strong>Zipnova</strong>.",
     project_dns_desc:
